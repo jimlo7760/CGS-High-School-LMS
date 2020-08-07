@@ -1,0 +1,17 @@
+.register-box{
+    z-index: 2;
+    width:450px;
+    margin:0 auto;
+    background-color:white;
+    border-radius: 10px;
+    padding:20px;
+}
+.register-box-input-text{
+    border:1px solid #343A3E;
+    width:430px;
+    font-size:20px;
+    margin-top:10px;
+    border-radius:5px;
+    padding:10px;
+    color:#212529;
+}

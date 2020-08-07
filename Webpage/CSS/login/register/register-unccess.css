@@ -1,0 +1,28 @@
+.register-unccess-color {
+    color: red;
+!important;
+}
+
+.register-bottom {
+    margin-top: 30px;
+}
+
+.register-bottom-text {
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.unccess-box-input-title {
+    font-size: 14px;
+    color: #212529;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.unccess-box-input-title-left {
+    float: left;
+}
+
+.unccess-box-input-title-right{
+    float:right;
+}
