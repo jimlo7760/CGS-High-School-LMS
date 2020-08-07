@@ -20,7 +20,7 @@ require_once "LoginCredentials.php";
  *
  * @author Yiming Su
  *
- * @return int the affected rows of MySQL query.
+ * @return int the affected rows of the MySQL query.
  */
 function ReviewStudInfo($stud_info_id, $review_result) {
     $conn = createconn();
