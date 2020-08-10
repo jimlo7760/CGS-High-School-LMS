@@ -2,7 +2,7 @@
 require_once 'LoginCredentials.php';
     /**
     * For student to insert the university he/she wants to go
-    *
+    * QWQ
     *
     * @param string $univ_country <p>
     * Student's chosen university's location (country)

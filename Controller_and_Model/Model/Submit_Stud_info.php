@@ -2,7 +2,7 @@
 require_once 'LoginCredentials.php';
 /**
  * For students to submit their information
- *
+ * QWQ
  *
  * @param string $Chi_Name, $Eng_Name, $Student_Numb, $Reg_time, $Password <p>
  * Student inputted Chinese name
