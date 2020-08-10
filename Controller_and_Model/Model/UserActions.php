@@ -20,7 +20,8 @@ require_once "LoginCredentials.php";
  *
  * @author Yiming Su
  *
- * @return int Affected rows of MySQL query.
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
+ *
  */
 function ReviewStudInfo($stud_info_id, $review_result) {
     $conn = createconn();
@@ -33,5 +34,9 @@ function ReviewStudInfo($stud_info_id, $review_result) {
     $res = $stmt->affected_rows;
     $stmt->close();
     $conn->close();
-    return $res;
+    if (!$res) {
+        return [false, $res];
+    } else if ($res == 1) {
+        return [true, $res];
+    }
 }

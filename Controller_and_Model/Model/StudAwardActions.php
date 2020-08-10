@@ -5,7 +5,7 @@ require_once "LoginCredentials.php";
  * Fetching all award entries from a student <br>
  *
  * @param int $stud_id Student id to search.
- * @return mixed All award entries from that student.
+ * @return array If successfully executed: [True, all award entries as array] <br> If not: [False, empty array]
  * @author Yiming Su
  */
 function FetchStudAllAwardsByStudId($stud_id) {
@@ -18,7 +18,11 @@ function FetchStudAllAwardsByStudId($stud_id) {
     $res = $stmt->get_result()->fetch_all();
     $stmt->close();
     $conn->close();
-    return $res;
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
 }
 
 /**
@@ -30,7 +34,7 @@ function FetchStudAllAwardsByStudId($stud_id) {
  * @param int $stud_id Student id.
  * @param int $award_id award id.
  * @param int $audit_res Value for status.
- * @return int Affected rows of MySQL query.
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
  * @author Yiming Su
  */
 function UpdateStudAwardByExamIdAndStudId($stud_id, $award_id, $audit_res) {
@@ -45,7 +49,11 @@ function UpdateStudAwardByExamIdAndStudId($stud_id, $award_id, $audit_res) {
     $res = $stmt->affected_rows;
     $stmt->close();
     $conn->close();
-    return $res;
+    if (!$res) {
+        return [false, $res];
+    } else if ($res == 1) {
+        return [true, $res];
+    }
 }
 
 
@@ -56,7 +64,7 @@ function UpdateStudAwardByExamIdAndStudId($stud_id, $award_id, $audit_res) {
  * @param int $comp_name Name of the competition
  * @param string $award_name Title of the award.
  * @param int $comp_time Time when the award is awarded.
- * @return int Affected rows of MySQL query.
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
  * @author Yiming Su
  */
 function InsertNewAward($stud_id, $comp_name, $award_name, $comp_time) {
@@ -74,5 +82,9 @@ function InsertNewAward($stud_id, $comp_name, $award_name, $comp_time) {
     $res = $stmt->affected_rows;
     $stmt->close();
     $conn->close();
-    return $res;
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
 }
