@@ -1,0 +1,12 @@
+.box-button{
+    text-align:center;
+    width:400px;
+    margin-top:20px;
+    background-color:#1BA2B9;
+    color:white;
+    border:none;
+    padding:10px;
+    font-size:18px;
+    border-radius:5px;
+    cursor: pointer;
+}
