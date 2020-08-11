@@ -9,7 +9,7 @@ require_once "LoginCredentials.php";
  * @param int $stud_id Student id.
  * @param int $exam_id Exam id.
  * @param int $audit_res Value for status.
- * @return int Affected rows of MySQL query.
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
  * @author Yiming Su
  */
 function UpdateStudExamResultsByExamIdAndStudId($stud_id, $exam_id, $audit_res) {
@@ -24,14 +24,18 @@ function UpdateStudExamResultsByExamIdAndStudId($stud_id, $exam_id, $audit_res) 
     $res = $stmt->affected_rows;
     $stmt->close();
     $conn->close();
-    return $res;
+    if (!$res) {
+        return [false, $res];
+    } else if ($res == 1) {
+        return [true, $res];
+    }
 }
 
 /**
  * Fetching all exam entries from a student <br>
  *
  * @param int $stud_id Student id to search.
- * @return mixed All exam entries from that student.
+ * @return array If successfully executed: [True, all exam entries as array] <br> If not: [False, empty array]
  * @author Yiming Su
  */
 function FetchStudAllScoresByStudId($stud_id) {
@@ -44,7 +48,11 @@ function FetchStudAllScoresByStudId($stud_id) {
     $res = $stmt->get_result()->fetch_all();
     $stmt->close();
     $conn->close();
-    return $res;
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
 }
 
 /**
@@ -54,7 +62,7 @@ function FetchStudAllScoresByStudId($stud_id) {
  * @param int $exam_id Exam id.
  * @param string $exam_results A string containing all results for all subjects in the exam.
  * @param int $updater_id Updater id.
- * @return int Affected rows of MySQL query.
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
  * @author Yiming Su
  */
 function InsertNewScores($stud_id, $exam_id, $exam_results, $updater_id) {
@@ -72,5 +80,9 @@ function InsertNewScores($stud_id, $exam_id, $exam_results, $updater_id) {
     $res = $stmt->affected_rows;
     $stmt->close();
     $conn->close();
-    return $res;
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
 }
