@@ -29,7 +29,7 @@ function InsertNewViolation($level_severity, $title_of_violation, $content_of_vi
     $insertTitleOfViolation = $title_of_violation;
     $insertContentOfViolation = $content_of_violation;
     $insertTimeOfViolation = $time_of_violation;
-    $insertCreateTime = date('Y-m-d');
+    $insertCreateTime = date('Y-m-d H:i:s');
     $insertStudId = $stud_id;
     $stmt->execute();
     $result = $stmt->affected_rows;
@@ -66,13 +66,20 @@ function UpdateStudVio($level_severity, $title_of_violation, $content_of_violati
     $updateTitleOfVio = $title_of_violation;
     $updateConteOfVio = $content_of_violation;
     $updateTimeOfVio = $time_of_violation;
-    $updateUpdateTime = date('Y-m-d');
+    $updateUpdateTime = date('Y-m-d H:i:s');
     $updateStudId = $stud_id;
     $stmt->execute();
     $result = $stmt->affected_rows;
-    $stmt->close();
-    $conn->close();
-    return $result;
+    if($result>0){
+        $stmt->close();
+        $conn->close();
+        return $result;
+    }else{
+        $error = $stmt->error;
+        $stmt->close();
+        $conn->close();
+        return $error;
+    }
 }
     /**
     * Fetching All violations he/she did from a student <br>
@@ -87,7 +94,14 @@ function SearchStudVio($stud_id){
     $stmt->bind_param('i', $searchStudId);
     $searchStudId = $stud_id;
     $result = $stmt->get_result();
-    $stmt->close();
-    $conn->close();
-    return $result;
+    if($result>0){
+        $stmt->close();
+        $conn->close();
+        return $result;
+    }else{
+        $error = $stmt->error;
+        $stmt->close();
+        $conn->close();
+        return $error;
+    }
 }
