@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Reset Password</title>
-    <link rel="stylesheet" type="text/css" href="../../../CSS/login/forgot-pw/forgot-pw-reset.css">
+    <link rel="stylesheet" type="text/css" href="../../../CSS/whole-common.css">
     <link rel="stylesheet" type="text/css" href="../../../CSS/login/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../CSS/login/forgot-pw/forgot-pw.css">
+    <link rel="stylesheet" type="text/css" href="../../../CSS/login/forgot-pw/forgot-pw-success.css">
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+
+
+    </script>
+    <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile">
+
+    </script>
+    <script type="text/javascript" src="../../../js/login/forgin-pw/forgot-pw-reset.js">
 
     </script>
 </head>
@@ -14,74 +23,66 @@
 <div class="all">
     <div class="top-all">
         <div class="top-left">
-            <div class="top-left-text">
+            <div class="top-left-text stm">
                 MYP Student Management System
             </div>
         </div>
         <div class="top-right">
             <div class="top-right-text">
-                <div class="top-right-question">
+                <div class="top-right-question str">
                     Don't have an account?
                 </div>
             </div>
             <div class="top-right">
-                <div class="top-right-button">
+                <div class="top-right-button stm" onclick="window.location='../register/register.html'">
                     Sign up
                 </div>
             </div>
         </div>
     </div>
     <div class="body">
-        <form action="" method="post">
-            <div class="box">
-                <div class="box-title">
-                    Pick a New Password
-                </div>
-                <div class="box-content">
-                    <div class="box-row">
-                        <div class="box-input">
-                            <div class="box-input-title">
-                            <span>
-                                <strong>
-                                    Enter a password
-                                </strong>
-                            </span>
-                                <span style="color:#1BA2B9">
-                                <strong>
-                                   *
-                                </strong>
-                            </span>
-                            </div>
-                            <div class="box-input-box">
-                                <input type="text" class="box-input-text">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-row">
-                        <div class="box-input">
-                            <div class="box-input-title">
-                            <span>
-                                <strong>
-                                    Repeat your password
-                                </strong>
-                            </span>
-                                <span style="color:#1BA2B9">
-                                <strong>
-                                   *
-                                </strong>
-                            </span>
-                            </div>
-                            <div class="box-input-box">
-                                <input type="text" class="box-input-text" name="password">
-                            </div>
-                        </div>
-                    </div>
-                    <input type="submit" value="Confirm New Password" class="box-button">
-                </div>
+        <div class="box box-fadein">
+            <div class="box-title stm">
+                Pick a New Password
             </div>
-        </form>
+            <div class="box-content">
+                <div class="box-row">
+                    <div class="box-input">
+                        <div class="box-input-title stb">
+                            <span>
+                                    Enter a password
+                            </span>
+                            <span style="color:#1BA2B9">
+                                   *
+                            </span>
+                        </div>
+                        <div class="box-input-box stb">
+                            <input type="password" class="box-input-text" maxlength="20" id="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="box-row">
+                    <div class="box-input">
+                        <div class="box-input-title forgot-unmatch-box stb">
+                            <span style="float:left">
+                                    Repeat your password
+                            </span>
+                            <span style="color:#1BA2B9;float: left">
+                                   *
+                            </span>
+                            <span class="forgot-unmatch-des">
+                                Both password doesn't match
+                            </span>
+                        </div>
+                        <div class="box-input-box">
+                            <input type="password" class="box-input-text" maxlength="20" id="password-repeat" name="password">
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Confirm New Password" class="box-button confirm-button stb">
+            </div>
+        </div>
     </div>
 </div>
-
 </body>
 </html>

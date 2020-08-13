@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Hi Danny</title>
+    <link rel="stylesheet" type="text/css" href="../../CSS/whole-common.css">
     <link rel="stylesheet" type="text/css" href="../../CSS/login/common.css">
     <link rel="stylesheet" type="text/css" href="../../CSS/login/index.css">
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
 
     </script>
+    <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile">
+
+    </script>
     <script>
         $(document).ready(function () {
-            $('.box').animate({
+            $('.box-fadein').animate({
                 opacity: '1'
             }, 500)
         })
@@ -21,37 +25,36 @@
 <div class="all">
     <div class="top-all">
         <div class="top-left">
-            <div class="top-left-text">
+            <div class="top-left-text stm">
                 MYP Student Management System
             </div>
         </div>
         <div class="top-right">
             <div class="top-right-text">
-                <div class="top-right-question">
+                <div class="top-right-question str">
                     Don't have an account?
                 </div>
             </div>
             <div class="top-right">
-                <div class="top-right-button">
+                <div class="top-right-button stm" onclick="window.location='register/register.html'">
                     Sign up
                 </div>
             </div>
         </div>
     </div>
     <div class="body">
-        <form action="../../../Controller_and_Model/Controller/Login.php" method="post">
-            <div class="box">
-                <div class="box-title">
+        <form action="" method="post">
+            <div class="box box-fadein">
+                <div class="box-title stm">
                     Sign in to your account
                 </div>
                 <div class="box-content">
                     <div class="box-row">
                         <div class="box-input">
-                            <div class="box-input-title">
+                            <div class="box-input-title stb">
                             <span>
-                                <strong>
-                                    Student/Job Number
-                                </strong>
+
+                                    Student/ Job Number
                             </span>
                                 <span style="color:#1BA2B9">
                                 <strong>
@@ -60,36 +63,33 @@
                             </span>
                             </div>
                             <div class="box-input-box">
-                                <input type="text" class="box-input-text" name="email">
+                                <input type="text" class="box-input-text str" name="email">
                             </div>
                         </div>
                     </div>
                     <div class="box-row">
                         <div class="box-input">
-                            <div class="box-input-title">
+                            <div class="box-input-title stb">
                             <span>
-                                <strong>
+
                                     Password
-                                </strong>
                             </span>
                                 <span style="color:#1BA2B9">
-                                <strong>
+
                                    *
-                                </strong>
                             </span>
                             </div>
                             <div class="box-input-box">
-                                <input type="password" class="box-input-text" name="password">
+                                <input type="password" class="box-input-text str" name="password">
                             </div>
                         </div>
                     </div>
-                    <input type="submit" value="Sign In" class="box-button">
+                    <input type="submit" value="Sign In" class="box-button stb">
                 </div>
                 <div class="box-bottom">
-                    <div class="box-bottom-text" onclick="window.location='">
-                        <strong>
+                    <div class="box-bottom-text stb" onclick="window.location='forgot-pw/forgot-pw.html'">
+
                             Forgot Password?
-                        </strong>
                     </div>
                 </div>
             </div>

@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="../../../CSS/whole-common.css">
     <link rel="stylesheet" type="text/css" href="../../../CSS/login/common.css">
     <link rel="stylesheet" type="text/css" href="../../../CSS/login/register/register-common.css">
     <link rel="stylesheet" type="text/css" href="../../../CSS/login/register/register-unccess.css">
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+
+    </script>
+    <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile">
+
+    </script>
+    <script type="text/javascript" src="../../../js/login/register/register.js">
 
     </script>
 </head>
@@ -15,34 +22,34 @@
 <div class="all">
     <div class="top-all">
         <div class="top-left">
-            <div class="top-left-text">
+            <div class="top-left-text stm">
                 MYP Student Management System
             </div>
         </div>
         <div class="top-right">
             <div class="top-right-text">
-                <div class="top-right-question">
-                    Don't have an account?
+                <div class="top-right-question str">
+                    Already have an account?
                 </div>
             </div>
             <div class="top-right">
-                <div class="top-right-button">
-                    Sign up
+                <div class="top-right-button stm">
+                    Sign in
                 </div>
             </div>
         </div>
     </div>
     <div class="body">
         <form action="" method="post">
-            <div class="register-box">
-                <div class="register-unccess-color box-title">
+            <div class="register-box box-fadein">
+                <div class="register-unccess-color box-title stm">
                     Sign Up Unccessful
                 </div>
                 <div class="box-content">
                     <div class="box-row">
                         <div class="box-input">
                             <div class="unccess-box-input-title">
-                                <div class="unccess-box-input-title-left register-unccess-color">
+                                <div class="unccess-box-input-title-left register-unccess-color stb">
                                     <span>
                                         <strong>
                                             Full Name
@@ -54,19 +61,19 @@
                                         </strong>
                                     </span>
                                 </div>
-                                <div class="unccess-box-input-title-right register-unccess-color">
+                                <div class="unccess-box-input-title-right register-unccess-color str">
                                     Your name does not match our record
                                 </div>
                             </div>
                             <div class="box-input-box">
-                                <input type="text" class="register-box-input-text" name="full-name">
+                                <input type="text" class="register-box-input-text str" name="full-name">
                             </div>
                         </div>
                     </div>
                     <div class="box-row">
                         <div class="box-input">
-                            <div class="box-input-title">
-                            <span>
+                            <div class="box-input-title stb">
+                            <span style="color: #7B7F81">
                                 <strong>
                                     Email Address
                                 </strong>
@@ -78,14 +85,14 @@
                             </span>
                             </div>
                             <div class="box-input-box">
-                                <input type="text" class="register-box-input-text" name="email">
+                                <input type="text" style="color: #7B7F81" class="register-box-input-text str" name="email">
                             </div>
                         </div>
                     </div>
-                    <input type="submit" value="Submit" class="box-button">
+                    <input type="submit" value="Submit" class="box-button stb">
                 </div>
                 <div class="register-bottom">
-                    <div class="register-bottom-text">
+                    <div class="register-bottom-text str">
                         By signing up you agree to the
                         <span style="color:#1BA2B9; cursor: pointer">
                             Terms of Service
