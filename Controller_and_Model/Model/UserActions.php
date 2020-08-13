@@ -65,7 +65,7 @@ function UserAuth($school_num, $password) {
     $res = $stmt->get_result()->fetch_all();
     if (count($res) > 0) {
         $isTea = true;
-        $db_pw = $res[0][3];
+        $db_pw = $res[0][4];
         if ($db_pw === $password) {
             $stmt->close();
             $conn->close();
@@ -86,7 +86,7 @@ function UserAuth($school_num, $password) {
        $res = $stmt->get_result()->fetch_all();
        if (count($res) > 0) {
            $isStu = true;
-           $db_pw = $res[0][8];
+           $db_pw = $res[0][9];
            if ($db_pw === $password) {
                $stmt->close();
                $conn->close();
@@ -140,3 +140,4 @@ function UpdateLoginTime($id, $user_role) {
         return [true, $res];
     }
 }
+

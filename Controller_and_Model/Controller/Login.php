@@ -2,11 +2,12 @@
 require_once "../Model/LoginCredentials.php";
 require_once "../Model/UserActions.php";
 session_start();
+
 if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
     $school_num = get_post("email");
     $pw = get_post("password");
     $tot_res = UserAuth($school_num, $pw);
-    if ($tot_res[0] && $_SESSION['school_num'] != $school_num) {
+    if ($tot_res[0] && $_SESSION['school_num'] != $school_num) { // When "dashboard" is ready, make sure to jump user to dash board if already login, not to log in again.
         echo "Logged in. <br> Welcome, ";
         $chi_name = $tot_res[2][1];
         $eng_name = $tot_res[2][2];
