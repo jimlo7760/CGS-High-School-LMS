@@ -14,7 +14,7 @@ require_once "LoginCredentials.php";
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
  * @author Yiming Su
  *
- * Sometimes, I just hate this world. ha.
+ * Sometimes I just hate this world. ha.
  */
 function InsertNewTeacher($chi_name, $eng_name, $email_address, $password, $teacher_num, $subject_id, $role) {
     $conn = createconn();
@@ -40,9 +40,10 @@ function InsertNewTeacher($chi_name, $eng_name, $email_address, $password, $teac
     }
 }
 
-// 0 - teacher account inactive, 1 - active.
 /**
- * For administrator to review a teacher's account.
+ * For administrator to review a teacher's account. <br>
+ *
+ * 0 - Teacher account inactive <br> 1 - Active.
  *
  * @param int $teacher_id id of target teacher account.
  * @param int $audit_res result of review.
@@ -71,7 +72,7 @@ function UpdateTeacherById($teacher_id, $audit_res) {
  * Retrieving one teacher's information by id.
  *
  * @param $teacher_id Teacher's id to search.
- * @return array If successfully executed: [True, all award entries as array] <br> If not: [False, empty array]
+ * @return array If successfully executed: [True, teacher info as array] <br> If not: [False, empty array]
  * @author Yiming Su
  *
  * Right or wrong only exists in novels.
@@ -83,7 +84,7 @@ function FetchTeacherInfoById($teacher_id) {
     $stmt->bind_param("i", $stmt_id);
     $stmt_id = $teacher_id;
     $stmt->execute();
-    $res = $stmt->affected_rows;
+    $res = $stmt->get_result()->fetch_all();
     $stmt->close();
     $conn->close();
     if (!$res) {
