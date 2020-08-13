@@ -8,6 +8,13 @@
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
 
     </script>
+    <script>
+        $(document).ready(function () {
+            $('.box').animate({
+                opacity: '1'
+            }, 500)
+        })
+    </script>
 </head>
 <body>
 <img src="../../img/lawn_forest_mountains_144578_1920x1080.jpg" width=100% class="background">
@@ -32,7 +39,7 @@
         </div>
     </div>
     <div class="body">
-        <form action="../../../Controller_and_Model/Controller/Login.php" method="get">
+        <form action="" method="post">
             <div class="box">
                 <div class="box-title">
                     Sign in to your account
@@ -43,7 +50,7 @@
                             <div class="box-input-title">
                             <span>
                                 <strong>
-                                    Email Address
+                                    Student/Job Number
                                 </strong>
                             </span>
                                 <span style="color:#1BA2B9">
@@ -72,7 +79,7 @@
                             </span>
                             </div>
                             <div class="box-input-box">
-                                <input type="text" class="box-input-text" name="password">
+                                <input type="password" class="box-input-text" name="email">
                             </div>
                         </div>
                     </div>

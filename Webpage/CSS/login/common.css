@@ -48,6 +48,11 @@
     padding-top:200px;
 }
 .box{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    opacity:0;
     z-index: 2;
     width:400px;
     margin:0 auto;
@@ -82,7 +87,7 @@
 }
 .box-button{
     text-align:center;
-    width:450px;
+    width:400px;
     margin-top:20px;
     background-color:#1BA2B9;
     color:white;
