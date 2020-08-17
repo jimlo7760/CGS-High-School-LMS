@@ -23,7 +23,7 @@ function InsertNewSubjectClass($subj_teacher_id, $subj_id, $stud_ids, $stud_num_
 
 function updateSubjectClass($subj_class_id, $subj_teacher_id, $subj_id, $stud_ids, $stud_num_limit, $grade, $avg_grade, $subj_ranking, $audit_res){
     $conn = createconn();
-    $stmt = $conn->prepare("update subject_class set subj_teacher_id = ? subj_id = ?, stud_ids = ?, stud_num_limit = ?, grade = ?, avg_grade = ?, subj_ranking = ?, status = ? where id = ?");
+    $stmt = $conn->prepare("update subject_class set subj_teacher_id = ?, subj_id = ?, stud_ids = ?, stud_num_limit = ?, grade = ?, avg_grade = ?, subj_ranking = ?, status = ? where id = ?");
     $stmt->bind_param('iisiidsii', $stmt_subj_teacher_id, $stmt_subj_id, $stmt_stud_ids, $stmt_num_limit, $stmt_grade, $stmt_avg_grade, $stmt_subj_ranking, $stmt_status, $stmt_subject_class_id);
     $stmt_subj_id = $subj_id;
     $stmt_subj_teacher_id = $subj_teacher_id;
@@ -35,6 +35,32 @@ function updateSubjectClass($subj_class_id, $subj_teacher_id, $subj_id, $stud_id
     $stmt_status = $audit_res;
     $stmt_subject_class_id = $subj_class_id;
     $res = $stmt->affected_rows;
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
+
+/**
+ * Fetch info for a subject class by its teacher's id.
+ *
+ * @param int $subj_teacher_id Subject Teacher's id
+ * @return array If successfully executed: [True, Subject Class info as array] <br> If not: [False, empty array]
+ * @author Yiming Su
+ *
+ * I. F**king. Hate. N. T. R.
+ */
+function FetchSubjClassBySubjTeacherId($subj_teacher_id) {
+    $conn = createconn();
+    $q = "select * from subject_class where subj_teacher_id=?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("i", $stmt_id);
+    $stmt_id = $subj_teacher_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
     $stmt->close();
     $conn->close();
     if (!$res) {

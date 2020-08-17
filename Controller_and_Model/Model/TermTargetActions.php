@@ -38,3 +38,29 @@ function UpdateTermTarget($term_target_id, $stud_id, $exam_id, $expected_exam_re
         return [true, $res];
     }
 }
+
+/**
+ * Fetch term target from a student. By student's id.
+ *
+ * @param int $stud_id Student's id.
+ * @return array If successfully executed: [True, Term targer info as array] <br> If not: [False, empty array]
+ * @author Yiming Su
+ *
+ * I like cats with dogs' attitude.
+ */
+function FetchTermTargetsByStudId($stud_id) {
+    $conn = createconn();
+    $q = "select * from term_target where stud_id=?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("i", $stmt_id);
+    $stmt_id = $stud_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}

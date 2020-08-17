@@ -43,6 +43,7 @@ function InsertNewSwapSubjectApplication($stud_id, $orig_subj_class_id, $target_
  * @param int $updater_id Updater's id.
  * @param int $audit_res Result of reviewing.
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
+ * @author Yiming Su
  */
 function UpdateSwapApplicationById($app_id, $updater_id, $audit_res) {
     $conn = createconn();
@@ -69,6 +70,7 @@ function UpdateSwapApplicationById($app_id, $updater_id, $audit_res) {
  *
  * @param int $app_id
  * @return array If successfully executed: [True, application info as array] <br> If not: [False, empty array]
+ * @author Yiming Su
  */
 function FetchSwapSubjAppById($app_id) {
     $conn = createconn();

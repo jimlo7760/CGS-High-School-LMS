@@ -33,3 +33,29 @@ function UpdateSubject($sujbectName, $audit_res) {
         return [true, $res];
     }
 }
+
+/**
+ * Fetch info for a subject by id.
+ *
+ * @param int $subj_id Subject id.
+ * @return array If successfully executed: [True, subject info as array] <br> If not: [False, empty array]
+ * @author Yiming Su
+ *
+ * Won't be long til everybody knows. -- She Couldn't
+ */
+function FetchSubjById($subj_id) {
+    $conn = createconn();
+    $q = "select * from subject where id=?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("i", $s_id);
+    $s_id = $subj_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
