@@ -1,3 +1,15 @@
 .forgot-descrip{
     font-size:14px;
 }
+.box-reset-success{
+    opacity:0;
+}
+.forgot-unmatch-box{
+    overflow: hidden;
+    zoom:1;
+}
+.forgot-unmatch-des{
+    color:#DD3444;
+    float:right;
+    display: none;
+}

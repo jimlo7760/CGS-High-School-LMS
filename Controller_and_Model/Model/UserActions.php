@@ -65,7 +65,7 @@ function UserAuth($school_num, $password) {
     $res = $stmt->get_result()->fetch_all();
     if (count($res) > 0) {
         $isTea = true;
-        $db_pw = $res[0][3];
+        $db_pw = $res[0][4];
         if ($db_pw === $password) {
             $stmt->close();
             $conn->close();
@@ -86,7 +86,7 @@ function UserAuth($school_num, $password) {
        $res = $stmt->get_result()->fetch_all();
        if (count($res) > 0) {
            $isStu = true;
-           $db_pw = $res[0][8];
+           $db_pw = $res[0][9];
            if ($db_pw === $password) {
                $stmt->close();
                $conn->close();
@@ -141,107 +141,3 @@ function UpdateLoginTime($id, $user_role) {
     }
 }
 
-function UserFullNameCheck($full_name){
-    $conn = createconn();
-    $stmt = $conn->prepare('Select * from stud_info where chi_name = ?');
-    $stmt->bind_param('s', $FullName);
-    $FullName = $full_name;
-    $stmt->execute();
-    $result = $stmt->get_result()->fetch_all();
-    if($result > 0){
-        $conn->close();
-        $stmt->close();
-        return $result;
-    }else{
-        $stmt = $conn->prepare('Select * from teacher_info where chi_name = ?');
-        $stmt->bind_param('s', $FullName);
-        $FullName = $full_name;
-        $stmt->execute();
-        $conn->close();
-        $stmt->close();
-        return $result;
-    }
-}
-
-function PasswordAndEmailUpdate($FullName, $Email, $Password, $UserRole){
-    $conn = createconn();
-    if($UserRole != 1) {
-        $stmt = $conn->prepare('update stud_info set password = ?, Email = ? where chi_name = ?');
-        $stmt->bind_param('sss', $updatePw, $updateEmail, $updateCN);
-        $updateCN = $FullName;
-        $updatePw = $Password;
-        $updateEmail = $Email;
-        $stmt->execute();
-        $result = $stmt->affected_rows;
-        $stmt->close();
-        $conn->close();
-        return $result;
-        }elseif ($UserRole == 1){
-        $stmt = $conn->prepare('update teacher_info set password = ?, Email = ? where chi_name = ?');
-        $stmt->bind_param('sss', $updatePw, $updateEmail, $updateCN);
-        $updateCN = $FullName;
-        $updatePw = $Password;
-        $updateEmail = $Email;
-        $result = $stmt->affected_rows;
-        $stmt->execute();
-        $stmt->close();
-        $conn->close();
-        return $result;
-    }
-}
-
-
-/**
- * For students to submit their information
- * QWQ
- *
- * @param string $Chi_Name, $Eng_Name, $Student_Numb, $Reg_time, $Password <p>
- * Student inputted Chinese name
- * </p>
- * @return int $result <p>
- * If insert success, $result return 1, else result return 0
- * </p>
- * @author Binghe Yi
- */
-function Submit_Student_info($Chi_Name, $Eng_Name, $Student_Numb, $Reg_time, $Password){
-    $conn = createconn();
-    $stmt = $conn->prepare('Insert into stud_info(chi_name,eng_name,reg_time,stud_number,password,create_time) values (?,?,?,?,?,?)');
-    $stmt->bind_param("ssssss", $insert_Chi_Name, $insert_Eng_Name, $insert_Reg_time, $insert_Stu_Numb, $insert_Password, $insert_Crea_time );
-    $insert_Chi_Name = $Chi_Name;
-    $insert_Eng_Name = $Eng_Name;
-    $insert_Stu_Numb = $Student_Numb;
-    $insert_Reg_time = $Reg_time;
-    $insert_Password = $Password;
-    $insert_Crea_time = date('Y-m-d H:i:s');
-    $stmt->execute();
-    $result = $stmt->affected_rows;
-    if($result>0){
-        $stmt->close();
-        $conn->close();
-        return $result;
-    }else{
-        $error = $stmt->error;
-        $stmt->close();
-        $conn->close();
-        return $error;
-    }
-}
-
-function User_Role_Select($chiName){
-    $conn = createconn();
-    $stmt = $conn->prepare('Select * from teacher_info where chi-name = ?');
-    $stmt->bind_param('s', $selectChiName);
-    $selectChiName = $chiName;
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if($result>0){
-        $stmt->close();
-        $conn->close();
-        return $result;
-    }else{
-        $error = $stmt->error;
-        $stmt->close();
-        $conn->close();
-        return $error;
-    }
-}

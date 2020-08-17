@@ -1,0 +1,48 @@
+@font-face {
+    font-family: sfpro-text-light;
+    src: url("../fonts/SF-Pro-Text-Light.otf");
+}
+
+@font-face {
+    font-family: sfpro-text-medium;
+    src: url("../fonts/SF-Pro-Text-Medium.otf");
+}
+
+@font-face {
+    font-family: sfpro-text-regular;
+    src: url("../fonts/SF-Pro-Text-Regular.otf");
+}
+
+@font-face {
+    font-family: sfpro-text-simibold;
+    src: url("../fonts/SF-Pro-Text-Semibold.otf");
+}
+
+@font-face {
+    font-family: sfpro-text-bold;
+    src: url("../fonts/SF-Pro-Text-Bold.otf");
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+.stl{
+    font-family: sfpro-text-light;
+}
+
+.stm{
+    font-family: sfpro-text-medium;
+}
+.str{
+    font-family: sfpro-text-regular;
+}
+.sts{
+    font-family: sfpro-text-simibold;
+}
+.stb{
+    font-family: sfpro-text-bold;
+}

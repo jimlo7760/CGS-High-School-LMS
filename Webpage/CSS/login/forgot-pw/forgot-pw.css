@@ -2,3 +2,25 @@
     font-size:14px;
     padding-bottom:20px;
 }
+.box-reset{
+    opacity:0;
+}
+.forgot-descrip{
+    font-size:14px;
+}
+.box-reset-success{
+    display:none;
+    opacity:0;
+}
+.forgot-cancel{
+    text-align: center;
+    width: 400px;
+    margin-top: 20px;
+    background-color: white;
+    color: #1BA2B9;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #BEBEBE;
+}
