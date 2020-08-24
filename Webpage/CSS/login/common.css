@@ -20,7 +20,7 @@
 }
 
 .top-left-text {
-
+    cursor: default;
 }
 
 .top-right {
@@ -37,7 +37,7 @@
 .top-right-question {
     font-size: 13px;
     margin: 3px 30px 0 0;
-    cursor: pointer;
+    cursor: default;
 }
 
 .top-right-button {
@@ -77,6 +77,7 @@
     font-size: 25px;
     color: #343A3E;
     margin-bottom: 25px;
+    cursor:default;
 }
 
 .box-row {
@@ -90,6 +91,7 @@
 .box-input-title {
     font-size: 14px;
     color: #212529;
+    cursor:default;
 }
 
 .box-input-text {

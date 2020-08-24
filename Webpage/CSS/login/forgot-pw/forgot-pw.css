@@ -1,12 +1,11 @@
 .forgot-descrip{
     font-size:14px;
     padding-bottom:20px;
+    cursor: default;
+
 }
 .box-reset{
     opacity:0;
-}
-.forgot-descrip{
-    font-size:14px;
 }
 .box-reset-success{
     display:none;
