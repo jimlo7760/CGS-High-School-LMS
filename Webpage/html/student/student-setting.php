@@ -88,7 +88,10 @@
                 </div>
                 <div class="right-top-person">
                     <div class="right-top-person-name stm">
-                        Danny Xu
+                        <?php
+                        session_start();
+                        echo $_SESSION["eng_name"];
+                        ?>
                     </div>
                     <img src="../../img/图像 1@2x.png" height="45" width="45" class="right-top-person-portrait"/>
                     <i class="material-icons right-top-person-arrow">
@@ -134,7 +137,9 @@
                             <div class="right-person-info-user">
                                 <div class="right-person-info-des">
                                     <div class="right-person-info-name stm">
-                                        Danny Xu 许蛋阳
+                                        <?php
+                                        echo $_SESSION["eng_name"] . " " . $_SESSION["chi_name"];
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="right-person-info-detail">
@@ -143,7 +148,19 @@
                                             Department
                                         </div>
                                         <div class="right-person-info-box-text stm">
-                                            MYP
+                                            <?php
+                                             switch ($_SESSION["program"]) {
+                                                 case 0:
+                                                     echo "MYP";
+                                                     break;
+                                                 case 1:
+                                                     echo "IG";
+                                                     break;
+                                                 case 2:
+                                                     echo "AP";
+                                                     break;
+                                             }
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="right-person-info-box">
@@ -151,7 +168,9 @@
                                             Grade
                                         </div>
                                         <div class="right-person-info-box-text stm">
-                                            7
+                                            <?php
+                                                echo $_SESSION["grade"];
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="right-person-info-box">
@@ -159,7 +178,9 @@
                                             Class
                                         </div>
                                         <div class="right-person-info-box-text stm">
-                                            18
+                                            <?php
+                                                echo $_SESSION["class_num"];
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="right-person-info-box">
@@ -167,7 +188,9 @@
                                             Email
                                         </div>
                                         <div class="right-person-info-box-text stm">
-                                            dannyxu@163.com
+                                            <?php
+                                            echo $_SESSION["email_address"];
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="right-person-info-box">
@@ -829,10 +852,14 @@
                 <img src="../../img/图像 1@2x.png" height="30" width="30" class="personal-panel-portrait"/>
                 <div class="personal-panel-des">
                     <div class="personal-panel-name stb">
-                        Danny Xu
+                        <?php
+                        echo $_SESSION["eng_name"];
+                        ?>
                     </div>
                     <div class="personal-panel-mail str">
-                        dannyxu@163.com
+                        <?php
+                        echo $_SESSION["email_address"];
+                        ?>
                     </div>
                 </div>
             </div>

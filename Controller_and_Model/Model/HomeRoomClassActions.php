@@ -75,3 +75,24 @@ function FetchHRClassByHRTeacherId($hr_teacher_id) {
     }
 }
 
+/**
+ * Fetching all student ids and all related class info.
+ *
+ * @return array If successfully executed: [True, homeroom class info as array] <br> If not: [False, empty array]
+ * @author Yiming Su
+ */
+function FetchAllStudIdAndClasses() {
+    $conn = createconn();
+    $q = "select grade, program, class, stud_ids from homeroom_class;";
+    $stmt = $conn->prepare($q);
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
+

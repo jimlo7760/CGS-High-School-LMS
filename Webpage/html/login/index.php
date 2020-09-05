@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+session_start();
+if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
+    ob_start();
+    header('Location: '. "../student/student-main.php");
+    ob_end_flush();
+    die();
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
