@@ -1,0 +1,24 @@
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .gitignore	(date 1599377839951)
++++ .gitignore	(date 1599377839951)
+@@ -0,0 +1,16 @@
++/.idea/dataSources/31b19340-ec2b-411f-a6e3-cf2cb72e3884.xml
++/avatars/ahri.png
++/.idea/codeStyles/codeStyleConfig.xml
++/.idea/dataSources.local.xml
++/.idea/dataSources.xml
++/.idea/deployment.xml
++/.idea/dataSources/31b19340-ec2b-411f-a6e3-cf2cb72e3884/storage_v2/_src_/schema/information_schema.FNRwLQ.meta
++/.idea/modules.xml
++/.idea/inspectionProfiles/Project_Default.xml
++/.idea/School-Platform.iml
++/.idea/sqldialects.xml
++/test.php
++/.idea/vcs.xml
++/.idea/webServers.xml
++/.idea/workspace.xml
++/Design/~$Tao.docx
