@@ -76,14 +76,41 @@ function FetchHRClassByHRTeacherId($hr_teacher_id) {
 }
 
 /**
+ * Fetch a homeroom class by its  id.
+ *
+ * @param int $hr_id Homeroom class id.
+ * @return array If successfully executed: [True, homeroom class info as array] <br> If not: [False, empty array]
+ * @author Yiming Su
+ *
+ * Sometimes, it's better to keep your clothes off.
+ */
+
+function FetchHRClassById($hr_id) {
+    $conn = createconn();
+    $q = "select * from homeroom_class where id=?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("i", $s_id);
+    $s_id = $hr_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
+
+/**
  * Fetching all student ids and all related class info.
  *
  * @return array If successfully executed: [True, homeroom class info as array] <br> If not: [False, empty array]
  * @author Yiming Su
  */
-function FetchAllStudIdAndClasses() {
+function FetchAllStudIdAndHRClasses() {
     $conn = createconn();
-    $q = "select grade, program, class, stud_ids from homeroom_class;";
+    $q = "select grade, program, class, stud_ids, id from homeroom_class;";
     $stmt = $conn->prepare($q);
     $stmt->execute();
     $res = $stmt->get_result()->fetch_all();

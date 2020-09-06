@@ -69,3 +69,24 @@ function FetchSubjClassBySubjTeacherId($subj_teacher_id) {
         return [true, $res];
     }
 }
+
+/**
+ * Fetching all student ids and all related subject class info.
+ *
+ * @return array If successfully executed: [True, subject classes info as array] <br> If not: [False, empty array]
+ * @author Yiming Su
+ */
+function FetchAllStudIdAndSubjectClasses() {
+    $conn = createconn();
+    $q = "select id, subj_teacher_id, subj_id, stud_ids from subject_class;";
+    $stmt = $conn->prepare($q);
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}

@@ -34,7 +34,7 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
             $_SESSION["violation_id"] = $tot_res[2][6];
             $_SESSION["status"] = $tot_res[2][15];
 
-            $tot_res = FetchAllStudIdAndClasses();
+            $tot_res = FetchAllStudIdAndHRClasses();
             $all_info = $tot_res[1];
             $stud_id = $_SESSION["id"];
             foreach ($all_info as $class_info) {
@@ -43,16 +43,20 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
                 $program = $class_info[1];
                 $class_num = $class_info[2];
                 $stud_ids = $class_info[3];
+                $class_id = $class_info[4];
                 $stud_ids = explode(",", $stud_ids);
                 foreach ($stud_ids as $db_id) {
                     if ($db_id == $stud_id) {
                         $_SESSION["grade"] = $grade;
                         $_SESSION["program"] = $program;
                         $_SESSION["class_num"] = $class_num;
+                        $_SESSION["class_id"] = $class_id;
                         break;
                     }
                 }
             }
+
+
         } else if ($tot_res[1] == 1) {
             $_SESSION["user_role"] = 1;
             UpdateLoginTime($id, 1);
