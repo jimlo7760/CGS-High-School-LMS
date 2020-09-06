@@ -399,10 +399,10 @@
                                     </div>
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Classroom
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            ICT 110A
                                         </div>
                                     </div>
                                 </div>
@@ -427,10 +427,10 @@
                                     </div>
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Classroom
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            ICT 110A
                                         </div>
                                     </div>
                                 </div>
@@ -455,10 +455,10 @@
                                     </div>
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Classroom
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            ICT 110A
                                         </div>
                                     </div>
                                 </div>
@@ -483,10 +483,10 @@
                                     </div>
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Classroom
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            ICT 110A
                                         </div>
                                     </div>
                                 </div>
@@ -511,10 +511,10 @@
                                     </div>
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Classroom
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            ICT 110A
                                         </div>
                                     </div>
                                 </div>
@@ -539,10 +539,10 @@
                                     </div>
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Classroom
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            ICT 110A
                                         </div>
                                     </div>
                                 </div>
@@ -686,18 +686,18 @@
                                 <div class="right-box-downer">
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Midterm Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            89
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Final Exam Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            91
                                         </div>
                                     </div>
                                 </div>
@@ -714,18 +714,18 @@
                                 <div class="right-box-downer">
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Midterm Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            89
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Final Exam Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            91
                                         </div>
                                     </div>
                                 </div>
@@ -742,18 +742,18 @@
                                 <div class="right-box-downer">
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Midterm Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            89
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Final Exam Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            91
                                         </div>
                                     </div>
                                 </div>
@@ -770,18 +770,18 @@
                                 <div class="right-box-downer">
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Midterm Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            89
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Final Exam Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            91
                                         </div>
                                     </div>
                                 </div>
@@ -798,18 +798,18 @@
                                 <div class="right-box-downer">
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Midterm Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            89
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Final Exam Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            91
                                         </div>
                                     </div>
                                 </div>
@@ -826,18 +826,18 @@
                                 <div class="right-box-downer">
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Midterm Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            89
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
                                         <div class="right-box-detail-title str">
-                                            Instructor
+                                            Final Exam Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            91
                                         </div>
                                     </div>
                                 </div>
@@ -944,7 +944,7 @@
                     </div>
                     <div class="edit-box-innerbox">
                         <div class="edit-box-innerbox-title str">
-                            Eamil
+                            Email
                         </div>
                         <input type="text" class="edit-box-innerbox-input str" name="email">
                     </div>
@@ -1375,7 +1375,7 @@
                                placeholder="">
                     </div>
                     <div class="edit-box-innerbox str">
-                        <div class="edit-box-innerbox-title">
+                        <div class="edit-box-innerbox-title score-editing-innerbox-title">
                             Final Exam Goal
                         </div>
                         <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
