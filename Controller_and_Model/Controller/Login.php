@@ -2,6 +2,7 @@
 require_once "../Model/LoginCredentials.php";
 require_once "../Model/UserActions.php";
 require_once "../Model/HomeRoomClassActions.php";
+require_once "../Model/SubjectClassActions.php";
 
 session_start();
 if (!isset($_SESSION['school_num'])) {
@@ -38,7 +39,7 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
             $all_info = $tot_res[1];
             $stud_id = $_SESSION["id"];
             foreach ($all_info as $class_info) {
-                print_r($class_info);
+//                print_r($class_info);
                 $grade = $class_info[0];
                 $program = $class_info[1];
                 $class_num = $class_info[2];
@@ -54,6 +55,25 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
                         break;
                     }
                 }
+            }
+
+            $tot_res = FetchAllStudIdAndSubjectClasses();
+            $subj_class_ids = array();
+            if ($tot_res[0] == $_SESSION["id"]) {
+                $term_target = $tot_res[1];
+                foreach ($term_target as $exam_target) {
+                    $id = $exam_target[0];
+                    $subj_teacher_id = $exam_target[1];
+                    $subj_id = $exam_target[2];
+                    $stud_ids = explode(",", $exam_target[3]);
+                    foreach ($stud_ids as $stud_id) {
+                        if ($stud_id == 1) { //
+                            $subj_class_ids[] = $subj_id;
+                            break;
+                        }
+                    }
+                }
+                $_SESSION["subj_class_ids"] = $subj_class_ids;
             }
 
 

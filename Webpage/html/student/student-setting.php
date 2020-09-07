@@ -677,7 +677,15 @@
                             <div class="right-box score-editing-box">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        <?php
+                                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                                        $tot_res = FetchSubjById($_SESSION["subj_class_ids"][0]);
+                                        if ($tot_res[0] == 1) {
+                                            $subj_info = $tot_res[1][0];
+                                            $subj_name = $subj_info[1];
+                                            echo $subj_name;
+                                        }
+                                        ?>
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
@@ -705,7 +713,15 @@
                             <div class="right-box score-editing-box">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        <?php
+                                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                                        $tot_res = FetchSubjById($_SESSION["subj_class_ids"][1]);
+                                        if ($tot_res[0] == 1) {
+                                            $subj_info = $tot_res[1][0];
+                                            $subj_name = $subj_info[1];
+                                            echo $subj_name;
+                                        }
+                                        ?>
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
@@ -733,7 +749,15 @@
                             <div class="right-box score-editing-box">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        <?php
+                                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                                        $tot_res = FetchSubjById($_SESSION["subj_class_ids"][2]);
+                                        if ($tot_res[0] == 1) {
+                                            $subj_info = $tot_res[1][0];
+                                            $subj_name = $subj_info[1];
+                                            echo $subj_name;
+                                        }
+                                        ?>
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
@@ -761,7 +785,15 @@
                             <div class="right-box score-editing-box">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        <?php
+                                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                                        $tot_res = FetchSubjById($_SESSION["subj_class_ids"][3]);
+                                        if ($tot_res[0] == 1) {
+                                            $subj_info = $tot_res[1][0];
+                                            $subj_name = $subj_info[1];
+                                            echo $subj_name;
+                                        }
+                                        ?>
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
@@ -789,7 +821,15 @@
                             <div class="right-box score-editing-box">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        <?php
+                                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                                        $tot_res = FetchSubjById($_SESSION["subj_class_ids"][4]);
+                                        if ($tot_res[0] == 1) {
+                                            $subj_info = $tot_res[1][0];
+                                            $subj_name = $subj_info[1];
+                                            echo $subj_name;
+                                        }
+                                        ?>
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
@@ -817,7 +857,15 @@
                             <div class="right-box score-editing-box">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        <?php
+                                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                                        $tot_res = FetchSubjById($_SESSION["subj_class_ids"][5]);
+                                        if ($tot_res[0] == 1) {
+                                            $subj_info = $tot_res[1][0];
+                                            $subj_name = $subj_info[1];
+                                            echo $subj_name;
+                                        }
+                                        ?>
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
