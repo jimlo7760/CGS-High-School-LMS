@@ -74,6 +74,7 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
                     }
                 }
                 $_SESSION["subj_class_ids"] = $subj_class_ids;
+                $_SESSION["subj_class_id_idxs"] = array();
             }
 
 

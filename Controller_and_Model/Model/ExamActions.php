@@ -69,3 +69,26 @@ function FetchExamById($exam_id) {
     }
 }
 
+/**
+ * Fetching all active exams.
+ *
+ * @return array If successfully executed: [True, exam entries as array] <br> If not: [False, empty array]
+ * @author Yiming Su
+ *
+ * I like womans, no matter they're from earth or not. : D
+ */
+function FetchActiveExams() {
+    $conn = createconn();
+    $q = "select * from exam where status=1";
+    $stmt = $conn->prepare($q);
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
+
