@@ -10,7 +10,6 @@ $(document).ready(function () {
         }, 'fast')
     })
     var contentWidth = $('.profile-row-downer').width();
-    console.log(contentWidth);
     var boxWidth = contentWidth / 2 - 5;
     $('.right-person-info-row-box').outerWidth(boxWidth);
 
@@ -242,5 +241,7 @@ $(document).ready(function () {
         });
         $('.edit-score-box').fadeIn();
         $('.grey-bg').fadeIn();
+        var classId = $(this).children('.edit-class-id').val();
+        $('.edit-score-num').val(classId);
     })
 })
