@@ -10,8 +10,4 @@ $(document).ready(function () {
             backgroundColor: 'transparent',
         }, 'fast')
     })
-    $('.right-box').click(function () {
-        $(this).find("form").submit();
-        console.log($(this).find("form"));
-    })
 })

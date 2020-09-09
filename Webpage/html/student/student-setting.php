@@ -244,6 +244,9 @@
                                                 2019
                                             </div>
                                         </div>
+                                        <i class="material-icons right-person-info-row-box-img">
+                                            chevron_right
+                                        </i>
                                     </div>
                                 </div>
                                 <div class="right-person-info-row-box" style="float:right;!important;">
@@ -259,6 +262,9 @@
                                                 2019
                                             </div>
                                         </div>
+                                        <i class="material-icons right-person-info-row-box-img">
+                                            chevron_right
+                                        </i>
                                     </div>
                                 </div>
                             </div>
@@ -283,7 +289,9 @@
                                         Harvard Law School
                                     </div>
                                     <div class="right-person-info-row-box-right">
-
+                                        <i class="material-icons right-person-info-row-box-img">
+                                            chevron_right
+                                        </i>
                                     </div>
                                 </div>
                                 <div class="right-person-info-row-box" style="float:right;!important;">
@@ -291,7 +299,9 @@
                                         Oxford University
                                     </div>
                                     <div class="right-person-info-row-box-right">
-
+                                        <i class="material-icons right-person-info-row-box-img">
+                                            chevron_right
+                                        </i>
                                     </div>
                                 </div>
                             </div>
@@ -316,7 +326,9 @@
                                                 2019/02/12
                                             </div>
                                         </div>
-
+                                        <i class="material-icons right-person-info-row-box-img">
+                                            chevron_right
+                                        </i>
                                     </div>
                                 </div>
                                 <div class="right-person-info-row-box" style="float:right;!important;">
@@ -332,6 +344,9 @@
                                                 2019/02/12
                                             </div>
                                         </div>
+                                        <i class="material-icons right-person-info-row-box-img">
+                                            chevron_right
+                                        </i>
                                     </div>
                                 </div>
                             </div>
@@ -660,10 +675,17 @@
                         </div>
                         <div class="right-class-list">
                             <div class="right-box score-editing-box">
-                                <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        <?php
+                                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                                        $tot_res = FetchSubjById($_SESSION["subj_class_ids"][0]);
+                                        if ($tot_res[0] == 1) {
+                                            $subj_info = $tot_res[1][0];
+                                            $subj_name = $subj_info[1];
+                                            echo $subj_name;
+                                        }
+                                        ?>
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
@@ -675,7 +697,33 @@
                                             Midterm Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            89
+                                            <?php
+                                            require_once "../../../Controller_and_Model/Model/ExamActions.php";
+                                            require_once "../../../Controller_and_Model/Model/TermTargetActions.php";
+                                            $all_exam = FetchActiveExams()[1];
+                                            foreach ($all_exam as $exam_info) {
+                                                if ($exam_info[6] == 0) {
+                                                    $exam_id = $exam_info[0];
+                                                    $raw_term_target = FetchTermTargetsByExamId($exam_id);
+                                                    if ($raw_term_target[0] == 1) {
+                                                        $term_target = $raw_term_target[1][0];
+                                                        $subj_ids = explode(",", $term_target[3]);
+                                                        $subj_id_idx = 0;
+                                                        foreach ($subj_ids as $subj_id) {
+                                                            if ($subj_id == $_SESSION["subj_class_ids"][0]) {
+                                                                break;
+                                                            }
+                                                            $subj_id_idx ++;
+                                                        }
+
+                                                        $target_scores = explode(",", $term_target[4]);
+                                                        $target_score = $target_scores[$subj_id_idx];
+                                                        echo $target_score;
+                                                    }
+                                                }
+                                            }
+                                            $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
@@ -683,16 +731,46 @@
                                             Final Exam Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            91
+                                            <?php
+                                            $all_exam = FetchActiveExams()[1];
+                                            foreach ($all_exam as $exam_info) {
+                                                if ($exam_info[6] == 1) {
+                                                    $exam_id = $exam_info[0];
+                                                    $raw_term_target = FetchTermTargetsByExamId($exam_id);
+                                                    if ($raw_term_target[0] == 1) {
+                                                        $term_target = $raw_term_target[1][0];
+                                                        $subj_ids = explode(",", $term_target[3]);
+                                                        $subj_id_idx = 0;
+                                                        foreach ($subj_ids as $subj_id) {
+                                                            if ($subj_id == $_SESSION["subj_class_ids"][0]) {
+                                                                break;
+                                                            }
+                                                            $subj_id_idx ++;
+                                                        }
+
+                                                        $target_scores = explode(",", $term_target[4]);
+                                                        $target_score = $target_scores[$subj_id_idx];
+                                                        echo $target_score;
+                                                    }
+                                                }
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="right-box score-editing-box">
-                                <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        <?php
+                                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                                        $tot_res = FetchSubjById($_SESSION["subj_class_ids"][1]);
+                                        if ($tot_res[0] == 1) {
+                                            $subj_info = $tot_res[1][0];
+                                            $subj_name = $subj_info[1];
+                                            echo $subj_name;
+                                        }
+                                        ?>
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
@@ -704,7 +782,31 @@
                                             Midterm Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            89
+                                            <?php
+                                            $all_exam = FetchActiveExams()[1];
+                                            foreach ($all_exam as $exam_info) {
+                                                if ($exam_info[6] == 0) {
+                                                    $exam_id = $exam_info[0];
+                                                    $raw_term_target = FetchTermTargetsByExamId($exam_id);
+                                                    if ($raw_term_target[0] == 1) {
+                                                        $term_target = $raw_term_target[1][0];
+                                                        $subj_ids = explode(",", $term_target[3]);
+                                                        $subj_id_idx = 0;
+                                                        foreach ($subj_ids as $subj_id) {
+                                                            if ($subj_id == $_SESSION["subj_class_ids"][1]) {
+                                                                break;
+                                                            }
+                                                            $subj_id_idx ++;
+                                                        }
+
+                                                        $target_scores = explode(",", $term_target[4]);
+                                                        $target_score = $target_scores[$subj_id_idx];
+                                                        echo $target_score;
+                                                    }
+                                                }
+                                            }
+                                            $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
@@ -712,16 +814,46 @@
                                             Final Exam Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            91
+                                            <?php
+                                            $all_exam = FetchActiveExams()[1];
+                                            foreach ($all_exam as $exam_info) {
+                                                if ($exam_info[6] == 1) {
+                                                    $exam_id = $exam_info[0];
+                                                    $raw_term_target = FetchTermTargetsByExamId($exam_id);
+                                                    if ($raw_term_target[0] == 1) {
+                                                        $term_target = $raw_term_target[1][0];
+                                                        $subj_ids = explode(",", $term_target[3]);
+                                                        $subj_id_idx = 0;
+                                                        foreach ($subj_ids as $subj_id) {
+                                                            if ($subj_id == $_SESSION["subj_class_ids"][1]) {
+                                                                break;
+                                                            }
+                                                            $subj_id_idx ++;
+                                                        }
+
+                                                        $target_scores = explode(",", $term_target[4]);
+                                                        $target_score = $target_scores[$subj_id_idx];
+                                                        echo $target_score;
+                                                    }
+                                                }
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="right-box score-editing-box">
-                                <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        <?php
+                                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                                        $tot_res = FetchSubjById($_SESSION["subj_class_ids"][2]);
+                                        if ($tot_res[0] == 1) {
+                                            $subj_info = $tot_res[1][0];
+                                            $subj_name = $subj_info[1];
+                                            echo $subj_name;
+                                        }
+                                        ?>
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
@@ -733,7 +865,33 @@
                                             Midterm Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            89
+                                            <?php
+                                            $all_exam = FetchActiveExams()[1];
+                                            foreach ($all_exam as $exam_info) {
+                                                if ($exam_info[6] == 0) {
+                                                    $exam_id = $exam_info[0];
+                                                    $raw_term_target = FetchTermTargetsByExamId($exam_id);
+                                                    if ($raw_term_target[0] == 1) {
+                                                        $term_target = $raw_term_target[1][0];
+                                                        $subj_ids = explode(",", $term_target[3]);
+                                                        $subj_id_idx = 0;
+                                                        foreach ($subj_ids as $subj_id) {
+                                                            if ($subj_id == $_SESSION["subj_class_ids"][2]) {
+                                                                break;
+                                                            }
+                                                            $subj_id_idx ++;
+                                                        }
+
+                                                        $target_scores = explode(",", $term_target[4]);
+                                                        $target_score = $target_scores[$subj_id_idx];
+                                                        echo $target_score;
+
+                                                    }
+                                                }
+                                            }
+
+                                            $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
@@ -741,16 +899,46 @@
                                             Final Exam Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            91
+                                            <?php
+                                            $all_exam = FetchActiveExams()[1];
+                                            foreach ($all_exam as $exam_info) {
+                                                if ($exam_info[6] == 1) {
+                                                    $exam_id = $exam_info[0];
+                                                    $raw_term_target = FetchTermTargetsByExamId($exam_id);
+                                                    if ($raw_term_target[0] == 1) {
+                                                        $term_target = $raw_term_target[1][0];
+                                                        $subj_ids = explode(",", $term_target[3]);
+                                                        $subj_id_idx = 0;
+                                                        foreach ($subj_ids as $subj_id) {
+                                                            if ($subj_id == $_SESSION["subj_class_ids"][2]) {
+                                                                break;
+                                                            }
+                                                            $subj_id_idx ++;
+                                                        }
+
+                                                        $target_scores = explode(",", $term_target[4]);
+                                                        $target_score = $target_scores[$subj_id_idx];
+                                                        echo $target_score;
+                                                    }
+                                                }
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="right-box score-editing-box">
-                                <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        <?php
+                                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                                        $tot_res = FetchSubjById($_SESSION["subj_class_ids"][3]);
+                                        if ($tot_res[0] == 1) {
+                                            $subj_info = $tot_res[1][0];
+                                            $subj_name = $subj_info[1];
+                                            echo $subj_name;
+                                        }
+                                        ?>
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
@@ -762,7 +950,33 @@
                                             Midterm Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            89
+                                            <?php
+                                            $all_exam = FetchActiveExams()[1];
+                                            foreach ($all_exam as $exam_info) {
+                                                if ($exam_info[6] == 0) {
+                                                    $exam_id = $exam_info[0];
+                                                    $raw_term_target = FetchTermTargetsByExamId($exam_id);
+                                                    if ($raw_term_target[0] == 1) {
+                                                        $term_target = $raw_term_target[1][0];
+                                                        $subj_ids = explode(",", $term_target[3]);
+                                                        $subj_id_idx = 0;
+                                                        foreach ($subj_ids as $subj_id) {
+                                                            if ($subj_id == $_SESSION["subj_class_ids"][3]) {
+                                                                break;
+                                                            }
+                                                            $subj_id_idx ++;
+                                                        }
+
+                                                        $target_scores = explode(",", $term_target[4]);
+                                                        $target_score = $target_scores[$subj_id_idx];
+                                                        echo $target_score;
+
+                                                    }
+                                                }
+                                            }
+
+                                            $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
@@ -770,16 +984,47 @@
                                             Final Exam Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            91
+                                            <?php
+                                            $all_exam = FetchActiveExams()[1];
+                                            foreach ($all_exam as $exam_info) {
+                                                if ($exam_info[6] == 1) {
+                                                    $exam_id = $exam_info[0];
+                                                    $raw_term_target = FetchTermTargetsByExamId($exam_id);
+                                                    if ($raw_term_target[0] == 1) {
+                                                        $term_target = $raw_term_target[1][0];
+                                                        $subj_ids = explode(",", $term_target[3]);
+                                                        $subj_id_idx = 0;
+                                                        foreach ($subj_ids as $subj_id) {
+                                                            if ($subj_id == $_SESSION["subj_class_ids"][3]) {
+                                                                break;
+                                                            }
+                                                            $subj_id_idx ++;
+                                                        }
+
+                                                        $target_scores = explode(",", $term_target[4]);
+                                                        $target_score = $target_scores[$subj_id_idx];
+                                                        echo $target_score;
+
+                                                    }
+                                                }
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="right-box score-editing-box">
-                                <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        <?php
+                                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                                        $tot_res = FetchSubjById($_SESSION["subj_class_ids"][4]);
+                                        if ($tot_res[0] == 1) {
+                                            $subj_info = $tot_res[1][0];
+                                            $subj_name = $subj_info[1];
+                                            echo $subj_name;
+                                        }
+                                        ?>
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
@@ -791,7 +1036,32 @@
                                             Midterm Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            89
+                                            <?php
+                                            $all_exam = FetchActiveExams()[1];
+                                            foreach ($all_exam as $exam_info) {
+                                                if ($exam_info[6] == 0) {
+                                                    $exam_id = $exam_info[0];
+                                                    $raw_term_target = FetchTermTargetsByExamId($exam_id);
+                                                    if ($raw_term_target[0] == 1) {
+                                                        $term_target = $raw_term_target[1][0];
+                                                        $subj_ids = explode(",", $term_target[3]);
+                                                        $subj_id_idx = 0;
+                                                        foreach ($subj_ids as $subj_id) {
+                                                            if ($subj_id == $_SESSION["subj_class_ids"][4]) {
+                                                                break;
+                                                            }
+                                                            $subj_id_idx ++;
+                                                        }
+
+                                                        $target_scores = explode(",", $term_target[4]);
+                                                        $target_score = $target_scores[$subj_id_idx];
+                                                        echo $target_score;
+                                                    }
+                                                }
+                                            }
+
+                                            $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
@@ -799,16 +1069,46 @@
                                             Final Exam Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            91
+                                            <?php
+                                            $all_exam = FetchActiveExams()[1];
+                                            foreach ($all_exam as $exam_info) {
+                                                if ($exam_info[6] == 1) {
+                                                    $exam_id = $exam_info[0];
+                                                    $raw_term_target = FetchTermTargetsByExamId($exam_id);
+                                                    if ($raw_term_target[0] == 1) {
+                                                        $term_target = $raw_term_target[1][0];
+                                                        $subj_ids = explode(",", $term_target[4]);
+                                                        $subj_id_idx = 0;
+                                                        foreach ($subj_ids as $subj_id) {
+                                                            if ($subj_id == $_SESSION["subj_class_ids"][4]) {
+                                                                break;
+                                                            }
+                                                            $subj_id_idx ++;
+                                                        }
+
+                                                        $target_scores = explode(",", $term_target[4]);
+                                                        $target_score = $target_scores[$subj_id_idx];
+                                                        echo $target_score;
+                                                    }
+                                                }
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="right-box score-editing-box">
-                                <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        <?php
+                                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                                        $tot_res = FetchSubjById($_SESSION["subj_class_ids"][5]);
+                                        if ($tot_res[0] == 1) {
+                                            $subj_info = $tot_res[1][0];
+                                            $subj_name = $subj_info[1];
+                                            echo $subj_name;
+                                        }
+                                        ?>
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
@@ -820,7 +1120,32 @@
                                             Midterm Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            89
+                                            <?php
+                                            $all_exam = FetchActiveExams()[1];
+                                            foreach ($all_exam as $exam_info) {
+                                                if ($exam_info[6] == 0) {
+                                                    $exam_id = $exam_info[0];
+                                                    $raw_term_target = FetchTermTargetsByExamId($exam_id);
+                                                    if ($raw_term_target[0] == 1) {
+                                                        $term_target = $raw_term_target[1][0];
+                                                        $subj_ids = explode(",", $term_target[3]);
+                                                        $subj_id_idx = 0;
+                                                        foreach ($subj_ids as $subj_id) {
+                                                            if ($subj_id == $_SESSION["subj_class_ids"][5]) {
+                                                                break;
+                                                            }
+                                                            $subj_id_idx ++;
+                                                        }
+
+                                                        $target_scores = explode(",", $term_target[4]);
+                                                        $target_score = $target_scores[$subj_id_idx];
+                                                        echo $target_score;
+                                                    }
+                                                }
+                                            }
+
+                                            $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
@@ -828,7 +1153,30 @@
                                             Final Exam Goal
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            91
+                                            <?php
+                                            $all_exam = FetchActiveExams()[1];
+                                            foreach ($all_exam as $exam_info) {
+                                                if ($exam_info[6] == 1) {
+                                                    $exam_id = $exam_info[0];
+                                                    $raw_term_target = FetchTermTargetsByExamId($exam_id);
+                                                    if ($raw_term_target[0] == 1) {
+                                                        $term_target = $raw_term_target[1][0];
+                                                        $subj_ids = explode(",", $term_target[3]);
+                                                        $subj_id_idx = 0;
+                                                        foreach ($subj_ids as $subj_id) {
+                                                            if ($subj_id == $_SESSION["subj_class_ids"][5]) {
+                                                                break;
+                                                            }
+                                                            $subj_id_idx ++;
+                                                        }
+
+                                                        $target_scores = explode(",", $term_target[4]);
+                                                        $target_score = $target_scores[$subj_id_idx];
+                                                        echo $target_score;
+                                                    }
+                                                }
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -1315,6 +1663,7 @@
                         <input type="text" class="pending-box-input stb" disabled="disabled">
                         <input type="text" class="pending-box-input stb" disabled="disabled">
                         <input type="text" class="pending-box-input stb" disabled="disabled">
+
                     </div>
                 </div>
                 <div class="edit-box-downer">
@@ -1349,7 +1698,7 @@
                 </div>
                 <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
             </div>
-            <form method="post" action="#">
+            <form method="post">
                 <div class="edit-box-downer">
                     <div class="edit-box-innerbox str">
                         <div class="score-editing-innerbox">
@@ -1372,7 +1721,6 @@
                                name="finao-goal"
                                placeholder="">
                     </div>
-                    <input class="edit-score-num" type="text" name="class-id" value="" style="display:none">
                     <input class="edit-box-green stb" type="submit" value="Submit">
                 </div>
             </form>

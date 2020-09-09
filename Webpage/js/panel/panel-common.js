@@ -61,12 +61,7 @@ $(document).ready(function () {
     $('.right-top-person').click(function () {
         $('.personal-panel').slideToggle();
         $('.right-top-person-arrow').toggleClass('add_transform');
-        var nameWidth = $('.personal-panel-des').width();
-        if(nameWidth >= 170){
-            $('.personal-panel').width(240 + nameWidth - 170);
-        }else{
-            $('.personal-panel').width(240);
-        }
+
     })
     $('.right-box').mouseenter(function () {
         $(this).animate({
@@ -114,6 +109,4 @@ $(document).ready(function () {
         $('.share-box').fadeOut();
         $('.grey-bg').fadeOut();
     })
-
-    
 })
