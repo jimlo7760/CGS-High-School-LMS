@@ -675,6 +675,7 @@
                         </div>
                         <div class="right-class-list">
                             <div class="right-box score-editing-box">
+                                <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -760,6 +761,8 @@
                                 </div>
                             </div>
                             <div class="right-box score-editing-box">
+                                <input class="edit-class-id" type="text" style="display: none" value="">
+
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -843,6 +846,7 @@
                                 </div>
                             </div>
                             <div class="right-box score-editing-box">
+                                <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -928,6 +932,7 @@
                                 </div>
                             </div>
                             <div class="right-box score-editing-box">
+                                <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -1014,6 +1019,7 @@
                                 </div>
                             </div>
                             <div class="right-box score-editing-box">
+                                <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -1098,6 +1104,7 @@
                                 </div>
                             </div>
                             <div class="right-box score-editing-box">
+                                <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -1698,7 +1705,7 @@
                 </div>
                 <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
             </div>
-            <form method="post">
+            <form method="post" action="#">
                 <div class="edit-box-downer">
                     <div class="edit-box-innerbox str">
                         <div class="score-editing-innerbox">
@@ -1721,6 +1728,7 @@
                                name="finao-goal"
                                placeholder="">
                     </div>
+                    <input class="edit-score-num" type="text" name="class-id" value="" style="display:none">
                     <input class="edit-box-green stb" type="submit" value="Submit">
                 </div>
             </form>

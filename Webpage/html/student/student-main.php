@@ -176,8 +176,8 @@ session_start();
                     </div>
                 </div>
             </div>
-            <div class="right-classes">
-                <div class="right-box"  onclick="window.location='student-class.php'">
+            <div class="right-box">
+                <form action="student-class.php" method="get" class="box-class-id">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Chinese A1
@@ -204,8 +204,12 @@ session_start();
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="right-box" onclick="window.location='student-class.php'">
+                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="submit" style="display:none">
+                </form>
+            </div>
+            <div class="right-box">
+                <form action="student-class.php" method="get" class="box-class-id">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Chinese A1
@@ -232,8 +236,12 @@ session_start();
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="right-box" onclick="window.location='student-class.php'">
+                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="submit" style="display:none">
+                </form>
+            </div>
+            <div class="right-box">
+                <form action="student-class.php" method="get" class="box-class-id">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Chinese A1
@@ -260,8 +268,12 @@ session_start();
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="right-box" onclick="window.location='student-class.php'">
+                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="submit" style="display:none">
+                </form>
+            </div>
+            <div class="right-box">
+                <form action="student-class.php" method="get" class="box-class-id">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Chinese A1
@@ -288,8 +300,12 @@ session_start();
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="right-box" onclick="window.location='student-class.php'">
+                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="submit" style="display:none">
+                </form>
+            </div>
+            <div class="right-box">
+                <form action="student-class.php" method="get" class="box-class-id">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Chinese A1
@@ -316,8 +332,12 @@ session_start();
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="right-box" onclick="window.location='student-class.php'">
+                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="submit" style="display:none">
+                </form>
+            </div>
+            <div class="right-box">
+                <form action="student-class.php" method="get" class="box-class-id">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Chinese A1
@@ -344,8 +364,12 @@ session_start();
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="right-box" onclick="window.location='student-class.php'">
+                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="submit" style="display:none">
+                </form>
+            </div>
+            <div class="right-box">
+                <form action="student-class.php" method="get" class="box-class-id">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Chinese A1
@@ -372,8 +396,12 @@ session_start();
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="right-box" onclick="window.location='student-class.php'">
+                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="submit" style="display:none">
+                </form>
+            </div>
+            <div class="right-box">
+                <form action="student-class.php" method="get" class="box-class-id">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Chinese A1
@@ -400,7 +428,10 @@ session_start();
                             </div>
                         </div>
                     </div>
-                </div>
+                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="submit" style="display:none">
+                </form>
+            </div>
             </div>
         </div>
         <div class="personal-panel">
