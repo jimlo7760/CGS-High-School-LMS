@@ -675,6 +675,7 @@
                         </div>
                         <div class="right-class-list">
                             <div class="right-box score-editing-box">
+                                <input class="current-test-id" type="text" style="display: none" value="">
                                 <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
@@ -1728,7 +1729,8 @@
                                name="finao-goal"
                                placeholder="">
                     </div>
-                    <input class="edit-score-num" type="text" name="class-id" value="" style="display:none">
+                    <input class="edit-test-id" type="text" name="test-id" value="" style="display:none">
+                    <input class="edit-score-id" type="text" name="class-id" value="" style="display:none">
                     <input class="edit-box-green stb" type="submit" value="Submit">
                 </div>
             </form>

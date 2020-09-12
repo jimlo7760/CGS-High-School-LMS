@@ -243,6 +243,8 @@ $(document).ready(function () {
         $('.edit-score-box').fadeIn();
         $('.grey-bg').fadeIn();
         var classId = $(this).children('.edit-class-id').val();
-        $('.edit-score-num').val(classId);
+        $('.edit-score-id').val(classId);
+        var testId = $(this).children('.current-test-id').val();
+        $('.edit-test-id').val(testId);
     })
 })
