@@ -675,7 +675,6 @@
                         </div>
                         <div class="right-class-list">
                             <div class="right-box score-editing-box">
-                                <input class="current-test-id" type="text" style="display: none" value="">
                                 <input class="edit-class-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
@@ -760,10 +759,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <input class="current-test-id" type="text" style="display: none" value="">
                             </div>
                             <div class="right-box score-editing-box">
                                 <input class="edit-class-id" type="text" style="display: none" value="">
-                                <input class="current-test-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -845,10 +844,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <input class="current-test-id" type="text" style="display: none" value="">
                             </div>
                             <div class="right-box score-editing-box">
                                 <input class="edit-class-id" type="text" style="display: none" value="">
-                                <input class="current-test-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -932,10 +931,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <input class="current-test-id" type="text" style="display: none" value="">
                             </div>
                             <div class="right-box score-editing-box">
                                 <input class="edit-class-id" type="text" style="display: none" value="">
-                                <input class="current-test-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -1020,10 +1019,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <input class="current-test-id" type="text" style="display: none" value="">
                             </div>
                             <div class="right-box score-editing-box">
                                 <input class="edit-class-id" type="text" style="display: none" value="">
-                                <input class="current-test-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -1106,10 +1105,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <input class="current-test-id" type="text" style="display: none" value="">
                             </div>
                             <div class="right-box score-editing-box">
                                 <input class="edit-class-id" type="text" style="display: none" value="">
-                                <input class="current-test-id" type="text" style="display: none" value="">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -1192,6 +1191,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <input class="current-test-id" type="text" style="display: none" value="">
                             </div>
                         </div>
                     </div>
