@@ -1760,7 +1760,7 @@ $_SESSION["exam_id_2"] = 0;
                 </div>
                 <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
             </div>
-            <form method="get" action="../../../Controller_and_Model/Controller/ModifyTermTarget.php">
+            <form method="post" action="../../../Controller_and_Model/Controller/ModifyTermTarget.php">
                 <div class="edit-box-downer">
                     <div class="edit-box-innerbox str">
                         <div class="score-editing-innerbox">
