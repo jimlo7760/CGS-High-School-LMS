@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+session_start();
+$_SESSION["subj_orig_term_targets"] = array();
+$_SESSION["subj_class_id_idxs"] = array();
+$_SESSION["exam_id_1"] = 0;
+$_SESSION["exam_id_2"] = 0;
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -89,7 +96,6 @@
                 <div class="right-top-person">
                     <div class="right-top-person-name stm">
                         <?php
-                        session_start();
                         echo $_SESSION["eng_name"];
                         ?>
                     </div>
@@ -675,7 +681,9 @@
                         </div>
                         <div class="right-class-list">
                             <div class="right-box score-editing-box">
-                                <input class="edit-class-id" type="text" style="display: none" value="">
+                                <?php
+                                echo "<input class=\"edit-class-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["subj_class_ids"][0] . "\">";
+                                ?>
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -705,6 +713,7 @@
                                             foreach ($all_exam as $exam_info) {
                                                 if ($exam_info[6] == 0) {
                                                     $exam_id = $exam_info[0];
+                                                    $_SESSION["exam_id_1"] = $exam_id;
                                                     $raw_term_target = FetchTermTargetsByExamId($exam_id);
                                                     if ($raw_term_target[0] == 1) {
                                                         $term_target = $raw_term_target[1][0];
@@ -716,13 +725,14 @@
                                                             }
                                                             $subj_id_idx ++;
                                                         }
-
                                                         $target_scores = explode(",", $term_target[4]);
                                                         $target_score = $target_scores[$subj_id_idx];
                                                         echo $target_score;
                                                     }
                                                 }
                                             }
+                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $target_score;
+                                            
                                             $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
                                             ?>
                                         </div>
@@ -737,6 +747,7 @@
                                             foreach ($all_exam as $exam_info) {
                                                 if ($exam_info[6] == 1) {
                                                     $exam_id = $exam_info[0];
+                                                    $_SESSION["exam_id_2"] = $exam_id;
                                                     $raw_term_target = FetchTermTargetsByExamId($exam_id);
                                                     if ($raw_term_target[0] == 1) {
                                                         $term_target = $raw_term_target[1][0];
@@ -755,14 +766,20 @@
                                                     }
                                                 }
                                             }
+                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $target_score;
+                                            
                                             ?>
                                         </div>
                                     </div>
                                 </div>
-                                <input class="current-test-id" type="text" style="display: none" value="">
+                                <?php
+                                echo "<input class=\"current-test-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["exam_id_1"] . "a" . $_SESSION["exam_id_2"] . "\">";
+                                ?>
                             </div>
                             <div class="right-box score-editing-box">
-                                <input class="edit-class-id" type="text" style="display: none" value="">
+                                <?php
+                                echo "<input class=\"edit-class-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["subj_class_ids"][1] . "\">";
+                                ?>
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -809,6 +826,8 @@
                                                 }
                                             }
                                             $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
+                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $target_score;
+
                                             ?>
                                         </div>
                                     </div>
@@ -840,14 +859,20 @@
                                                     }
                                                 }
                                             }
+                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $target_score;
+
                                             ?>
                                         </div>
                                     </div>
                                 </div>
-                                <input class="current-test-id" type="text" style="display: none" value="">
+                                <?php
+                                echo "<input class=\"current-test-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["exam_id_1"] . "a" . $_SESSION["exam_id_2"] . "\">";
+                                ?>
                             </div>
                             <div class="right-box score-editing-box">
-                                <input class="edit-class-id" type="text" style="display: none" value="">
+                                <?php
+                                echo "<input class=\"edit-class-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["subj_class_ids"][2] . "\">";
+                                ?>
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -890,12 +915,12 @@
                                                         $target_scores = explode(",", $term_target[4]);
                                                         $target_score = $target_scores[$subj_id_idx];
                                                         echo $target_score;
-
                                                     }
                                                 }
                                             }
-
                                             $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
+                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $target_score;
+
                                             ?>
                                         </div>
                                     </div>
@@ -927,14 +952,20 @@
                                                     }
                                                 }
                                             }
+                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $target_score;
+
                                             ?>
                                         </div>
                                     </div>
                                 </div>
-                                <input class="current-test-id" type="text" style="display: none" value="">
+                                <?php
+                                echo "<input class=\"current-test-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["exam_id_1"] . "a" . $_SESSION["exam_id_2"] . "\">";
+                                ?>
                             </div>
                             <div class="right-box score-editing-box">
-                                <input class="edit-class-id" type="text" style="display: none" value="">
+                                <?php
+                                echo "<input class=\"edit-class-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["subj_class_ids"][3] . "\">";
+                                ?>
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -981,6 +1012,7 @@
                                                     }
                                                 }
                                             }
+                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $target_score;
 
                                             $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
                                             ?>
@@ -1015,14 +1047,20 @@
                                                     }
                                                 }
                                             }
+                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $target_score;
+
                                             ?>
                                         </div>
                                     </div>
                                 </div>
-                                <input class="current-test-id" type="text" style="display: none" value="">
+                                <?php
+                                echo "<input class=\"current-test-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["exam_id_1"] . "a" . $_SESSION["exam_id_2"] . "\">";
+                                ?>
                             </div>
                             <div class="right-box score-editing-box">
-                                <input class="edit-class-id" type="text" style="display: none" value="">
+                                <?php
+                                echo "<input class=\"edit-class-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["subj_class_ids"][4] . "\">";
+                                ?>
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -1068,7 +1106,8 @@
                                                     }
                                                 }
                                             }
-
+                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $target_score;
+                                            
                                             $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
                                             ?>
                                         </div>
@@ -1086,7 +1125,7 @@
                                                     $raw_term_target = FetchTermTargetsByExamId($exam_id);
                                                     if ($raw_term_target[0] == 1) {
                                                         $term_target = $raw_term_target[1][0];
-                                                        $subj_ids = explode(",", $term_target[4]);
+                                                        $subj_ids = explode(",", $term_target[3]);
                                                         $subj_id_idx = 0;
                                                         foreach ($subj_ids as $subj_id) {
                                                             if ($subj_id == $_SESSION["subj_class_ids"][4]) {
@@ -1101,14 +1140,20 @@
                                                     }
                                                 }
                                             }
+                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $target_score;
+                                            
                                             ?>
                                         </div>
                                     </div>
                                 </div>
-                                <input class="current-test-id" type="text" style="display: none" value="">
+                                <?php
+                                echo "<input class=\"current-test-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["exam_id_1"] . "a" . $_SESSION["exam_id_2"] . "\">";
+                                ?>
                             </div>
                             <div class="right-box score-editing-box">
-                                <input class="edit-class-id" type="text" style="display: none" value="">
+                                <?php
+                                echo "<input class=\"edit-class-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["subj_class_ids"][5] . "\">";
+                                ?>
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
                                         <?php
@@ -1154,7 +1199,8 @@
                                                     }
                                                 }
                                             }
-
+                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $target_score;
+                                            
                                             $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
                                             ?>
                                         </div>
@@ -1187,11 +1233,15 @@
                                                     }
                                                 }
                                             }
+                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $target_score;
+                                            
                                             ?>
                                         </div>
                                     </div>
                                 </div>
-                                <input class="current-test-id" type="text" style="display: none" value="">
+                                <?php
+                                echo "<input class=\"current-test-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["exam_id_1"] . "a" . $_SESSION["exam_id_2"] . "\">";
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -1710,7 +1760,7 @@
                 </div>
                 <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
             </div>
-            <form method="post" action="#">
+            <form method="get" action="#">
                 <div class="edit-box-downer">
                     <div class="edit-box-innerbox str">
                         <div class="score-editing-innerbox">
