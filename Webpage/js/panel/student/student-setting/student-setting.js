@@ -244,7 +244,10 @@ $(document).ready(function () {
         $('.grey-bg').fadeIn();
         var classId = $(this).children('.edit-class-id').val();
         $('.edit-score-id').val(classId);
+        var className = $(this).children('.right-box-title').val();
+        $('current-class-name').val(className);
         var testId = $(this).children('.current-test-id').val();
         $('.edit-test-id').val(testId);
+
     })
 })

@@ -1756,7 +1756,11 @@ $_SESSION["exam_id_2"] = 0;
         <div class="share-box edit-score-box">
             <div class="edit-box-top">
                 <div class="edit-box-title stm">
-                    Edit Chinese A1 Goal Score
+                    Edit
+                    <p class="current-class-name">
+                        Chinese A1
+                    </p>
+                    Goal Score
                 </div>
                 <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
             </div>
