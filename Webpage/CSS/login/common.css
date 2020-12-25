@@ -93,8 +93,9 @@
 }
 
 .box-input-text {
+    display: inline-block;
     border: 1px solid #343A3E;
-    width: 380px;
+    width: 400px;
     font-size: 20px;
     margin-top: 10px;
     border-radius: 5px;

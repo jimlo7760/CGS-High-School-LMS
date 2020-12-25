@@ -1,0 +1,21 @@
+.grey-bg-main{
+    top:75px;
+}
+.subjectT-right-down-row{
+    overflow: hidden;
+    zoom:1;
+}
+.subjectT-right-down-box{
+    float:left;
+    overflow:hidden;
+    zoom:1;
+}
+.subjectT-right-down-box-text{
+    font-size:20px;
+    color: #343A3E;
+    float:left;
+
+}
+.subjectT-right-down-box-img{
+    float:right;
+}
