@@ -1,5 +1,6 @@
 <?php
 require_once "LoginCredentials.php";
+require_once "ExamActions.php";
 /**
  * For administrator to review entries in stud_scores. <br>
  *
@@ -84,5 +85,81 @@ function InsertNewScores($stud_id, $exam_id, $exam_results, $updater_id) {
         return [false, $res];
     } else {
         return [true, $res];
+    }
+}
+
+/**
+ * Calculate the avg score of a subject in an exam.
+ *
+ * @param int $exam_id Exam id.
+ * @param int $subj_id Subject id.
+ * @return array If successfully executed: [True, avg score] <br> If not: [False, empty array]
+ *
+ * @author Yiming Su
+ *
+ * The first function of 2021
+ */
+function CalculateAvgScoreForASubjectInExam($exam_id, $subj_id) {
+    $conn = createconn();
+    $query = "select exam_results from stud_scores where exam_id=?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $stmt_exam_id);
+    $stmt_exam_id = $exam_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $subj_ids = FetchExamById($exam_id)[1][0][3];
+    $subj_ids = explode(",", $subj_ids);
+    $i = 0;
+    while ($i < count($subj_ids)) {
+       if ($subj_ids[$i] == $subj_id) {
+           break;
+       }
+       $i++;
+    }
+    $stud_num = count($res);
+    $tot_sum = 0;
+    foreach ($res as $raw_scores) {
+        $scores = explode(",", $raw_scores[0]);
+        $tot_sum += $scores[$i];
+    }
+    $avg_score = $tot_sum / $stud_num;
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $avg_score];
+    }
+}
+
+/**
+ * Calculate Avg Score of an Exam, the 40 one.
+ *
+ * @param int $exam_id Exam id.
+ * @return array If successfully executed: [True, avg score] <br> If not: [False, empty array]
+ *
+ * @author Yiming Su
+ */
+function CalculateAvgScoreOfExam($exam_id) {
+    $conn = createconn();
+    $query = "select exam_results from stud_scores where exam_id=?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $stmt_exam_id);
+    $stmt_exam_id = $exam_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $tot_sum = 0;
+    $stud_num = count($res);
+    foreach ($res as $raw_scores) {
+        $scores = explode(",", $raw_scores[0]);
+        foreach ($scores as $score) {
+            $tot_sum += $score;
+        }
+    }
+    $avg_score = $tot_sum / $stud_num;
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $avg_score];
     }
 }
