@@ -91,6 +91,14 @@ function FetchAllStudIdAndSubjectClasses() {
     }
 }
 
+/**
+ * Fetch Subject Teacher info by Subject Id.
+ *
+ * @param int $subj_id Subject Id
+ * @return array If successfully executed: [True, subject teacher info as array] <br> If not: [False, empty array]
+ *
+ * @author Yiming Su
+ */
 function FetchSubjTeacherIDBySubjId($subj_id) {
     $conn = createconn();
     $q = "select subj_teacher_id from subject_class where subj_id=?";
