@@ -237,17 +237,27 @@ $_SESSION["exam_id_2"] = 0;
                                 </div>
                             </div>
                             <div class="right-person-info-row-downer profile-row-downer">
+                                <?php
+                                require_once "../../../Controller_and_Model/Model/StudAwardActions.php";
+
+                                $tot_res = FetchStudAllAwardsByStudId($_SESSION["id"]);
+                                $raw_award_info = $tot_res[1];
+                                $award_length = count($tot_res[1]);
+                                foreach ($raw_award_info as $award_info) {
+                                    $award_name = $award_info[2] . ": " . $award_info[3];
+                                    $award_time = $award_info[4];
+                                    echo <<< END
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
-                                        Best Student In Class
+                                        $award_name
                                     </div>
                                     <div class="right-person-info-row-box-right">
                                         <div class="right-person-info-row-box-text">
                                             <div class="right-person-info-row-box-subtitle str">
-                                                Year Recived
+                                                Date Recived
                                             </div>
                                             <div class="right-person-info-row-box-des stm">
-                                                2019
+                                                $award_time
                                             </div>
                                         </div>
                                         <i class="material-icons right-person-info-row-box-img">
@@ -255,24 +265,10 @@ $_SESSION["exam_id_2"] = 0;
                                         </i>
                                     </div>
                                 </div>
-                                <div class="right-person-info-row-box" style="float:right;!important;">
-                                    <div class="right-person-info-row-box-title stm">
-                                        Best Student In Class
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Year Recived
-                                            </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                2019
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                </div>
+END;
+
+                                }
+                                ?>
                             </div>
                         </div>
                         <div class="right-person-info-row">
@@ -290,9 +286,16 @@ $_SESSION["exam_id_2"] = 0;
                                 </div>
                             </div>
                             <div class="right-person-info-row-downer">
+                                <?php
+                                require_once "../../../Controller_and_Model/Model/StudUnivActions.php";
+
+                                $tot_res = FetchStudUniv($_SESSION["id"]);
+                                foreach ($tot_res as $univ_info) {
+                                    $univ_name = $univ_info[3];
+                                    echo <<< END
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
-                                        Harvard Law School
+                                        $univ_name
                                     </div>
                                     <div class="right-person-info-row-box-right">
                                         <i class="material-icons right-person-info-row-box-img">
@@ -300,16 +303,9 @@ $_SESSION["exam_id_2"] = 0;
                                         </i>
                                     </div>
                                 </div>
-                                <div class="right-person-info-row-box" style="float:right;!important;">
-                                    <div class="right-person-info-row-box-title stm">
-                                        Oxford University
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                </div>
+END;
+                                }
+                                ?>
                             </div>
                         </div>
                         <div class="right-person-info-row">
@@ -319,9 +315,17 @@ $_SESSION["exam_id_2"] = 0;
                                 </div>
                             </div>
                             <div class="right-person-info-row-downer">
+                                <?php
+                                require_once "../../../Controller_and_Model/Model/StudViolationActions.php";
+
+                                $tot_res = FetchStudViolations($_SESSION["id"]);
+                                foreach ($tot_res as $violation_info) {
+                                    $violation_name = $violation_info[3];
+                                    $violation_time = $violation_info[5];
+                                    echo <<< END
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
-                                        Dating with a girl
+                                        $violation_name
                                     </div>
                                     <div class="right-person-info-row-box-right">
                                         <div class="right-person-info-row-box-text">
@@ -329,7 +333,7 @@ $_SESSION["exam_id_2"] = 0;
                                                 Date Recived
                                             </div>
                                             <div class="right-person-info-row-box-des stm">
-                                                2019/02/12
+                                                $violation_time
                                             </div>
                                         </div>
                                         <i class="material-icons right-person-info-row-box-img">
@@ -337,24 +341,9 @@ $_SESSION["exam_id_2"] = 0;
                                         </i>
                                     </div>
                                 </div>
-                                <div class="right-person-info-row-box" style="float:right;!important;">
-                                    <div class="right-person-info-row-box-title stm">
-                                        Dating with a girl
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Date Recived
-                                            </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                2019/02/12
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                </div>
+END;
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>

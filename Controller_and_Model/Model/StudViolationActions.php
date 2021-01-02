@@ -92,13 +92,14 @@ function UpdateStudVio($level_severity, $title_of_violation, $content_of_violati
  * @return mixed All violations a student did.
  * @author Binghe Yi
  */
-function SearchStudVio($stud_id)
+function FetchStudViolations($stud_id)
 {
     $conn = createconn();
     $stmt = $conn->prepare('select * from stud_violation where stud_id = ?');
     $stmt->bind_param('i', $searchStudId);
     $searchStudId = $stud_id;
-    $result = $stmt->get_result();
+    $stmt->execute();
+    $result = $stmt->get_result()->fetch_all();
     if ($result > 0) {
         $stmt->close();
         $conn->close();
