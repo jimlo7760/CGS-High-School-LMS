@@ -67,7 +67,7 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
                     $subj_id = $exam_target[2];
                     $stud_ids = explode(",", $exam_target[3]);
                     foreach ($stud_ids as $stud_id) {
-                        if ($stud_id == 1) { //
+                        if ($stud_id == $_SESSION["id"]) { //
                             $subj_class_ids[] = $subj_id;
                             break;
                         }

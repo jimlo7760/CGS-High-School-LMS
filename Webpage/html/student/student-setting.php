@@ -385,10 +385,25 @@ $_SESSION["exam_id_2"] = 0;
                             </div>
                         </div>
                         <div class="right-class-list">
+                            <?php
+                            require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                            require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
+                            require_once "../../../Controller_and_Model/Model/TeacherInfoActions.php";
+                            $i = 0;
+
+                            while ($i < count($_SESSION["subj_class_ids"])) {
+                                $tot_res = FetchSubjById($_SESSION["subj_class_ids"][$i]);
+                                if ($tot_res[0] == 1) {
+                                    $subj_info = $tot_res[1][0];
+                                    $subj_name = $subj_info[1];
+                                    $subj_teacher_id = FetchSubjTeacherIDBySubjId($_SESSION["subj_class_ids"][$i]);
+                                    $subj_teacher_name = FetchTeacherInfoById($subj_teacher_id)[1][0][2];
+                                }
+                                echo <<< EOD
                             <div class="right-box">
                                 <div class="right-box-upper">
                                     <div class="right-box-title stb">
-                                        Chinese A1
+                                        $subj_name
                                     </div>
                                     <i class="material-icons right-box-arrow">
                                         chevron_right
@@ -400,7 +415,7 @@ $_SESSION["exam_id_2"] = 0;
                                             Instructor
                                         </div>
                                         <div class="right-box-detail-name stm">
-                                            Danny Woo
+                                            $subj_teacher_name
                                         </div>
                                     </div>
                                     <div class="right-box-detail">
@@ -413,146 +428,10 @@ $_SESSION["exam_id_2"] = 0;
                                     </div>
                                 </div>
                             </div>
-                            <div class="right-box">
-                                <div class="right-box-upper">
-                                    <div class="right-box-title stb">
-                                        Chinese A1
-                                    </div>
-                                    <i class="material-icons right-box-arrow">
-                                        chevron_right
-                                    </i>
-                                </div>
-                                <div class="right-box-downer">
-                                    <div class="right-box-detail">
-                                        <div class="right-box-detail-title str">
-                                            Instructor
-                                        </div>
-                                        <div class="right-box-detail-name stm">
-                                            Danny Woo
-                                        </div>
-                                    </div>
-                                    <div class="right-box-detail">
-                                        <div class="right-box-detail-title str">
-                                            Classroom
-                                        </div>
-                                        <div class="right-box-detail-name stm">
-                                            ICT 110A
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right-box">
-                                <div class="right-box-upper">
-                                    <div class="right-box-title stb">
-                                        Chinese A1
-                                    </div>
-                                    <i class="material-icons right-box-arrow">
-                                        chevron_right
-                                    </i>
-                                </div>
-                                <div class="right-box-downer">
-                                    <div class="right-box-detail">
-                                        <div class="right-box-detail-title str">
-                                            Instructor
-                                        </div>
-                                        <div class="right-box-detail-name stm">
-                                            Danny Woo
-                                        </div>
-                                    </div>
-                                    <div class="right-box-detail">
-                                        <div class="right-box-detail-title str">
-                                            Classroom
-                                        </div>
-                                        <div class="right-box-detail-name stm">
-                                            ICT 110A
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right-box">
-                                <div class="right-box-upper">
-                                    <div class="right-box-title stb">
-                                        Chinese A1
-                                    </div>
-                                    <i class="material-icons right-box-arrow">
-                                        chevron_right
-                                    </i>
-                                </div>
-                                <div class="right-box-downer">
-                                    <div class="right-box-detail">
-                                        <div class="right-box-detail-title str">
-                                            Instructor
-                                        </div>
-                                        <div class="right-box-detail-name stm">
-                                            Danny Woo
-                                        </div>
-                                    </div>
-                                    <div class="right-box-detail">
-                                        <div class="right-box-detail-title str">
-                                            Classroom
-                                        </div>
-                                        <div class="right-box-detail-name stm">
-                                            ICT 110A
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right-box">
-                                <div class="right-box-upper">
-                                    <div class="right-box-title stb">
-                                        Chinese A1
-                                    </div>
-                                    <i class="material-icons right-box-arrow">
-                                        chevron_right
-                                    </i>
-                                </div>
-                                <div class="right-box-downer">
-                                    <div class="right-box-detail">
-                                        <div class="right-box-detail-title str">
-                                            Instructor
-                                        </div>
-                                        <div class="right-box-detail-name stm">
-                                            Danny Woo
-                                        </div>
-                                    </div>
-                                    <div class="right-box-detail">
-                                        <div class="right-box-detail-title str">
-                                            Classroom
-                                        </div>
-                                        <div class="right-box-detail-name stm">
-                                            ICT 110A
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right-box">
-                                <div class="right-box-upper">
-                                    <div class="right-box-title stb">
-                                        Chinese A1
-                                    </div>
-                                    <i class="material-icons right-box-arrow">
-                                        chevron_right
-                                    </i>
-                                </div>
-                                <div class="right-box-downer">
-                                    <div class="right-box-detail">
-                                        <div class="right-box-detail-title str">
-                                            Instructor
-                                        </div>
-                                        <div class="right-box-detail-name stm">
-                                            Danny Woo
-                                        </div>
-                                    </div>
-                                    <div class="right-box-detail">
-                                        <div class="right-box-detail-title str">
-                                            Classroom
-                                        </div>
-                                        <div class="right-box-detail-name stm">
-                                            ICT 110A
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+EOD;
+                                $i ++;
+                            }
+                            ?>
                         </div>
                     </div>
                     <div class="right-class-downer">

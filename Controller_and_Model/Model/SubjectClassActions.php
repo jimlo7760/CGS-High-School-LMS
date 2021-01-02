@@ -90,3 +90,20 @@ function FetchAllStudIdAndSubjectClasses() {
         return [true, $res];
     }
 }
+
+function FetchSubjTeacherIDBySubjId($subj_id) {
+    $conn = createconn();
+    $q = "select subj_teacher_id from subject_class where subj_id=?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("i", $stmt_id);
+    $stmt_id = $subj_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
