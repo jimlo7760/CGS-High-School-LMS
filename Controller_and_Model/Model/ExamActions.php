@@ -92,3 +92,25 @@ function FetchActiveExams() {
     }
 }
 
+/**
+ * Fetching all exams.
+ *
+ * @return array If successfully executed: [True, exam entries as array] <br> If not: [False, empty array]
+ * @author Yiming Su
+ *
+ */
+function FetchAllExams() {
+    $conn = createconn();
+    $q = "select * from exam";
+    $stmt = $conn->prepare($q);
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
+

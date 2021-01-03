@@ -41,10 +41,38 @@ function UpdateStudExamResultsByExamIdAndStudId($stud_id, $exam_id, $audit_res) 
  */
 function FetchStudAllScoresByStudId($stud_id) {
     $conn = createconn();
-    $query = "select * from stud_scores where id=?";
+    $query = "select * from stud_scores where stud_id=?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $stmt_stud_id);
     $stmt_stud_id = $stud_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
+
+/**
+ * Fetching scores by Student id and Exam id.
+ *
+ * @param int $stud_id Student id.
+ * @param int $exam_id Exam record id.
+ *
+ * @return array If successfully executed: [True, score entries as array] <br> If not: [False, empty array]
+ * @author Yiming Su
+ *
+ */
+function FetchScoresByStudIdAndExamId($stud_id, $exam_id) {
+    $conn = createconn();
+    $q = "select * from stud_scores where stud_id = ? and exam_id = ?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("ii", $stmt_stud_id, $stmt_exam_id);
+    $stmt_stud_id = $stud_id;
+    $stmt_exam_id = $exam_id;
     $stmt->execute();
     $res = $stmt->get_result()->fetch_all();
     $stmt->close();

@@ -219,7 +219,7 @@ session_start();
                             </div>
                         </div>
                     </div>
-                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="text" name="subj_id" value="$subj_info[0]" style="display:none">
                     <input type="submit" style="display:none">
                 </form>
             </div>
