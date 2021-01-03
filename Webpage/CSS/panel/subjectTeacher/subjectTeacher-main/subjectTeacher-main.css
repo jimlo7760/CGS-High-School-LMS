@@ -9,9 +9,18 @@
     float:left;
     overflow:hidden;
     zoom:1;
+    margin:20px 30px 6px 6px;
+    width: 18%;
+    padding: 15px 20px;
+    border:1px #D0D0D0 solid;
+    border-radius: 5px;
+    box-shadow: 0 1px 6px #bbbbbb;
+    background-color: white;
+    cursor: pointer;
+/*   js中需要添加垂直居中*/
 }
 .subjectT-right-down-box-text{
-    font-size:20px;
+    font-size:16px;
     color: #343A3E;
     float:left;
 
@@ -19,3 +28,17 @@
 .subjectT-right-down-box-img{
     float:right;
 }
+
+.left-box-add-content{
+    cursor: pointer;
+}
+.subjectT-courseList{
+
+}
+.subjectT-addCourse-box{
+    display: none;
+}
+.subjectT-studentList{
+    display:none;
+}
+

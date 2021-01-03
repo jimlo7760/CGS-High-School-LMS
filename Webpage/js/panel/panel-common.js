@@ -1,12 +1,10 @@
-
-
 $(document).ready(function () {
     $('.all').animate({
         opacity: '1'
     })
     var body = document.body.clientHeight;
     var pageheight = $(window).height();
-    if(body<pageheight){
+    if (body < pageheight) {
         body = pageheight;
     }
     $('.left-content').height(body);
@@ -40,8 +38,8 @@ $(document).ready(function () {
     })
 
     $('.left-content-navi-item').click(function () {
-        $('.left-content-manu').slideToggle();
-        $('.left-content-navi-img').toggleClass('add_transform');
+        $(this).siblings('.left-content-manu').slideToggle();
+        $(this).find('.left-content-navi-img').toggleClass('add_transform');
     })
     var count = 0;
     $('.right-top-left').click(function () {
@@ -64,9 +62,9 @@ $(document).ready(function () {
         $('.personal-panel').slideToggle();
         $('.right-top-person-arrow').toggleClass('add_transform');
         var nameWidth = $('.personal-panel-des').width();
-        if(nameWidth >= 170){
+        if (nameWidth >= 170) {
             $('.personal-panel').width(240 + nameWidth - 170);
-        }else{
+        } else {
             $('.personal-panel').width(240);
         }
     })
@@ -115,5 +113,29 @@ $(document).ready(function () {
     $('.edit-box-grey').click(function () {
         $('.share-box').fadeOut();
         $('.grey-bg').fadeOut();
+    })
+
+    $('.left-content-manu-nevi').click(function () {
+        var idVal = $(this).attr('name');
+        console.log(idVal);
+        if (idVal != "student" && $("#" + idVal).is(":hidden")) {
+            var className = $("#" + idVal).attr("class");
+            $('.subjectT-courseList').fadeOut('fast');
+            if($('.subjectT-studentList').is(":visible")){
+                $('.subjectT-studentList').fadeOut('fast');
+            }
+            $("#" + idVal).delay('fast').fadeIn('fast');
+
+            $('.left-content-manu-current').addClass('no-select');
+            if ($(this).children('.left-content-manu-current').is(":hidden")) {
+                $(this).children('.left-content-manu-current').removeClass('no-select');
+            }
+        }else if(idVal == "student" && $('.subjectT-studentList').is(":hidden")){
+            $('.subjectT-courseList').fadeOut('fast');
+            $('.subjectT-studentList').delay('fast').fadeIn('fast');
+            $('.left-content-manu-current').addClass('no-select');
+            $('#student-nevi').children('.left-content-manu-current').removeClass('no-select')
+        }
+
     })
 })

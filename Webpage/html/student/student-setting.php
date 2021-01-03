@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <?php
-session_start();
+if (!session_id()){
+    session_start();
+}
+?>
+<?php
 $_SESSION["subj_orig_term_targets"] = array();
 $_SESSION["subj_class_id_idxs"] = array();
 $_SESSION["exam_id_1"] = 0;
@@ -12,7 +16,7 @@ $_SESSION["exam_id_2"] = 0;
     <title>Hi Danny</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../CSS/whole-common.css">
-    <link rel="stylesheet" type="text/css" href="../../CSS/panel/panel-common.css">
+<link rel="stylesheet" type="text/css" href="../../CSS/panel/panel-common.css">
     <link rel="stylesheet" type="text/css" href="../../CSS/panel/student/student-setting/student-setting.css">
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
 
