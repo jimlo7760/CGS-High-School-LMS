@@ -13,4 +13,6 @@ $(document).ready(function () {
     $('.right-box').click(function () {
         $(this).find("form").submit();
     })
+    var gapWidth = ($('.right-navi-item-right').position().left) - (($('.right-navi-item:last').position().left) + $('.right-navi-item:last').width());
+    $('.right-navi-gap-large').width(gapWidth);
 })
