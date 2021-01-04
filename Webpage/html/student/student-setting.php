@@ -979,7 +979,7 @@ END;
                                     <div class="class-adding-text str">
                                         $subj_name
                                     </div>
-                                    <input type="checkbox" class="class-adding-checkbox" name="course-select" value=$subj_class_id style="display: none">
+                                    <input type="checkbox" class="class-adding-checkbox" name="course-select" value=$subj_class_id style="">
                                    
                                 </div>
                             END;
