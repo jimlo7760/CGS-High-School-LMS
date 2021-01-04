@@ -41,3 +41,106 @@
 .student-crew-list{
     display: none;
 }
+.right-nevi{
+    overflow:hidden;
+    zoom:1;
+}
+.right-navi-item {
+    float: left;
+    padding-bottom: 10px;
+    border-bottom:#EAEBEB 2px solid ;
+    cursor: pointer;
+    color: #999C9E;
+}
+.navi-profile{
+    border-bottom: 2px solid #1BA2B9;!important;
+}
+.right-navi-gap{
+    float:left;
+    width: 25px;
+    border-bottom:#EAEBEB 2px solid;
+    padding-bottom:10px;
+}
+.right-navi-gap-last{
+    overflow: hidden;
+    border-bottom:#EAEBEB 2px solid ;
+    padding-bottom: 10px;
+}
+
+.navi-current{
+    border-bottom: 2px solid #1BA2B9;!important;
+    color: #212529;
+}
+.right-navi-gap-large{
+    float:left;
+    border-bottom:#EAEBEB 2px solid;
+    padding-bottom:10px;
+}
+.right-navi-item-right{
+    float:right;
+    padding-bottom: 10px;
+    border-bottom:#EAEBEB 2px solid ;
+    cursor: pointer;
+    color: #999C9E;
+}
+.right-table{
+
+}
+.right-table-title{
+    overflow: hidden;
+    zoom:1;
+    color: white;
+    background-color: #005462;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    padding:10px;
+    cursor: default;
+}
+.right-table-title-file{
+    float:left;
+    width: 35%;
+}
+.right-table-title-grade{
+    float:left;
+    width: 19%;
+}
+.right-table-title-type{
+    float:left;
+    width:20%;
+}
+.right-table-title-date{
+    float:left;
+}
+.right-table-content{
+    border: 1px solid #D0D0D0;
+    padding:0 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.right-table-content-row{
+    overflow:hidden;
+    zoom:1;
+    padding:15px 0;
+    border-top:1px solid #B7B7B7;
+}
+.right-table-content-title{
+    float:left;
+    width:35%;
+    text-decoration: underline;
+    color: #1BA2B9;
+    cursor: pointer;
+}
+.right-table-content-grade{
+    float:left;
+    width:19%;
+    cursor: default;
+}
+.right-table-content-type{
+    float:left;
+    width:20%;
+    cursor: default;
+}
+.right-table-content-date{
+    float:left;
+    cursor: default;
+}

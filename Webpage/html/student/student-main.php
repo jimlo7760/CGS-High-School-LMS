@@ -210,14 +210,6 @@ session_start();
                                 $subj_teacher_name
                             </div>
                         </div>
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                Instructor
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                $subj_teacher_name
-                            </div>
-                        </div>
                     </div>
                     <input type="text" name="subj_id" value="$subj_info[0]" style="display:none">
                     <input type="submit" style="display:none">
