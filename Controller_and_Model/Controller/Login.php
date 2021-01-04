@@ -77,18 +77,7 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
                 $_SESSION["subj_class_ids"] = $subj_class_ids;
             }
 
-            $swap_app_ids = array();
-            $tot_res = FetchSwapSubjAppByStudId($_SESSION["id"]);
-            if ($tot_res[0]) {
-                $tot_res = $tot_res[1];
-            }
 
-            foreach ($tot_res as $swap_app_info) {
-                $swap_app_ids[] = $swap_app_info[0];
-            }
-            print_r($swap_app_ids);
-
-            $_SESSION["swap_app_ids"] = $swap_app_ids;
 
 
 

@@ -3,6 +3,18 @@
 if (!session_id()){
     session_start();
 }
+require_once "../../../Controller_and_Model/Model/SwapSubjAppActions.php";
+$swap_app_ids = array();
+$tot_res = FetchSwapSubjAppByStudId($_SESSION["id"]);
+if ($tot_res[0]) {
+    $tot_res = $tot_res[1];
+}
+
+foreach ($tot_res as $swap_app_info) {
+    $swap_app_ids[] = $swap_app_info[0];
+}
+
+$_SESSION["swap_app_ids"] = $swap_app_ids;
 ?>
 <?php
 $_SESSION["subj_orig_term_targets"] = array();
@@ -435,7 +447,7 @@ EOD;
                         <?php
                             require_once "../../../Controller_and_Model/Model/SwapSubjAppActions.php";
                             require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
-
+                            $i = 0;
                             foreach ($_SESSION["swap_app_ids"] as $swap_app_id) {
                                 $swap_app_info = FetchSwapSubjAppById($swap_app_id)[1][0];
                                 $status = $swap_app_info[9];
@@ -535,7 +547,7 @@ END;
 
                                 } else if ($status == "2") {
                                     echo <<< END
-                                    <div class="right-class-process-row unaprove-row">
+                            <div class="right-class-process-row unaprove-row">
                                 <div class="right-class-process-left">
                                     <div class="right-class-process-box">
                                         <div class="right-class-process-box-title str">
@@ -562,14 +574,17 @@ END;
                                         <div class="right-class-process-box-content stm" style="color: #DD3444">
                                             Not Approved
                                         </div>
-                                    </div>
+                                            <div style="display: none" id="unapproved_$i">
+                                                $action_required
+                                            </div>
+                                        </div>
                                     <i class="material-icons right-class-process-right-box-img" style="color: #343A3E;">
                                         chevron_right
                                     </i>
                                 </div>
                             </div>
 END;
-
+                                    $i ++;
                                 }
                             }
                             $_SESSION["swap_app_info"] = FetchSwapSubjAppByStudId($_SESSION["id"]);
@@ -1636,9 +1651,8 @@ END;
                         <div class="pending-box-title str">
                             Added Courses
                         </div>
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
+                        <input type="text" value="" class="pending-box-input stb" disabled="disabled">
+                        <input type="text" value="" class="pending-box-input stb" disabled="disabled">
 
                     </div>
                 </div>
