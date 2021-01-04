@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,7 +101,11 @@ session_start();
                 </div>
                 <div class="right-info-left stb">
                     <div class="right-title">
-                        Chinese A1
+                        <?php
+                        require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                        $required_subj_id = get_get("subj_id");
+                        echo FetchSubjById($required_subj_id)[1][0][1];
+                        ?>
                     </div>
                     <div class="right-subtitle">
                         Exam & Tests
@@ -164,104 +169,92 @@ session_start();
                     </div>
                 </div>
                 <div class="right-table-content stb">
+                    <?php
+                    require_once "../../../Controller_and_Model/Model/ExamActions.php";
+                    require_once "../../../Controller_and_Model/Model/StudScoreActions.php";
+
+                    $raw_all_exam = FetchAllExams();
+                    $raw_all_exam = $raw_all_exam[1];
+                    $required_exam_id = array();
+                    $required_exam_name = array();
+                    $required_exam_type = array();
+                    $required_exam_date = array();
+                    $i = 0;
+                    while ($i < count($raw_all_exam)) {
+                        $exam_id = $raw_all_exam[$i][0];
+                        $raw_subj_ids = $raw_all_exam[$i][3];
+                        $subj_ids = explode(",", $raw_subj_ids);
+                        $j = 0;
+                        while ($j < count($subj_ids)) {
+                            if ($subj_ids[$j] == $required_subj_id) {
+                                $required_exam_id[] = $exam_id;
+                            }
+                            $j ++;
+                        }
+                        $i ++;
+                        $_SESSION["required_exam_ids"] = $required_exam_id;
+                    }
+                    $stud_all_score = FetchStudAllScoresByStudId($_SESSION["id"]);
+                    $stud_all_score = $stud_all_score[1];
+                    $required_score = array();
+                    $i = 0;
+                    while ($i < count($required_exam_id)) {
+                        $exam_result_info = FetchScoresByStudIdAndExamId($_SESSION["id"], $required_exam_id[$i]);
+                        if ($exam_result_info[0]) {
+                            $exam_result_info = $exam_result_info[1][0];
+                            $subj_id_to_find = $required_subj_id;
+                            $tot_res = FetchExamById($required_exam_id[$i]);
+                            if ($tot_res[0] == 1) {
+                                $tot_res = $tot_res[1][0];
+                            }
+                            $required_exam_name[] = $tot_res[1];
+
+                            $required_exam_date[] = $tot_res[7];;
+                            if ($tot_res[6] == "0") {
+                                $required_exam_type[] = "Midterm Exam";
+                            } else if ($tot_res[6] == "1") {
+                                $required_exam_type[] = "Final Exam";
+                            }
+
+                            $subj_ids = explode(",", $tot_res[3]);
+                            $subj_idx = 0;
+                            foreach ($subj_ids as $subj_id) {
+                                if ($subj_id == $subj_id_to_find) {
+                                    break;
+                                }
+                                $subj_idx ++;
+                            }
+
+                            $raw_scores = $exam_result_info[3];
+                            $scores = explode(",", $raw_scores);
+                            $required_score[] = $scores[$subj_idx];
+
+                        }
+                        $i ++;
+                    }
+//                    print_r($required_exam_type);
+                    $i = 0;
+                    while ($i < count($required_score)) {
+                        echo <<< END
                     <div class="right-table-content-row">
                         <div class="right-table-content-title">
-                            Vendor support ending for Collaborate CV
+                            $required_exam_name[$i]
                         </div>
                         <div class="right-table-content-grade">
-                            80 / 100
+                            $required_score[$i] / 8
                         </div>
                         <div class="right-table-content-type">
-                            Exam
+                            $required_exam_type[$i]
                         </div>
                         <div class="right-table-content-date">
-                            Apr 29, 2020 11:00 AM
+                            $required_exam_date[$i]
                         </div>
                     </div>
-                    <div class="right-table-content-row">
-                        <div class="right-table-content-title">
-                            Vendor support ending for Collaborate CV
-                        </div>
-                        <div class="right-table-content-grade">
-                            80 / 100
-                        </div>
-                        <div class="right-table-content-type">
-                            Exam
-                        </div>
-                        <div class="right-table-content-date">
-                            Apr 29, 2020 11:00 AM
-                        </div>
-                    </div>
-                    <div class="right-table-content-row">
-                        <div class="right-table-content-title">
-                            Vendor support ending for Collaborate CV
-                        </div>
-                        <div class="right-table-content-grade">
-                            80 / 100
-                        </div>
-                        <div class="right-table-content-type">
-                            Exam
-                        </div>
-                        <div class="right-table-content-date">
-                            Apr 29, 2020 11:00 AM
-                        </div>
-                    </div>
-                    <div class="right-table-content-row">
-                        <div class="right-table-content-title">
-                            Vendor support ending for Collaborate CV
-                        </div>
-                        <div class="right-table-content-grade">
-                            80 / 100
-                        </div>
-                        <div class="right-table-content-type">
-                            Exam
-                        </div>
-                        <div class="right-table-content-date">
-                            Apr 29, 2020 11:00 AM
-                        </div>
-                    </div>
-                    <div class="right-table-content-row">
-                        <div class="right-table-content-title">
-                            Vendor support ending for Collaborate CV
-                        </div>
-                        <div class="right-table-content-grade">
-                            80 / 100
-                        </div>
-                        <div class="right-table-content-type">
-                            Exam
-                        </div>
-                        <div class="right-table-content-date">
-                            Apr 29, 2020 11:00 AM
-                        </div>
-                    </div>
-                    <div class="right-table-content-row">
-                        <div class="right-table-content-title">
-                            Vendor support ending for Collaborate CV
-                        </div>
-                        <div class="right-table-content-grade">
-                            80 / 100
-                        </div>
-                        <div class="right-table-content-type">
-                            Exam
-                        </div>
-                        <div class="right-table-content-date">
-                            Apr 29, 2020 11:00 AM
-                        </div>
-                    </div>
-                    <div class="right-table-content-row">
-                        <div class="right-table-content-title">
-                            Vendor support ending for Collaborate CV
-                        </div>
-                        <div class="right-table-content-grade">
-                            80 / 100
-                        </div>
-                        <div class="right-table-content-type">
-                            Exam
-                        </div>
-                        <div class="right-table-content-date">
-                            Apr 29, 2020 11:00 AM
-                        </div>
-                    </div>
+END;
+
+                        $i ++;
+                    }
+                    ?>
 
                 </div>
             </div>

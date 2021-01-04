@@ -3,6 +3,18 @@
 if (!session_id()){
     session_start();
 }
+require_once "../../../Controller_and_Model/Model/SwapSubjAppActions.php";
+$swap_app_ids = array();
+$tot_res = FetchSwapSubjAppByStudId($_SESSION["id"]);
+if ($tot_res[0]) {
+    $tot_res = $tot_res[1];
+}
+
+foreach ($tot_res as $swap_app_info) {
+    $swap_app_ids[] = $swap_app_info[0];
+}
+
+$_SESSION["swap_app_ids"] = $swap_app_ids;
 ?>
 <?php
 $_SESSION["subj_orig_term_targets"] = array();
@@ -432,6 +444,35 @@ EOD;
                             Submitted Class Exchange Ticket
                         </div>
                         <div class="right-class-process-list">
+                        <?php
+                            require_once "../../../Controller_and_Model/Model/SwapSubjAppActions.php";
+                            require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
+                            $i = 0;
+                            foreach ($_SESSION["swap_app_ids"] as $swap_app_id) {
+                                $swap_app_info = FetchSwapSubjAppById($swap_app_id)[1][0];
+                                $status = $swap_app_info[9];
+                                $orig_subj_class_id = $swap_app_info[2];
+                                $target_subj_class_id = $swap_app_info[3];
+                                $action_required = $swap_app_info[5];
+                                $_SESSION["action_required"] = $action_required;
+                                $create_time = $swap_app_info[6];
+
+                                $orig_class_info = FetchSubjClassBySubjClassId($orig_subj_class_id);
+                                if ($orig_class_info[0]) {
+                                    $orig_class_info = $orig_class_info[1][0];
+                                }
+                                $orig_subj_id = $orig_class_info[2];
+                                $orig_class_name = FetchSubjById($orig_subj_id)[1][0][1];
+
+                                $target_class_info = FetchSubjClassBySubjClassId($target_subj_class_id);
+                                if ($target_class_info[0]) {
+                                    $target_class_info = $target_class_info[1][0];
+                                }
+                                $target_subj_id = $target_class_info[2];
+                                $target_class_name = FetchSubjById($target_subj_id)[1][0][1];
+
+                                if ($status == "0") {
+                                    echo <<< END
                             <div class="right-class-process-row pending-row">
                                 <div class="right-class-process-left">
                                     <div class="right-class-process-box">
@@ -439,7 +480,13 @@ EOD;
                                             Added Classes
                                         </div>
                                         <div class="right-class-process-box-content stm">
-                                            English A2, IT A3, French B1
+                                            $orig_class_name, $target_class_name
+                                        </div>
+                                        <div style="display: none">
+                                                $orig_class_name
+                                        </div>
+                                        <div style="display: none">
+                                                $target_class_name
                                         </div>
                                     </div>
                                     <div class="right-class-process-box">
@@ -447,7 +494,7 @@ EOD;
                                             Submit Date
                                         </div>
                                         <div class="right-class-process-box-content stm">
-                                            11:32AM 2020/4/12
+                                            $create_time
                                         </div>
                                     </div>
                                 </div>
@@ -465,6 +512,10 @@ EOD;
                                     </i>
                                 </div>
                             </div>
+END;
+
+                                } else if ($status == "1") {
+                                    echo <<< END
                             <div class="right-class-process-row aprove-row">
                                 <div class="right-class-process-left">
                                     <div class="right-class-process-box">
@@ -472,7 +523,13 @@ EOD;
                                             Added Classes
                                         </div>
                                         <div class="right-class-process-box-content stm">
-                                            English A2, IT A3, French B1
+                                            $orig_class_name, $target_class_name
+                                        </div>
+                                        <div style="display: none">
+                                                $orig_class_name
+                                        </div>
+                                        <div style="display: none">
+                                                $target_class_name
                                         </div>
                                     </div>
                                     <div class="right-class-process-box">
@@ -480,7 +537,7 @@ EOD;
                                             Submit Date
                                         </div>
                                         <div class="right-class-process-box-content stm">
-                                            11:32AM 2020/4/12
+                                            $create_time
                                         </div>
                                     </div>
                                 </div>
@@ -498,6 +555,10 @@ EOD;
                                     </i>
                                 </div>
                             </div>
+END;
+
+                                } else if ($status == "2") {
+                                    echo <<< END
                             <div class="right-class-process-row unaprove-row">
                                 <div class="right-class-process-left">
                                     <div class="right-class-process-box">
@@ -505,7 +566,13 @@ EOD;
                                             Added Classes
                                         </div>
                                         <div class="right-class-process-box-content stm">
-                                            English A2, IT A3, French B1
+                                            $orig_class_name, $target_class_name
+                                        </div>
+                                        <div style="display: none">
+                                                $orig_class_name
+                                        </div>
+                                        <div style="display: none">
+                                                $target_class_name
                                         </div>
                                     </div>
                                     <div class="right-class-process-box">
@@ -513,7 +580,7 @@ EOD;
                                             Submit Date
                                         </div>
                                         <div class="right-class-process-box-content stm">
-                                            11:32AM 2020/4/12
+                                            $create_time
                                         </div>
                                     </div>
                                 </div>
@@ -525,12 +592,21 @@ EOD;
                                         <div class="right-class-process-box-content stm" style="color: #DD3444">
                                             Not Approved
                                         </div>
-                                    </div>
+                                            <div style="display: none" id="unapproved_$i">
+                                                $action_required
+                                            </div>
+                                        </div>
                                     <i class="material-icons right-class-process-right-box-img" style="color: #343A3E;">
                                         chevron_right
                                     </i>
                                 </div>
                             </div>
+END;
+                                    $i ++;
+                                }
+                            }
+                            $_SESSION["swap_app_info"] = FetchSwapSubjAppByStudId($_SESSION["id"]);
+                        ?>
                         </div>
                     </div>
                 </div>
@@ -1524,9 +1600,8 @@ EOD;
                         <div class="pending-box-title str">
                             Added Courses
                         </div>
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
+                        <input type="text" class="pending-box-input stb" value="" disabled="disabled">
+                        <input type="text" class="pending-box-input stb" value="" disabled="disabled">
 
                     </div>
                 </div>
@@ -1559,9 +1634,9 @@ EOD;
                         <div class="pending-box-title str">
                             Added Courses
                         </div>
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
+                        <input type="text" class="pending-box-input stb" value="" disabled="disabled">
+                        <input type="text" class="pending-box-input stb" value="" disabled="disabled">
+
 
                     </div>
                 </div>
@@ -1594,9 +1669,8 @@ EOD;
                         <div class="pending-box-title str">
                             Added Courses
                         </div>
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
+                        <input type="text" value="" class="pending-box-input stb" disabled="disabled">
+                        <input type="text" value="" class="pending-box-input stb" disabled="disabled">
 
                     </div>
                 </div>

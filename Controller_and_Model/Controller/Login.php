@@ -3,6 +3,7 @@ require_once "../Model/LoginCredentials.php";
 require_once "../Model/UserActions.php";
 require_once "../Model/HomeRoomClassActions.php";
 require_once "../Model/SubjectClassActions.php";
+require_once "../Model/SwapSubjAppActions.php";
 
 session_start();
 if (!isset($_SESSION['school_num'])) {
@@ -75,6 +76,9 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
                 }
                 $_SESSION["subj_class_ids"] = $subj_class_ids;
             }
+
+
+
 
 
         } else if ($tot_res[1] == 1) {
