@@ -66,9 +66,9 @@ function UpdateSwapApplicationById($app_id, $updater_id, $audit_res) {
 }
 
 /**
- * Retrieving one application's information by id.
+ * Retrieving one application's information by application id.
  *
- * @param int $app_id
+ * @param int $app_id Application id
  * @return array If successfully executed: [True, application info as array] <br> If not: [False, empty array]
  * @author Yiming Su
  */
@@ -78,6 +78,30 @@ function FetchSwapSubjAppById($app_id) {
     $stmt = $conn->prepare($q);
     $stmt->bind_param("i", $stmt_id);
     $stmt_id = $app_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
+
+/**
+ * Retrieving one application's information by student id.
+ *
+ * @param int $stud_id Student id.
+ * @return array If successfully executed: [True, application info as array] <br> If not: [False, empty array]
+ * @author Yiming Su
+ */
+function FetchSwapSubjAppByStudId($stud_id) {
+    $conn = createconn();
+    $q = "select * from swap_subj_application where stud_id=?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("i", $stmt_stud_id);
+    $stmt_stud_id = $stud_id;
     $stmt->execute();
     $res = $stmt->get_result()->fetch_all();
     $stmt->close();
