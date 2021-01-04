@@ -950,81 +950,43 @@ END;
                 </div>
                 <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
             </div>
-            <form method="post">
+            <form method="get" action="../../../Controller_and_Model/Controller/SubmitClassExchangeApplication.php">
                 <div class="edit-box-downer">
                     <div class="class-adding-subtitle str">
                         Select Courses
                     </div>
-                    <div class="class-adding-row">
-                        <i class="material-icons class-adding-img">
-                            check_box_outline_blank
-                        </i>
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
-                    </div>
-                    <div class="class-adding-row">
-                        <i class="material-icons class-adding-img">
-                            check_box_outline_blank
-                        </i>
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
-                    </div>
-                    <div class="class-adding-row">
-                        <i class="material-icons class-adding-img">
-                            check_box_outline_blank
-                        </i>
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
-                    </div>
-                    <div class="class-adding-row">
-                        <i class="material-icons class-adding-img">
-                            check_box_outline_blank
-                        </i>
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
-                    </div>
-                    <div class="class-adding-row">
-                        <i class="material-icons class-adding-img">
-                            check_box_outline_blank
-                        </i>
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
-                    </div>
-                    <div class="class-adding-row">
-                        <i class="material-icons class-adding-img">
-                            check_box_outline_blank
-                        </i>
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
-                    </div>
-                    <div class="class-adding-row">
-                        <i class="material-icons class-adding-img">
-                            check_box_outline_blank
-                        </i>
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
-                    </div>
+                    <?php
+                    require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
+                    require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+
+                    $tot_res = FetchAllStudIdAndSubjectClasses();
+                    if ($tot_res[0]) {
+                        $tot_res = $tot_res[1];
+                    }
+                    foreach ($tot_res as $subj_class_info) {
+                        $subj_class_id = $subj_class_info[0];
+                        $subj_id = $subj_class_info[2];
+                        $subj_info = FetchSubjById($subj_id);
+                        if ($subj_info[0]) {
+                            $subj_info = $subj_info[1][0];
+                            $subj_id = $subj_info[0];
+                            $subj_name = $subj_info[1];
+                            echo <<< END
+                                <div class="class-adding-row">
+                                    <i class="material-icons class-adding-img">
+                                        check_box_outline_blank
+                                    </i>
+                                    <div class="class-adding-text str">
+                                        $subj_name
+                                    </div>
+                                    <input type="checkbox" class="class-adding-checkbox" name="course-select" value=$subj_class_id style="display: none">
+                                   
+                                </div>
+                            END;
+
+                        }
+                    }
+                    ?>
                     <input type="submit" value="Submit" class="edit-box-green stb">
                 </div>
             </form>
