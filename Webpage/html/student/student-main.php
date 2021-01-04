@@ -195,22 +195,6 @@ session_start();
                                 Danny Woo
                             </div>
                         </div>
-                    </div>
-                    <input type="text" name="box-class-id" value="" style="display:none">
-                    <input type="submit" style="display:none">
-                </form>
-            </div>
-            <div class="right-box">
-                <form action="student-class.php" method="get" class="box-class-id">
-                    <div class="right-box-upper">
-                        <div class="right-box-title stb">
-                            Chinese A1
-                        </div>
-                        <i class="material-icons right-box-arrow">
-                            chevron_right
-                        </i>
-                    </div>
-                    <div class="right-box-downer">
                         <div class="right-box-detail">
                             <div class="right-box-detail-title str">
                                 Instructor
@@ -243,48 +227,6 @@ session_start();
                                 Danny Woo
                             </div>
                         </div>
-
-                    </div>
-                    <input type="text" name="box-class-id" value="" style="display:none">
-                    <input type="submit" style="display:none">
-                </form>
-            </div>
-            <div class="right-box">
-                <form action="student-class.php" method="get" class="box-class-id">
-                    <div class="right-box-upper">
-                        <div class="right-box-title stb">
-                            Chinese A1
-                        </div>
-                        <i class="material-icons right-box-arrow">
-                            chevron_right
-                        </i>
-                    </div>
-                    <div class="right-box-downer">
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                Instructor
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                Danny Woo
-                            </div>
-                        </div>
-
-                    </div>
-                    <input type="text" name="box-class-id" value="" style="display:none">
-                    <input type="submit" style="display:none">
-                </form>
-            </div>
-            <div class="right-box">
-                <form action="student-class.php" method="get" class="box-class-id">
-                    <div class="right-box-upper">
-                        <div class="right-box-title stb">
-                            Chinese A1
-                        </div>
-                        <i class="material-icons right-box-arrow">
-                            chevron_right
-                        </i>
-                    </div>
-                    <div class="right-box-downer">
                         <div class="right-box-detail">
                             <div class="right-box-detail-title str">
                                 Instructor
@@ -317,22 +259,6 @@ session_start();
                                 Danny Woo
                             </div>
                         </div>
-                    </div>
-                    <input type="text" name="box-class-id" value="" style="display:none">
-                    <input type="submit" style="display:none">
-                </form>
-            </div>
-            <div class="right-box">
-                <form action="student-class.php" method="get" class="box-class-id">
-                    <div class="right-box-upper">
-                        <div class="right-box-title stb">
-                            Chinese A1
-                        </div>
-                        <i class="material-icons right-box-arrow">
-                            chevron_right
-                        </i>
-                    </div>
-                    <div class="right-box-downer">
                         <div class="right-box-detail">
                             <div class="right-box-detail-title str">
                                 Instructor
@@ -357,6 +283,142 @@ session_start();
                         </i>
                     </div>
                     <div class="right-box-downer">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Instructor
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                Danny Woo
+                            </div>
+                        </div>
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Instructor
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                Danny Woo
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="submit" style="display:none">
+                </form>
+            </div>
+            <div class="right-box">
+                <form action="student-class.php" method="get" class="box-class-id">
+                    <div class="right-box-upper">
+                        <div class="right-box-title stb">
+                            Chinese A1
+                        </div>
+                        <i class="material-icons right-box-arrow">
+                            chevron_right
+                        </i>
+                    </div>
+                    <div class="right-box-downer">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Instructor
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                Danny Woo
+                            </div>
+                        </div>
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Instructor
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                Danny Woo
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="submit" style="display:none">
+                </form>
+            </div>
+            <div class="right-box">
+                <form action="student-class.php" method="get" class="box-class-id">
+                    <div class="right-box-upper">
+                        <div class="right-box-title stb">
+                            Chinese A1
+                        </div>
+                        <i class="material-icons right-box-arrow">
+                            chevron_right
+                        </i>
+                    </div>
+                    <div class="right-box-downer">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Instructor
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                Danny Woo
+                            </div>
+                        </div>
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Instructor
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                Danny Woo
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="submit" style="display:none">
+                </form>
+            </div>
+            <div class="right-box">
+                <form action="student-class.php" method="get" class="box-class-id">
+                    <div class="right-box-upper">
+                        <div class="right-box-title stb">
+                            Chinese A1
+                        </div>
+                        <i class="material-icons right-box-arrow">
+                            chevron_right
+                        </i>
+                    </div>
+                    <div class="right-box-downer">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Instructor
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                Danny Woo
+                            </div>
+                        </div>
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Instructor
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                Danny Woo
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" name="box-class-id" value="" style="display:none">
+                    <input type="submit" style="display:none">
+                </form>
+            </div>
+            <div class="right-box">
+                <form action="student-class.php" method="get" class="box-class-id">
+                    <div class="right-box-upper">
+                        <div class="right-box-title stb">
+                            Chinese A1
+                        </div>
+                        <i class="material-icons right-box-arrow">
+                            chevron_right
+                        </i>
+                    </div>
+                    <div class="right-box-downer">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Instructor
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                Danny Woo
+                            </div>
+                        </div>
                         <div class="right-box-detail">
                             <div class="right-box-detail-title str">
                                 Instructor
