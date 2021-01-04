@@ -482,6 +482,12 @@ EOD;
                                         <div class="right-class-process-box-content stm">
                                             $orig_class_name, $target_class_name
                                         </div>
+                                        <div style="display: none">
+                                                $orig_class_name
+                                        </div>
+                                        <div style="display: none">
+                                                $target_class_name
+                                        </div>
                                     </div>
                                     <div class="right-class-process-box">
                                         <div class="right-class-process-box-title str">
@@ -519,6 +525,12 @@ END;
                                         <div class="right-class-process-box-content stm">
                                             $orig_class_name, $target_class_name
                                         </div>
+                                        <div style="display: none">
+                                                $orig_class_name
+                                        </div>
+                                        <div style="display: none">
+                                                $target_class_name
+                                        </div>
                                     </div>
                                     <div class="right-class-process-box">
                                         <div class="right-class-process-box-title str">
@@ -555,6 +567,12 @@ END;
                                         </div>
                                         <div class="right-class-process-box-content stm">
                                             $orig_class_name, $target_class_name
+                                        </div>
+                                        <div style="display: none">
+                                                $orig_class_name
+                                        </div>
+                                        <div style="display: none">
+                                                $target_class_name
                                         </div>
                                     </div>
                                     <div class="right-class-process-box">
@@ -1616,9 +1634,9 @@ END;
                         <div class="pending-box-title str">
                             Added Courses
                         </div>
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
-                        <input type="text" class="pending-box-input stb" disabled="disabled">
+                        <input type="text" class="pending-box-input stb" value="" disabled="disabled">
+                        <input type="text" class="pending-box-input stb" value="" disabled="disabled">
+
 
                     </div>
                 </div>

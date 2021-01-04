@@ -184,6 +184,8 @@ $(document).ready(function () {
     $('.pending-row').click(function () {
         var body = document.body.clientHeight;
         var bg = body;
+        $('.pending-box')[0].children[0].children[0].children[1].children[1].value = this.children[0].children[0].children[2].innerHTML
+        $('.pending-box')[0].children[0].children[0].children[1].children[2].value = this.children[0].children[0].children[3].innerHTML
         $('.grey-bg').css({
             "height": bg,
             "top": 0
@@ -194,6 +196,9 @@ $(document).ready(function () {
     $('.aprove-row').click(function () {
         var body = document.body.clientHeight;
         var bg = body;
+        $('.aprove-box')[0].children[0].children[0].children[1].children[1].value = this.children[0].children[0].children[2].innerHTML
+        $('.aprove-box')[0].children[0].children[0].children[1].children[2].value = this.children[0].children[0].children[3].innerHTML
+
         $('.grey-bg').css({
             "height": bg,
             "top": 0
@@ -204,6 +209,11 @@ $(document).ready(function () {
     $('.unaprove-row').click(function () {
         var body = document.body.clientHeight;
         var bg = body;
+        var action_required = this.children[1].children[0].children[2].innerHTML;
+        // console.log($('.unaprove-box')[0].children[0].children[0].children[1].children[1].innerHTML);
+        $('.unaprove-box')[0].children[0].children[0].children[1].children[1].value = this.children[0].children[0].children[2].innerHTML;
+        $('.unaprove-box')[0].children[0].children[0].children[1].children[2].value = this.children[0].children[0].children[3].innerHTML;
+        $('.unaprove-box')[0].children[0].children[1].children[1].children[1].innerHTML = action_required;
         $('.grey-bg').css({
             "height": bg,
             "top": 0
