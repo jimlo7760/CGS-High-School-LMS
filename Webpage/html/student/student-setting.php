@@ -720,10 +720,6 @@ END;
                                     </div>
                                 END;
                             }
-//                            print_r($_SESSION["subj_class_id_idxs"]);
-//                            print_r($_SESSION["subj_orig_term_targets"]);
-//                            echo "<input class=\"current-test-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["exam_id_1"] . "a" . $_SESSION["exam_id_2"] . "\">";
-
                             ?>
                         </div>
                     </div>
