@@ -104,7 +104,26 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
                         <?php
                         require_once "../../../Controller_and_Model/Model/SubjectActions.php";
                         $required_subj_id = get_get("subj_id");
-                        echo FetchSubjById($required_subj_id)[1][0][1];
+                        $subj_class_ids = $_SESSION["subj_class_ids"];
+                        $i = 0;
+                        $notInClass = True;
+                        while ($i < count($subj_class_ids)) {
+                            if ($required_subj_id == $subj_class_ids[$i]) {
+                                $notInClass = False;
+                                $tot_res = FetchSubjById($required_subj_id);
+                                if ($tot_res[0]) {
+                                    $tot_res = $tot_res[1][0][1];
+                                    echo $tot_res;
+                                } else {
+                                    echo "unexpected error happened";
+                                }
+                            }
+                            $i ++;
+                        }
+
+                        if ($notInClass == True) {
+                            echo "You are not in this class";
+                        }
                         ?>
                     </div>
                     <div class="right-subtitle">

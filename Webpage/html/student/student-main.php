@@ -212,7 +212,7 @@ session_start();
                         </div>
                     </div>
                     <input type="text" name="subj_id" value="$subj_info[0]" style="display:none">
-                    <input type="submit" style="display:none">
+                    
                 </form>
             </div>
 END;
@@ -256,39 +256,6 @@ END;
 
         </div>
         <div class="result-box">
-            <ul class="result-box-row">
-                <li class="result-box-sort" value="class">
-                    Class
-                </li>
-                <li class="result-box-name">
-                    Chinese A1
-                </li>
-                <li class="result-box-year">
-                    2019 - 2020
-                </li>
-            </ul>
-            <ul class="result-box-row">
-                <li class="result-box-sort">
-                    Class
-                </li>
-                <li class="result-box-name">
-                    English
-                </li>
-                <li class="result-box-year">
-                    2019 - 2020
-                </li>
-            </ul>
-            <ul class="result-box-row">
-                <li class="result-box-sort">
-                    Teacher
-                </li>
-                <li class="result-box-name">
-                    Danny
-                </li>
-                <li class="result-box-year">
-
-                </li>
-            </ul>
             <div class="result-box-empty">
                 No result found containing 'Spainish'
             </div>

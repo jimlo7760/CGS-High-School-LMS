@@ -15,9 +15,9 @@ $(document).ready(function () {
         $(".result-box-name").each(function (item) {
             count = 0;
             var contentValue = $(".result-box-name")[item].innerText;
-            console.log(contentValue)
+            // console.log(contentValue)
             if (contentValue.toLowerCase().indexOf(input.toLowerCase()) < 0) {
-                console.log($(this).parent());
+                // console.log($(this).parent());
                 $(this).parent().hide(1);
             } else {
                 $(this).parent().show();
