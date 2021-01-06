@@ -256,9 +256,6 @@ END;
 
         </div>
         <div class="result-box">
-            <div class="result-box-empty">
-                No result found containing 'Spainish'
-            </div>
         </div>
     </div>
 </div>

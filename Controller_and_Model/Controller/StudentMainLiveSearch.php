@@ -2,6 +2,7 @@
 require_once "../Model/LoginCredentials.php";
 session_start();
 $conn = createconn();
+$term = $_REQUEST["term"];
 if (isset($_REQUEST["term"])) {
     $query = "select * from subject where subj_name like ?";
     $stmt = $conn->prepare($query);
@@ -33,7 +34,7 @@ if (isset($_REQUEST["term"])) {
 END;
         }
     } else {
-        echo "<p> No matches found </p>";
+        echo "<div class=\"result-box-empty\">No result found containing $term</div>";
     }
     $stmt->close();
 }
