@@ -806,7 +806,7 @@ END;
                 </form>
             </div>
             <div class="edit-box-downer">
-                <form method="post">
+                <form method="post" action="../../../Controller_and_Model/Controller/ModifyPassword.php">
 
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
@@ -819,7 +819,13 @@ END;
                         <div class="edit-box-innerbox-title">
                             Your New Password
                         </div>
-                        <input type="password" class="edit-box-innerbox-input" name="new-password"
+                        <input type="password" class="edit-box-innerbox-input" name="new-password1"
+                               placeholder="Enter password here">
+
+                        <div class="edit-box-innerbox-title">
+                            Your New Password
+                        </div>
+                        <input type="password" class="edit-box-innerbox-input" name="new-password2"
                                placeholder="Enter password here">
                     </div>
                     <input class="edit-box-red stb" type="submit" value="Reset Password">

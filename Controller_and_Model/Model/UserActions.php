@@ -173,6 +173,36 @@ function UpdateEmailAndAvatar($stud_id, $email, $avatar_file_name, $updator_id) 
     }
 }
 
+/**
+ * Update Student account password by Student id.
+ *
+ * @param int $stud_id Student id.
+ * @param String $new_pw New password.
+ * @param int $updater_id updater's id
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
+ *
+ * @author Yiming Su
+ */
+function UpdateStudPasswordByStudId($stud_id, $new_pw, $updater_id) {
+    $conn = createconn();
+    $query = "update stud_info set password=?, updater_id=?, update_time=? where id=?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("sisi", $stmt_pw, $stmt_updater_id, $stmt_updater_time, $stmt_id);
+    $stmt_pw = $new_pw;
+    $stmt_updater_id = $updater_id;
+    $stmt_updater_time = date("Y-m-d H:i:s");
+    $stmt_id = $stud_id;
+    $stmt->execute();
+    $res = $stmt->affected_rows;
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else if ($res == 1) {
+        return [true, $res];
+    }
+}
+
 
 /**
  * Fetch a student's info by student id.
