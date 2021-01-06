@@ -82,7 +82,11 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
                         echo $_SESSION["eng_name"];
                         ?>
                     </div>
-                    <img src="../../img/图像 1@2x.png" height="45" width="45" class="right-top-person-portrait"/>
+                    <?php
+                    $avatar_path = $_SESSION["avatar_path"];
+                    echo "<img src=\"../../../Controller_and_Model/uploads/$avatar_path\" height=\"45\" width=\"45\" class=\"right-top-person-portrait\">";
+                    ?>
+
                     <i class="material-icons right-top-person-arrow">
                         keyboard_arrow_down
                     </i>
@@ -280,7 +284,10 @@ END;
         </div>
         <div class="personal-panel">
             <div class="personal-panel-top">
-                <img src="../../img/图像 1@2x.png" height="30" width="30" class="personal-panel-portrait"/>
+                <?php
+                $avatar_path = $_SESSION["avatar_path"];
+                echo "<img src=\"../../../Controller_and_Model/uploads/$avatar_path\" height=\"30\" width=\"30\" class=\"personal-panel-portrait\">";
+                ?>
                 <div class="personal-panel-des">
                     <div class="personal-panel-name stb">
                         <?php

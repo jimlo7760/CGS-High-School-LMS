@@ -35,6 +35,7 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
             $_SESSION["univ_id"] = $tot_res[2][5];
             $_SESSION["violation_id"] = $tot_res[2][6];
             $_SESSION["status"] = $tot_res[2][15];
+            $_SESSION["avatar_path"] = $tot_res[2][14];
 
             $tot_res = FetchAllStudIdAndHRClasses();
             $all_info = $tot_res[1];

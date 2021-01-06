@@ -115,7 +115,10 @@ $_SESSION["exam_id_2"] = 0;
                         echo $_SESSION["eng_name"];
                         ?>
                     </div>
-                    <img src="../../img/图像 1@2x.png" height="45" width="45" class="right-top-person-portrait"/>
+                    <?php
+                    $avatar_path = $_SESSION["avatar_path"];
+                    echo "<img src=\"../../../Controller_and_Model/uploads/$avatar_path\" height=\"45\" width=\"45\" class=\"right-top-person-portrait\">";
+                    ?>
                     <i class="material-icons right-top-person-arrow">
                         keyboard_arrow_down
                     </i>
@@ -154,8 +157,10 @@ $_SESSION["exam_id_2"] = 0;
                 <div class="right-profile-whole">
                     <div class="right-person-info">
                         <div class="right-person-info-left">
-                            <img src="../../img/图像 12@2x.png" height="100" width="100"
-                                 class="right-person-info-portrait"/>
+                            <?php
+                            $avatar_path = $_SESSION["avatar_path"];
+                            echo "<img src=\"../../../Controller_and_Model/uploads/$avatar_path\" height=\"100\" width=\"100\" class=\"right-person-info-portrait\">";
+                            ?>
                             <div class="right-person-info-user">
                                 <div class="right-person-info-des">
                                     <div class="right-person-info-name stm">
@@ -728,7 +733,10 @@ END;
         </div>
         <div class="personal-panel">
             <div class="personal-panel-top">
-                <img src="../../img/图像 1@2x.png" height="30" width="30" class="personal-panel-portrait"/>
+                <?php
+                $avatar_path = $_SESSION["avatar_path"];
+                echo "<img src=\"../../../Controller_and_Model/uploads/$avatar_path\" height=\"30\" width=\"30\" class=\"personal-panel-portrait\">";
+                ?>
                 <div class="personal-panel-des">
                     <div class="personal-panel-name stb">
                         <?php
@@ -766,7 +774,7 @@ END;
         </div>
         <div class="share-box profile-box">
             <div class="edit-box-upper">
-                <form method="post">
+                <form method="post" action="../../../Controller_and_Model/Controller/ModifyEmailAndAvatar.php" enctype="multipart/form-data">
                     <div class="edit-box-top">
                         <div class="edit-box-title stm">
                             Edit Profile
@@ -774,7 +782,10 @@ END;
                         <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
                     </div>
                     <div class="edit-box-portrait">
-                        <img src="../../img/图像 12@2x.png" height="78" width="78" class="edit-box-portrait-img"/>
+                        <?php
+                        $avatar_path = $_SESSION["avatar_path"];
+                        echo "<img src=\"../../../Controller_and_Model/uploads/$avatar_path\" height=\"78\" width=\"78\" class=\"edit-box-portrait-img\">";
+                        ?>
                         <div class="edit-box-portrait-right">
                             <div class="edit-box-portrait-title str">
                                 Profile Picture
@@ -782,7 +793,7 @@ END;
                             <div class="edit-box-portrait-button stb">
                                 Click to upload a new picture
                             </div>
-                            <input type="file" style="display: none" class="uploadPortrait">
+                            <input type="file" style="display: none" name="avatar" class="uploadPortrait">
                         </div>
                     </div>
                     <div class="edit-box-innerbox">

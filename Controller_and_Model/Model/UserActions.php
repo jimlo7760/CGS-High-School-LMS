@@ -141,3 +141,60 @@ function UpdateLoginTime($id, $user_role) {
     }
 }
 
+/**
+ * Update the email and avatar by student id.
+ *
+ * @param int $stud_id Student's id.
+ * @param String $email Student's email address.
+ * @param String $avatar_file_name Avatar's file name only.
+ * @param int $updator_id Updater's id.
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
+ *
+ * @author Yiming Su
+ */
+function UpdateEmailAndAvatar($stud_id, $email, $avatar_file_name, $updator_id) {
+    $conn = createconn();
+    $query = "update stud_info set avatar_address=?, email_address=?, updater_id=?, update_time=? where id=?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ssisi", $stmt_avatar_file_name, $stmt_email_address, $stmt_updater_id, $stmt_update_time, $stmt_stud_id);
+    $stmt_avatar_file_name = $avatar_file_name;
+    $stmt_email_address = $email;
+    $stmt_updater_id = $updator_id;
+    $stmt_update_time = date("Y-m-d H:i:s");
+    $stmt_stud_id = $stud_id;
+    $stmt->execute();
+    $res = $stmt->affected_rows;
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else if ($res == 1) {
+        return [true, $res];
+    }
+}
+
+
+/**
+ * Fetch a student's info by student id.
+ *
+ * @param int $stud_id Student id.
+ * @return array If successfully executed: [True, Term target info as array] <br> If not: [False, empty array]
+ * @author Yiming Su
+ */
+function FetchStudInfoByStudId($stud_id) {
+    $conn = createconn();
+    $query = "select * from stud_info where id=?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $stmt_stud_id);
+    $stmt_stud_id = $stud_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
+
