@@ -583,6 +583,21 @@
     color: #6C757E;
 }
 
+.confirm-box{
+    overflow: hidden;
+    zoom:1;
+}
+
+.confirm-box-title{
+    float:left;
+}
+
+.confirm-box-unmatched{
+    float:right;
+    font-size:13px;
+    transform: scale(0.95);
+    cursor: default;
+}
 .edit-box-innerbox-title {
     font-size: 13px;
     transform: scale(0.95);
