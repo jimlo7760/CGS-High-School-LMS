@@ -828,6 +828,13 @@ END;
                         <input type="password" class="edit-box-innerbox-input" name="new-password2"
                                placeholder="Enter password here">
                     </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Your New Password
+                        </div>
+                        <input type="password" class="edit-box-innerbox-input" name="new-password"
+                               placeholder="Enter password here">
+                    </div>
                     <input class="edit-box-red stb" type="submit" value="Reset Password">
                 </form>
             </div>
