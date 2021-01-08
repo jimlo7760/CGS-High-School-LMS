@@ -588,19 +588,6 @@
     zoom:1;
 }
 
-<<<<<<< Updated upstream
-.confirm-box-title{
-    float:left;
-}
-
-.confirm-box-unmatched{
-    float:right;
-    font-size:13px;
-    transform: scale(0.95);
-    cursor: default;
-}
-=======
->>>>>>> Stashed changes
 .edit-box-innerbox-title {
     font-size: 13px;
     transform: scale(0.95);
@@ -615,6 +602,7 @@
     float:right;;
     color: #DD3444;
     transform: scale(0.95);
+    display: none;
 }
 
 .edit-box-innerbox-input {

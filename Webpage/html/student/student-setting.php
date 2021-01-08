@@ -806,7 +806,7 @@ END;
                 </form>
             </div>
             <div class="edit-box-downer">
-                <form method="post" action="../../../Controller_and_Model/Controller/ModifyPassword.php">
+                <form method="post" action="../../../Controller_and_Model/Controller/ModifyPassword.php"  onsubmit="return updatePasswordCheck();">
 
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
@@ -819,21 +819,18 @@ END;
                         <div class="edit-box-innerbox-title">
                             Your New Password
                         </div>
-                        <input type="password" class="edit-box-innerbox-input" name="new-password1"
-                               placeholder="Enter password here">
-
-                        <div class="edit-box-innerbox-title">
-                            Your New Password
-                        </div>
-                        <input type="password" class="edit-box-innerbox-input" name="new-password2"
+                        <input type="password" class="edit-box-innerbox-input password-input-first" name="update-password"
                                placeholder="Enter password here">
                     </div>
-                    <div class="edit-box-innerbox str">
-                        <div class="edit-box-innerbox-title">
-                            Your New Password
+                    <div class="edit-box-innerbox confirm-box str">
+                        <div class="edit-box-innerbox-title confirm-box-title">
+                            Re-enter Password
                         </div>
-                        <input type="password" class="edit-box-innerbox-input" name="new-password"
-                               placeholder="Enter password here">
+                        <div class="confirm-box-unmatched">
+                            Password is unmatched
+                        </div>
+                        <input type="password" class="edit-box-innerbox-input confirm-box-input"
+                               placeholder="Re-enter password here">
                     </div>
                     <input class="edit-box-red stb" type="submit" value="Reset Password">
                 </form>
@@ -907,24 +904,24 @@ END;
                 <div class="edit-box-downer">
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
-                            Your Current Password
+                            University Name
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="university-one"
-                               placeholder="Add a new university here…">
+                        <input type="text" class="edit-box-innerbox-input" name="university-name-1"
+                               placeholder="Harvard Law School">
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
-                            Your New Password
+                            University Name
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="university-two"
-                               placeholder="Add a new university here…">
+                        <input type="text" class="edit-box-innerbox-input" name="university-name-2"
+                               placeholder="Oxford University">
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
-                            Your New Password
+                            University Name
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="university-three"
-                               placeholder="Add a new university here…">
+                        <input type="text" class="edit-box-innerbox-input" name="university-name-3"
+                               placeholder="Add a new university here...">
                     </div>
                     <input class="edit-box-green stb" type="submit" value="Update Goal University">
                 </div>

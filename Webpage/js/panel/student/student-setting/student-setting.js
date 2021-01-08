@@ -11,7 +11,7 @@ $(document).ready(function () {
     })
     var contentWidth = $('.profile-row-downer').width();
     console.log(contentWidth);
-    var boxWidth = contentWidth / 2 - 5;
+    var boxWidth = contentWidth / 2 - 10;
     $('.right-person-info-row-box').outerWidth(boxWidth);
 
     $('.edit-info').click(function () {
@@ -260,4 +260,25 @@ $(document).ready(function () {
         $('.edit-test-id').val(testId);
 
     })
+
+    $('.confirm-box-input').on("input propertychange", function (){
+        var passFir = $('.password-input-first:password').val();
+        var passSec = $('.confirm-box-input:password').val();
+        console.log($('.edit-box-innerbox-input:password').val());
+        // console.log(passFir + "------" + passSec);
+        if(passFir != passSec){
+            $('.confirm-box-unmatched').fadeIn();
+        }else{
+            $('.confirm-box-unmatched').fadeOut();
+        }
+    })
+    function updatePasswordCheck(){
+        if($(".edit-box-innerbox-input[name='update-password']").val() == "" || $(".edit-box-innerbox-input[name='current-password']") == "" || $('.confirm-box-unmatched').css('display') == 'block'){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+
 })

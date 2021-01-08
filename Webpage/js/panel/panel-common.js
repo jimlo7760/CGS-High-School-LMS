@@ -39,7 +39,7 @@ $(document).ready(function () {
 
     $('.left-content-navi-item').click(function () {
         $(this).siblings('.left-content-manu').slideToggle();
-        $(this).find('.left-content-navi-img').toggleClass('add_transform');
+        $(this).find('.right-person-info-row-boxleft-content-navi-img').toggleClass('add_transform');
     })
     var count = 0;
     $('.right-top-left').click(function () {

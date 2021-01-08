@@ -893,7 +893,7 @@
                 </form>
             </div>
             <div class="edit-box-downer">
-                <form method="post">
+                <form method="post" onsubmit="return updatePasswordCheck();">
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
                             Your Current Password
@@ -905,28 +905,18 @@
                         <div class="edit-box-innerbox-title">
                             Your New Password
                         </div>
-                        <input type="password" class="edit-box-innerbox-input" name="current-password"
+                        <input type="password" class="edit-box-innerbox-input password-input-first" name="update-password"
                                placeholder="Enter password here">
                     </div>
                     <div class="edit-box-innerbox confirm-box str">
                         <div class="edit-box-innerbox-title confirm-box-title">
-<<<<<<< Updated upstream
                             Re-enter Password
                         </div>
                         <div class="confirm-box-unmatched">
                             Password is unmatched
                         </div>
-                        <input type="password" class="edit-box-innerbox-input" name="current-password"
-                               placeholder="Enter password here">
-=======
-                            Re-enter New Password
-                        </div>
-                        <div class="confirm-box-unmatched">
-                            Both Password Unmatched
-                        </div>
-                        <input type="password" class="edit-box-innerbox-input" name="current-password"
+                        <input type="password" class="edit-box-innerbox-input confirm-box-input"
                                placeholder="Re-enter password here">
->>>>>>> Stashed changes
                     </div>
                     <input class="edit-box-red stb" type="submit" value="Reset Password">
                 </form>
@@ -999,24 +989,24 @@
                 <div class="edit-box-downer">
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
-                            Your Current Password
+                            University Name
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="current-password"
-                               placeholder="Enter password here">
+                        <input type="text" class="edit-box-innerbox-input" name="university-name-1"
+                               placeholder="Harvard Law School">
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
-                            Your New Password
+                            University Name
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="current-password"
-                               placeholder="Enter password here">
+                        <input type="text" class="edit-box-innerbox-input" name="university-name-2"
+                               placeholder="Oxford University">
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
-                            Your New Password
+                            University Name
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="current-password"
-                               placeholder="Enter password here">
+                        <input type="text" class="edit-box-innerbox-input" name="university-name-3"
+                               placeholder="Add a new university here...">
                     </div>
                     <input class="edit-box-green stb" type="submit" value="Update Goal University">
                 </div>
