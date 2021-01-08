@@ -134,8 +134,6 @@ session_start();
                                     echo "AP";
                                     break;
                             }
-
-
                             echo " " . $_SESSION["grade"] . "-" . $_SESSION["class_num"];;
 
                             ?>

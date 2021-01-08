@@ -807,7 +807,6 @@ END;
             </div>
             <div class="edit-box-downer">
                 <form method="post" action="../../../Controller_and_Model/Controller/ModifyPassword.php"  onsubmit="return updatePasswordCheck();">
-
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
                             Your Current Password
