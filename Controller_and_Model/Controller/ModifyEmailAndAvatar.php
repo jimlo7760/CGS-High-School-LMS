@@ -49,7 +49,7 @@ if ($uploadOk == 0) {
     }
 }
 $email = "";
-$new_avatar_filename = htmlspecialchars(basename( $_FILES["avatar"]["name"]));
+$new_avatar_filename = htmlspecialchars(basename($_FILES["avatar"]["name"]));
 if (isset($_POST["email"]) && $_POST["email"] != Null) {
     $email = get_post("email");
 } else {
