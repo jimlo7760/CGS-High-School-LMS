@@ -818,7 +818,7 @@ END;
                         <div class="edit-box-innerbox-title">
                             Your New Password
                         </div>
-                        <input type="password" class="edit-box-innerbox-input password-input-first" name="update-password"
+                        <input type="password" class="edit-box-innerbox-input password-input-first" name="new-password1"
                                placeholder="Enter password here">
                     </div>
                     <div class="edit-box-innerbox confirm-box str">
@@ -829,7 +829,7 @@ END;
                             Password is unmatched
                         </div>
                         <input type="password" class="edit-box-innerbox-input confirm-box-input"
-                               placeholder="Re-enter password here">
+                               name="new-password2" placeholder="Re-enter password here">
                     </div>
                     <input class="edit-box-red stb" type="submit" value="Reset Password">
                 </form>
