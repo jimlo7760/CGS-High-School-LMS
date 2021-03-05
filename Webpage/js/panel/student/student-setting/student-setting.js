@@ -123,7 +123,6 @@ $(document).ready(function () {
         })
     })
     $('.class-adding-row').click(function () {
-        console.log($(this).css('border-color'));
         if($(this).css('border-color') == 'rgb(208, 208, 208)'){
             $(this).animate({
                 borderColor: '#1BA2B9',
@@ -132,6 +131,7 @@ $(document).ready(function () {
             $(this).children('.class-adding-img').animate({
                 color: '#1BA2B9'
             })
+            $(this).children('.class-adding-checkbox').prop('checked', true);
         }else{
             $(this).animate({
                 borderColor: '#D0D0D0',
@@ -140,6 +140,8 @@ $(document).ready(function () {
             $(this).children('.class-adding-img').animate({
                 color: '#707070'
             })
+            $(this).children('.class-adding-checkbox').prop('checked', false);
+
         }
     })
     $('.class-deleting-row').click(function () {
