@@ -153,6 +153,7 @@ $(document).ready(function () {
             $(this).children('.class-adding-img').animate({
                 color: '#DD3444'
             })
+            $(this).children('.class-adding-checkbox').prop('checked', true);
         }else{
             $(this).animate({
                 borderColor: '#D0D0D0',
@@ -161,6 +162,7 @@ $(document).ready(function () {
             $(this).children('.class-adding-img').animate({
                 color: '#707070'
             })
+            $(this).children('.class-adding-checkbox').prop('checked', false);
         }
     })
     $('.class-adding-button').click(function () {

@@ -984,65 +984,54 @@ END;
                         Select Courses
                     </div>
                     <div class="class-deleting-row">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
                     </div>
                     <div class="class-deleting-row">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
                     </div>
                     <div class="class-deleting-row">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
+
                     </div>
                     <div class="class-deleting-row">
-                        <i class="material-icons class-adding-img">
-                            check_box_outline_blank
-                        </i>
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
+
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
+
                     </div>
                     <div class="class-deleting-row">
-                        <i class="material-icons class-adding-img">
-                            check_box_outline_blank
-                        </i>
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
+
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
+
                     </div>
                     <div class="class-deleting-row">
-                        <i class="material-icons class-adding-img">
-                            check_box_outline_blank
-                        </i>
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
+
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
+
                     </div>
                     <div class="class-deleting-row">
-                        <i class="material-icons class-adding-img">
-                            check_box_outline_blank
-                        </i>
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
+
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
-                        <input type="checkbox" class="class-adding-checkbox" name="course-select"
-                               style="display: none">
                     </div>
                     <input type="submit" value="Submit" class="edit-box-red stb">
                 </div>
