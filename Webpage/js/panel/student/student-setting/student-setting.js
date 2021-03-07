@@ -10,8 +10,7 @@ $(document).ready(function () {
         }, 'fast')
     })
     var contentWidth = $('.profile-row-downer').width();
-    console.log(contentWidth);
-    var boxWidth = contentWidth / 2 - 10;
+    var boxWidth = contentWidth / 2 - 15;
     $('.right-person-info-row-box').outerWidth(boxWidth);
 
     $('.edit-info').click(function () {
@@ -25,7 +24,7 @@ $(document).ready(function () {
         $('.profile-box').fadeIn();
     })
 
-    $('.edit-award').click(function () {
+    $('.add-award').click(function () {
         var body = document.body.clientHeight;
         var bg = body;
         $('.grey-bg').css({
@@ -33,10 +32,10 @@ $(document).ready(function () {
             "top": 0
         });
         $('.grey-bg').fadeIn();
-        $('.award-box').fadeIn();
+        $('.award-box-add').fadeIn();
     })
 
-    $('.edit-university').click(function () {
+    $('.delete-award').click(function () {
         var body = document.body.clientHeight;
         var bg = body;
         $('.grey-bg').css({
@@ -44,7 +43,29 @@ $(document).ready(function () {
             "top": 0
         });
         $('.grey-bg').fadeIn();
-        $('.university-box').fadeIn();
+        $('.award-box-delete').fadeIn();
+    })
+
+    $('.add-university').click(function () {
+        var body = document.body.clientHeight;
+        var bg = body;
+        $('.grey-bg').css({
+            "height": bg,
+            "top": 0
+        });
+        $('.grey-bg').fadeIn();
+        $('.university-box-add').fadeIn();
+    })
+
+    $('.delete-university').click(function () {
+        var body = document.body.clientHeight;
+        var bg = body;
+        $('.grey-bg').css({
+            "height": bg,
+            "top": 0
+        });
+        $('.grey-bg').fadeIn();
+        $('.university-box-delete').fadeIn();
     })
 
     $('.edit-box-portrait-button').click(function () {

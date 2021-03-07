@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-if (!session_id()){
+if (!session_id()) {
     session_start();
 }
 require_once "../../../Controller_and_Model/Model/SwapSubjAppActions.php";
@@ -28,7 +28,7 @@ $_SESSION["exam_id_2"] = 0;
     <title>Hi Danny</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../CSS/whole-common.css">
-<link rel="stylesheet" type="text/css" href="../../CSS/panel/panel-common.css">
+    <link rel="stylesheet" type="text/css" href="../../CSS/panel/panel-common.css">
     <link rel="stylesheet" type="text/css" href="../../CSS/panel/student/student-setting/student-setting.css">
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
 
@@ -176,17 +176,17 @@ $_SESSION["exam_id_2"] = 0;
                                         </div>
                                         <div class="right-person-info-box-text stm">
                                             <?php
-                                             switch ($_SESSION["program"]) {
-                                                 case 0:
-                                                     echo "MYP";
-                                                     break;
-                                                 case 1:
-                                                     echo "IG";
-                                                     break;
-                                                 case 2:
-                                                     echo "AP";
-                                                     break;
-                                             }
+                                            switch ($_SESSION["program"]) {
+                                                case 0:
+                                                    echo "MYP";
+                                                    break;
+                                                case 1:
+                                                    echo "IG";
+                                                    break;
+                                                case 2:
+                                                    echo "AP";
+                                                    break;
+                                            }
                                             ?>
                                         </div>
                                     </div>
@@ -196,7 +196,7 @@ $_SESSION["exam_id_2"] = 0;
                                         </div>
                                         <div class="right-person-info-box-text stm">
                                             <?php
-                                                echo $_SESSION["grade"];
+                                            echo $_SESSION["grade"];
                                             ?>
                                         </div>
                                     </div>
@@ -206,7 +206,7 @@ $_SESSION["exam_id_2"] = 0;
                                         </div>
                                         <div class="right-person-info-box-text stm">
                                             <?php
-                                                echo $_SESSION["class_num"];
+                                            echo $_SESSION["class_num"];
                                             ?>
                                         </div>
                                     </div>
@@ -232,7 +232,7 @@ $_SESSION["exam_id_2"] = 0;
                             </div>
                         </div>
                         <div class="right-person-info-right">
-                            <div class="right-person-edit edit-info">
+                            <div class="right-person-edit right-person-add edit-info">
                                 <span class="material-icons right-person-edit-img">
                                     create
                                 </span>
@@ -248,12 +248,20 @@ $_SESSION["exam_id_2"] = 0;
                                 <div class="right-person-info-row-title stb">
                                     Awards & Prizes
                                 </div>
-                                <div class="right-person-edit edit-award stm">
+                                <div class="right-person-edit right-person-delete delete-award stm">
                                     <span class="material-icons right-person-edit-img">
-                                        create
+                                        delete_forever
                                     </span>
                                     <div class="right-person-edit-text">
-                                        Edit Awards & Prizes
+                                        Delete Awards & Prizes
+                                    </div>
+                                </div>
+                                <div class="right-person-edit right-person-add right-person-edit-interval add-award stm">
+                                    <span class="material-icons right-person-edit-img">
+                                        add_circle
+                                    </span>
+                                    <div class="right-person-edit-text">
+                                        Add Awards & Prizes
                                     </div>
                                 </div>
                             </div>
@@ -287,7 +295,6 @@ $_SESSION["exam_id_2"] = 0;
                                     </div>
                                 </div>
 END;
-
                                 }
                                 ?>
                             </div>
@@ -297,12 +304,20 @@ END;
                                 <div class="right-person-info-row-title stb">
                                     Goal University
                                 </div>
-                                <div class="right-person-edit edit-university">
+                                <div class="right-person-edit delete-university right-person-delete" style="margin-right: 7px">
                                     <span class="material-icons right-person-edit-img">
-                                    create
-                                </span>
+                                        delete_forever
+                                    </span>
                                     <div class="right-person-edit-text stm">
-                                        Edit Goal University
+                                        Delete Goal University
+                                    </div>
+                                </div>
+                                <div class="right-person-edit right-person-add add-university right-person-edit-interval">
+                                    <span class="material-icons right-person-edit-img">
+                                        add_circle
+                                    </span>
+                                    <div class="right-person-edit-text stm">
+                                        Add Goal University
                                     </div>
                                 </div>
                             </div>
@@ -439,7 +454,7 @@ END;
                                 </div>
                             </div>
 EOD;
-                                $i ++;
+                                $i++;
                             }
                             ?>
                         </div>
@@ -449,7 +464,7 @@ EOD;
                             Submitted Class Exchange Ticket
                         </div>
                         <div class="right-class-process-list">
-                        <?php
+                            <?php
                             require_once "../../../Controller_and_Model/Model/SwapSubjAppActions.php";
                             require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
                             $i = 0;
@@ -607,11 +622,11 @@ END;
                                 </div>
                             </div>
 END;
-                                    $i ++;
+                                    $i++;
                                 }
                             }
                             $_SESSION["swap_app_info"] = FetchSwapSubjAppByStudId($_SESSION["id"]);
-                        ?>
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -774,7 +789,8 @@ END;
         </div>
         <div class="share-box profile-box">
             <div class="edit-box-upper">
-                <form method="post" action="../../../Controller_and_Model/Controller/ModifyEmailAndAvatar.php" enctype="multipart/form-data">
+                <form method="post" action="../../../Controller_and_Model/Controller/ModifyEmailAndAvatar.php"
+                      enctype="multipart/form-data">
                     <div class="edit-box-top">
                         <div class="edit-box-title stm">
                             Edit Profile
@@ -806,7 +822,8 @@ END;
                 </form>
             </div>
             <div class="edit-box-downer">
-                <form method="post" action="../../../Controller_and_Model/Controller/ModifyPassword.php"  onsubmit="return updatePasswordCheck();">
+                <form method="post" action="../../../Controller_and_Model/Controller/ModifyPassword.php"
+                      onsubmit="return updatePasswordCheck();">
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
                             Your Current Password
@@ -835,10 +852,41 @@ END;
                 </form>
             </div>
         </div>
-        <div class="share-box award-box">
+        <div class="share-box award-box-delete">
             <div class="edit-box-top">
                 <div class="edit-box-title stm">
-                    Edit Awards & Prizes
+                    Delete Classes
+                </div>
+                <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
+            </div>
+            <form method="post">
+                <div class="edit-box-downer">
+                    <!--                    require_once is required-->
+                    <div class="class-adding-subtitle str">
+                        Select Awards & Prizes
+                    </div>
+                    <div class="class-deleting-row">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select"
+                               value=$subj_class_id style="">
+                        <div class="class-adding-text str">
+                            $award_name
+                        </div>
+                    </div>
+                    <div class="class-deleting-row">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select"
+                               value=$subj_class_id style="">
+                        <div class="class-adding-text str">
+                            $award_name
+                        </div>
+                    </div>
+                    <input type="submit" value="Delete" class="edit-box-red stb">
+                </div>
+            </form>
+        </div>
+        <div class="share-box award-box-add">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Add Awards & Prizes
                 </div>
                 <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
             </div>
@@ -889,13 +937,13 @@ END;
                         <input type="text" class="edit-box-innerbox-input" name="award-year">
                     </div>
                 </div>
-                <input type="submit" class="edit-box-green stb" value="Update Awards & Prizes">
+                <input type="submit" class="edit-box-green stb" value="Add Awards & Prizes">
             </form>
         </div>
-        <div class="share-box university-box">
+        <div class="share-box university-box-add">
             <div class="edit-box-top">
                 <div class="edit-box-title stm">
-                    Edit Goal University
+                    Add Goal University
                 </div>
                 <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
             </div>
@@ -926,7 +974,37 @@ END;
                 </div>
             </form>
         </div>
-
+        <div class="share-box university-box-delete">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Delete Goal University
+                </div>
+                <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
+            </div>
+            <form method="post">
+                <div class="edit-box-downer">
+<!--                    require_once is required-->
+                    <div class="class-adding-subtitle str">
+                        Select Goal University
+                    </div>
+                    <div class="class-deleting-row">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select"
+                               value=$subj_class_id style="">
+                        <div class="class-adding-text str">
+                            $univ_name
+                        </div>
+                    </div>
+                    <div class="class-deleting-row">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select"
+                               value=$subj_class_id style="">
+                        <div class="class-adding-text str">
+                            $univ_name
+                        </div>
+                    </div>
+                    <input type="submit" value="Delete" class="edit-box-red stb">
+                </div>
+            </form>
+        </div>
         <div class="share-box class-adding-box">
             <div class="edit-box-top">
                 <div class="edit-box-title stm">
@@ -984,34 +1062,30 @@ END;
                         Select Courses
                     </div>
                     <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select"
+                               value=$subj_class_id style="">
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
                     </div>
                     <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select"
+                               value=$subj_class_id style="">
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
                     </div>
                     <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-
-                    </div>
-                    <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
-
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select"
+                               value=$subj_class_id style="">
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
 
                     </div>
                     <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select"
+                               value=$subj_class_id style="">
 
                         <div class="class-adding-text str">
                             Chinese A1
@@ -1019,7 +1093,8 @@ END;
 
                     </div>
                     <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select"
+                               value=$subj_class_id style="">
 
                         <div class="class-adding-text str">
                             Chinese A1
@@ -1027,7 +1102,17 @@ END;
 
                     </div>
                     <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select" value=$subj_class_id style="">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select"
+                               value=$subj_class_id style="">
+
+                        <div class="class-adding-text str">
+                            Chinese A1
+                        </div>
+
+                    </div>
+                    <div class="class-deleting-row">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-select"
+                               value=$subj_class_id style="">
 
                         <div class="class-adding-text str">
                             Chinese A1

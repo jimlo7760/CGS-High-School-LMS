@@ -86,12 +86,22 @@
 
 }
 .right-person-edit{
-    margin-top:10px;
+    margin-top: 10px;
     overflow: hidden;
     zoom:1;
     float:right;
     cursor: pointer;
+}
+.right-person-add{
     color: #1BA2B9;
+}
+.right-person-delete{
+    color: #DD3444;
+}
+.right-person-edit-interval{
+    padding-right: 15px;
+    border-right: 2px solid;
+    margin-right: 15px;
 }
 .right-person-edit-img{
     float:left;
@@ -99,7 +109,7 @@
 .right-person-edit-text{
     float:left;
     font-size:13px;
-    margin-left:15px;
+    margin: 5px 0 0 10px;
 }
 .right-person-info-down{
 
@@ -162,7 +172,10 @@
 .profile-box{
     display: none;
 }
-.award-box{
+.award-box-add{
+    display: none;
+}
+.award-box-delete{
     display:none;
 }
 .university-box{
