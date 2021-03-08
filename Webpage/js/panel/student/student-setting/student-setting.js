@@ -12,7 +12,6 @@ $(document).ready(function () {
     var contentWidth = $('.profile-row-downer').width();
     var boxWidth = contentWidth / 2 - 15;
     $('.right-person-info-row-box').outerWidth(boxWidth);
-
     $('.edit-info').click(function () {
         var body = document.body.clientHeight;
         var bg = body;

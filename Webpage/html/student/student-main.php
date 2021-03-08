@@ -100,7 +100,7 @@ session_start();
                     $avatar_path = $_SESSION["avatar_path"];
                     echo "<img src=\"../../../Controller_and_Model/uploads/$avatar_path\" height=\"45\" width=\"45\" class=\"right-top-person-portrait\">";
                     ?>
-                    <i class="material-icons right-top-person-arrow">
+                    <i class="material-icons right-top-person-arrow initial_transform">
                         keyboard_arrow_down
                     </i>
                 </div>
