@@ -56,7 +56,7 @@ $_SESSION["exam_id_2"] = 0;
                         SCHOOL YEAR
                     </div>
                     <div class="left-content-navi-content">
-                        <i class="material-icons left-content-navi-img">
+                        <i class="material-icons left-content-navi-img initial_transform">
                             keyboard_arrow_up
                         </i>
                     </div>

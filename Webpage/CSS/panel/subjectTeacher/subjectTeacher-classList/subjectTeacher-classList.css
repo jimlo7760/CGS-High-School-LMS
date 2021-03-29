@@ -75,6 +75,7 @@
     float:left;
     border-bottom:#EAEBEB 2px solid;
     padding-bottom:10px;
+    width: 10px;
 }
 .right-navi-item-right{
     float:right;
@@ -83,6 +84,11 @@
     cursor: pointer;
     color: #999C9E;
 }
+
+.subjectT-studentScore{
+    margin-top: 15px;
+}
+
 .right-table{
 
 }
@@ -96,19 +102,19 @@
     padding:10px;
     cursor: default;
 }
-.right-table-title-file{
+.right-table-title-title{
     float:left;
-    width: 35%;
 }
 .right-table-title-grade{
     float:left;
-    width: 19%;
 }
 .right-table-title-type{
     float:left;
-    width:20%;
 }
 .right-table-title-date{
+    float:left;
+}
+.right-table-title-action{
     float:left;
 }
 .right-table-content{
@@ -125,22 +131,49 @@
 }
 .right-table-content-title{
     float:left;
-    width:35%;
     text-decoration: underline;
     color: #1BA2B9;
     cursor: pointer;
 }
 .right-table-content-grade{
     float:left;
-    width:19%;
     cursor: default;
 }
 .right-table-content-type{
     float:left;
-    width:20%;
     cursor: default;
 }
 .right-table-content-date{
     float:left;
     cursor: default;
+}
+.right-table-content-action{
+    float: left;
+    cursor: default;
+    overflow: hidden;
+    zoom:1;
+}
+.right-table-content-action-edit{
+    float:left;
+    margin-right: 30px;
+}
+.right-table-content-delete{
+    float:left;
+}
+
+
+.subjectT-studentScore-add-outer{
+    overflow: hidden;
+    zoom:1;
+    margin-top:15px;
+}
+
+.subjectT-studentScore-add{
+    cursor: pointer;
+    float: right;
+    overflow: hidden;
+    zoom: 1;
+    padding: 10px;
+    background-color: #1BA2B9;
+    border-radius: 5px;
 }

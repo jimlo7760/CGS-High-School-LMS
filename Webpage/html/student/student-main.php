@@ -37,7 +37,7 @@ session_start();
                         SCHOOL YEAR
                     </div>
                     <div class="left-content-navi-content">
-                        <i class="material-icons md-18 left-content-navi-img">
+                        <i class="material-icons md-18 left-content-navi-img initial_transform">
                             keyboard_arrow_up
                         </i>
                     </div>
