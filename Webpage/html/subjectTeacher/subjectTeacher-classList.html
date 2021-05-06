@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../CSS/whole-common.css">
     <link rel="stylesheet" type="text/css" href="../../CSS/panel/panel-common.css">
+    <link rel="stylesheet" type="text/css" href="../../CSS/panel/subjectTeacher/subjectTeacher-common.css">
     <link rel="stylesheet" type="text/css"
           href="../../CSS/panel/subjectTeacher/subjectTeacher-classList/subjectTeacher-classList.css">
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
@@ -61,8 +62,8 @@
 
         <input type="text" value="Chinese_A1" class="subjectT-lesson" contenteditable="false" style="opacity: 0">
 <!--
-    class: subjectT-lesson需要输出老师教授科目的session，前端已做好对subjectT-lesson的value进行课程权限的判断；
-    如果教授科目的名字中存在空格，需要在输出前把空格用_（下划线）进行替换
+    class: subjectT-lesson需要输出老师教授科目的名字，前端已做好对subjectT-lesson的value进行课程权限的判断；
+    如果教授科目的名字中存在空格，需要在输出前把空格用"_"（下划线）进行替换
 -->
     </div>
 
@@ -683,38 +684,51 @@
                 No result found containing 'Spainish'
             </div>
         </div>
-        <div class="share-box">
-            <div class="share-box-title stm">
-                Share this table with...
+        <div class="share-box subjectT-addCourse-box">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Add New Exam / Test
+                </div>
+                <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
             </div>
-            <div class="share-box-content stb">
-                <div class="share-box-method method-link">
-                    <img src="../../img/bx-link@2x.png" height="18" width="18" class="share-box-method-link"/>
-                    <div class="share-box-method-text" style="color: #1BA2B9;">
-                        Direct Link
+            <form method="post">
+                <div class="edit-box-downer">
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Choose an Exam / Test
+                        </div>
+
+                        <select name="add-test-name" class="edit-box-innerbox-select subjectT-addCourse-box-select">
+                            <option>2020 First semester mid-term examination</option>
+                            <option>2020 Second semester mid-term examination</option>
+                            <option>2021 First semester final examination</option>
+                            <option>2021 Second semester first monthly examination</option>
+                        </select>
                     </div>
-                </div>
-                <div class="share-box-method method-file">
-                    <img src="../../img/bxs-file@2x.png" height="20" width="16" class="share-box-method-link"/>
-                    <div class="share-box-method-text" style="color: #0A7AFA">
-                        .docx
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Comment
+                        </div>
+                        <input type="text" class="edit-box-innerbox-input" name="add-course-name"
+                               placeholder="English A2 - 001">
                     </div>
-                </div>
-                <div class="share-box-method method-pdf">
-                    <img src="../../img/bxs-file-pdf@2x.png" height="20" width="16" class="share-box-method-link"/>
-                    <div class="share-box-method-text" style="color: #DD3444">
-                        .pdf
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Score
+                        </div>
+                        <input type="text" class="edit-box-innerbox-input" name="add-course-name"
+                               placeholder="">
                     </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Attachment
+                        </div>
+                        <input type="text" class="edit-box-innerbox-input" name="add-course-name"
+                               placeholder="Click to upload an attachment">
+                    </div>
+                    <input class="edit-box-green stb" type="submit" value="Save">
                 </div>
-            </div>
-            <div class="share-box-bottom stb">
-                <div class="share-box-button-download">
-                    Download
-                </div>
-                <div class="share-box-button-cancel">
-                    Cancel
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 

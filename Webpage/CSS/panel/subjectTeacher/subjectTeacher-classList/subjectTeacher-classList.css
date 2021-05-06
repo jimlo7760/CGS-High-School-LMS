@@ -177,3 +177,6 @@
     background-color: #1BA2B9;
     border-radius: 5px;
 }
+.subjectT-addCourse-box-select{
+    cursor: pointer;
+}

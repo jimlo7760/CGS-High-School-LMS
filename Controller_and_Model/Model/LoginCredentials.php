@@ -1,7 +1,7 @@
 <?php
 $db_username = 'root';
 $db_database = 'mypplatform';
-$db_hostname = 'localhost';
+$db_hostname = 'localhost:3306';
 $db_password = 'root';
 
 function createconn() {
