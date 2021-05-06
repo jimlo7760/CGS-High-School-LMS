@@ -1,4 +1,4 @@
-<img src="http://38.106.21.18:3000/repo-avatars/14-f2d9a2e1cc4c7f6b4a056d2ffe38758b" align=center width=200>
+<p align=center><img src="http://38.106.21.18:3000/repo-avatars/14-f2d9a2e1cc4c7f6b4a056d2ffe38758b" align=center width=200></p>
 
 <h1 align=center>许丹阳学生管理操作系统</h1>
 
