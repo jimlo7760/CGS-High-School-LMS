@@ -484,7 +484,6 @@
     background-color: white;
     padding: 30px;
     border-radius: 10px;
-    display: none;
 }
 
 .share-box-title {
@@ -635,6 +634,15 @@
     padding: 15px;
     border-radius: 5px;
     width: 90%;
+    margin-top: 8px;
+}
+
+.edit-box-innerbox-select{
+    border: 1px solid #D0D0D0;
+    font-size: 13px;
+    padding: 15px;
+    border-radius: 5px;
+    width: 97%;
     margin-top: 8px;
 }
 
