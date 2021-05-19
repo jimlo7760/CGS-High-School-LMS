@@ -18,7 +18,8 @@
     <script type="text/javascript" src="../../js/panel/panel-common.js">
 
     </script>
-    <script type="text/javascript" src="../../js/panel/subjectTeacher/subjectTeacher-classList/subjectTeacher-classList.js">
+    <script type="text/javascript"
+            src="../../js/panel/subjectTeacher/subjectTeacher-classList/subjectTeacher-classList.js">
 
     </script>
 </head>
@@ -32,7 +33,7 @@
             <div class="left-content-navi">
                 <div class="left-content-navi-item">
                     <div class="left-content-navi-title stb">
-                        MANAGE
+                        SCHOOL YEAR
                     </div>
                     <div class="left-content-navi-content">
                         <img src="../../img/ic_keyboard_arrow_up_24px.png" class="left-content-navi-img initial_transform" height="8"
@@ -42,7 +43,7 @@
                 <div class="left-content-manu stb">
                     <div class="left-content-manu-nevi" name="first-2020">
                         <div class="left-content-manu-year">
-                            Students
+                            2019 - 2020
                         </div>
                         <div class="left-content-manu-current">
                             CURRENT
@@ -50,7 +51,15 @@
                     </div>
                     <div class="left-content-manu-nevi" name="second-2019">
                         <div class="left-content-manu-year">
-                            Exams & Tests
+                            2018 - 2019
+                        </div>
+                        <div class="left-content-manu-current no-select">
+                            CURRENT
+                        </div>
+                    </div>
+                    <div class="left-content-manu-nevi" name="first-2019">
+                        <div class="left-content-manu-year">
+                            2018 - 2019
                         </div>
                         <div class="left-content-manu-current no-select">
                             CURRENT
@@ -59,12 +68,37 @@
                 </div>
             </div>
         </div>
+        <div class="left-box-add">
+            <div class="left-content-navi">
+                <div class="left-content-navi-item">
+                    <div class="left-content-navi-title stb">
+                        Chinese A1
+                    </div>
+                    <div class="left-content-navi-content">
+                        <img src="../../img/ic_keyboard_arrow_up_24px.png" class="left-content-navi-img initial_transform" height="8"
+                             width="12"/>
+                    </div>
+                </div>
+                <div class="left-content-manu navi-manage-student stb">
+                    <div class="left-content-manu-nevi" name="student" id="student-nevi">
+                        <div class="left-content-manu-year">
+                            Students
+                        </div>
+                    </div>
+                    <div class="left-content-manu-nevi" name="exam" id="exam-nevi">
+                        <div class="left-content-manu-year">
+                            Exams & Tests
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+        </div>
         <input type="text" value="Chinese_A1" class="subjectT-lesson" contenteditable="false" style="opacity: 0">
-<!--
-    class: subjectT-lesson需要输出老师教授科目的名字，前端已做好对subjectT-lesson的value进行课程权限的判断；
-    如果教授科目的名字中存在空格，需要在输出前把空格用"_"（下划线）进行替换
--->
+        <!--
+            class: subjectT-lesson需要输出老师教授科目的名字，前端已做好对subjectT-lesson的value进行课程权限的判断；
+            如果教授科目的名字中存在空格，需要在输出前把空格用"_"（下划线）进行替换
+        -->
     </div>
 
     <div class="right-content">
@@ -72,7 +106,8 @@
             <div class="right-top-left">
                 <div class="right-top-research">
                     <img class="right-top-research-img" src="../../img/ic_search_24px.png" height="19" width="19"/>
-                    <input class="right-top-research-text pointer-alt stm" placeholder="Search by course name" type="text"
+                    <input class="right-top-research-text pointer-alt stm" placeholder="Search by course name"
+                           type="text"
                            maxlength="50">
                 </div>
             </div>
@@ -87,13 +122,13 @@
                     </div>
                     <img src="../../img/图像 1@2x.png" height="45" width="45" class="right-top-person-portrait"/>
                     <img src="../../img/ic_keyboard_arrow_down_24px@2x.png" height="8" width="12"
-                             class="right-top-person-arrow initial_transform"/>
+                         class="right-top-person-arrow initial_transform"/>
                 </div>
             </div>
         </div>
         <div class="right-down student-crew-list">
             <div class="right-info">
-                <div class="right-return">
+                <div class="right-return" onclick="window.location='subjectTeacher-main.html'">
                     <img src="../../img/bx-chevron-left@2x.png" height="12" width="8" class="right-return-img"/>
                     <div class="right-return-text sts">
                         Home
@@ -101,249 +136,186 @@
                 </div>
                 <div class="right-info-left stb">
                     <div class="right-title">
-                        Chinese A1 - 001
+                        Chinese A1
                     </div>
                     <div class="right-subtitle">
                         Students
                     </div>
                 </div>
-            </div>
-
-            <div class="subjectT-right-down-main">
-                <div class="subjectT-right-down-row">
-                    <div class="right-box">
-                        <div class="right-box-upper">
-                            <div class="right-box-title stb">
-                                Danny Xu
-                            </div>
-                            <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                                 class="right-box-arrow"/>
-                        </div>
-                        <div class="right-box-downer">
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    ID
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    0108721
-                                </div>
-                            </div>
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    Email
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    dannyxu@163.com
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-box">
-                        <div class="right-box-upper">
-                            <div class="right-box-title stb">
-                                Danny Xu
-                            </div>
-                            <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                                 class="right-box-arrow"/>
-                        </div>
-                        <div class="right-box-downer">
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    ID
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    0108721
-                                </div>
-                            </div>
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    Email
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    dannyxu@163.com
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-box">
-                        <div class="right-box-upper">
-                            <div class="right-box-title stb">
-                                Danny Xu
-                            </div>
-                            <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                                 class="right-box-arrow"/>
-                        </div>
-                        <div class="right-box-downer">
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    ID
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    0108721
-                                </div>
-                            </div>
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    Email
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    dannyxu@163.com
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-box">
-                        <div class="right-box-upper">
-                            <div class="right-box-title stb">
-                                Danny Xu
-                            </div>
-                            <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                                 class="right-box-arrow"/>
-                        </div>
-                        <div class="right-box-downer">
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    ID
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    0108721
-                                </div>
-                            </div>
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    Email
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    dannyxu@163.com
-                                </div>
-                            </div>
-                        </div>
+                <div class="right-info-right-button">
+                    <img src="../../img/ic_add_24px.png" height="14" width="14" class="right-info-right-button-img">
+                    <div class="right-info-right-button-text">
+                        ADD
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="right-down ">
-            <div class="right-info">
-                <div class="right-return">
-                    <img src="../../img/bx-chevron-left@2x.png" height="12" width="8" class="right-return-img"/>
-                    <div class="right-return-text sts">
-                        Home
-                    </div>
-                </div>
-                <div class="right-info-row">
-                    <img src="../../img/图像%201@2x.png" height="70" width="70" class="right-info-portrait">
-                    <div class="right-info-left stb">
-                        <div class="right-title">
+            <div class="right-class-list">
+                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
+<!--                    需要添加ajax：当enrolled-student被点击时，后台需要给当前subjectT-student-class界面初始化   -->
+                    <div class="right-box-upper">
+                        <div class="right-box-title stb">
                             Danny Xu
                         </div>
-                        <div class="right-subtitle">
-                            许丹阳
-                        </div>
+                        <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
+                             class="right-box-arrow"/>
                     </div>
-                    <div class="right-info-right">
-                        <div class="right-info-dataBox">
-                            <div class="right-info-dataBox-title str">
+                    <div class="right-box-downer">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
                                 ID
                             </div>
-                            <div class="right-info-dataBox-content stm">
-                                0108703
+                            <div class="right-box-detail-name stm">
+                                0108721
                             </div>
                         </div>
-                        <div class="right-info-dataBox">
-                            <div class="right-info-dataBox-title str">
-                                Department
-                            </div>
-                            <div class="right-info-dataBox-content stm">
-                                MYP
-                            </div>
-                        </div>
-                        <div class="right-info-dataBox">
-                            <div class="right-info-dataBox-title str">
-                                Grade
-                            </div>
-                            <div class="right-info-dataBox-content stm">
-                                7
-                            </div>
-                        </div>
-                        <div class="right-info-dataBox">
-                            <div class="right-info-dataBox-title str">
-                                Class
-                            </div>
-                            <div class="right-info-dataBox-content stm">
-                                18
-                            </div>
-                        </div>
-                        <div class="right-info-dataBox">
-                            <div class="right-info-dataBox-title str">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
                                 Email
                             </div>
-                            <div class="right-info-dataBox-content stm">
+                            <div class="right-box-detail-name stm">
+                                dannyxu@163.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-box" name="$_SESSION['course_id']">
+                    <div class="right-box-upper">
+                        <div class="right-box-title stb">
+                            Danny Xu
+                        </div>
+                        <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
+                             class="right-box-arrow"/>
+                    </div>
+                    <div class="right-box-downer">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                ID
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                0108721
+                            </div>
+                        </div>
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Email
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                dannyxu@163.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-box" name="$_SESSION['course_id']">
+                    <div class="right-box-upper">
+                        <div class="right-box-title stb">
+                            Danny Xu
+                        </div>
+                        <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
+                             class="right-box-arrow"/>
+                    </div>
+                    <div class="right-box-downer">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                ID
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                0108721
+                            </div>
+                        </div>
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Email
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                dannyxu@163.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-box" name="$_SESSION['course_id']">
+                    <div class="right-box-upper">
+                        <div class="right-box-title stb">
+                            Danny Xu
+                        </div>
+                        <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
+                             class="right-box-arrow"/>
+                    </div>
+                    <div class="right-box-downer">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                ID
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                0108721
+                            </div>
+                        </div>
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Email
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                dannyxu@163.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-box" name="$_SESSION['course_id']">
+                    <div class="right-box-upper">
+                        <div class="right-box-title stb">
+                            Danny Xu
+                        </div>
+                        <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
+                             class="right-box-arrow"/>
+                    </div>
+                    <div class="right-box-downer">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                ID
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                0108721
+                            </div>
+                        </div>
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Email
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                dannyxu@163.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-box" name="$_SESSION['course_id']">
+                    <div class="right-box-upper">
+                        <div class="right-box-title stb">
+                            Danny Xu
+                        </div>
+                        <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
+                             class="right-box-arrow"/>
+                    </div>
+                    <div class="right-box-downer">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                ID
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                0108721
+                            </div>
+                        </div>
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Email
+                            </div>
+                            <div class="right-box-detail-name stm">
                                 dannyxu@163.com
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="right-nevi str">
-                <div class="right-navi-item navi-current">
-                    Chinese A1
-                </div>
-                <div class="right-navi-gap">
-                    &nbsp;
-                </div>
-                <div class="right-navi-item">
-                    English A1
-                </div>
-                <div class="right-navi-gap">
-                    &nbsp;
-                </div>
-                <div class="right-navi-item">
-                    French A1
-                </div>
-                <div class="right-navi-gap">
-                    &nbsp;
-                </div>
-                <div class="right-navi-item" >
-                    Information Technology B2
-                </div>
-                <div class="right-navi-gap">
-                    &nbsp;
-                </div>
-                <div class="right-navi-item" >
-                    Biology A1
-                </div>
-                <div class="right-navi-gap">
-                    &nbsp;
-                </div>
-                <div class="right-navi-item">
-                    Physics HL A1
-                </div>
-                <div class="right-navi-gap">
-                    &nbsp;
-                </div>
-                <div class="right-navi-item">
-                    TOK
-                </div>
-                <div class="right-navi-gap-large">
-                    &nbsp;
-                </div>
-                <div class="right-navi-item-right">
-                    Profile
-                </div>
 
-            </div>
-
-            <div class="subjectT-studentScore-add-outer">
-                <div class="subjectT-studentScore-add">
-                    <img src="../../img/ic_add_24px.png" class="right-down-info-button-img" height="11" width="11">
-                    <div class="right-down-info-button-text stb">
-                        ADD
-                    </div>
-                </div>
-            </div>
-
-            <div class="subjectT-studentScore" id="Chinese_A1">
+            <div class="subjectT-test">
                 <div class="right-table">
                     <div class="right-table-title sts">
                         <div class="right-table-title-title">
@@ -377,8 +349,10 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit" width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete" width="14">
+                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                     width="18px">
+                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                     width="14">
                             </div>
                         </div>
                         <div class="right-table-content-row">
@@ -395,8 +369,10 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit" width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete" width="14">
+                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                     width="18px">
+                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                     width="14">
                             </div>
                         </div>
                         <div class="right-table-content-row">
@@ -413,8 +389,10 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit" width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete" width="14">
+                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                     width="18px">
+                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                     width="14">
                             </div>
                         </div>
                         <div class="right-table-content-row">
@@ -431,8 +409,10 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit" width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete" width="14">
+                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                     width="18px">
+                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                     width="14">
                             </div>
                         </div>
                         <div class="right-table-content-row">
@@ -449,8 +429,10 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit" width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete" width="14">
+                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                     width="18px">
+                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                     width="14">
                             </div>
                         </div>
                         <div class="right-table-content-row">
@@ -467,8 +449,10 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit" width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete" width="14">
+                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                     width="18px">
+                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                     width="14">
                             </div>
                         </div>
                         <div class="right-table-content-row">
@@ -485,135 +469,430 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit" width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete" width="14">
+                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                     width="18px">
+                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                     width="14">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="subjectT-studentScore" id="TOK">
-                <div class="right-table">
-                    <div class="right-table-title sts">
-                        <div class="right-table-title-title">
-                            Title
-                        </div>
-                        <div class="right-table-title-grade">
-                            Grade
-                        </div>
-                        <div class="right-table-title-type">
-                            Type
-                        </div>
-                        <div class="right-table-title-date">
-                            Date
-                        </div>
-                    </div>
-                    <div class="right-table-content stb">
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
         </div>
 
+        <div class="subjectT-student-class">
+            <div class="right-down ">
+                <div class="right-info">
+                    <div class="right-return return-from-student">
+                        <img src="../../img/bx-chevron-left@2x.png" height="12" width="8" class="right-return-img"/>
+                        <div class="right-return-text sts">
+                            Students
+                        </div>
+                    </div>
+                    <div class="right-info-row">
+                        <img src="../../img/图像%201@2x.png" height="70" width="70" class="right-info-portrait">
+                        <div class="right-info-left stb">
+                            <div class="right-title">
+                                Danny Xu
+                            </div>
+                            <div class="right-subtitle">
+                                许丹阳
+                            </div>
+                        </div>
+                        <div class="right-info-right">
+                            <div class="right-info-dataBox">
+                                <div class="right-info-dataBox-title str">
+                                    ID
+                                </div>
+                                <div class="right-info-dataBox-content stm">
+                                    0108703
+                                </div>
+                            </div>
+                            <div class="right-info-dataBox">
+                                <div class="right-info-dataBox-title str">
+                                    Department
+                                </div>
+                                <div class="right-info-dataBox-content stm">
+                                    MYP
+                                </div>
+                            </div>
+                            <div class="right-info-dataBox">
+                                <div class="right-info-dataBox-title str">
+                                    Grade
+                                </div>
+                                <div class="right-info-dataBox-content stm">
+                                    7
+                                </div>
+                            </div>
+                            <div class="right-info-dataBox">
+                                <div class="right-info-dataBox-title str">
+                                    Class
+                                </div>
+                                <div class="right-info-dataBox-content stm">
+                                    18
+                                </div>
+                            </div>
+                            <div class="right-info-dataBox">
+                                <div class="right-info-dataBox-title str">
+                                    Email
+                                </div>
+                                <div class="right-info-dataBox-content stm">
+                                    dannyxu@163.com
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-nevi str">
+                    <div class="right-navi-item navi-current">
+                        Chinese A1
+                    </div>
+                    <div class="right-navi-gap">
+                        &nbsp;
+                    </div>
+                    <div class="right-navi-item">
+                        English A1
+                    </div>
+                    <div class="right-navi-gap">
+                        &nbsp;
+                    </div>
+                    <div class="right-navi-item">
+                        French A1
+                    </div>
+                    <div class="right-navi-gap">
+                        &nbsp;
+                    </div>
+                    <div class="right-navi-item">
+                        Information Technology B2
+                    </div>
+                    <div class="right-navi-gap">
+                        &nbsp;
+                    </div>
+                    <div class="right-navi-item">
+                        Biology A1
+                    </div>
+                    <div class="right-navi-gap">
+                        &nbsp;
+                    </div>
+                    <div class="right-navi-item">
+                        Physics HL A1
+                    </div>
+                    <div class="right-navi-gap">
+                        &nbsp;
+                    </div>
+                    <div class="right-navi-item">
+                        TOK
+                    </div>
+                    <div class="right-navi-gap-large">
+                        &nbsp;
+                    </div>
+                    <div class="right-navi-item-right">
+                        Profile
+                    </div>
+
+                </div>
+
+                <div class="subjectT-studentScore" id="Chinese_A1">
+                    <div class="subjectT-studentScore-add-outer">
+                        <div class="subjectT-studentScore-add">
+                            <img src="../../img/ic_add_24px.png" class="right-down-info-button-img" height="11" width="11">
+                            <div class="right-down-info-button-text stb">
+                                ADD
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-table">
+                        <div class="right-table-title sts">
+                            <div class="right-table-title-title">
+                                Title
+                            </div>
+                            <div class="right-table-title-grade">
+                                Grade
+                            </div>
+                            <div class="right-table-title-type">
+                                Type
+                            </div>
+                            <div class="right-table-title-date">
+                                Date
+                            </div>
+                            <div class="right-table-title-action">
+                                Action
+                            </div>
+                        </div>
+                        <div class="right-table-content stb">
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                                <div class="right-table-content-action">
+                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                         width="18px">
+                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                         width="14">
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                                <div class="right-table-content-action">
+                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                         width="18px">
+                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                         width="14">
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                                <div class="right-table-content-action">
+                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                         width="18px">
+                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                         width="14">
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                                <div class="right-table-content-action">
+                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                         width="18px">
+                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                         width="14">
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                                <div class="right-table-content-action">
+                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                         width="18px">
+                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                         width="14">
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                                <div class="right-table-content-action">
+                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                         width="18px">
+                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                         width="14">
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                                <div class="right-table-content-action">
+                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
+                                         width="18px">
+                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
+                                         width="14">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subjectT-studentScore" id="TOK">
+                    <div class="subjectT-studentScore-add-outer">
+                        <div class="subjectT-studentScore-add">
+                            <img src="../../img/ic_add_24px.png" class="right-down-info-button-img" height="11" width="11">
+                            <div class="right-down-info-button-text stb">
+                                ADD
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-table">
+                        <div class="right-table-title sts">
+                            <div class="right-table-title-title">
+                                Title
+                            </div>
+                            <div class="right-table-title-grade">
+                                Grade
+                            </div>
+                            <div class="right-table-title-type">
+                                Type
+                            </div>
+                            <div class="right-table-title-date">
+                                Date
+                            </div>
+                        </div>
+                        <div class="right-table-content stb">
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         <div class="personal-panel">
             <div class="personal-panel-top">
@@ -684,7 +963,7 @@
                 No result found containing 'Spainish'
             </div>
         </div>
-        <div class="share-box subjectT-addCourse-box">
+        <div class="share-box subjectT-addTest-box" value="">
             <div class="edit-box-top">
                 <div class="edit-box-title stm">
                     Add New Exam / Test
@@ -709,30 +988,35 @@
                         <div class="edit-box-innerbox-title">
                             Comment
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="add-course-name"
+                        <input type="text" class="edit-box-innerbox-input" name="add-test-common"
                                placeholder="English A2 - 001">
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
                             Score
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="add-course-name"
+                        <input type="text" class="edit-box-innerbox-input" name="add-test-score"
                                placeholder="">
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
                             Attachment
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="add-course-name"
-                               placeholder="Click to upload an attachment">
+                        <div class="edit-box-click-row">
+                            <button class="edit-box-innerbox-input click-button" type="file">
+                                Click here to upload an attachment
+                            </button>
+                            <img src="../../img/ic_add_24px@2x.png" height="14" width="14" class="click-icon"/>
+                            <input type="file" name="test-attachment" capture="camera" class="click-hidden-input"
+                                   placeholder="Click to upload an attachment">
+                            <!--  input标签调用调用上传方法                      -->
+                        </div>
                     </div>
                     <input class="edit-box-green stb" type="submit" value="Save">
                 </div>
             </form>
         </div>
     </div>
-
-
 </div>
 
 </body>

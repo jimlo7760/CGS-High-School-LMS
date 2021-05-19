@@ -34,7 +34,7 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
             <div class="left-content-navi">
                 <div class="left-content-navi-item">
                     <div class="left-content-navi-title stb">
-                        MANAGE
+                        SCHOOL YEAR
                     </div>
                     <div class="left-content-navi-content">
                         <i class="material-icons left-content-navi-img initial_transform">

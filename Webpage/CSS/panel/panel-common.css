@@ -95,6 +95,13 @@
     height: 25px;
     cursor: pointer;
 }
+.left-content-manu-nevi-add {
+    padding: 10px 25px;
+    overflow: hidden;
+    zoom: 1;
+    height: 25px;
+    cursor: pointer;
+}
 
 .left-content-manu-year {
     float: left;
@@ -484,6 +491,7 @@
     background-color: white;
     padding: 30px;
     border-radius: 10px;
+    display: none;
 }
 
 .share-box-title {
@@ -706,4 +714,14 @@
 }
 .right-info-dataBox-content{
     font-size:16px;
+}
+
+.right-class-list{
+    overflow:hidden;
+    zoom:1;
+}
+
+.thinner-box{
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
