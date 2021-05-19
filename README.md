@@ -2,7 +2,7 @@
 
 <h1 align=center>许丹阳学生管理操作系统</h1>
 
-<h3 align=center>一切解释权不归许丹阳所有</h3>
+<h3 align=center>一切解释权不归许丹阳所有;)</h3>
 
 ## 设计稿
 
