@@ -151,7 +151,7 @@
             </div>
             <div class="right-student-list">
                 <div class="right-box enrolled-student" name="$_SESSION['course_id']">
-<!--                    需要添加ajax：当enrolled-student被点击时，后台需要给当前subjectT-student-class界面初始化   -->
+                    <!--                    需要添加ajax：当enrolled-student被点击时，后台需要给当前subjectT-student-class界面初始化   -->
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Danny Xu
@@ -989,7 +989,7 @@
                             Comment
                         </div>
                         <textarea type="text" class="edit-box-innerbox-input edit-comment-box" name="add-test-common"
-                               placeholder="Write your comment here..."></textarea>
+                                  placeholder="Write your comment here..."></textarea>
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">

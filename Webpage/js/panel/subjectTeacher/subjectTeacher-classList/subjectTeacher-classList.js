@@ -6,10 +6,18 @@ $(document).ready(function () {
         }, 'fast')
     })
     $('.left-content-manu-nevi').mouseleave(function () {
-        $(this).animate({
-            backgroundColor: 'transparent',
-        }, 'fast')
+        if (($(this).attr('name') == 'student' && ($('.right-class-list').is(':visible') || $('.subjectT-studentScore').is(':visible'))) || ($(this).attr('name') == 'exam' && $('.subjectT-test').is(':visible'))) {
+            $(this).animate({
+                backgroundColor: 'rgb(0, 60, 70)',
+            }, 'fast')
+        } else {
+            $(this).animate({
+                backgroundColor: 'transparent',
+            }, 'fast')
+        }
     })
+
+
     $('.right-box').click(function () {
         $(this).find("form").submit();
     })
@@ -117,8 +125,12 @@ $(document).ready(function () {
     })
 
     $('#exam-nevi').click(function () {
-        if($('.subjectT-test').is(':hidden')){
-            $('.right-class-list').fadeOut('fast');
+        if ($('.subjectT-test').is(':hidden')) {
+            if ($('.subjectT-studentScore').is(':visible')) {
+                $('.subjectT-student-class').fadeOut('fast');
+                $('.student-crew-list').delay('fast').fadeIn('fast');
+            }
+            $('.right-student-list').fadeOut('fast');
             $('.subjectT-test').delay('fast').fadeIn('fast');
             $('.right-subtitle').html('Exams & Tests');
             $('.right-info-right-button').fadeIn('fast');
@@ -128,8 +140,14 @@ $(document).ready(function () {
             $('#exam-nevi').animate({
                 backgroundColor: 'rgb(0, 60, 70)'
             }, 'fast');
-            var tableWid = parseInt($('.right-info').css('width'));
-
+            var referenceWid = 0;
+            if($('.student-info').is(':hidden')){
+                referenceWid = parseInt($('.test-info').css('width'));
+            }else{
+                referenceWid = parseInt($('.student-info').css('width'));
+            }
+            var tableWid = referenceWid;
+            console.log(referenceWid)
             var titleWid = tableWid * 0.3;
             $('.right-table-title-title').width(titleWid);
             $('.right-table-content-title').width(titleWid);
@@ -147,6 +165,22 @@ $(document).ready(function () {
             $('.right-table-content-action').width(actionWid);
         }
     })
+
+    $('#student-nevi').click(function () {
+        if ($('.right-student-list').is(':hidden')) {
+            $('.subjectT-test').fadeOut('fast');
+            $('.right-student-list').delay('fast').fadeIn('fast');
+            $('.right-subtitle').html('Students');
+            $('.right-info-right-button').fadeOut('fast');
+            $('#student-nevi').animate({
+                backgroundColor: 'rgb(0, 60, 70)'
+            }, 'fast');
+            $('#exam-nevi').animate({
+                backgroundColor: 'transparent'
+            }, 'fast');
+        }
+    })
+
 
 })
 

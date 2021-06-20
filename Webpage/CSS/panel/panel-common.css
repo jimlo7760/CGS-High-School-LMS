@@ -694,14 +694,14 @@
 
 .right-down-info-button-img {
     float: left;
-    margin: 4px 10px 4px 5px;
+    color: white;
 }
 
 .right-down-info-button-text {
     float: left;
     color: white;
     font-size: 12px;
-    margin: 3px;
+    margin: 5px;
 }
 
 .right-info-dataBox{
@@ -724,4 +724,8 @@
 .thinner-box{
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+.edit-comment-box{
+    height: 150px;
 }

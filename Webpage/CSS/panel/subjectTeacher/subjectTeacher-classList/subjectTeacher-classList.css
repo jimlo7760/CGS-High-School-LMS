@@ -9,6 +9,11 @@
 .left-box{
     border-bottom:none;
 }
+.right-student-list{
+    overflow: hidden;
+    zoom:1;
+}
+
 .right-info{
     height:auto;
     margin-bottom:25px;
@@ -226,7 +231,7 @@
 }
 
 #student-nevi{
-    background-color: #004956;
+    background-color: rgb(0, 60, 70);
 }
 
 .right-info-right-button{
