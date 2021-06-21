@@ -43,6 +43,7 @@
 
 .left-content-navi-content {
     float: right;
+    font-size: 18px;
 }
 
 .left-content-navi-img {
@@ -573,6 +574,7 @@
 .edit-box-close {
     float: right;
     cursor: pointer;
+    color: #6C757E;
 }
 
 .edit-box-portrait {

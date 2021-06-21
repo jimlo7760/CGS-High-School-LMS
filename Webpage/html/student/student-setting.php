@@ -795,7 +795,9 @@ END;
                         <div class="edit-box-title stm">
                             Edit Profile
                         </div>
-                        <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
+                        <span class="material-icons edit-box-close">
+                            close
+                        </span>
                     </div>
                     <div class="edit-box-portrait">
                         <?php

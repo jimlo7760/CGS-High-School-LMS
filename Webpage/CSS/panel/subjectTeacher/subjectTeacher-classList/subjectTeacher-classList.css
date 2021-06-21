@@ -167,9 +167,11 @@
 .right-table-content-action-edit{
     float:left;
     margin-right: 30px;
+    color: #1BA2B9;
 }
 .right-table-content-delete{
     float:left;
+    color: #DD3444;
 }
 
 
@@ -201,6 +203,9 @@
 .subjectT-addTest-box{
     display: none;
 }
+.subjectT-addScore-box{
+    display: none;
+}
 
 .edit-box-click-row{
     overflow: hidden;
@@ -227,7 +232,7 @@
 }
 .click-icon{
     float: right;
-    margin: 15px 10px 0 0;
+    margin: 10px 10px 0 0;
 }
 
 #student-nevi{
@@ -248,6 +253,7 @@
     margin-right: 10px;
 }
 .right-info-right-button-text{
+    margin-top: 3px;
     float: left;
 }
 .subjectT-test{

@@ -38,9 +38,9 @@
                         SCHOOL YEAR
                     </div>
                     <div class="left-content-navi-content">
-                        <img src="../../img/ic_keyboard_arrow_up_24px.png"
-                             class="left-content-navi-img initial_transform" height="8"
-                             width="12"/>
+                        <span class="material-icons left-content-navi-img initial_transform">
+                            keyboard_arrow_up
+                        </span>
                     </div>
                 </div>
                 <div class="left-content-manu stb">
@@ -78,9 +78,10 @@
                         MANAGE
                     </div>
                     <div class="left-content-navi-content">
-                        <img src="../../img/ic_keyboard_arrow_up_24px.png"
-                             class="left-content-navi-img initial_transform" height="8"
-                             width="12"/>
+                        <span class="material-icons left-content-navi-img initial_transform">
+                            keyboard_arrow_up
+                        </span>
+
                     </div>
                 </div>
                 <div class="left-content-manu navi-manage-student stb">
@@ -97,14 +98,18 @@
         <div class="right-top">
             <div class="right-top-left">
                 <div class="right-top-research">
-                    <img class="right-top-research-img" src="../../img/ic_search_24px.png" height="19" width="19"/>
+                    <span class="material-icons right-top-research-img">
+                        search
+                    </span>
                     <input class="right-top-research-text pointer-alt stm" placeholder="Search by course name"
                            type="text"
                            maxlength="50">
                 </div>
             </div>
             <div class="right-top-right">
-                <img src="../../img/ic_notifications_24px@2x.png" class="right-top-noti" height="20" width="16"/>
+                <span class="material-icons right-top-noti">
+                    notifications
+                </span>
                 <div class="right-top-noti-cir">
 
                 </div>
@@ -143,7 +148,7 @@
 
             <div class="subjectT-right-down-main">
                 <div class="subjectT-right-down-row">
-                    <div class="right-box thinner-box" onclick="window.location='subjectTeacher-classList.html'">
+                    <div class="right-box thinner-box" onclick="window.location='subjectTeacher-classList.php'">
                         <div class="right-box-title stb">
                             Chinese A1-001
                         </div>
@@ -303,8 +308,9 @@
                             <div class="right-box-title stb">
                                 Danny Xu
                             </div>
-                            <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                                 class="right-box-arrow"/>
+                            <i class="material-icons right-box-arrow">
+                                chevron_right
+                            </i>
                         </div>
                         <div class="right-box-downer">
                             <div class="right-box-detail">
@@ -330,8 +336,9 @@
                             <div class="right-box-title stb">
                                 Danny Xu
                             </div>
-                            <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                                 class="right-box-arrow"/>
+                            <i class="material-icons right-box-arrow">
+                                chevron_right
+                            </i>
                         </div>
                         <div class="right-box-downer">
                             <div class="right-box-detail">
@@ -357,8 +364,9 @@
                             <div class="right-box-title stb">
                                 Danny Xu
                             </div>
-                            <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                                 class="right-box-arrow"/>
+                            <i class="material-icons right-box-arrow">
+                                chevron_right
+                            </i>
                         </div>
                         <div class="right-box-downer">
                             <div class="right-box-detail">
@@ -384,8 +392,9 @@
                             <div class="right-box-title stb">
                                 Danny Xu
                             </div>
-                            <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                                 class="right-box-arrow"/>
+                            <i class="material-icons right-box-arrow">
+                                chevron_right
+                            </i>
                         </div>
                         <div class="right-box-downer">
                             <div class="right-box-detail">
@@ -432,7 +441,7 @@
                 <div class="personal-panel-row str">
                     Goal Score
                 </div>
-                <div class="personal-panel-row-last str" onclick="window.location='../login/index.html'">
+                <div class="personal-panel-row-last str" onclick="window.location='../login/index.php'">
                     Sign Out
                 </div>
             </div>

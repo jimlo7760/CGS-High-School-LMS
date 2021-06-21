@@ -36,8 +36,9 @@
                         SCHOOL YEAR
                     </div>
                     <div class="left-content-navi-content">
-                        <img src="../../img/ic_keyboard_arrow_up_24px.png" class="left-content-navi-img initial_transform" height="8"
-                             width="12"/>
+                        <span class="material-icons left-content-navi-img initial_transform">
+                            keyboard_arrow_up
+                        </span>
                     </div>
                 </div>
                 <div class="left-content-manu stb">
@@ -75,8 +76,9 @@
                         Chinese A1
                     </div>
                     <div class="left-content-navi-content">
-                        <img src="../../img/ic_keyboard_arrow_up_24px.png" class="left-content-navi-img initial_transform" height="8"
-                             width="12"/>
+                        <span class="material-icons left-content-navi-img initial_transform">
+                            keyboard_arrow_up
+                        </span>
                     </div>
                 </div>
                 <div class="left-content-manu navi-manage-student stb">
@@ -105,14 +107,18 @@
         <div class="right-top">
             <div class="right-top-left">
                 <div class="right-top-research">
-                    <img class="right-top-research-img" src="../../img/ic_search_24px.png" height="19" width="19"/>
+                    <span class="material-icons right-top-research-img">
+                        search
+                    </span>
                     <input class="right-top-research-text pointer-alt stm" placeholder="Search by course name"
                            type="text"
                            maxlength="50">
                 </div>
             </div>
             <div class="right-top-right">
-                <img src="../../img/ic_notifications_24px@2x.png" class="right-top-noti" height="20" width="16"/>
+                <i class="material-icons right-top-noti">
+                    notifications
+                </i>
                 <div class="right-top-noti-cir">
 
                 </div>
@@ -121,15 +127,18 @@
                         Danny Xu
                     </div>
                     <img src="../../img/图像 1@2x.png" height="45" width="45" class="right-top-person-portrait"/>
-                    <img src="../../img/ic_keyboard_arrow_down_24px@2x.png" height="8" width="12"
-                         class="right-top-person-arrow initial_transform"/>
+                    <i class="material-icons right-top-person-arrow initial_transform">
+                        keyboard_arrow_down
+                    </i>
                 </div>
             </div>
         </div>
         <div class="right-down student-crew-list">
             <div class="right-info student-info">
-                <div class="right-return" onclick="window.location='subjectTeacher-main.html'">
-                    <img src="../../img/bx-chevron-left@2x.png" height="12" width="8" class="right-return-img"/>
+                <div class="right-return" onclick="window.location='subjectTeacher-main.php'">
+                    <span class="material-icons right-return-img">
+                        chevron_left
+                    </span>
                     <div class="right-return-text sts">
                         Home
                     </div>
@@ -143,8 +152,10 @@
                     </div>
                 </div>
                 <div class="right-info-right-button">
-                    <img src="../../img/ic_add_24px.png" height="14" width="14" class="right-info-right-button-img">
-                    <div class="right-info-right-button-text">
+                    <span class="material-icons right-info-right-button-img">
+                        add
+                    </span>
+                    <div class="right-info-right-button-text stb">
                         ADD
                     </div>
                 </div>
@@ -156,8 +167,9 @@
                         <div class="right-box-title stb">
                             Danny Xu
                         </div>
-                        <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                             class="right-box-arrow"/>
+                        <span class="material-icons right-box-arrow">
+                            chevron_right
+                        </span>
                     </div>
                     <div class="right-box-downer">
                         <div class="right-box-detail">
@@ -183,8 +195,9 @@
                         <div class="right-box-title stb">
                             Danny Xu
                         </div>
-                        <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                             class="right-box-arrow"/>
+                        <span class="material-icons right-box-arrow">
+                            chevron_right
+                        </span>
                     </div>
                     <div class="right-box-downer">
                         <div class="right-box-detail">
@@ -210,8 +223,9 @@
                         <div class="right-box-title stb">
                             Danny Xu
                         </div>
-                        <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                             class="right-box-arrow"/>
+                        <span class="material-icons right-box-arrow">
+                            chevron_right
+                        </span>
                     </div>
                     <div class="right-box-downer">
                         <div class="right-box-detail">
@@ -237,8 +251,9 @@
                         <div class="right-box-title stb">
                             Danny Xu
                         </div>
-                        <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                             class="right-box-arrow"/>
+                        <span class="material-icons right-box-arrow">
+                            chevron_right
+                        </span>
                     </div>
                     <div class="right-box-downer">
                         <div class="right-box-detail">
@@ -264,8 +279,9 @@
                         <div class="right-box-title stb">
                             Danny Xu
                         </div>
-                        <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                             class="right-box-arrow"/>
+                        <span class="material-icons right-box-arrow">
+                            chevron_right
+                        </span>
                     </div>
                     <div class="right-box-downer">
                         <div class="right-box-detail">
@@ -291,8 +307,9 @@
                         <div class="right-box-title stb">
                             Danny Xu
                         </div>
-                        <img src="../../img/bx-chevron-right@2x.png" height="12" width="8"
-                             class="right-box-arrow"/>
+                        <span class="material-icons right-box-arrow">
+                            chevron_right
+                        </span>
                     </div>
                     <div class="right-box-downer">
                         <div class="right-box-detail">
@@ -349,10 +366,12 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                     width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                     width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                             </div>
                         </div>
                         <div class="right-table-content-row">
@@ -369,10 +388,12 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                     width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                     width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                             </div>
                         </div>
                         <div class="right-table-content-row">
@@ -389,10 +410,12 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                     width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                     width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                             </div>
                         </div>
                         <div class="right-table-content-row">
@@ -409,10 +432,12 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                     width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                     width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                             </div>
                         </div>
                         <div class="right-table-content-row">
@@ -429,10 +454,12 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                     width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                     width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                             </div>
                         </div>
                         <div class="right-table-content-row">
@@ -449,10 +476,12 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                     width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                     width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                             </div>
                         </div>
                         <div class="right-table-content-row">
@@ -469,10 +498,12 @@
                                 Apr 29, 2020 11:00 AM
                             </div>
                             <div class="right-table-content-action">
-                                <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                     width="18px">
-                                <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                     width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                             </div>
                         </div>
                     </div>
@@ -484,7 +515,9 @@
             <div class="right-down ">
                 <div class="right-info test-info">
                     <div class="right-return return-from-student">
-                        <img src="../../img/bx-chevron-left@2x.png" height="12" width="8" class="right-return-img"/>
+                    <span class="material-icons right-return-img">
+                        chevron_left
+                    </span>
                         <div class="right-return-text sts">
                             Students
                         </div>
@@ -595,7 +628,10 @@
                 <div class="subjectT-studentScore" id="Chinese_A1">
                     <div class="subjectT-studentScore-add-outer">
                         <div class="subjectT-studentScore-add">
-                            <img src="../../img/ic_add_24px.png" class="right-down-info-button-img" height="11" width="11">
+                            <span class="material-icons right-down-info-button-img">
+                                add
+                            </span>
+
                             <div class="right-down-info-button-text stb">
                                 ADD
                             </div>
@@ -634,10 +670,12 @@
                                     Apr 29, 2020 11:00 AM
                                 </div>
                                 <div class="right-table-content-action">
-                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                         width="18px">
-                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                         width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                                 </div>
                             </div>
                             <div class="right-table-content-row">
@@ -654,10 +692,12 @@
                                     Apr 29, 2020 11:00 AM
                                 </div>
                                 <div class="right-table-content-action">
-                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                         width="18px">
-                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                         width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                                 </div>
                             </div>
                             <div class="right-table-content-row">
@@ -674,10 +714,12 @@
                                     Apr 29, 2020 11:00 AM
                                 </div>
                                 <div class="right-table-content-action">
-                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                         width="18px">
-                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                         width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                                 </div>
                             </div>
                             <div class="right-table-content-row">
@@ -694,10 +736,12 @@
                                     Apr 29, 2020 11:00 AM
                                 </div>
                                 <div class="right-table-content-action">
-                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                         width="18px">
-                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                         width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                                 </div>
                             </div>
                             <div class="right-table-content-row">
@@ -714,10 +758,12 @@
                                     Apr 29, 2020 11:00 AM
                                 </div>
                                 <div class="right-table-content-action">
-                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                         width="18px">
-                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                         width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                                 </div>
                             </div>
                             <div class="right-table-content-row">
@@ -734,10 +780,12 @@
                                     Apr 29, 2020 11:00 AM
                                 </div>
                                 <div class="right-table-content-action">
-                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                         width="18px">
-                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                         width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                                 </div>
                             </div>
                             <div class="right-table-content-row">
@@ -754,10 +802,12 @@
                                     Apr 29, 2020 11:00 AM
                                 </div>
                                 <div class="right-table-content-action">
-                                    <img src="../../img/ic_edit_24px@2x.png" class="right-table-content-action-edit"
-                                         width="18px">
-                                    <img src="../../img/ic_delete_forever_24px@2x.png" class="right-table-content-delete"
-                                         width="14">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -766,7 +816,8 @@
                 <div class="subjectT-studentScore" id="TOK">
                     <div class="subjectT-studentScore-add-outer">
                         <div class="subjectT-studentScore-add">
-                            <img src="../../img/ic_add_24px.png" class="right-down-info-button-img" height="11" width="11">
+                            <img src="../../img/ic_add_24px.png" class="right-down-info-button-img" height="11"
+                                 width="11">
                             <div class="right-down-info-button-text stb">
                                 ADD
                             </div>
@@ -916,7 +967,7 @@
                 <div class="personal-panel-row str">
                     Goal Score
                 </div>
-                <div class="personal-panel-row-last str" onclick="window.location='../login/index.html'">
+                <div class="personal-panel-row-last str" onclick="window.location='../login/index.php'">
                     Sign Out
                 </div>
             </div>
@@ -963,12 +1014,14 @@
                 No result found containing 'Spainish'
             </div>
         </div>
-        <div class="share-box subjectT-addTest-box" value="">
+        <div class="share-box subjectT-addScore-box" value="">
             <div class="edit-box-top">
                 <div class="edit-box-title stm">
                     Add New Exam / Test
                 </div>
-                <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
+                <span class="material-icons edit-box-close">
+                    close
+                </span>
             </div>
             <form method="post">
                 <div class="edit-box-downer">
@@ -976,8 +1029,7 @@
                         <div class="edit-box-innerbox-title">
                             Choose an Exam / Test
                         </div>
-
-                        <select name="add-test-name" class="edit-box-innerbox-select subjectT-addCourse-box-select">
+                        <select name="add-score-name" class="edit-box-innerbox-select subjectT-addCourse-box-select">
                             <option>2020 First semester mid-term examination</option>
                             <option>2020 Second semester mid-term examination</option>
                             <option>2021 First semester final examination</option>
@@ -988,14 +1040,14 @@
                         <div class="edit-box-innerbox-title">
                             Comment
                         </div>
-                        <textarea type="text" class="edit-box-innerbox-input edit-comment-box" name="add-test-common"
+                        <textarea type="text" class="edit-box-innerbox-input edit-comment-box str" name="add-score-comment"
                                   placeholder="Write your comment here..."></textarea>
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
                             Score
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="add-test-score"
+                        <input type="text" class="edit-box-innerbox-input str" name="add-score-val"
                                placeholder="">
                     </div>
                     <div class="edit-box-innerbox str">
@@ -1003,11 +1055,13 @@
                             Attachment
                         </div>
                         <div class="edit-box-click-row">
-                            <button class="edit-box-innerbox-input click-button" type="file">
+                            <button class="edit-box-innerbox-input click-button str" type="file">
                                 Click here to upload an attachment
                             </button>
-                            <img src="../../img/ic_add_24px@2x.png" height="14" width="14" class="click-icon"/>
-                            <input type="file" name="test-attachment" capture="camera" class="click-hidden-input"
+                            <span class="material-icons click-icon">
+                                add
+                            </span>
+                            <input type="file" name="add-score-attachment" capture="camera" class="click-hidden-input str"
                                    placeholder="Click to upload an attachment">
                             <!--  input标签调用调用上传方法                      -->
                         </div>
@@ -1016,6 +1070,57 @@
                 </div>
             </form>
         </div>
+        <div class="share-box subjectT-addTest-box" value="">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Add New Exam / Test
+                </div>
+                <span class="material-icons edit-box-close">
+                    close
+                </span>
+            </div>
+            <form method="post">
+                <div class="edit-box-downer">
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Title
+                        </div>
+                        <input class="edit-box-innerbox-input str" name="add-test-title">
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Descriptions
+                        </div>
+                        <textarea type="text" class="edit-box-innerbox-input edit-comment-box str" name="add-test-description"
+                                  placeholder="Write your description here..."></textarea>
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Type
+                        </div>
+                        <select name="add-test-type" class="edit-box-innerbox-select subjectT-addCourse-box-select">
+                            <option>Monthly Examination</option>
+                            <option>Mid-term Examination</option>
+                            <option>Final Examination</option>
+                        </select>
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Score Out Of
+                        </div>
+                        <input class="edit-box-innerbox-input str" name="add-test-ceiling">
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Due Date
+                        </div>
+                        <input class="edit-box-innerbox-input str" name="add-test-date" type="date">
+                    </div>
+                    <input class="edit-box-green stb" type="submit" value="Save">
+                </div>
+            </form>
+        </div>
+
     </div>
 </div>
 

@@ -6,7 +6,7 @@ $(document).ready(function () {
         }, 'fast')
     })
     $('.left-content-manu-nevi').mouseleave(function () {
-        if (($(this).attr('name') == 'student' && ($('.right-class-list').is(':visible') || $('.subjectT-studentScore').is(':visible'))) || ($(this).attr('name') == 'exam' && $('.subjectT-test').is(':visible'))) {
+        if (($(this).attr('name') == 'student' && ($('.right-student-list').is(':visible') || $('.subjectT-studentScore').is(':visible'))) || ($(this).attr('name') == 'exam' && $('.subjectT-test').is(':visible'))) {
             $(this).animate({
                 backgroundColor: 'rgb(0, 60, 70)',
             }, 'fast')
@@ -64,8 +64,8 @@ $(document).ready(function () {
             "top": 0
         });
         $('.grey-bg').fadeIn();
-        $('.subjectT-addTest-box').fadeIn();
-        $('.subjectT-addTest-box').attr('value', subjectSele);
+        $('.subjectT-addScore-box').fadeIn();
+        $('.subjectT-addScore-box').attr('value', subjectSele);
     })
 
     $('.enrolled-student').click(function () {
