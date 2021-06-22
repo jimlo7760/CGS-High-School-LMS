@@ -92,7 +92,7 @@ function UpdateStudVio($level_severity, $title_of_violation, $content_of_violati
  * @return mixed All violations a student did.
  * @author Binghe Yi
  */
-function FetchStudViolations($stud_id)
+function FetchStudViolationsByStudId($stud_id)
 {
     $conn = createconn();
     $stmt = $conn->prepare('select * from stud_violation where stud_id = ?');
@@ -111,3 +111,55 @@ function FetchStudViolations($stud_id)
         return $error;
     }
 }
+
+/**
+ * Fetch student violation by English name or Chinese name.
+ *
+ * @param String $stud_name Student's name
+ * @return mixed array If successfully executed: [True, all violations entries as array] <br> If not: [False, empty array]
+ */
+function FetchStudViolationsByStudName($stud_name) {
+    $conn = createconn();
+    $query = "select id from stud_info where chi_name=?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $stmt_chi_name);
+    $stmt_chi_name = $stud_name;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    if (!$res) {
+        $query = "select id from stud_info where eng_name=?;";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("s", $stmt_eng_name);
+        $stmt_eng_name = $stud_name;
+        $stmt->execute();
+        $res = $stmt->get_result()->fetch_all();
+        $stmt->close();
+        $conn->close();
+        if (!$res) {
+            return [false, $res];
+        } else {
+            $fetch_res = [];
+            foreach ($res as $id_array) {
+                $id = $id_array[0];
+                $fetch_res[] = FetchStudViolationsByStudId($id);
+            }
+            return [true, $fetch_res];
+        }
+    } else {
+        $stmt->close();
+        $conn->close();
+//        return [true, $res];
+        $fetch_res = [];
+        foreach ($res as $id_array) {
+            $id = $id_array[0];
+            $fetch_res[] = FetchStudViolationsByStudId($id);
+        }
+        return [true, $fetch_res];
+    }
+
+}
+
+//function FetchStudViolationByStudNum($stud_num) {
+//    $conn = createconn();
+//    $query = ""
+//}
