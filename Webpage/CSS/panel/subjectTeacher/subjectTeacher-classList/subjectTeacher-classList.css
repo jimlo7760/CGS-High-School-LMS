@@ -247,6 +247,8 @@
     padding: 12px 15px;
     color: white;
     border-radius: 5px;
+    display: none;
+    cursor: pointer;
 }
 .right-info-right-button-img{
     float: left;
@@ -258,8 +260,5 @@
 }
 .subjectT-test{
     border-top: #6C757E 1px solid;
-    display: none;
-}
-.right-info-right-button{
     display: none;
 }

@@ -18,6 +18,9 @@
     <script type="text/javascript" src="../../js/panel/panel-common.js">
 
     </script>
+    <script type="text/javascript" src="../../js/panel/subjectTeacher/subjectTeacher-common.js">
+
+    </script>
     <script type="text/javascript"
             src="../../js/panel/subjectTeacher/subjectTeacher-classList/subjectTeacher-classList.js">
 
@@ -512,7 +515,7 @@
         </div>
 
         <div class="subjectT-student-class">
-            <div class="right-down ">
+            <div class="right-down">
                 <div class="right-info test-info">
                     <div class="right-return return-from-student">
                     <span class="material-icons right-return-img">
@@ -977,42 +980,7 @@
 
         </div>
         <div class="result-box">
-            <ul class="result-box-row">
-                <li class="result-box-sort" value="class">
-                    Class
-                </li>
-                <li class="result-box-name">
-                    Chinese A1
-                </li>
-                <li class="result-box-year">
-                    2019 - 2020
-                </li>
-            </ul>
-            <ul class="result-box-row">
-                <li class="result-box-sort">
-                    Class
-                </li>
-                <li class="result-box-name">
-                    English
-                </li>
-                <li class="result-box-year">
-                    2019 - 2020
-                </li>
-            </ul>
-            <ul class="result-box-row">
-                <li class="result-box-sort">
-                    Teacher
-                </li>
-                <li class="result-box-name">
-                    Danny
-                </li>
-                <li class="result-box-year">
 
-                </li>
-            </ul>
-            <div class="result-box-empty">
-                No result found containing 'Spainish'
-            </div>
         </div>
         <div class="share-box subjectT-addScore-box" value="">
             <div class="edit-box-top">

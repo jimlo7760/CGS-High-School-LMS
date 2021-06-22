@@ -197,7 +197,6 @@
                     <span class="material-icons right-down-info-button-img">
                         add
                     </span>
-                    aaaaa
                     <div class="right-down-info-button-text stb">
                         ADD COURSE
                     </div>
@@ -481,7 +480,7 @@
                         <div class="edit-box-innerbox-title">
                             Course Name
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="add-course-name"
+                        <input type="text" class="edit-box-innerbox-input str" name="add-course-name"
                                placeholder="English A2 - 001">
                     </div>
                     <input class="edit-box-green stb" type="submit" value="Save">

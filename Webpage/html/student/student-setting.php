@@ -304,7 +304,8 @@ END;
                                 <div class="right-person-info-row-title stb">
                                     Goal University
                                 </div>
-                                <div class="right-person-edit delete-university right-person-delete" style="margin-right: 7px">
+                                <div class="right-person-edit delete-university right-person-delete"
+                                     style="margin-right: 7px">
                                     <span class="material-icons right-person-edit-img">
                                         delete_forever
                                     </span>
@@ -857,9 +858,11 @@ END;
         <div class="share-box award-box-delete">
             <div class="edit-box-top">
                 <div class="edit-box-title stm">
-                    Delete Classes
+                    Delete Awards & Prizes
                 </div>
-                <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
+                <span class="material-icons edit-box-close">
+                            close
+                </span>
             </div>
             <form method="post">
                 <div class="edit-box-downer">
@@ -890,21 +893,23 @@ END;
                 <div class="edit-box-title stm">
                     Add Awards & Prizes
                 </div>
-                <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
+                <span class="material-icons edit-box-close">
+                            close
+                        </span>
             </div>
             <div class="award-box-row">
                 <div class="edit-box-innerbox award-box-big str">
                     <div class="edit-box-innerbox-title">
                         Award or Prize Title
                     </div>
-                    <input type="text" class="edit-box-innerbox-input" name="award-title"
+                    <input type="text" class="edit-box-innerbox-input str" name="award-title"
                            placeholder="Add a new award or prize…">
                 </div>
                 <div class="edit-box-innerbox award-box-small str">
                     <div class="edit-box-innerbox-title">
                         Year Recieved
                     </div>
-                    <input type="text" class="edit-box-innerbox-input" name="award-year">
+                    <input type="text" class="edit-box-innerbox-input str" name="award-year">
                 </div>
             </div>
             <form method="post">
@@ -913,14 +918,14 @@ END;
                         <div class="edit-box-innerbox-title">
                             Award or Prize Title
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="award-title"
+                        <input type="text" class="edit-box-innerbox-input str" name="award-title"
                                placeholder="Add a new award or prize…">
                     </div>
                     <div class="edit-box-innerbox award-box-small str">
                         <div class="edit-box-innerbox-title">
                             Year Recieved
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="award-year">
+                        <input type="text" class="edit-box-innerbox-input str" name="award-year">
 
                     </div>
                 </div>
@@ -929,14 +934,14 @@ END;
                         <div class="edit-box-innerbox-title">
                             Award or Prize Title
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="award-title"
+                        <input type="text" class="edit-box-innerbox-input str" name="award-title"
                                placeholder="Add a new award or prize…">
                     </div>
                     <div class="edit-box-innerbox award-box-small str">
                         <div class="edit-box-innerbox-title">
                             Year Recieved
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="award-year">
+                        <input type="text" class="edit-box-innerbox-input str" name="award-year">
                     </div>
                 </div>
                 <input type="submit" class="edit-box-green stb" value="Add Awards & Prizes">
@@ -947,7 +952,9 @@ END;
                 <div class="edit-box-title stm">
                     Add Goal University
                 </div>
-                <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
+                <span class="material-icons edit-box-close">
+                            close
+                        </span>
             </div>
             <form method="post">
                 <div class="edit-box-downer">
@@ -955,21 +962,21 @@ END;
                         <div class="edit-box-innerbox-title">
                             University Name
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="university-name-1"
+                        <input type="text" class="edit-box-innerbox-input str" name="university-name-1"
                                placeholder="Harvard Law School">
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
                             University Name
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="university-name-2"
+                        <input type="text" class="edit-box-innerbox-input str" name="university-name-2"
                                placeholder="Oxford University">
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
                             University Name
                         </div>
-                        <input type="text" class="edit-box-innerbox-input" name="university-name-3"
+                        <input type="text" class="edit-box-innerbox-input str" name="university-name-3"
                                placeholder="Add a new university here...">
                     </div>
                     <input class="edit-box-green stb" type="submit" value="Update Goal University">
@@ -981,11 +988,13 @@ END;
                 <div class="edit-box-title stm">
                     Delete Goal University
                 </div>
-                <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
+                <span class="material-icons edit-box-close">
+                            close
+                        </span>
             </div>
             <form method="post">
                 <div class="edit-box-downer">
-<!--                    require_once is required-->
+                    <!--                    require_once is required-->
                     <div class="class-adding-subtitle str">
                         Select Goal University
                     </div>
@@ -1012,7 +1021,9 @@ END;
                 <div class="edit-box-title stm">
                     Add Classes
                 </div>
-                <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
+                <span class="material-icons edit-box-close">
+                            close
+                        </span>
             </div>
             <form method="get" action="../../../Controller_and_Model/Controller/SubmitClassExchangeApplication.php">
                 <div class="edit-box-downer">
@@ -1056,7 +1067,9 @@ END;
                 <div class="edit-box-title stm">
                     Delete Classes
                 </div>
-                <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
+                <span class="material-icons edit-box-close">
+                            close
+                </span>
             </div>
             <form method="post">
                 <div class="edit-box-downer">
@@ -1259,7 +1272,7 @@ END;
                                 Score Invalid
                             </div>
                         </div>
-                        <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
+                        <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input str"
                                name="mid-goal"
                                placeholder="">
                     </div>
@@ -1267,7 +1280,7 @@ END;
                         <div class="edit-box-innerbox-title score-editing-innerbox-title">
                             Final Exam Goal
                         </div>
-                        <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
+                        <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input str"
                                name="finao-goal"
                                placeholder="">
                     </div>

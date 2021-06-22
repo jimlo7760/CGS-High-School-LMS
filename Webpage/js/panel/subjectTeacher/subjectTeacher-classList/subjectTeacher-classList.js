@@ -17,7 +17,6 @@ $(document).ready(function () {
         }
     })
 
-
     $('.right-box').click(function () {
         $(this).find("form").submit();
     })
@@ -124,64 +123,103 @@ $(document).ready(function () {
 
     })
 
-    $('#exam-nevi').click(function () {
-        if ($('.subjectT-test').is(':hidden')) {
-            if ($('.subjectT-studentScore').is(':visible')) {
-                $('.subjectT-student-class').fadeOut('fast');
-                $('.student-crew-list').delay('fast').fadeIn('fast');
+    $('.left-content-manu-nevi').click(function () {
+        var idVal = $(this).attr('name');
+        console.log(idVal)
+        if (idVal == "exam" && $('.subjectT-test').is(':hidden')) {
+            var className = $("#" + idVal).attr("class");
+            $('.subjectT-studentList').css('background-color', 'rgba(255, 255, 255, 0)');
+            $('.subjectT-courseList').fadeOut('fast');
+            if($('.subjectT-studentList').is(":visible")){
+                $('.subjectT-studentList').fadeOut('fast');
             }
-            $('.right-student-list').fadeOut('fast');
-            $('.subjectT-test').delay('fast').fadeIn('fast');
-            $('.right-subtitle').html('Exams & Tests');
-            $('.right-info-right-button').fadeIn('fast');
-            $('#student-nevi').animate({
-                backgroundColor: 'transparent'
-            }, 'fast');
-            $('#exam-nevi').animate({
-                backgroundColor: 'rgb(0, 60, 70)'
-            }, 'fast');
-            var referenceWid = 0;
-            if($('.student-info').is(':hidden')){
-                referenceWid = parseInt($('.test-info').css('width'));
-            }else{
-                referenceWid = parseInt($('.student-info').css('width'));
+            $('#student-nevi').css('background-color', 'rgba(255, 255, 255, 0)');
+            $("#" + idVal).delay('fast').fadeIn('fast');
+            // $('.left-content-manu-current').addClass('no-select');
+            if ($(this).children('.left-content-manu-current').is(":hidden")) {
+                $(this).children('.left-content-manu-current').removeClass('no-select');
             }
-            var tableWid = referenceWid;
-            console.log(referenceWid)
-            var titleWid = tableWid * 0.3;
-            $('.right-table-title-title').width(titleWid);
-            $('.right-table-content-title').width(titleWid);
-            var gradeWid = tableWid * 0.17;
-            $('.right-table-title-grade').width(gradeWid);
-            $('.right-table-content-grade').width(gradeWid);
-            var typeWid = tableWid * 0.1;
-            $('.right-table-title-type').width(typeWid);
-            $('.right-table-content-type').width(typeWid);
-            var dateWid = tableWid * 0.25;
-            $('.right-table-title-date').width(dateWid);
-            $('.right-table-content-date').width(dateWid);
-            var actionWid = tableWid * 0.15;
-            $('.right-table-title-action').width(actionWid);
-            $('.right-table-content-action').width(actionWid);
+            //operations of side-navigator above
+            if ($('.subjectT-test').is(':hidden')) {
+                if ($('.subjectT-studentScore').is(':visible')) {
+                    $('.subjectT-student-class').fadeOut('fast');
+                    $('.student-crew-list').delay('fast').fadeIn('fast');
+                }
+                $('.right-student-list').fadeOut('fast');
+                $('.subjectT-test').delay('fast').fadeIn('fast');
+                $('.right-subtitle').html('Exams & Tests');
+                $('.right-info-right-button').fadeIn('fast');
+                $('#student-nevi').animate({
+                    backgroundColor: 'transparent'
+                }, 'fast');
+                $('#exam-nevi').animate({
+                    backgroundColor: 'rgb(0, 60, 70)'
+                }, 'fast');
+                var referenceWid = 0;
+                if ($('.student-info').is(':hidden')) {
+                    referenceWid = parseInt($('.test-info').css('width'));
+                } else {
+                    referenceWid = parseInt($('.student-info').css('width'));
+                }
+                var tableWid = referenceWid;
+                var titleWid = tableWid * 0.3;
+                $('.right-table-title-title').width(titleWid);
+                $('.right-table-content-title').width(titleWid);
+                var gradeWid = tableWid * 0.17;
+                $('.right-table-title-grade').width(gradeWid);
+                $('.right-table-content-grade').width(gradeWid);
+                var typeWid = tableWid * 0.1;
+                $('.right-table-title-type').width(typeWid);
+                $('.right-table-content-type').width(typeWid);
+                var dateWid = tableWid * 0.25;
+                $('.right-table-title-date').width(dateWid);
+                $('.right-table-content-date').width(dateWid);
+                var actionWid = tableWid * 0.15;
+                $('.right-table-title-action').width(actionWid);
+                $('.right-table-content-action').width(actionWid);
+            }
+
+        }else if(idVal == 'student' && $('.right-student-list').is(':hidden')){
+            $(this).css('background-color', '#003C46');
+            // $('.left-content-manu-current').addClass('no-select');
+            $('.subjectT-courseList').fadeOut('fast');
+            $('.subjectT-studentList').delay('fast').fadeIn('fast');
+            //operation of side-navigator above
+            if ($('.right-student-list').is(':hidden')) {
+                $('.subjectT-test').fadeOut('fast');
+                $('.right-student-list').delay('fast').fadeIn('fast');
+                $('.right-subtitle').html('Students');
+                $('.right-info-right-button').fadeOut('fast');
+                $('#student-nevi').animate({
+                    backgroundColor: 'rgb(0, 60, 70)'
+                }, 'fast');
+                $('#exam-nevi').animate({
+                    backgroundColor: 'transparent'
+                }, 'fast');
+            }
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "subjectTeacher-classList.php",
+                data: idVal,
+                success: function (data) {
+
+                }
+            })
         }
     })
 
-    $('#student-nevi').click(function () {
-        if ($('.right-student-list').is(':hidden')) {
-            $('.subjectT-test').fadeOut('fast');
-            $('.right-student-list').delay('fast').fadeIn('fast');
-            $('.right-subtitle').html('Students');
-            $('.right-info-right-button').fadeOut('fast');
-            $('#student-nevi').animate({
-                backgroundColor: 'rgb(0, 60, 70)'
-            }, 'fast');
-            $('#exam-nevi').animate({
-                backgroundColor: 'transparent'
-            }, 'fast');
-        }
+
+    $('.right-info-right-button').click(function () {
+        var body = document.body.clientHeight;
+        var bg = body;
+        $('.grey-bg').css({
+            "height": bg,
+            "top": 0
+        });
+        $('.grey-bg').fadeIn();
+        $('.subjectT-addTest-box').fadeIn();
     })
-
-
 })
 
 

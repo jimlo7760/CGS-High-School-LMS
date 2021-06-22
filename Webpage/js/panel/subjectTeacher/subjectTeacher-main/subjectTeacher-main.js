@@ -40,27 +40,4 @@ $(document).ready(function () {
         $('.subjectT-addCourse-box').fadeIn();
     })
 
-    $('.left-content-manu-nevi').click(function () {
-        var idVal = $(this).attr('name');
-        if (idVal != "student" && $("#" + idVal).is(":hidden")) {
-            var className = $("#" + idVal).attr("class");
-            $('.subjectT-studentList').css('background-color', 'rgba(255, 255, 255, 0)');
-            $('.subjectT-courseList').fadeOut('fast');
-            if($('.subjectT-studentList').is(":visible")){
-                $('.subjectT-studentList').fadeOut('fast');
-            }
-            $('#student-nevi').css('background-color', 'rgba(255, 255, 255, 0)');
-            $("#" + idVal).delay('fast').fadeIn('fast');
-            $('.left-content-manu-current').addClass('no-select');
-            if ($(this).children('.left-content-manu-current').is(":hidden")) {
-                $(this).children('.left-content-manu-current').removeClass('no-select');
-            }
-        }else if(idVal == 'student' && $('.subjectT-studentList').is(':hidden')){
-            $(this).css('background-color', '#003C46');
-            $('.left-content-manu-current').addClass('no-select');
-            $('.subjectT-courseList').fadeOut('fast');
-            $('.subjectT-studentList').delay('fast').fadeIn('fast');
-        }
-    })
-
 })
