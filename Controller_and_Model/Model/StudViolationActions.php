@@ -187,3 +187,37 @@ function FetchStudViolationByStudNum($stud_num) {
         return [true, $fetch_res];
     }
 }
+
+/**
+ * Fetch student violations by homeroom class.
+ *
+ * @param int $target_program The program of the homeroom class.
+ * @param int $target_grade The grade of the homeroom class.
+ * @param int $target_class The class of the homeroom class.
+ * @return mixed array If successfully executed: [True, all violations entries as array] <br> If not: [False, empty array]
+ */
+function FetchStudViolationByHRClass($target_program, $target_grade, $target_class) {
+    $conn = createconn();
+    $q = "select stud_ids from homeroom_class where program=? and grade=? and class=?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("iii", $stmt_program, $stmt_grade, $stmt_class);
+    $stmt_program = $target_program;
+    $stmt_grade = $target_grade;
+    $stmt_class = $target_class;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    if (!$res) {
+        $stmt->close();
+        $conn->close();
+        return [false, $res];
+    } else {
+        $raw_stud_ids = $res[0][0];
+        $stud_ids = explode(",", $raw_stud_ids);
+//        return [true, $stud_ids];
+        $fetch_res = [];
+        foreach ($stud_ids as $id) {
+            $fetch_res[] = FetchStudViolationsByStudId($id);
+        }
+        return [true, $fetch_res];
+    }
+}
