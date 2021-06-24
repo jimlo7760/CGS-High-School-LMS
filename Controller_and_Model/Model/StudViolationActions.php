@@ -60,16 +60,17 @@ function InsertNewViolation($level_severity, $title_of_violation, $content_of_vi
  * </p>
  * @author Binghe Yi
  */
-function UpdateStudVio($level_severity, $title_of_violation, $content_of_violation, $time_of_violation, $stud_id)
+function UpdateStudVio($level_severity, $title_of_violation, $content_of_violation, $time_of_violation, $stud_id, $status)
 {
     $conn = createconn();
-    $stmt = $conn->prepare('update stud_violation set level_severity = ?, title_of_violation = ?, content_of_violation = ?, time_of_violation = ?, update_time = ? where stud_id = ?');
-    $stmt->bind_param('issssi', $updateLevelOfSevreity, $updateTitleOfVio, $updateConteOfVio, $updateTimeOfVio, $updateUpdateTime, $updateStudId);
+    $stmt = $conn->prepare('update stud_violation set level_of_severity = ?, title_of_violation = ?, content_of_violation = ?, time_of_violation = ?, update_time = ?, status = ? where stud_id = ?');
+    $stmt->bind_param('issssii', $updateLevelOfSevreity, $updateTitleOfVio, $updateConteOfVio, $updateTimeOfVio, $updateUpdateTime, $updateStatus, $updateStudId);
     $updateLevelOfSevreity = $level_severity;
     $updateTitleOfVio = $title_of_violation;
     $updateConteOfVio = $content_of_violation;
     $updateTimeOfVio = $time_of_violation;
     $updateUpdateTime = date('Y-m-d H:i:s');
+    $updateStatus = $status;
     $updateStudId = $stud_id;
     $stmt->execute();
     $result = $stmt->affected_rows;
@@ -159,7 +160,65 @@ function FetchStudViolationsByStudName($stud_name) {
 
 }
 
-//function FetchStudViolationByStudNum($stud_num) {
-//    $conn = createconn();
-//    $query = ""
-//}
+/**
+ *  Fetch student violation by student number.
+ *
+ * @param String $stud_num Student's number
+ * @return mixed array If successfully executed: [True, all violations entries as array] <br> If not: [False, empty array]
+ *
+ */
+function FetchStudViolationByStudNum($stud_num) {
+    $conn = createconn();
+    $query = "select id from stud_info where stud_number=?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $stmt_stud_number);
+    $stmt_stud_number = $stud_num;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    if (!$res) {
+        $stmt->close();
+        $conn->close();
+        return [false, $res];
+    } else {
+//        return [true, $res];
+        $stmt->close();
+        $conn->close();
+        $id = $res[0][0];
+        $fetch_res = FetchStudViolationsByStudId($id);
+        return [true, $fetch_res];
+    }
+}
+
+/**
+ * Fetch student violations by homeroom class.
+ *
+ * @param int $target_program The program of the homeroom class.
+ * @param int $target_grade The grade of the homeroom class.
+ * @param int $target_class The class of the homeroom class.
+ * @return mixed array If successfully executed: [True, all violations entries as array] <br> If not: [False, empty array]
+ */
+function FetchStudViolationByHRClass($target_program, $target_grade, $target_class) {
+    $conn = createconn();
+    $q = "select stud_ids from homeroom_class where program=? and grade=? and class=?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("iii", $stmt_program, $stmt_grade, $stmt_class);
+    $stmt_program = $target_program;
+    $stmt_grade = $target_grade;
+    $stmt_class = $target_class;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    if (!$res) {
+        $stmt->close();
+        $conn->close();
+        return [false, $res];
+    } else {
+        $raw_stud_ids = $res[0][0];
+        $stud_ids = explode(",", $raw_stud_ids);
+//        return [true, $stud_ids];
+        $fetch_res = [];
+        foreach ($stud_ids as $id) {
+            $fetch_res[] = FetchStudViolationsByStudId($id);
+        }
+        return [true, $fetch_res];
+    }
+}
