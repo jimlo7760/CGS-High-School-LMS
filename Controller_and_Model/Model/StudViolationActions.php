@@ -60,16 +60,17 @@ function InsertNewViolation($level_severity, $title_of_violation, $content_of_vi
  * </p>
  * @author Binghe Yi
  */
-function UpdateStudVio($level_severity, $title_of_violation, $content_of_violation, $time_of_violation, $stud_id)
+function UpdateStudVio($level_severity, $title_of_violation, $content_of_violation, $time_of_violation, $stud_id, $status)
 {
     $conn = createconn();
-    $stmt = $conn->prepare('update stud_violation set level_severity = ?, title_of_violation = ?, content_of_violation = ?, time_of_violation = ?, update_time = ? where stud_id = ?');
-    $stmt->bind_param('issssi', $updateLevelOfSevreity, $updateTitleOfVio, $updateConteOfVio, $updateTimeOfVio, $updateUpdateTime, $updateStudId);
+    $stmt = $conn->prepare('update stud_violation set level_of_severity = ?, title_of_violation = ?, content_of_violation = ?, time_of_violation = ?, update_time = ?, status = ? where stud_id = ?');
+    $stmt->bind_param('issssii', $updateLevelOfSevreity, $updateTitleOfVio, $updateConteOfVio, $updateTimeOfVio, $updateUpdateTime, $updateStatus, $updateStudId);
     $updateLevelOfSevreity = $level_severity;
     $updateTitleOfVio = $title_of_violation;
     $updateConteOfVio = $content_of_violation;
     $updateTimeOfVio = $time_of_violation;
     $updateUpdateTime = date('Y-m-d H:i:s');
+    $updateStatus = $status;
     $updateStudId = $stud_id;
     $stmt->execute();
     $result = $stmt->affected_rows;
