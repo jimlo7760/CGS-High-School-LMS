@@ -156,4 +156,32 @@ $(document).ready(function () {
     setTimeout(function (){
         $('.right-top-noti-cir').fadeTo("fast", 1);
     }, 1500);
-})
+});
+
+function doPost(URL, data) {
+    var PARAMS = data;
+
+    var temp = document.createElement("form");
+    temp.action = URL;
+    temp.method = "post";
+    temp.style.display = "none";
+    for (var x in PARAMS) {
+        var opt = document.createElement("textarea");
+        opt.name = x;
+        opt.value = PARAMS[x];
+        temp.appendChild(opt);
+    }
+    document.body.appendChild(temp);
+    temp.submit();
+    return temp;
+}
+
+var spaceReplacement = function (subjectOrigin) {         //replace the "space" in the course name to "_";
+    var subjectArr = subjectOrigin.split(' ');
+    var subjectSele = '';
+    for (var i = 0; i <= subjectArr.length - 1; i++) {
+        subjectSele += (subjectArr[i] + '_');
+    }
+    subjectSele = subjectSele.substring(0, subjectSele.length - 1);
+    return subjectSele;
+}

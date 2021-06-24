@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
     $('.left-content-manu-nevi').mouseenter(function () {
@@ -125,7 +126,6 @@ $(document).ready(function () {
 
     $('.left-content-manu-nevi').click(function () {
         var idVal = $(this).attr('name');
-        console.log(idVal)
         if (idVal == "exam" && $('.subjectT-test').is(':hidden')) {
             var className = $("#" + idVal).attr("class");
             $('.subjectT-studentList').css('background-color', 'rgba(255, 255, 255, 0)');
@@ -198,16 +198,10 @@ $(document).ready(function () {
                 }, 'fast');
             }
         }else{
-            $.ajax({
-                type: "POST",
-                url: "subjectTeacher-classList.php",
-                data: idVal,
-                success: function (data) {
-
-                }
-            })
+            var data = {"navi_id":idVal};
+            doPost('subjectTeacher-main.php', data );
         }
-    })
+    });
 
 
     $('.right-info-right-button').click(function () {
@@ -223,12 +217,3 @@ $(document).ready(function () {
 })
 
 
-var spaceReplacement = function (subjectOrigin) {         //replace the "space" in the course name to "_";
-    var subjectArr = subjectOrigin.split(' ');
-    var subjectSele = '';
-    for (var i = 0; i <= subjectArr.length - 1; i++) {
-        subjectSele += (subjectArr[i] + '_');
-    }
-    subjectSele = subjectSele.substring(0, subjectSele.length - 1);
-    return subjectSele;
-}

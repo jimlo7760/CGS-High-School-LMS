@@ -27,6 +27,16 @@
 </head>
 <body>
 <div class="all">
+    <?php               //get the button clicked from subjectTeacher-classList.php
+    $id = "";
+    if(isset($_POST['navi_id'])){
+        $id = $_POST['navi_id'];
+    }
+    echo "<input hidden='true' id='navi-id' value='";
+    echo $id;
+    echo "'>";
+    ?>
+    <input hidden="true" id="enroll_semester" value="20201,20191,20192">
     <div class="left-content">
         <div class="left-box">
             <div class="left-content-title stm">

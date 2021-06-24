@@ -39,5 +39,18 @@ $(document).ready(function () {
         $('.grey-bg').fadeIn();
         $('.subjectT-addCourse-box').fadeIn();
     })
+    var navi_id = $('#navi-id');
+    console.log($('.subjectT-courseList').attr('id'));
+
+    $('.left-content-manu-nevi').click(function () {
+        var idVal = $(this).attr('name')
+
+    })
+
+    if (navi_id.val()){
+
+    }else {
+        console.log(false);
+    }
 
 })
