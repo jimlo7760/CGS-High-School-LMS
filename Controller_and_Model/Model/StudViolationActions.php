@@ -159,7 +159,31 @@ function FetchStudViolationsByStudName($stud_name) {
 
 }
 
-//function FetchStudViolationByStudNum($stud_num) {
-//    $conn = createconn();
-//    $query = ""
-//}
+/**
+ *  Fetch student violation by student number.
+ *
+ * @param String $stud_num Student's number
+ * @return mixed array If successfully executed: [True, all violations entries as array] <br> If not: [False, empty array]
+ *
+ */
+function FetchStudViolationByStudNum($stud_num) {
+    $conn = createconn();
+    $query = "select id from stud_info where stud_number=?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $stmt_stud_number);
+    $stmt_stud_number = $stud_num;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    if (!$res) {
+        $stmt->close();
+        $conn->close();
+        return [false, $res];
+    } else {
+//        return [true, $res];
+        $stmt->close();
+        $conn->close();
+        $id = $res[0][0];
+        $fetch_res = FetchStudViolationsByStudId($id);
+        return [true, $fetch_res];
+    }
+}
