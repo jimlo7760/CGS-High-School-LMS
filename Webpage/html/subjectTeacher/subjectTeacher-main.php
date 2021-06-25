@@ -27,9 +27,9 @@
 </head>
 <body>
 <div class="all">
-    <?php               //get the button clicked from subjectTeacher-classList.php
+    <?php //get the button clicked from subjectTeacher-classList.php
     $id = "";
-    if(isset($_POST['navi_id'])){
+    if (isset($_POST['navi_id'])) {
         $id = $_POST['navi_id'];
     }
     echo "<input hidden='true' id='navi-id' value='";
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="left-content-manu stb">
-                    <div class="left-content-manu-nevi" name="first-2020">
+                    <div class="left-content-manu-nevi" name="20201">
                         <div class="left-content-manu-year">
                             2019 - 2020
                         </div>
@@ -62,7 +62,7 @@
                             CURRENT
                         </div>
                     </div>
-                    <div class="left-content-manu-nevi" name="second-2019">
+                    <div class="left-content-manu-nevi" name="20192">
                         <div class="left-content-manu-year">
                             2018 - 2019
                         </div>
@@ -70,7 +70,7 @@
                             CURRENT
                         </div>
                     </div>
-                    <div class="left-content-manu-nevi" name="first-2019">
+                    <div class="left-content-manu-nevi" name="20191">
                         <div class="left-content-manu-year">
                             2018 - 2019
                         </div>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="left-content-manu navi-manage-student stb">
-                    <div class="left-content-manu-nevi" name="student" id="student-nevi">
+                    <div class="left-content-manu-nevi" name="student-list" id="student-nevi">
                         <div class="left-content-manu-year">
                             All Students
                         </div>
@@ -136,7 +136,7 @@
                 </div>
             </div>
         </div>
-        <div class="right-down subjectT-courseList" id="first-2020">
+        <div class="right-down subjectT-courseList" id="20201">
             <div class="right-info">
                 <div class="right-info-left stb">
                     <div class="right-title">
@@ -193,7 +193,7 @@
                 </div>
             </div>
         </div>
-        <div class="right-down subjectT-courseList" id="second-2019">
+        <div class="right-down subjectT-courseList" id="20192">
             <div class="right-info">
                 <div class="right-info-left stb">
                     <div class="right-title">
@@ -248,7 +248,7 @@
                 </div>
             </div>
         </div>
-        <div class="right-down subjectT-courseList" id="first-2019">
+        <div class="right-down subjectT-courseList" id="20191">
             <div class="right-info">
                 <div class="right-info-left stb">
                     <div class="right-title">
@@ -259,7 +259,9 @@
                     </div>
                 </div>
                 <div class="right-down-info-button">
-                    <img src="../../img/ic_add_24px.png" class="right-down-info-button-img" height="11" width="11">
+                    <span class="material-icons right-down-info-button-img">
+                        add
+                    </span>
                     <div class="right-down-info-button-text stb">
                         ADD COURSE
                     </div>
@@ -302,7 +304,7 @@
             </div>
         </div>
 
-        <div class="right-down subjectT-studentList">
+        <div class="right-down subjectT-studentList" id="student-list">
             <div class="right-info">
                 <div class="right-info-left stb">
                     <div class="right-title">

@@ -197,7 +197,7 @@ $(document).ready(function () {
                     backgroundColor: 'transparent'
                 }, 'fast');
             }
-        }else{
+        }else if(!isNaN(idVal)){                        //if idVal is a number, jump to another page;
             var data = {"navi_id":idVal};
             doPost('subjectTeacher-main.php', data );
         }

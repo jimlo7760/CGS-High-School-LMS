@@ -33,7 +33,7 @@
     cursor: pointer;
 }
 .subjectT-courseList{
-
+    display: none;
 }
 .subjectT-addCourse-box{
     display: none;

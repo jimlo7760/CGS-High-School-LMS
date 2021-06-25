@@ -43,7 +43,7 @@ session_start();
                     </div>
                 </div>
                 <div class="left-content-manu stb">
-                    <div class="left-content-manu-nevi">
+                    <div class="left-content-manu-nevi" name="20201">
                         <div class="left-content-manu-year">
                             2019 - 2020
                         </div>
@@ -51,17 +51,17 @@ session_start();
                             CURRENT
                         </div>
                     </div>
-                    <div class="left-content-manu-nevi">
+                    <div class="left-content-manu-nevi" name="20192">
                         <div class="left-content-manu-year">
-                            2019 - 2020
+                            2018 - 2019
                         </div>
                         <div class="left-content-manu-current no-select">
                             CURRENT
                         </div>
                     </div>
-                    <div class="left-content-manu-nevi">
+                    <div class="left-content-manu-nevi" name="20191">
                         <div class="left-content-manu-year">
-                            2019 - 2020
+                            2018 - 2019
                         </div>
                         <div class="left-content-manu-current no-select">
                             CURRENT

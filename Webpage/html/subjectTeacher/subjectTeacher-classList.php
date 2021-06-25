@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="left-content-manu stb">
-                    <div class="left-content-manu-nevi" name="first-2020">
+                    <div class="left-content-manu-nevi" name="20201">
                         <div class="left-content-manu-year">
                             2019 - 2020
                         </div>
@@ -53,7 +53,7 @@
                             CURRENT
                         </div>
                     </div>
-                    <div class="left-content-manu-nevi" name="second-2019">
+                    <div class="left-content-manu-nevi" name="20192">
                         <div class="left-content-manu-year">
                             2018 - 2019
                         </div>
@@ -61,7 +61,7 @@
                             CURRENT
                         </div>
                     </div>
-                    <div class="left-content-manu-nevi" name="first-2019">
+                    <div class="left-content-manu-nevi" name="20191">
                         <div class="left-content-manu-year">
                             2018 - 2019
                         </div>
