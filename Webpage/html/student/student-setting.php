@@ -355,7 +355,7 @@ END;
                                 <?php
                                 require_once "../../../Controller_and_Model/Model/StudViolationActions.php";
 
-                                $tot_res = FetchStudViolations($_SESSION["id"]);
+                                $tot_res = FetchStudViolationsByStudId($_SESSION["id"]);
                                 foreach ($tot_res as $violation_info) {
                                     $violation_name = $violation_info[3];
                                     $violation_time = $violation_info[5];
