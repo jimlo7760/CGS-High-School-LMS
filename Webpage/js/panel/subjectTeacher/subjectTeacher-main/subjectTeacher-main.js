@@ -1,10 +1,11 @@
 $(document).ready(function () {
-    $('.left-content-manu-nevi').mouseenter(function () {
+    var left_content_manu_nevi = $('.left-content-manu-nevi');
+    left_content_manu_nevi.mouseenter(function () {
         $(this).animate({
             backgroundColor: '#337681',
         }, 'fast')
     })
-    $('.left-content-manu-nevi').mouseleave(function () {
+    left_content_manu_nevi.mouseleave(function () {
         if ($(this).attr('name') == 'student-list' && $('.subjectT-studentList').is(':visible')) {
             $(this).animate({
                 backgroundColor: 'rgb(0, 60, 70)',
@@ -18,25 +19,26 @@ $(document).ready(function () {
     $('.right-box').click(function () {
         $(this).find("form").submit();
     })
-    $('.left-box-add-content').mouseenter(function () {
+    var left_box_add_content = $('.left-box-add-content');
+    left_box_add_content.mouseenter(function () {
         $(this).animate({
             backgroundColor: '#337681',
         }, 'fast')
     })
-    $('.left-box-add-content').mouseleave(function () {
+    left_box_add_content.mouseleave(function () {
         $(this).animate({
             backgroundColor: 'transparent',
         }, 'fast')
     })
-
+    var grey_bg = $('.grey-bg');
     $('.right-down-info-button').click(function () {
         var body = document.body.clientHeight;
         var bg = body;
-        $('.grey-bg').css({
+        grey_bg.css({
             "height": bg,
             "top": 0
         });
-        $('.grey-bg').fadeIn();
+        grey_bg.fadeIn();
         $('.subjectT-addCourse-box').fadeIn();
     })
     var navi_id = $('#navi-id');

@@ -1,10 +1,11 @@
 $(document).ready(function () {
-    $('.left-content-manu-nevi').mouseenter(function () {
+    var left_content_manu_nevi = $('.left-content-manu-nevi');
+    left_content_manu_nevi.mouseenter(function () {
         $(this).animate({
             backgroundColor: '#337681',
         }, 'fast')
     })
-    $('.left-content-manu-nevi').mouseleave(function () {
+    left_content_manu_nevi.mouseleave(function () {
         $(this).animate({
             backgroundColor: 'transparent',
         }, 'fast')
@@ -13,14 +14,15 @@ $(document).ready(function () {
         $(this).find("form").submit();
     })
 
-    $('.left-content-manu-nevi').click(function () {
+    var subjectT_studentList = $('.subjectT-studentList');
+    left_content_manu_nevi.click(function () {
         var idVal = $(this).attr('name');
         console.log(idVal);
         if (idVal != "student" && $("#" + idVal).is(":hidden")) {
             var className = $("#" + idVal).attr("class");
             $('.subjectT-courseList').fadeOut('fast');
-            if($('.subjectT-studentList').is(":visible")){
-                $('.subjectT-studentList').fadeOut('fast');
+            if(subjectT_studentList.is(":visible")){
+                subjectT_studentList.fadeOut('fast');
             }
             $("#" + idVal).delay('fast').fadeIn('fast');
 

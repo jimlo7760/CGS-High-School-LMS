@@ -1,6 +1,5 @@
 <?php
 require_once "LoginCredentials.php";
-
 /**
  * Fetching all award entries from a student <br>
  *

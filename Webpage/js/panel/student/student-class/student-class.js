@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $('.method-link').mouseenter(function () {
+    var method_link = $('.method-link');
+    method_link.mouseenter(function () {
         $(this).animate({
             backgroundColor: '#1BA2B9',
         }, 'fast')
@@ -7,7 +8,7 @@ $(document).ready(function () {
             color: 'white'
         }, 'fast')
     })
-    $('.method-link').mouseleave(function () {
+    method_link.mouseleave(function () {
         $(this).animate({
             backgroundColor: 'white',
 
@@ -16,7 +17,8 @@ $(document).ready(function () {
             color: '#1BA2B9'
         }, 'fast')
     })
-    $('.method-file').mouseenter(function () {
+    var method_file = $('.method-file');
+    method_file.mouseenter(function () {
         $(this).animate({
             backgroundColor: '#0A7AFA',
         }, 'fast')
@@ -24,7 +26,7 @@ $(document).ready(function () {
             color: 'white'
         }, 'fast')
     })
-    $('.method-file').mouseleave(function () {
+    method_file.mouseleave(function () {
         $(this).animate({
             backgroundColor: 'white',
 
@@ -33,7 +35,8 @@ $(document).ready(function () {
             color: '#0A7AFA'
         }, 'fast')
     })
-    $('.method-pdf').mouseenter(function () {
+    var method_pdf = $('.method-pdf');
+    method_pdf.mouseenter(function () {
         $(this).animate({
             backgroundColor: '#DD3444',
         }, 'fast')
@@ -41,7 +44,7 @@ $(document).ready(function () {
             color: 'white'
         }, 'fast')
     })
-    $('.method-pdf').mouseleave(function () {
+    method_pdf.mouseleave(function () {
         $(this).animate({
             backgroundColor: 'white',
 
@@ -50,29 +53,31 @@ $(document).ready(function () {
             color: '#DD3444'
         }, 'fast')
     })
-    $('.share-box-button-download').mouseenter(function () {
+    var share_box_button_download = $('.share-box-button-download');
+    share_box_button_download.mouseenter(function () {
         $(this).animate({
             backgroundColor: '#1BA2B9',
         }, 'fast')
     })
-    $('.share-box-button-download').mouseleave(function () {
+    share_box_button_download.mouseleave(function () {
         $(this).animate({
             backgroundColor: '#8CD0DB',
 
         }, 'fast')
     })
+    var grey_bg = $('.grey-bg');
     $('.right-info-button').click(function () {
         var body = document.body.clientHeight;
         var bg = body;
-        $('.grey-bg').css({
+        grey_bg.css({
             "height":bg,
             "top":0
         });
-            $('.grey-bg').fadeIn();
+        grey_bg.fadeIn();
             $('.table-sharing').fadeIn();
     })
     $('.share-box-button-cancel').click(function () {
-        $('.grey-bg').fadeOut();
+        grey_bg.fadeOut();
         $('.table-sharing').fadeOut();
     })
 
