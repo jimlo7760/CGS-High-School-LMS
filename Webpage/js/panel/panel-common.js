@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.all').animate({
         opacity: '1'
-    })
+    });
     var body = document.body.clientHeight;
     var pageheight = $(window).height();
     if (body < pageheight) {
@@ -26,14 +26,14 @@ $(document).ready(function () {
                 $(".result-box-row").show();
             }
         });
-    })
+    });
     $('.result-box-sort').each(function (item) {
         if ($('.result-box-sort')[item].innerText.indexOf('Teacher') > 0) {
             $(this).css(
                 'margin-right', '35px'
             )
         }
-    })
+    });
 
     $('.left-content-navi-item').click(function () {
         if ($(this).siblings('.left-content-manu').css('display') == 'block') {
@@ -44,86 +44,92 @@ $(document).ready(function () {
             $(this).find('.left-content-navi-img').removeClass('add_transform_manu');
         }
         $(this).siblings('.left-content-manu').slideToggle();
-    })
+    });
+
+    var grey_bg = $('.grey-bg');
     var count = 0;
     $('.right-top-left').click(function () {
         count++;
         var search = body - 75 + 'px';
-        $('.grey-bg').css({
+        grey_bg.css({
             'top': '75px',
             'height': search,
-        })
+        });
         $('.right-top-research-text').toggleClass('pointer-alt');
         if (count % 2 == 1) {
-            $('.grey-bg').fadeIn();
+            grey_bg.fadeIn();
             $('.result-box').fadeIn();
         } else {
-            $('.grey-bg').fadeOut();
-            $('.result-box').fadeOut();
+            grey_bg.fadeOut();
+            grey_bg.fadeOut();
         }
-    })
+    });
+
+    var personal_panel = $('.personal-panel');
+    var right_top_person_arrow = $('.right-top-person-arrow');
     $('.right-top-person').click(function () {
-        if ($('.personal-panel').css('display') == 'none') {
-            $('.right-top-person-arrow').addClass('add_transform');
-            $('.right-top-person-arrow').removeClass('initial_transform');
+        if (personal_panel.css('display') == 'none') {
+            right_top_person_arrow.addClass('add_transform');
+            right_top_person_arrow.removeClass('initial_transform');
         } else {
-            $('.right-top-person-arrow').addClass('initial_transform');
-            $('.right-top-person-arrow').removeClass('add_transform');
+            right_top_person_arrow.addClass('initial_transform');
+            right_top_person_arrow.removeClass('add_transform');
         }
-        $('.personal-panel').slideToggle();
+        personal_panel.slideToggle();
         var nameWidth = $('.personal-panel-des').width();
         if (nameWidth >= 165) {
-            $('.personal-panel').width(nameWidth + 75);
+            personal_panel.width(nameWidth + 75);
         } else {
-            $('.personal-panel').width(240);
+            personal_panel.width(240);
         }
-    })
-    $('.right-box').mouseenter(function () {
+    });
+    var right_box = $('.right-box');
+    right_box.mouseenter(function () {
         $(this).animate({
             backgroundColor: '#1BA2B9',
             color: 'white'
-        }, 'fast')
+        }, 'fast');
         $(this).children().find('.right-box-detail-title').animate({
             color: '#8DD1DC'
-        }, 'fast')
+        }, 'fast');
         $(this).children().find('.right-box-detail-name').animate({
             color: 'white'
-        }, 'fast')
+        }, 'fast');
         $(this).children().find('.right-box-arrow').css({
             color: 'white'
         })
-    })
-    $('.right-box').mouseleave(function () {
+    });
+    right_box.mouseleave(function () {
         $(this).animate({
             backgroundColor: 'white',
             color: 'black'
-        }, 'fast')
+        }, 'fast');
         $(this).children().find('.right-box-detail-title').animate({
             color: '#999C9E'
-        }, 'fast')
+        }, 'fast');
         $(this).children().find('.right-box-detail-name').animate({
             color: 'black'
-        }, 'fast')
+        }, 'fast');
         $(this).children().find('.right-box-arrow').css({
             color: 'rgb(27, 162, 185)'
         })
-    })
+    });
     $('.edit-box-close').click(function () {
         $('.share-box').fadeOut();
         $('.grey-bg').fadeOut();
-    })
+    });
     $('.edit-box-green').click(function () {
         $('.share-box').fadeOut();
         $('.grey-bg').fadeOut();
-    })
+    });
     $('.edit-box-red').click(function () {
         $('.share-box').fadeOut();
         $('.grey-bg').fadeOut();
-    })
+    });
     $('.edit-box-grey').click(function () {
         $('.share-box').fadeOut();
         $('.grey-bg').fadeOut();
-    })
+    });
 
 
     $('.right-top-research input[type="text"]').on("keyup input", function () {
@@ -173,12 +179,12 @@ $(document).ready(function () {
             }
         }
     })
-})
+});
 
-
+var right_top_noti = $('.right-top-noti');
 setTimeout(function () {
-    var notiX = $('.right-top-noti').offset().left;
-    var notiY = $('.right-top-noti').offset().top;
+    var notiX = right_top_noti.offset().left;
+    var notiY = right_top_notiw.offset().top;
     $('.right-top-noti-cir').offset({top: notiY, left: notiX});
 }, 1499);
 setTimeout(function () {
@@ -212,4 +218,4 @@ var spaceReplacement = function (subjectOrigin) {         //replace the "space" 
     }
     subjectSele = subjectSele.substring(0, subjectSele.length - 1);
     return subjectSele;
-}
+};

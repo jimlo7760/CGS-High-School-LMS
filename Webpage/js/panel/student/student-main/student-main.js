@@ -4,15 +4,15 @@ $(document).ready(function () {
         $(this).animate({
             backgroundColor: '#337681',
         }, 'fast')
-    })
+    });
     left_content_manu_nevi.mouseleave(function () {
         $(this).animate({
             backgroundColor: 'transparent',
         }, 'fast')
-    })
+    });
     $('.right-box').click(function () {
         $(this).find("form").submit();
-    })
+    });
 
     var subjectT_studentList = $('.subjectT-studentList');
     left_content_manu_nevi.click(function () {
@@ -38,4 +38,4 @@ $(document).ready(function () {
         }
 
     })
-})
+});

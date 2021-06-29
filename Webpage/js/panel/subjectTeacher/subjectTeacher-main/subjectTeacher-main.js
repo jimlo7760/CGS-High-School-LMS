@@ -4,7 +4,7 @@ $(document).ready(function () {
         $(this).animate({
             backgroundColor: '#337681',
         }, 'fast')
-    })
+    });
     left_content_manu_nevi.mouseleave(function () {
         if ($(this).attr('name') == 'student-list' && $('.subjectT-studentList').is(':visible')) {
             $(this).animate({
@@ -15,21 +15,21 @@ $(document).ready(function () {
                 backgroundColor: 'transparent',
             }, 'fast')
         }
-    })
+    });
     $('.right-box').click(function () {
         $(this).find("form").submit();
-    })
+    });
     var left_box_add_content = $('.left-box-add-content');
     left_box_add_content.mouseenter(function () {
         $(this).animate({
             backgroundColor: '#337681',
         }, 'fast')
-    })
+    });
     left_box_add_content.mouseleave(function () {
         $(this).animate({
             backgroundColor: 'transparent',
         }, 'fast')
-    })
+    });
     var grey_bg = $('.grey-bg');
     $('.right-down-info-button').click(function () {
         var body = document.body.clientHeight;
@@ -40,7 +40,7 @@ $(document).ready(function () {
         });
         grey_bg.fadeIn();
         $('.subjectT-addCourse-box').fadeIn();
-    })
+    });
     var navi_id = $('#navi-id');
     if (navi_id.val()) {                        //check if the returned value correspond to the displaying list
         var navi_id_selector = navi_id.val();
@@ -58,4 +58,4 @@ $(document).ready(function () {
         $('.subjectT-courseList:first').fadeIn('fast');
     }
 
-})
+});
