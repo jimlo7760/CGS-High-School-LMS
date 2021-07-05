@@ -1,42 +1,35 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hi Danny</title>
+    <title>Title</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../CSS/whole-common.css">
     <link rel="stylesheet" type="text/css" href="../../CSS/panel/panel-common.css">
+    <link rel="stylesheet" type="text/css" href="../../CSS/panel/homeroomTeacher/homeroomTeacher-common.css">
     <link rel="stylesheet" type="text/css"
-          href="../../CSS/panel/subjectTeacher/subjectTeacher-main/subjectTeacher-main.css">
+          href="../../CSS/panel/homeroomTeacher/homeroomTeacher-main/homeroomTeacher-main.css">
+
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
 
     </script>
     <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile">
 
     </script>
+
     <script type="text/javascript" src="../../js/panel/panel-common.js">
 
     </script>
-    <script type="text/javascript" src="../../js/panel/subjectTeacher/subjectTeacher-common.js">
+    <script type="text/javascript" src="../../js/panel/homeroomTeacher/homeroomTeacher-common.js">
 
     </script>
-    <script type="text/javascript" src="../../js/panel/subjectTeacher/subjectTeacher-main/subjectTeacher-main.js">
+    <script type="text/javascript" src="../../js/panel/homeroomTeacher/homeroomTeacher-main/homeroomTeacher-main.js">
 
     </script>
 </head>
 <body>
+
 <div class="all">
-    <?php //get the button clicked from subjectTeacher-classList.php
-    $id = "";
-    if (isset($_POST['navi_id'])) {
-        $id = $_POST['navi_id'];
-    }
-    echo "<input hidden='true' id='navi-id' value='";
-    echo $id;
-    echo "'>";
-    ?>
-<!--    <input hidden="true" id="enroll_semester" value="20201,20191,20192">-->
     <div class="left-content">
         <div class="left-box">
             <div class="left-content-title stm">
@@ -54,7 +47,7 @@
                     </div>
                 </div>
                 <div class="left-content-manu stb">
-                    <div class="left-content-manu-nevi" name="20201">
+                    <div class="left-content-manu-nevi" name="first-2020">
                         <div class="left-content-manu-year">
                             2019 - 2020
                         </div>
@@ -62,7 +55,7 @@
                             CURRENT
                         </div>
                     </div>
-                    <div class="left-content-manu-nevi" name="20192">
+                    <div class="left-content-manu-nevi" name="second-2019">
                         <div class="left-content-manu-year">
                             2018 - 2019
                         </div>
@@ -70,7 +63,7 @@
                             CURRENT
                         </div>
                     </div>
-                    <div class="left-content-manu-nevi" name="20191">
+                    <div class="left-content-manu-nevi" name="first-2019">
                         <div class="left-content-manu-year">
                             2018 - 2019
                         </div>
@@ -91,11 +84,10 @@
                         <span class="material-icons left-content-navi-img initial_transform">
                             keyboard_arrow_up
                         </span>
-
                     </div>
                 </div>
                 <div class="left-content-manu navi-manage-student stb">
-                    <div class="left-content-manu-nevi" name="student-list" id="student-nevi">
+                    <div class="left-content-manu-nevi" name="student" id="student-nevi">
                         <div class="left-content-manu-year">
                             All Students
                         </div>
@@ -127,192 +119,220 @@
                     <div class="right-top-person-name stm">
                         Danny Xu
                     </div>
-
                     <img src="../../img/图像 1@2x.png" height="45" width="45" class="right-top-person-portrait"/>
-                    <!--                    头像上传-->
                     <span class="material-icons right-top-person-arrow initial_transform">
                         keyboard_arrow_down
                     </span>
                 </div>
             </div>
         </div>
-        <div class="right-down subjectT-courseList" id="20201">
-            <div class="right-info">
-                <div class="right-info-left stb">
-                    <div class="right-title">
-                        Your Courses
+        <div class="right-down homeroomT-homeroomList" id="20201">
+            <div class="homeroomT-homeroomList-top">
+                <div class="right-info">
+                    <div class="right-info-left stb">
+                        <div class="right-title">
+                            Homerooms
+                        </div>
+                        <div class="right-subtitle">
+                            2019 - 2020 First Semester
+                        </div>
                     </div>
-                    <div class="right-subtitle">
-                        2019 - 2020 First Semester
-                    </div>
-                </div>
-                <div class="right-down-info-button">
+                    <div class="right-down-info-button">
                     <span class="material-icons right-down-info-button-img">
                         add
                     </span>
-                    <div class="right-down-info-button-text stb">
-                        ADD COURSE
+                        <div class="right-down-info-button-text stb">
+                            ADD HOMEROOM
+                        </div>
+                    </div>
+                </div>
+                <div class="homeroomT-homeroomDown">
+                    <div class="homeroomT-homeroomTitle stb">
+                        Your Homeroom
+                    </div>
+                    <div class="homeroomT-homeroomRow">
+                        <div class="right-box thinner-box" onclick="window.location=''">
+                            <div class="right-box-title stb">
+                                MYP 9-2
+                            </div>
+                            <span class="material-icons thinner-box-img">
+                            chevron_right
+                        </span>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="subjectT-right-down-main">
-                <div class="subjectT-right-down-row">
-                    <div class="right-box thinner-box" onclick="window.location='subjectTeacher-classList.php'">
+            <div class="homeroomT-homeroomList-down">
+                <div class="homeroomT-homeroomTitle stb">
+                    All Homeroom
+                </div>
+                <div class="homeroomT-homeroomRow">
+                    <div class="right-box thinner-box" onclick="window.location=''">
                         <div class="right-box-title stb">
-                            Chinese A1-001
+                            MYP 9-1
                         </div>
                         <span class="material-icons thinner-box-img">
                             chevron_right
                         </span>
                     </div>
-                    <div class="right-box thinner-box">
+                    <div class="right-box thinner-box" onclick="window.location=''">
                         <div class="right-box-title stb">
-                            Chinese A1-001
+                            MYP 9-3
                         </div>
                         <span class="material-icons thinner-box-img">
-                                chevron_right
+                            chevron_right
                         </span>
                     </div>
-                    <div class="right-box thinner-box">
+                    <div class="right-box thinner-box" onclick="window.location=''">
                         <div class="right-box-title stb">
-                            Chinese A1-001
+                            MYP 10-1
                         </div>
                         <span class="material-icons thinner-box-img">
-                                chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box thinner-box">
-                        <div class="right-box-title stb">
-                            Chinese A1-001
-                        </div>
-                        <span class="material-icons thinner-box-img">
-                                chevron_right
+                            chevron_right
                         </span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="right-down subjectT-courseList" id="20192">
-            <div class="right-info">
-                <div class="right-info-left stb">
-                    <div class="right-title">
-                        Your Courses
+        <div class="right-down homeroomT-homeroomList" id="20192">
+            <div class="homeroomT-homeroomList-top">
+                <div class="right-info">
+                    <div class="right-info-left stb">
+                        <div class="right-title">
+                            Homerooms
+                        </div>
+                        <div class="right-subtitle">
+                            2019 - 2020 First Semester
+                        </div>
                     </div>
-                    <div class="right-subtitle">
-                        2018 - 2019 Second Semester
-                    </div>
-                </div>
-                <div class="right-down-info-button">
+                    <div class="right-down-info-button">
                     <span class="material-icons right-down-info-button-img">
                         add
                     </span>
-                    <div class="right-down-info-button-text stb">
-                        ADD COURSE
+                        <div class="right-down-info-button-text stb">
+                            ADD HOMEROOM
+                        </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="subjectT-right-down-main">
-                <div class="subjectT-right-down-row">
-                    <div class="right-box thinner-box">
-                        <div class="right-box-subjectTeacher">
+                <div class="homeroomT-homeroomDown">
+                    <div class="homeroomT-homeroomTitle stb">
+                        Your Homeroom
+                    </div>
+                    <div class="homeroomT-homeroomRow">
+                        <div class="right-box thinner-box" onclick="window.location=''">
                             <div class="right-box-title stb">
-                                Chinese A1-001
+                                MYP 9-2
                             </div>
                             <span class="material-icons thinner-box-img">
-                                chevron_right
-                            </span>
+                            chevron_right
+                        </span>
                         </div>
                     </div>
-                    <div class="right-box thinner-box">
+                </div>
+            </div>
+            <div class="homeroomT-homeroomList-down">
+                <div class="homeroomT-homeroomTitle stb">
+                    All Homeroom
+                </div>
+                <div class="homeroomT-homeroomRow">
+                    <div class="right-box thinner-box" onclick="window.location=''">
                         <div class="right-box-title stb">
-                            Chinese A1-001
+                            MYP 9-1
                         </div>
                         <span class="material-icons thinner-box-img">
-                                chevron_right
+                            chevron_right
                         </span>
                     </div>
-                    <div class="right-box thinner-box">
+                    <div class="right-box thinner-box" onclick="window.location=''">
                         <div class="right-box-title stb">
-                            Chinese A1-001
+                            MYP 9-3
                         </div>
                         <span class="material-icons thinner-box-img">
-                                chevron_right
+                            chevron_right
                         </span>
                     </div>
-                    <div class="right-box thinner-box">
+                    <div class="right-box thinner-box" onclick="window.location=''">
                         <div class="right-box-title stb">
-                            Chinese A1-001
+                            MYP 10-1
                         </div>
                         <span class="material-icons thinner-box-img">
-                                chevron_right
+                            chevron_right
                         </span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="right-down subjectT-courseList" id="20191">
-            <div class="right-info">
-                <div class="right-info-left stb">
-                    <div class="right-title">
-                        Your Courses
+        <div class="right-down homeroomT-homeroomList" id="20191">
+            <div class="homeroomT-homeroomList-top">
+                <div class="right-info">
+                    <div class="right-info-left stb">
+                        <div class="right-title">
+                            Homerooms
+                        </div>
+                        <div class="right-subtitle">
+                            2019 - 2020 First Semester
+                        </div>
                     </div>
-                    <div class="right-subtitle">
-                        2018 - 2019 First Semester
-                    </div>
-                </div>
-                <div class="right-down-info-button">
+                    <div class="right-down-info-button">
                     <span class="material-icons right-down-info-button-img">
                         add
                     </span>
-                    <div class="right-down-info-button-text stb">
-                        ADD COURSE
+                        <div class="right-down-info-button-text stb">
+                            ADD HOMEROOM
+                        </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="subjectT-right-down-main">
-                <div class="subjectT-right-down-row">
-                    <div class="right-box thinner-box">
-                        <div class="right-box-subjectTeacher">
+                <div class="homeroomT-homeroomDown">
+                    <div class="homeroomT-homeroomTitle stb">
+                        Your Homeroom
+                    </div>
+                    <div class="homeroomT-homeroomRow">
+                        <div class="right-box thinner-box" onclick="window.location=''">
                             <div class="right-box-title stb">
-                                Chinese A1-001
+                                MYP 9-2
                             </div>
                             <span class="material-icons thinner-box-img">
-                                chevron_right
+                            chevron_right
                         </span>
                         </div>
                     </div>
-                    <div class="right-box thinner-box">
+                </div>
+            </div>
+            <div class="homeroomT-homeroomList-down">
+                <div class="homeroomT-homeroomTitle stb">
+                    All Homeroom
+                </div>
+                <div class="homeroomT-homeroomRow">
+                    <div class="right-box thinner-box" onclick="window.location=''">
                         <div class="right-box-title stb">
-                            Chinese A1-001
+                            MYP 9-1
                         </div>
                         <span class="material-icons thinner-box-img">
-                                chevron_right
+                            chevron_right
                         </span>
                     </div>
-                    <div class="right-box thinner-box">
+                    <div class="right-box thinner-box" onclick="window.location=''">
                         <div class="right-box-title stb">
-                            Chinese A1-001
+                            MYP 9-3
                         </div>
                         <span class="material-icons thinner-box-img">
-                                chevron_right
+                            chevron_right
                         </span>
                     </div>
-                    <div class="right-box thinner-box">
+                    <div class="right-box thinner-box" onclick="window.location=''">
                         <div class="right-box-title stb">
-                            Chinese A1-001
+                            MYP 10-1
                         </div>
                         <span class="material-icons thinner-box-img">
-                                chevron_right
+                            chevron_right
                         </span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="right-down subjectT-studentList" id="student-list">
+
+        <div class="right-down homeroomT-studentList" id="student-list">
             <div class="right-info">
                 <div class="right-info-left stb">
                     <div class="right-title">
@@ -438,33 +458,7 @@
             </div>
         </div>
 
-        <div class="personal-panel">
-            <div class="personal-panel-top">
-                <img src="../../img/图像 1@2x.png" height="30" width="30" class="personal-panel-portrait"/>
-                <div class="personal-panel-des">
-                    <div class="personal-panel-name stb">
-                        Danny Xu
-                    </div>
-                    <div class="personal-panel-mail str">
-                        dannyxu@163.com
-                    </div>
-                </div>
-            </div>
-            <div class="personal-panel-bottom">
-                <div class="personal-panel-row str">
-                    My Profile
-                </div>
-                <div class="personal-panel-row str">
-                    Add / Drop Class
-                </div>
-                <div class="personal-panel-row str">
-                    Goal Score
-                </div>
-                <div class="personal-panel-row-last str" onclick="window.location='../login/index.php'">
-                    Sign Out
-                </div>
-            </div>
-        </div>
+
         <div class="grey-bg">
 
         </div>
@@ -485,10 +479,10 @@
             </div>
         </div>
 
-        <div class="share-box subjectT-addCourse-box">
+        <div class="share-box homeroomT-addHomeroom-box">
             <div class="edit-box-top">
                 <div class="edit-box-title stm">
-                    Add New Course
+                    Add New Homeroom
                 </div>
                 <span class="material-icons edit-box-close">
                     close
@@ -498,15 +492,40 @@
                 <div class="edit-box-downer">
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
-                            Course Name
+                            Homeroom Name
                         </div>
-                        <input type="text" class="edit-box-innerbox-input str" name="add-course-name"
-                               placeholder="English A2 - 001">
+                        <input type="text" class="edit-box-innerbox-input str" name="add-homeroom-name"
+                               placeholder="Input your homeroom here...">
                     </div>
                     <input class="edit-box-green stb" type="submit" value="Save">
                 </div>
             </form>
         </div>
+
+        <div class="share-box homeroomT-successHomeroom-box">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Add New Homeroom
+                </div>
+                <span class="material-icons edit-box-close">
+                    close
+                </span>
+            </div>
+            <form method="post">
+                <div class="edit-box-downer">
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Homeroom Name
+                        </div>
+                        <input type="text" class="edit-box-innerbox-input str" name="add-homeroom-name"
+                               placeholder="Input your homeroom here...">
+                    </div>
+                    <input class="edit-box-green stb" type="submit" value="Save">
+                </div>
+            </form>
+        </div>
+
+
     </div>
 </div>
 </body>

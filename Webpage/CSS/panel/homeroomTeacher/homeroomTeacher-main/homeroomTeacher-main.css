@@ -1,0 +1,35 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+.homeroomT-homeroomList-top{
+    padding-bottom: 20px;
+    border-bottom: #EAEBEB solid 1px;
+}
+.homeroomT-homeroomDown{
+    margin-top: 10px;
+}
+.homeroomT-homeroomTitle{
+    font-size: 29px;
+}
+.homeroomT-homeroomRow{
+    overflow: hidden;
+    zoom:1;
+}
+.homeroomT-homeroomList-down{
+    margin-top: 30px;
+}
+.homeroomT-addHomeroom-box{
+    display: none;
+}
+.homeroomT-successHomeroom-box{
+    display: none;
+}
+.homeroomT-homeroomList{
+    display: none;
+}
+.homeroomT-studentList{
+    display:none;
+}

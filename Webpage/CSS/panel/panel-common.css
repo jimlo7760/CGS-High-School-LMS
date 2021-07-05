@@ -721,3 +721,11 @@
 .edit-comment-box{
     height: 150px;
 }
+.thinner-box-img{
+    float:right;
+}
+
+.studentList-right-down-row{
+    overflow: hidden;
+    zoom:1;
+}

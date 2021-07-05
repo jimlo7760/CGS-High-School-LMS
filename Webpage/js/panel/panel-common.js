@@ -179,12 +179,13 @@ $(document).ready(function () {
             }
         }
     })
+
 });
 
 var right_top_noti = $('.right-top-noti');
 setTimeout(function () {
     var notiX = right_top_noti.offset().left;
-    var notiY = right_top_notiw.offset().top;
+    var notiY = right_top_noti.offset().top;
     $('.right-top-noti-cir').offset({top: notiY, left: notiX});
 }, 1499);
 setTimeout(function () {

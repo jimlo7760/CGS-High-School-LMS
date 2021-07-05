@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     var left_content_manu_nevi = $('.left-content-manu-nevi');
     var subjectT_studentScore = $('.subjectT-studentScore');
@@ -6,7 +5,7 @@ $(document).ready(function () {
         $(this).animate({
             backgroundColor: '#337681',
         }, 'fast')
-    })
+    });
     left_content_manu_nevi.mouseleave(function () {
         if (($(this).attr('name') == 'student' && ($('.right-student-list').is(':visible') || subjectT_studentScore.is(':visible'))) || ($(this).attr('name') == 'exam' && $('.subjectT-test').is(':visible'))) {
             $(this).animate({
