@@ -4,6 +4,7 @@ require_once "../Model/UserActions.php";
 require_once "../Model/HomeRoomClassActions.php";
 require_once "../Model/SubjectClassActions.php";
 require_once "../Model/SwapSubjAppActions.php";
+require_once "../Model/SubjectClassActions.php";
 
 session_start();
 if (!isset($_SESSION['school_num'])) {
@@ -87,9 +88,17 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
             UpdateLoginTime($id, 1);
             echo "Teacher $chi_name ($eng_name)";
             $_SESSION["subject_id"] = $tot_res[2][6];
+            $raw_res = FetchSubjClassBySubjTeacherId(1)[1];
+            $subj_class_ids = [];
+            foreach ($raw_res as $subj_class_array) {
+                print_r($subj_class_array);
+                echo "<br>";
+                $subj_class_ids[] = $subj_class_array[0];
+            }
+            $_SESSION["subj_class_ids"] = $subj_class_ids;
         }
         ob_start();
-        header('Location: '. "../../Webpage/html/student/student-main.php");
+        header('Location: '. "../../Webpage/html/subjectTeacher/subjectTeacher-main.php");
         ob_end_flush();
         die();
     } else if ($_SESSION["logged_in"]) {

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -161,6 +164,9 @@
                     <div class="right-box thinner-box" onclick="window.location='subjectTeacher-classList.php'">
                         <div class="right-box-title stb">
                             Chinese A1-001
+                            <?php
+                            print_r($_SESSION["subj_class_ids"]);
+                            ?>
                         </div>
                         <span class="material-icons thinner-box-img">
                             chevron_right
