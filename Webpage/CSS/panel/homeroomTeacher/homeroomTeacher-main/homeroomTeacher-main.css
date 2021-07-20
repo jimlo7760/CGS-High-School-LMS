@@ -33,3 +33,14 @@
 .homeroomT-studentList{
     display:none;
 }
+.edit-box-text{
+    display: none;
+    margin: 10px 0 30px 0;
+}
+.edit-box-className{
+    font-size: 15px;
+    color: #1BA2B9;
+}
+.homeroom-close{
+    display: none;
+}

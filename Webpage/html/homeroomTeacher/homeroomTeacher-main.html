@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="left-content-manu stb">
-                    <div class="left-content-manu-nevi" name="first-2020">
+                    <div class="left-content-manu-nevi" name="20201">
                         <div class="left-content-manu-year">
                             2019 - 2020
                         </div>
@@ -55,7 +55,7 @@
                             CURRENT
                         </div>
                     </div>
-                    <div class="left-content-manu-nevi" name="second-2019">
+                    <div class="left-content-manu-nevi" name="20192">
                         <div class="left-content-manu-year">
                             2018 - 2019
                         </div>
@@ -63,7 +63,7 @@
                             CURRENT
                         </div>
                     </div>
-                    <div class="left-content-manu-nevi" name="first-2019">
+                    <div class="left-content-manu-nevi" name="20191">
                         <div class="left-content-manu-year">
                             2018 - 2019
                         </div>
@@ -202,7 +202,7 @@
                             Homerooms
                         </div>
                         <div class="right-subtitle">
-                            2019 - 2020 First Semester
+                            2018 - 2019 Second Semester
                         </div>
                     </div>
                     <div class="right-down-info-button">
@@ -270,7 +270,7 @@
                             Homerooms
                         </div>
                         <div class="right-subtitle">
-                            2019 - 2020 First Semester
+                            2018 - 2019 First Semester
                         </div>
                     </div>
                     <div class="right-down-info-button">
@@ -332,7 +332,7 @@
         </div>
 
 
-        <div class="right-down homeroomT-studentList" id="student-list">
+        <div class="right-down homeroomT-studentList" id="student">
             <div class="right-info">
                 <div class="right-info-left stb">
                     <div class="right-title">
@@ -480,6 +480,7 @@
         </div>
 
         <div class="share-box homeroomT-addHomeroom-box">
+            <input hidden="true" class="current_adding_semester" value="">
             <div class="edit-box-top">
                 <div class="edit-box-title stm">
                     Add New Homeroom
@@ -495,36 +496,47 @@
                             Homeroom Name
                         </div>
                         <input type="text" class="edit-box-innerbox-input str" name="add-homeroom-name"
-                               placeholder="Input your homeroom here...">
+                               placeholder="MYP 9-1">
                     </div>
-                    <input class="edit-box-green stb" type="submit" value="Save">
+                    <div class="edit-box-text">
+                        <span class="edit-box-className str">
+                            AAA
+                        </span>
+                    </div>
+                    <input class="edit-box-green stb homeroom-add" type="button" value="Add">
+                    <input class="edit-box-grey stb homeroom-close" type="submit" value="Close">
                 </div>
             </form>
         </div>
 
-        <div class="share-box homeroomT-successHomeroom-box">
-            <div class="edit-box-top">
-                <div class="edit-box-title stm">
-                    Add New Homeroom
+
+        <div class="personal-panel">
+            <div class="personal-panel-top">
+                <img src="../../img/图像 1@2x.png" height="30" width="30" class="personal-panel-portrait"/>
+                <div class="personal-panel-des">
+                    <div class="personal-panel-name stb">
+                        Danny Xu
+                    </div>
+                    <div class="personal-panel-mail str">
+                        dannyxu@163.com
+                    </div>
                 </div>
-                <span class="material-icons edit-box-close">
-                    close
-                </span>
             </div>
-            <form method="post">
-                <div class="edit-box-downer">
-                    <div class="edit-box-innerbox str">
-                        <div class="edit-box-innerbox-title">
-                            Homeroom Name
-                        </div>
-                        <input type="text" class="edit-box-innerbox-input str" name="add-homeroom-name"
-                               placeholder="Input your homeroom here...">
-                    </div>
-                    <input class="edit-box-green stb" type="submit" value="Save">
+            <div class="personal-panel-bottom">
+                <div class="personal-panel-row str">
+                    My Profile
                 </div>
-            </form>
+                <div class="personal-panel-row str">
+                    Add / Drop Class
+                </div>
+                <div class="personal-panel-row str">
+                    Goal Score
+                </div>
+                <div class="personal-panel-row-last str" onclick="window.location='../login/index.html'">
+                    Sign Out
+                </div>
+            </div>
         </div>
-
 
     </div>
 </div>

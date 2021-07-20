@@ -118,10 +118,6 @@ $(document).ready(function () {
         $('.share-box').fadeOut();
         $('.grey-bg').fadeOut();
     });
-    $('.edit-box-green').click(function () {
-        $('.share-box').fadeOut();
-        $('.grey-bg').fadeOut();
-    });
     $('.edit-box-red').click(function () {
         $('.share-box').fadeOut();
         $('.grey-bg').fadeOut();
@@ -172,8 +168,14 @@ $(document).ready(function () {
             })
         }else{                                                  // navigator below
             var target_downl_list = $("#" + clicked_navi);
+            var subjectT_courseList = $('.subjectT-courseList');
+            var homeroomT_homeroomList = $('.homeroomT-homeroomList');
             if(target_downl_list.is(':hidden')){
-                $(".subjectT-courseList").fadeOut('fast');
+                if(subjectT_courseList.is(':visible')){
+                    subjectT_courseList.fadeOut('fast');
+                }else if(homeroomT_homeroomList.is(':visible')){
+                    homeroomT_homeroomList.fadeOut('fast');
+                }
                 $('.left-content-manu-current').addClass('no-select');
                 target_downl_list.delay('fast').fadeIn('fast');
             }

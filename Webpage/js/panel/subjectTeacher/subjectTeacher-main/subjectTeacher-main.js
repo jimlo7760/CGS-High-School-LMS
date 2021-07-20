@@ -48,7 +48,6 @@ $(document).ready(function () {
         $("#" + navi_id_selector).fadeIn('fast');
         $('.left-content-manu-nevi').each(function () {
             console.log($(this).attr('name'));
-            // console.log($(this).children('.left-content-manu-nevi').hasClass('no-select'))
             if($(this).attr('name') == navi_id_selector && $(this).children('.left-content-manu-current').hasClass('no-select')){
                 $(this).children('.left-content-manu-current').removeClass('no-select');
             }else if($(this).attr('name') != navi_id_selector && !$(this).children('.left-content-manu-current').hasClass('no-select')){
