@@ -38,14 +38,7 @@ $(document).ready(function () {
                 }
             })
             var subjectSele = spaceReplacement(clickSubj);
-            subjectT_studentScore.each(function () {
-                if ($(this).attr('id') == subjectSele) {
-                    $(this).fadeIn('fast');
-                    if ($(this).attr('class').indexOf("noPermit-modification") >= 0) {
-                        $(this).find(".subjectT-studentScore-add-outer").css('display', 'none');
-                    }
-                }
-            })
+            $('#' + subjectSele).fadeIn('fast');
         }
     })
 
@@ -120,6 +113,14 @@ $(document).ready(function () {
             var gapWidth = ($('.right-navi-item-right').position().left) - ((right_navi_item_last.position().left) + right_navi_item_last.width()) - 6;
             $('.right-navi-gap-large').width(gapWidth);
         }, 250)
+
+        var selectedStuID = $(this).find('.right-box-detail-name:first').text().trim();
+        var selectedStuEmail = $(this).find('.right-box-detail-name:last').text().trim();
+        var accumu = 0;
+        $('.right-info-dataBox-content:first').text(selectedStuID);
+        $('.right-info-dataBox-content:last').text(selectedStuEmail);
+
+        //    require .ajax to assign values for homeroomT-homeroomStudent-class
     });
 
     $('.return-from-student').click(function () {

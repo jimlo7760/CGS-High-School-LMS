@@ -96,7 +96,7 @@
         </div>
         <input type="text" value="Chinese_A1" class="subjectT-lesson" contenteditable="false" style="opacity: 0">
         <!--
-            class: subjectT-lesson需要输出老师教授科目的名字，前端已做好对subjectT-lesson的value进行课程权限的判断；
+            class: subjectT-lesson这个input中的value需要输出老师教授科目的名字，前端已做好对subjectT-lesson的value进行课程权限的判断；
             如果教授科目的名字中存在空格，需要在输出前把空格用"_"（下划线）进行替换
         -->
     </div>
@@ -151,7 +151,8 @@
             </div>
             <div class="right-student-list">
                 <div class="right-box enrolled-student" name="$_SESSION['course_id']">
-<!--                    需要添加ajax：当enrolled-student被点击时，后台需要给当前subjectT-student-class界面初始化   -->
+<!--                    需要添加ajax：当enrolled-student被点击时，后台需要给当前subjectT-student-class界面初始化
+在subjectT-student-class界面中，当前任课老师老师的课程为最左侧显示（进入后的默认显示）-->
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Danny Xu
@@ -178,7 +179,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="right-box" name="$_SESSION['course_id']">
+                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Danny Xu
@@ -205,7 +206,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="right-box" name="$_SESSION['course_id']">
+                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Danny Xu
@@ -232,7 +233,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="right-box" name="$_SESSION['course_id']">
+                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Danny Xu
@@ -259,7 +260,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="right-box" name="$_SESSION['course_id']">
+                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Danny Xu
@@ -286,7 +287,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="right-box" name="$_SESSION['course_id']">
+                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Danny Xu

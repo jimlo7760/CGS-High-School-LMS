@@ -14,16 +14,11 @@
     zoom:1;
 }
 
-.right-info{
-    height:auto;
-    margin-bottom:25px;
-}
 .right-return{
     overflow:hidden;
     zoom:1;
     cursor: pointer;
     color: #005462;
-
 }
 .right-return-img{
     float:left;
@@ -53,6 +48,7 @@
     display: none;
 }
 .right-nevi{
+    margin-top: 40px;
     overflow:hidden;
     zoom:1;
 }
@@ -63,9 +59,7 @@
     cursor: pointer;
     color: #999C9E;
 }
-.navi-profile{
-    border-bottom: 2px solid #1BA2B9;!important;
-}
+
 .right-navi-gap{
     float:left;
     width: 25px;
@@ -79,7 +73,7 @@
 }
 
 .navi-current{
-    border-bottom: 2px solid #1BA2B9;!important;
+    border-bottom: 2px solid #1BA2B9;
     color: #212529;
 }
 .right-navi-gap-large{

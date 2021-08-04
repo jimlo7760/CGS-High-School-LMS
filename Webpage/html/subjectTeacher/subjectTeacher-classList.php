@@ -99,11 +99,6 @@
 
             </div>
         </div>
-        <input type="text" value="Chinese_A1" class="subjectT-lesson" contenteditable="false" style="opacity: 0">
-        <!--
-            class: subjectT-lesson需要输出老师教授科目的名字，前端已做好对subjectT-lesson的value进行课程权限的判断；
-            如果教授科目的名字中存在空格，需要在输出前把空格用"_"（下划线）进行替换
-        -->
     </div>
 
     <div class="right-content">
@@ -165,7 +160,6 @@
             </div>
             <div class="right-student-list">
                 <div class="right-box enrolled-student" name="$_SESSION['course_id']">
-                    <!--                    需要添加ajax：当enrolled-student被点击时，后台需要给当前subjectT-student-class界面初始化   -->
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Danny Xu
@@ -193,7 +187,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="right-box" name="$_SESSION['course_id']">
+                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Danny Xu
@@ -208,7 +202,35 @@
                                 ID
                             </div>
                             <div class="right-box-detail-name stm">
-                                0108721
+                                0108722
+                            </div>
+                        </div>
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                Email
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                dannyxu@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
+                    <div class="right-box-upper">
+                        <div class="right-box-title stb">
+                            Danny Xu
+                        </div>
+                        <span class="material-icons right-box-arrow">
+                            chevron_right
+                        </span>
+                    </div>
+                    <div class="right-box-downer">
+                        <div class="right-box-detail">
+                            <div class="right-box-detail-title str">
+                                ID
+                            </div>
+                            <div class="right-box-detail-name stm">
+                                0108723
                             </div>
                         </div>
                         <div class="right-box-detail">
@@ -221,7 +243,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="right-box" name="$_SESSION['course_id']">
+                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Danny Xu
@@ -236,7 +258,7 @@
                                 ID
                             </div>
                             <div class="right-box-detail-name stm">
-                                0108721
+                                0108724
                             </div>
                         </div>
                         <div class="right-box-detail">
@@ -249,7 +271,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="right-box" name="$_SESSION['course_id']">
+                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Danny Xu
@@ -264,7 +286,7 @@
                                 ID
                             </div>
                             <div class="right-box-detail-name stm">
-                                0108721
+                                0108725
                             </div>
                         </div>
                         <div class="right-box-detail">
@@ -277,7 +299,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="right-box" name="$_SESSION['course_id']">
+                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
                             Danny Xu
@@ -292,35 +314,7 @@
                                 ID
                             </div>
                             <div class="right-box-detail-name stm">
-                                0108721
-                            </div>
-                        </div>
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                Email
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                dannyxu@163.com
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="right-box" name="$_SESSION['course_id']">
-                    <div class="right-box-upper">
-                        <div class="right-box-title stb">
-                            Danny Xu
-                        </div>
-                        <span class="material-icons right-box-arrow">
-                            chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box-downer">
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                ID
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                0108721
+                                0108726
                             </div>
                         </div>
                         <div class="right-box-detail">
@@ -963,12 +957,6 @@
             <div class="personal-panel-bottom">
                 <div class="personal-panel-row str">
                     My Profile
-                </div>
-                <div class="personal-panel-row str">
-                    Add / Drop Class
-                </div>
-                <div class="personal-panel-row str">
-                    Goal Score
                 </div>
                 <div class="personal-panel-row-last str" onclick="window.location='../login/index.php'">
                     Sign Out
