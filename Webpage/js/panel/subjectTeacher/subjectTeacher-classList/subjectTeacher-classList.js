@@ -67,7 +67,8 @@ $(document).ready(function () {
         $('.student-crew-list').fadeOut('fast');
         setTimeout(function () {
             $('.subjectT-student-class').fadeIn('fast');
-            var teacherSubject = $('.subjectT-lesson').val();          //为每个subjectT-studentScore设置权限
+            var teacherSubject = $('.right-title:first').text().trim();          //为每个subjectT-studentScore设置权限
+            teacherSubject = spaceReplacement(teacherSubject);
             subjectT_studentScore.each(function () {
                 if ($(this).attr('id') == teacherSubject) {
                     $(this).addClass('permit-modification')
@@ -76,9 +77,18 @@ $(document).ready(function () {
                 }
             })
 
+            if($('.navi-current').text().trim() != teacherSubject){
+                $('.navi-current').removeClass('navi-current');
+                $('.right-navi-item').each(function (){
+                    if($(this).text().trim() == teacherSubject){
+                        $(this).addClass('navi-current');
+                    }
+                })
+            }
+
             var tableWid = parseInt(subjectT_studentScore.css('width'));
 
-            var titleWidAu = tableWid * 0.3;
+            var titleWidAu = tableWid * 0.3;                                    //table: permit to edit
             var permit_modification = $('.permit-modification');
                 permit_modification.find('.right-table-title-title').width(titleWidAu);
             permit_modification.find('.right-table-content-title').width(titleWidAu);
@@ -95,8 +105,10 @@ $(document).ready(function () {
             permit_modification.find('.right-table-title-action').width(actionWidAu);
             permit_modification.find('.right-table-content-action').width(actionWidAu);
 
-            var titleWid = tableWid * 0.3;
+            var titleWid = tableWid * 0.3;                                  //table: no permit to edit
             var noPermit_modification = $('.noPermit-modification');
+            noPermit_modification.find('.right-table-title-action').remove();
+            noPermit_modification.find('.right-table-content-action').remove();
             noPermit_modification.find('.right-table-title-title').width(titleWid);
             noPermit_modification.find('.right-table-content-title').width(titleWid);
             var gradeWid = tableWid * 0.2;
@@ -108,6 +120,7 @@ $(document).ready(function () {
             var dateWid = tableWid * 0.23;
             noPermit_modification.find('.right-table-title-date').width(dateWid);
             noPermit_modification.find('.right-table-content-date').width(dateWid);
+            noPermit_modification.find('.subjectT-studentScore-add-outer').remove();
 
             var right_navi_item_last = $('.right-navi-item:last');
             var gapWidth = ($('.right-navi-item-right').position().left) - ((right_navi_item_last.position().left) + right_navi_item_last.width()) - 6;
@@ -116,10 +129,10 @@ $(document).ready(function () {
 
         var selectedStuID = $(this).find('.right-box-detail-name:first').text().trim();
         var selectedStuEmail = $(this).find('.right-box-detail-name:last').text().trim();
-        var accumu = 0;
+        var selectedStuName = $(this).find('.right-box-title').text().trim();
         $('.right-info-dataBox-content:first').text(selectedStuID);
         $('.right-info-dataBox-content:last').text(selectedStuEmail);
-
+        $('.right-title:last').text(selectedStuName)
         //    require .ajax to assign values for homeroomT-homeroomStudent-class
     });
 
@@ -145,7 +158,6 @@ $(document).ready(function () {
             }
             student_nevi.css('background-color', 'rgba(255, 255, 255, 0)');
             $("#" + idVal).delay('fast').fadeIn('fast');
-            // $('.left-content-manu-current').addClass('no-select');
             if ($(this).children('.left-content-manu-current').is(":hidden")) {
                 $(this).children('.left-content-manu-current').removeClass('no-select');
             }

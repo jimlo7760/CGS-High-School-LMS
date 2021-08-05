@@ -143,7 +143,7 @@
                 </div>
                 <div class="right-info-left stb">
                     <div class="right-title">
-                        Chinese A1
+                        TOK
                     </div>
                     <div class="right-subtitle">
                         Students
@@ -190,7 +190,7 @@
                 <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
-                            Danny Xu
+                            Steve Jobs
                         </div>
                         <span class="material-icons right-box-arrow">
                             chevron_right
@@ -210,7 +210,7 @@
                                 Email
                             </div>
                             <div class="right-box-detail-name stm">
-                                dannyxu@gmail.com
+                                stevejobs@gmail.com
                             </div>
                         </div>
                     </div>
@@ -218,7 +218,7 @@
                 <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
-                            Danny Xu
+                            Elon Musk
                         </div>
                         <span class="material-icons right-box-arrow">
                             chevron_right
@@ -238,7 +238,7 @@
                                 Email
                             </div>
                             <div class="right-box-detail-name stm">
-                                dannyxu@163.com
+                                elonmusk@163.com
                             </div>
                         </div>
                     </div>
@@ -811,10 +811,12 @@
                     </div>
                 </div>
                 <div class="subjectT-studentScore" id="TOK">
+<!--                    editing: adding action field-->
                     <div class="subjectT-studentScore-add-outer">
                         <div class="subjectT-studentScore-add">
-                            <img src="../../img/ic_add_24px.png" class="right-down-info-button-img" height="11"
-                                 width="11">
+                            <span class="material-icons right-down-info-button-img">
+                                add
+                            </span>
                             <div class="right-down-info-button-text stb">
                                 ADD
                             </div>
@@ -834,6 +836,9 @@
                             <div class="right-table-title-date">
                                 Date
                             </div>
+                            <div class="right-table-title-action">
+                                Action
+                            </div>
                         </div>
                         <div class="right-table-content stb">
                             <div class="right-table-content-row">
@@ -849,19 +854,13 @@
                                 <div class="right-table-content-date">
                                     Apr 29, 2020 11:00 AM
                                 </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
+                                <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                                 </div>
                             </div>
                             <div class="right-table-content-row">
@@ -877,19 +876,13 @@
                                 <div class="right-table-content-date">
                                     Apr 29, 2020 11:00 AM
                                 </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
+                                <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                                 </div>
                             </div>
                             <div class="right-table-content-row">
@@ -905,19 +898,13 @@
                                 <div class="right-table-content-date">
                                     Apr 29, 2020 11:00 AM
                                 </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
+                                <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                                 </div>
                             </div>
                             <div class="right-table-content-row">
@@ -932,6 +919,80 @@
                                 </div>
                                 <div class="right-table-content-date">
                                     Apr 29, 2020 11:00 AM
+                                </div>
+                                <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                                <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="right-table-content-row">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                                <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="right-table-content-ro  w">
+                                <div class="right-table-content-title">
+                                    Vendor support ending for Collaborate CV
+                                </div>
+                                <div class="right-table-content-grade">
+                                    80 / 100
+                                </div>
+                                <div class="right-table-content-type">
+                                    Exam
+                                </div>
+                                <div class="right-table-content-date">
+                                    Apr 29, 2020 11:00 AM
+                                </div>
+                                <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                    <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                                 </div>
                             </div>
 
