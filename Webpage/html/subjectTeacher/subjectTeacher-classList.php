@@ -143,7 +143,7 @@
                 </div>
                 <div class="right-info-left stb">
                     <div class="right-title">
-                        TOK
+                        Chinese A1
                     </div>
                     <div class="right-subtitle">
                         Students
@@ -973,7 +973,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="right-table-content-ro  w">
+                            <div class="right-table-content-row">
                                 <div class="right-table-content-title">
                                     Vendor support ending for Collaborate CV
                                 </div>
@@ -1043,6 +1043,7 @@
             <form method="post">
                 <div class="edit-box-downer">
                     <div class="edit-box-innerbox str">
+                        <input id="test-stud-id" hidden="true" value="">
                         <div class="edit-box-innerbox-title">
                             Choose an Exam / Test
                         </div>
