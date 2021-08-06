@@ -237,12 +237,164 @@ $_SESSION["exam_id_2"] = 0;
                                     create
                                 </span>
                                 <div class="right-person-edit-text stm">
-                                    Edit Profile
+                                    Edit Account
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="right-person-info-down">
+                        <div class="right-person-info-row">
+                            <div class="right-person-info-row-upper">
+                                <div class="right-person-info-row-title stb">
+                                    Personal Information
+                                </div>
+                                <div class="right-person-edit right-person-add edit-pi stm">
+                                    <span class="material-icons right-person-edit-img">
+                                        create
+                                    </span>
+                                    <div class="right-person-edit-text">
+                                        Edit Personal Information
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-person-info-row-downer private-info-row">
+                                <div class="private-info-row-upper">
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Passport Name
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            DANYANG XU
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Chinese Name
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            许丹阳
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            English Name
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            Danny
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Gender
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            Male
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Student Number
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            0108706
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Nationality
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            China
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Date of Birth
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            September 11, 2001
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Phone Number
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            18676599192
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="private-info-row-downer">
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Mother's Name
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            Someb
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Mother's Phone Number
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            18676599192
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Mother's Job Category
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            Banking
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Mother's Job Title
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            Manager
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Father's Name
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            Someb
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Father's Phone Number
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            18676599192
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Father's Job Category
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            Banking
+                                        </div>
+                                    </div>
+                                    <div class="private-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Father's Job Title
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            Manager
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
                         <div class="right-person-info-row">
                             <div class="right-person-info-row-upper">
                                 <div class="right-person-info-row-title stb">
@@ -794,7 +946,7 @@ END;
                       enctype="multipart/form-data">
                     <div class="edit-box-top">
                         <div class="edit-box-title stm">
-                            Edit Profile
+                            Edit Account
                         </div>
                         <span class="material-icons edit-box-close">
                             close
@@ -1254,12 +1406,14 @@ END;
             <div class="edit-box-top">
                 <div class="edit-box-title stm">
                     Edit
-                    <p class="current-class-name">
+                    <span class="current-class-name">
                         Chinese A1
-                    </p>
+                    </span>
                     Goal Score
                 </div>
-                <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close"/>
+                <span class="material-icons edit-box-close">
+                            close
+                </span>
             </div>
             <form method="post" action="../../../Controller_and_Model/Controller/ModifyTermTarget.php">
                 <div class="edit-box-downer">
@@ -1288,6 +1442,184 @@ END;
                     <input class="edit-score-id" type="text" name="class-id" value="" style="display:none">
                     <input class="edit-box-green stb" type="submit" value="Submit">
                 </div>
+            </form>
+        </div>
+
+        <div class="share-box edit-private-box">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Edit Personal Information
+                </div>
+                <span class="material-icons edit-box-close">
+                            close
+                </span>
+            </div>
+            <form method="" action="">
+                <div class="edit-box-downer">
+                    <div class="private-box-upper">
+                        <div class="edit-box-row">
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Passport Name
+                                    <span style="color: #DD3444">
+                                    *
+                                </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="passport-name">
+                            </div>
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Chinese Name
+                                    <span style="color: #DD3444">
+                                    *
+                                </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="chinese-name">
+                            </div>
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Passport Name
+                                    <span style="color: #DD3444">
+                                    *
+                                </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="english-name">
+                            </div>
+                        </div>
+                        <div class="edit-box-row">
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Gender
+                                    <span style="color: #DD3444">
+                                    *
+                                </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="gender">
+                            </div>
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Student Number
+                                    <span style="color: #DD3444">
+                                    *
+                                </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="student-number">
+                            </div>
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Nationality
+                                    <span style="color: #DD3444">
+                                    *
+                                </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="nationality">
+                            </div>
+                        </div>
+                        <div class="edit-box-row">
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Date of Birth
+                                    <span style="color: #DD3444">
+                                    *
+                                </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="passport-name">
+                            </div>
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Phone Number
+                                    <span style="color: #DD3444">
+                                    *
+                                </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="phone-number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="private-box-downer">
+                        <div class="edit-box-row">
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Mother's Name
+                                    <span style="color: #DD3444">
+                                        *
+                                    </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-name">
+                            </div>
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Mother's Phone Number
+                                    <span style="color: #DD3444">
+                                        *
+                                    </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-phone">
+                            </div>
+                        </div>
+                        <div class="edit-box-row">
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Mother's Job Category
+                                    <span style="color: #DD3444">
+                                        *
+                                    </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-name">
+                            </div>
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Mother's Job Title
+                                    <span style="color: #DD3444">
+                                        *
+                                    </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-phone">
+                            </div>
+                        </div>
+                        <div class="edit-box-row">
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Father's Name
+                                    <span style="color: #DD3444">
+                                        *
+                                    </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-name">
+                            </div>
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Father's Phone Number
+                                    <span style="color: #DD3444">
+                                        *
+                                    </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-phone">
+                            </div>
+                        </div>
+                        <div class="edit-box-row">
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Father's Job Category
+                                    <span style="color: #DD3444">
+                                        *
+                                    </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-name">
+                            </div>
+                            <div class="edit-box-innerbox private-box-inner str">
+                                <div class="edit-box-innerbox-title">
+                                    Father's Job Title
+                                    <span style="color: #DD3444">
+                                        *
+                                    </span>
+                                </div>
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-phone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input class="edit-box-green private-box-submit stb" type="submit" value="Update Personal Information">
             </form>
         </div>
     </div>

@@ -661,6 +661,10 @@
 .edit-box-downer {
     padding-top: 20px;
 }
+.edit-box-row{
+    overflow: hidden;
+    zoom:1;
+}
 
 .edit-box-red {
     width: 100%;

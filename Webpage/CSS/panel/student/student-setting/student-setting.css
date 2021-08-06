@@ -1,6 +1,10 @@
 .setting-title{
     color: #343A3E;
 }
+
+.right-detail{
+    margin-top: 30px;
+}
 .right-nevi{
     overflow:hidden;
     zoom:1;
@@ -131,6 +135,27 @@
     overflow: hidden;
     zoom:1;
     padding-top:20px;
+}
+
+.private-info-row{
+    border: #D0D0D0 solid 1px;
+    border-radius:5px;
+    margin-top: 20px;
+    padding-top: 0;
+}
+
+.private-info-row-upper{
+    overflow: hidden;
+    zoom: 1;
+}
+.private-info-row-downer{
+    overflow: hidden;
+    zoom: 1;
+}
+.private-info-row-box{
+    float: left;
+    margin: 7px;
+    padding-right: 8px;
 }
 .right-person-info-row-box{
     margin: 5px;
@@ -278,6 +303,12 @@
 .right-class-process-right-box-img{
     color: #343A3E;
 }
+.university-box-add{
+    display: none;
+}
+.university-box-delete{
+    display: none;
+}
 .class-adding-box{
     display:none;
 }
@@ -419,4 +450,30 @@
 }
 .right-score-whole{
     display:none;
+}
+
+.edit-private-box{
+    width: 650px;
+    display: none;
+}
+
+.private-box-upper{
+    padding-bottom: 15px;
+    border-bottom: #EAEBEB 1px solid;
+}
+
+.private-box-inner{
+    float: left;
+    margin-right: 15px;
+}
+
+.private-box-upper-input{
+    width: 165px;
+}
+
+.private-box-downer-input{
+    width: 272px;
+}
+.private-box-submit{
+    width: 96%;
 }

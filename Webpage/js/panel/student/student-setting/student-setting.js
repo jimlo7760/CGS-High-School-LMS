@@ -25,6 +25,17 @@ $(document).ready(function () {
         $('.profile-box').fadeIn();
     });
 
+    $('.edit-pi').click(function (){
+        var body = document.body.clientHeight;
+        var bg = body;
+        grey_bg.css({
+            "height": bg,
+            "top": 0
+        });
+        grey_bg.fadeIn();
+        $('.edit-private-box').fadeIn();
+    })
+
     $('.add-award').click(function () {
         var body = document.body.clientHeight;
         var bg = body;
