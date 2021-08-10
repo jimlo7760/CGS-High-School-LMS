@@ -14,6 +14,9 @@ $(document).ready(function () {
     var boxWidth = contentWidth / 2 - 15;
     var grey_bg = $('.grey-bg');
     $('.right-person-info-row-box').outerWidth(boxWidth);
+
+    $('.strength-box-inside').outerWidth(boxWidth);
+
     $('.edit-info').click(function () {
         var body = document.body.clientHeight;
         var bg = body;
@@ -22,10 +25,13 @@ $(document).ready(function () {
             "top": 0
         });
         grey_bg.fadeIn();
-        $('.profile-box').fadeIn();
+        var profile_box = $('.profile-box');
+        profile_box.fadeIn();
+        var studEmail = $('.right-person-info-detail').find('.right-person-info-box-text:last').text().trim();
+        profile_box.find('.edit-box-innerbox-input:first').attr('value', studEmail);
     });
 
-    $('.edit-pi').click(function (){
+    $('.edit-pi').click(function () {
         var body = document.body.clientHeight;
         var bg = body;
         grey_bg.css({
@@ -34,6 +40,32 @@ $(document).ready(function () {
         });
         grey_bg.fadeIn();
         $('.edit-private-box').fadeIn();
+        var allInfo = "";
+        $('.private-info-row').find('.right-person-info-row-box-des').each(function () {
+            allInfo += $(this).text().trim() + "_";
+        })
+        var allInfoArr = allInfo.split('_');
+        var accu = 0;
+        $('.private-box-upper-input').each(function () {
+            $(this).attr('value', allInfoArr[accu]);
+            accu += 1;
+        })
+        $('.private-box-downer-input').each(function () {
+            $(this).attr('value', allInfoArr[accu]);
+            accu += 1;
+        })
+    })
+
+    $('.edit-stre').click(function (){
+        var body = document.body.clientHeight;
+        var bg = body;
+        grey_bg.css({
+            "height": bg,
+            "top": 0
+        });
+        grey_bg.fadeIn();
+        $('.strength-box').fadeIn();
+
     })
 
     $('.add-award').click(function () {
@@ -89,79 +121,79 @@ $(document).ready(function () {
     });
     $('.navi-profile').click(function () {
         $(this).animate({
-            borderBottomColor:'#1BA2B9'
+            borderBottomColor: '#1BA2B9'
         });
-        if(grey_bg.is(":hidden")){
+        if (grey_bg.is(":hidden")) {
             $(".right-profile-whole").delay('fast').fadeIn('fast');
         }
         $('.navi-class').animate({
-            borderBottomColor:'#EAEBEB'
+            borderBottomColor: '#EAEBEB'
         });
-        if(right_class_whole.is(":visible")){
+        if (right_class_whole.is(":visible")) {
             right_class_whole.fadeOut('fast');
         }
         navi_score.animate({
-            borderBottomColor:'#EAEBEB'
+            borderBottomColor: '#EAEBEB'
         });
-        if(right_score_whole.is(":visible")){
+        if (right_score_whole.is(":visible")) {
             right_score_whole.fadeOut('fast');
         }
     });
     $('.navi-class').click(function () {
         $(this).animate({
-            borderBottomColor:'#1BA2B9'
+            borderBottomColor: '#1BA2B9'
         });
         console.log(right_class_whole.is(':hidden'));
-        if(right_class_whole.is(':hidden')){
+        if (right_class_whole.is(':hidden')) {
             right_class_whole.delay('fast').fadeIn('fast');
         }
         $('.navi-profile').animate({
-            borderBottomColor:'#EAEBEB'
+            borderBottomColor: '#EAEBEB'
         });
-        if(right_profile_whole.is(':visible')){
+        if (right_profile_whole.is(':visible')) {
             right_profile_whole.fadeOut('fast');
         }
         navi_score.animate({
-            borderBottomColor:'#EAEBEB'
+            borderBottomColor: '#EAEBEB'
         });
-        if(right_score_whole.is(':visible')){
+        if (right_score_whole.is(':visible')) {
             right_score_whole.fadeOut('fast');
         }
     });
 
     navi_score.click(function () {
         $(this).animate({
-            borderBottomColor:'#1BA2B9'
+            borderBottomColor: '#1BA2B9'
         });
-        if(right_score_whole.is(':hidden')){
+        if (right_score_whole.is(':hidden')) {
             right_score_whole.delay('fast').fadeIn('fast');
         }
         $('.navi-profile').animate({
-            borderBottomColor:'#EAEBEB'
+            borderBottomColor: '#EAEBEB'
         });
-        if(right_profile_whole.is(':visible')){
+        if (right_profile_whole.is(':visible')) {
             right_profile_whole.fadeOut('fast');
         }
         $('.navi-class').animate({
-            borderBottomColor:'#EAEBEB'
+            borderBottomColor: '#EAEBEB'
         });
-        if(right_class_whole.is(':visible')){
+        if (right_class_whole.is(':visible')) {
             right_class_whole.fadeOut('fast');
         }
     });
     navi_score.click(function () {
         $(this).animate({
-            borderBottomColor:'#1BA2B9'
+            borderBottomColor: '#1BA2B9'
         });
         $('.navi-profile').animate({
-            borderBottomColor:'#EAEBEB'
+            borderBottomColor: '#EAEBEB'
         });
         $('.navi-class').animate({
-            borderBottomColor:'#EAEBEB'
+            borderBottomColor: '#EAEBEB'
         })
     });
     $('.class-adding-row').click(function () {
-        if($(this).css('border-color') == 'rgb(208, 208, 208)'){
+        if ($(this).css('border-color') == 'rgb(208, 208, 208)') {
             $(this).animate({
                 borderColor: '#1BA2B9',
             });
@@ -170,7 +202,7 @@ $(document).ready(function () {
                 color: '#1BA2B9'
             });
             $(this).children('.class-adding-checkbox').prop('checked', true);
-        }else{
+        } else {
             $(this).animate({
                 borderColor: '#D0D0D0',
             });
@@ -183,7 +215,7 @@ $(document).ready(function () {
         }
     });
     $('.class-deleting-row').click(function () {
-        if($(this).css('border-color') == 'rgb(208, 208, 208)'){
+        if ($(this).css('border-color') == 'rgb(208, 208, 208)') {
             $(this).animate({
                 borderColor: '#DD3444',
             });
@@ -192,7 +224,7 @@ $(document).ready(function () {
                 color: '#DD3444'
             });
             $(this).children('.class-adding-checkbox').prop('checked', true);
-        }else{
+        } else {
             $(this).animate({
                 borderColor: '#D0D0D0',
             });
@@ -268,7 +300,7 @@ $(document).ready(function () {
     });
     $('.score-editing-innerbox-input').on('input propertychange', function () {
         var score = $('.score-editing-innerbox-input').val();
-        if(score != ''){
+        if (score != '') {
             if (parseInt(score) >= 0 && parseInt(score) <= 100) {
                 $(this).animate({
                     borderColor: '#D0D0D0'
@@ -280,7 +312,7 @@ $(document).ready(function () {
                 });
                 $(this).siblings('.score-editing-innerbox').children('.score-editing-unvalid').fadeIn();
             }
-        }else{
+        } else {
             $(this).animate({
                 borderColor: '#D0D0D0'
             });
@@ -306,25 +338,25 @@ $(document).ready(function () {
 
     });
 
-    $('.confirm-box-input').on("input propertychange", function (){
+    $('.confirm-box-input').on("input propertychange", function () {
         var passFir = $('.password-input-first:password').val();
         var passSec = $('.confirm-box-input:password').val();
         console.log($('.edit-box-innerbox-input:password').val());
         // console.log(passFir + "------" + passSec);
-        if(passFir != passSec){
+        if (passFir != passSec) {
             $('.confirm-box-unmatched').fadeIn();
-        }else{
+        } else {
             $('.confirm-box-unmatched').fadeOut();
         }
     });
-    function updatePasswordCheck(){
-        if($(".edit-box-innerbox-input[name='update-password']").val() == "" || $(".edit-box-innerbox-input[name='current-password']") == "" || $('.confirm-box-unmatched').css('display') == 'block'){
+
+    function updatePasswordCheck() {
+        if ($(".edit-box-innerbox-input[name='update-password']").val() == "" || $(".edit-box-innerbox-input[name='current-password']") == "" || $('.confirm-box-unmatched').css('display') == 'block') {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
-
 
 
 });

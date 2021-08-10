@@ -398,6 +398,69 @@ $_SESSION["exam_id_2"] = 0;
                         <div class="right-person-info-row">
                             <div class="right-person-info-row-upper">
                                 <div class="right-person-info-row-title stb">
+                                    Strength & Hobby
+                                </div>
+                                <div class="right-person-edit right-person-add edit-stre stm">
+                                    <span class="material-icons right-person-edit-img">
+                                        create
+                                    </span>
+                                    <div class="right-person-edit-text">
+                                        Edit Strength & Hobby
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-person-info-row-downer">
+                                <div class="strength-box-inside" style="margin-right: 10px">
+                                    <div class="right-person-info-row-box">
+                                        <div class="right-person-info-row-box-title stm">
+                                            Arduino
+                                        </div>
+                                        <div class="right-person-info-row-box-right">
+                                            <div class="right-person-info-row-box-text">
+                                                <div class="right-person-info-row-box-subtitle str">
+                                                    Year Started
+                                                </div>
+                                                <div class="right-person-info-row-box-des stm">
+                                                    2014
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right-person-info-row-box">
+                                        <div class="right-person-info-row-box-title stm">
+                                            On-road Bicycle
+                                        </div>
+                                        <div class="right-person-info-row-box-right">
+                                            <div class="right-person-info-row-box-text">
+                                                <div class="right-person-info-row-box-subtitle str">
+                                                    Year Started
+                                                </div>
+                                                <div class="right-person-info-row-box-des stm">
+                                                    2016
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="strength-box-inside">
+                                    <div class="right-person-info-row-box">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Description
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            It has been rightly said that regular studies are like a minute speck of
+                                            information in a vast galaxy of knowledge. There are plenty of things to
+                                            learn out there. We just need the right mindset for it. A hobby is a great
+                                            way to incorporate a vast subject of learning into our daily lives. The best
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right-person-info-row">
+                            <div class="right-person-info-row-upper">
+                                <div class="right-person-info-row-title stb">
                                     Awards & Prizes
                                 </div>
                                 <div class="right-person-edit right-person-delete delete-award stm">
@@ -495,6 +558,86 @@ END;
 END;
                                 }
                                 ?>
+                            </div>
+                        </div>
+                        <div class="right-person-info-row">
+                            <div class="right-person-info-row-upper">
+                                <div class="right-person-info-row-title stb">
+                                    Linguistic Test
+                                </div>
+                                <div class="right-person-edit delete-university right-person-delete"
+                                     style="margin-right: 7px">
+                                    <span class="material-icons right-person-edit-img">
+                                        delete_forever
+                                    </span>
+                                    <div class="right-person-edit-text stm">
+                                        Delete Linguistic Score
+                                    </div>
+                                </div>
+                                <div class="right-person-edit right-person-add add-university right-person-edit-interval">
+                                    <span class="material-icons right-person-edit-img">
+                                        add_circle
+                                    </span>
+                                    <div class="right-person-edit-text stm">
+                                        Add Linguistic Score
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-person-info-row-downer">
+                                <div class="right-person-info-row-box">
+                                    <div class="right-person-info-row-box-title stm">
+                                        7.0
+                                    </div>
+                                    <div class="right-person-info-row-box-right">
+                                        <div class="right-person-info-row-box-text">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Test Date
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                2020-01-01
+                                            </div>
+                                        </div>
+                                        <i class="material-icons right-person-info-row-box-img">
+                                            chevron_right
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="right-person-info-row-box">
+                                    <div class="right-person-info-row-box-title stm">
+                                        7.5
+                                    </div>
+                                    <div class="right-person-info-row-box-right">
+                                        <div class="right-person-info-row-box-text">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Test Date
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                2020-02-01
+                                            </div>
+                                        </div>
+                                        <i class="material-icons right-person-info-row-box-img">
+                                            chevron_right
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="right-person-info-row-box">
+                                    <div class="right-person-info-row-box-title stm">
+                                        8.0
+                                    </div>
+                                    <div class="right-person-info-row-box-right">
+                                        <div class="right-person-info-row-box-text">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Test Date
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                2020-03-01
+                                            </div>
+                                        </div>
+                                        <i class="material-icons right-person-info-row-box-img">
+                                            chevron_right
+                                        </i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="right-person-info-row">
@@ -1049,54 +1192,56 @@ END;
                             close
                         </span>
             </div>
-            <div class="award-box-row">
-                <div class="edit-box-innerbox award-box-big str">
-                    <div class="edit-box-innerbox-title">
-                        Award or Prize Title
-                    </div>
-                    <input type="text" class="edit-box-innerbox-input str" name="award-title"
-                           placeholder="Add a new award or prize…">
-                </div>
-                <div class="edit-box-innerbox award-box-small str">
-                    <div class="edit-box-innerbox-title">
-                        Year Recieved
-                    </div>
-                    <input type="text" class="edit-box-innerbox-input str" name="award-year">
-                </div>
-            </div>
-            <form method="post">
-                <div class="award-box-row">
-                    <div class="edit-box-innerbox award-box-big str">
-                        <div class="edit-box-innerbox-title">
-                            Award or Prize Title
+            <form action="" method="">
+                <div class="edit-box-downer">
+                    <div class="award-box-row">
+                        <div class="edit-box-innerbox award-box-big str">
+                            <div class="edit-box-innerbox-title">
+                                Award or Prize Title
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="award-title"
+                                   placeholder="Add a new award or prize…">
                         </div>
-                        <input type="text" class="edit-box-innerbox-input str" name="award-title"
-                               placeholder="Add a new award or prize…">
-                    </div>
-                    <div class="edit-box-innerbox award-box-small str">
-                        <div class="edit-box-innerbox-title">
-                            Year Recieved
+                        <div class="edit-box-innerbox award-box-small str">
+                            <div class="edit-box-innerbox-title">
+                                Year Recieved
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="award-year">
                         </div>
-                        <input type="text" class="edit-box-innerbox-input str" name="award-year">
+                    </div>
+                    <div class="award-box-row">
+                        <div class="edit-box-innerbox award-box-big str">
+                            <div class="edit-box-innerbox-title">
+                                Award or Prize Title
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="award-title"
+                                   placeholder="Add a new award or prize…">
+                        </div>
+                        <div class="edit-box-innerbox award-box-small str">
+                            <div class="edit-box-innerbox-title">
+                                Year Recieved
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="award-year">
 
-                    </div>
-                </div>
-                <div class="award-box-row">
-                    <div class="edit-box-innerbox award-box-big str">
-                        <div class="edit-box-innerbox-title">
-                            Award or Prize Title
                         </div>
-                        <input type="text" class="edit-box-innerbox-input str" name="award-title"
-                               placeholder="Add a new award or prize…">
                     </div>
-                    <div class="edit-box-innerbox award-box-small str">
-                        <div class="edit-box-innerbox-title">
-                            Year Recieved
+                    <div class="award-box-row">
+                        <div class="edit-box-innerbox award-box-big str">
+                            <div class="edit-box-innerbox-title">
+                                Award or Prize Title
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="award-title"
+                                   placeholder="Add a new award or prize…">
                         </div>
-                        <input type="text" class="edit-box-innerbox-input str" name="award-year">
+                        <div class="edit-box-innerbox award-box-small str">
+                            <div class="edit-box-innerbox-title">
+                                Year Recieved
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="award-year">
+                        </div>
                     </div>
+                    <input type="submit" class="edit-box-green stb" value="Add Awards & Prizes">
                 </div>
-                <input type="submit" class="edit-box-green stb" value="Add Awards & Prizes">
             </form>
         </div>
         <div class="share-box university-box-add">
@@ -1465,7 +1610,8 @@ END;
                                     *
                                 </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="passport-name">
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str"
+                                       name="passport-name">
                             </div>
                             <div class="edit-box-innerbox private-box-inner str">
                                 <div class="edit-box-innerbox-title">
@@ -1474,7 +1620,8 @@ END;
                                     *
                                 </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="chinese-name">
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str"
+                                       name="chinese-name">
                             </div>
                             <div class="edit-box-innerbox private-box-inner str">
                                 <div class="edit-box-innerbox-title">
@@ -1483,7 +1630,8 @@ END;
                                     *
                                 </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="english-name">
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str"
+                                       name="english-name">
                             </div>
                         </div>
                         <div class="edit-box-row">
@@ -1494,7 +1642,8 @@ END;
                                     *
                                 </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="gender">
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str"
+                                       name="gender">
                             </div>
                             <div class="edit-box-innerbox private-box-inner str">
                                 <div class="edit-box-innerbox-title">
@@ -1503,7 +1652,8 @@ END;
                                     *
                                 </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="student-number">
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str"
+                                       name="student-number">
                             </div>
                             <div class="edit-box-innerbox private-box-inner str">
                                 <div class="edit-box-innerbox-title">
@@ -1512,7 +1662,8 @@ END;
                                     *
                                 </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="nationality">
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str"
+                                       name="nationality">
                             </div>
                         </div>
                         <div class="edit-box-row">
@@ -1523,7 +1674,8 @@ END;
                                     *
                                 </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="passport-name">
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str"
+                                       name="birth">
                             </div>
                             <div class="edit-box-innerbox private-box-inner str">
                                 <div class="edit-box-innerbox-title">
@@ -1532,7 +1684,8 @@ END;
                                     *
                                 </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str" name="phone-number">
+                                <input type="text" class="edit-box-innerbox-input private-box-upper-input str"
+                                       name="phone-number">
                             </div>
                         </div>
                     </div>
@@ -1545,7 +1698,8 @@ END;
                                         *
                                     </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-name">
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str"
+                                       name="mother-name">
                             </div>
                             <div class="edit-box-innerbox private-box-inner str">
                                 <div class="edit-box-innerbox-title">
@@ -1554,7 +1708,8 @@ END;
                                         *
                                     </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-phone">
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str"
+                                       name="mother-phone">
                             </div>
                         </div>
                         <div class="edit-box-row">
@@ -1565,7 +1720,8 @@ END;
                                         *
                                     </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-name">
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str"
+                                       name="mother-job-cat">
                             </div>
                             <div class="edit-box-innerbox private-box-inner str">
                                 <div class="edit-box-innerbox-title">
@@ -1574,7 +1730,8 @@ END;
                                         *
                                     </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-phone">
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str"
+                                       name="mother-job-tit">
                             </div>
                         </div>
                         <div class="edit-box-row">
@@ -1585,7 +1742,8 @@ END;
                                         *
                                     </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-name">
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str"
+                                       name="father-name">
                             </div>
                             <div class="edit-box-innerbox private-box-inner str">
                                 <div class="edit-box-innerbox-title">
@@ -1594,7 +1752,8 @@ END;
                                         *
                                     </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-phone">
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str"
+                                       name="father-phone">
                             </div>
                         </div>
                         <div class="edit-box-row">
@@ -1605,7 +1764,8 @@ END;
                                         *
                                     </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-name">
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str"
+                                       name="father-job-cat">
                             </div>
                             <div class="edit-box-innerbox private-box-inner str">
                                 <div class="edit-box-innerbox-title">
@@ -1614,13 +1774,107 @@ END;
                                         *
                                     </span>
                                 </div>
-                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str" name="mother-phone">
+                                <input type="text" class="edit-box-innerbox-input private-box-downer-input str"
+                                       name="father-job-tit">
                             </div>
                         </div>
                     </div>
                 </div>
                 <input class="edit-box-green private-box-submit stb" type="submit" value="Update Personal Information">
             </form>
+        </div>
+
+        <div class="share-box strength-box">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Edit Strength & Hobby
+                </div>
+                <span class="material-icons edit-box-close">
+                            close
+                </span>
+            </div>
+            <form method="" action="">
+                <div class="edit-box-downer">
+                    <div class="strength-box-row">
+                        <div class="edit-box-innerbox strength-box-big str">
+                            <div class="edit-box-innerbox-title">
+                                Strength & Hobby
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="strength-title" placeholder="Add a new strength or hobby...">
+                        </div>
+                        <div class="edit-box-innerbox strength-box-small str">
+                            <div class="edit-box-innerbox-title">
+                                Year Started
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="strength-start-year">
+                        </div>
+                    </div>
+                    <div class="strength-box-row">
+                        <div class="edit-box-innerbox strength-box-big str">
+                            <div class="edit-box-innerbox-title">
+                                Strength & Hobby
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="strength-title" placeholder="Add a new strength or hobby...">
+                        </div>
+                        <div class="edit-box-innerbox strength-box-small str">
+                            <div class="edit-box-innerbox-title">
+                                Year Started
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="strength-start-year">
+                        </div>
+                    </div>
+                    <div class="strength-box-row">
+                        <div class="edit-box-innerbox strength-box-big str">
+                            <div class="edit-box-innerbox-title">
+                                Strength & Hobby
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="strength-title" placeholder="Add a new strength or hobby...">
+                        </div>
+                        <div class="edit-box-innerbox strength-box-small str">
+                            <div class="edit-box-innerbox-title">
+                                Year Started
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="strength-start-year">
+                        </div>
+                    </div>
+                    <div class="strength-box-row">
+                        <div class="edit-box-innerbox strength-box-big str">
+                            <div class="edit-box-innerbox-title">
+                                Strength & Hobby
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="strength-title" placeholder="Add a new strength or hobby...">
+                        </div>
+                        <div class="edit-box-innerbox strength-box-small str">
+                            <div class="edit-box-innerbox-title">
+                                Year Started
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="strength-start-year">
+                        </div>
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Strength & Hobby Description
+                        </div>
+                        <textarea type="text" class="edit-box-innerbox-input edit-comment-box str" name="strength-comment"
+                                  placeholder="Write your description here..."></textarea>
+                    </div>
+                    <input type="submit" class="edit-box-green stb" value="Save">
+                </div>
+            </form>
+        </div>
+
+        <div class="share-box language-box">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Edit
+                </div>
+                <span class="material-icons edit-box-close">
+                            close
+                </span>
+            </div>
+            <div class="edit-box-downer">
+
+            </div>
         </div>
     </div>
 </div>

@@ -477,3 +477,23 @@
 .private-box-submit{
     width: 96%;
 }
+
+.strength-box{
+    display: none;
+}
+.strength-box-inside{
+    float: left;
+}
+.strength-box-row{
+    overflow: hidden;
+    zoom: 1;
+}
+.strength-box-big{
+    float: left;
+    width: 280px;
+}
+.strength-box-small{
+    float: left;
+    width: 100px;
+    margin-left: 30px;
+}
