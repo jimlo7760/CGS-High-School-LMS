@@ -475,7 +475,7 @@
 
 .share-box {
     width: 440px;
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -647,8 +647,8 @@
 }
 
 .edit-box-green {
-    width: 100%;
-    border: none;
+    width: 99%;
+    border: 1px solid #1BA2B9;
     margin-top: 25px;
     background-color: #1BA2B9;
     color: white;
@@ -656,6 +656,30 @@
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.edit-box-blue{
+    width: 99%;
+    border: 1px solid #0A7AFA;
+    margin-top: 25px;
+    background-color: #0A7AFA;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-box-white{
+    width: 99%;
+    margin-top: 25px;
+    background-color: white;
+    color: #0A7AFA;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #D0D0D0;
 }
 
 .edit-box-downer {
@@ -678,15 +702,14 @@
     cursor: pointer;
 }
 
-.edit-box-grey {
-    width: 100%;
-    border: none;
-    margin-top: 30px;
-    background-color: #E2E2E2;
-    color: #343A3E;
+.edit-box-grey{
+    width: auto;
+    background-color: #D6D7D8;
     padding: 15px;
-    text-align: center;
-    border-radius: 5px;
+    margin-top: 15px;
+    color: #343A3E;
+    text-align:center;
+    border-radius:5px;
     cursor: pointer;
 }
 
@@ -749,4 +772,15 @@
 .student-info{
     height:auto;
     margin-bottom:25px;
+}
+
+.share-box-button-row{
+    overflow: hidden;
+    zoom: 1;
+}
+
+.share-box-double-button{
+    float:left;
+    margin: 5px;
+    width: 47%;
 }

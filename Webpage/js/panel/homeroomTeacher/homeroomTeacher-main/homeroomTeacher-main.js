@@ -58,7 +58,7 @@ $(document).ready(function () {
                 if ((departVerify[0] != ('MYP' || 'PreDP')) || classVerify[0] != ('9' || '10')) {
                     alert("Please follow the format 'MYP 9-1'");
                 }else{
-                    var currentHeight = $('.homeroomT-addHomeroom-box').height;
+                    var currentHeight = $('.homeroomT-addHomeroom-box').height();
                     $('homeroomT-addHomeroom-box').css('height', currentHeight);
                     //    添加ajax 方法 目的：添加homeroom
                     $('.edit-box-innerbox').fadeOut('fast');

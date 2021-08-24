@@ -1,15 +1,6 @@
+$()
+
 $(document).ready(function () {
-    $('.all').animate({
-        opacity: '1'
-    });
-    var body = document.body.clientHeight;
-    var pageheight = $(window).height();
-    if (body < pageheight) {
-        body = pageheight;
-    }
-    $('.left-content').height(body);
-    var bg = body;
-    $('.grey-bg').css("height", bg);
     $('.right-top-research-text').on('input propertychange', function () {
         var input = $('.right-top-research-text').val();
         $(".result-box-name").each(function (item) {
@@ -184,16 +175,25 @@ $(document).ready(function () {
 
 });
 
-var right_top_noti = $('.right-top-noti');
-setTimeout(function () {
+$(window).load(function (){
+    var right_top_noti = $('.right-top-noti');
     var notiX = right_top_noti.offset().left;
     var notiY = right_top_noti.offset().top;
-    $('.right-top-noti-cir').offset({top: notiY, left: notiX});
-}, 1499);
-setTimeout(function () {
-    $('.right-top-noti-cir').fadeTo("fast", 1);
-}, 1500);
-;
+    var right_top_noti_cir = $('.right-top-noti-cir');
+    right_top_noti_cir.offset({top: notiY, left: notiX});
+    right_top_noti_cir.fadeTo("fast", 1);
+    $('.all').animate({
+        opacity: '1'
+    });
+    var body = document.body.clientHeight;
+    var pageheight = $(window).height();
+    if (body < pageheight) {
+        body = pageheight;
+    }
+    $('.left-content').height(body);
+    var bg = body;
+    $('.grey-bg').css("height", bg);
+})
 
 function doPost(URL, data) {
     var PARAMS = data;
@@ -222,3 +222,15 @@ var spaceReplacement = function (subjectOrigin) {         //replace the "space" 
     subjectSele = subjectSele.substring(0, subjectSele.length - 1);
     return subjectSele;
 };
+
+function singleChose(selector, name){
+    $('input[name=' + name + ']').each(function(){
+        $(this).prop("checked",false);
+    });
+    $(selector).siblings().each(function (){
+        if($(this).css('border-color') != 'rgb(208, 208, 208)'){
+            $(this).css('border-color', 'rgb(208, 208, 208)');
+        }
+    })
+    selector.children('.class-adding-checkbox').prop('checked', true);
+}

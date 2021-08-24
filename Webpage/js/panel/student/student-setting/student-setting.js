@@ -10,12 +10,18 @@ $(document).ready(function () {
             backgroundColor: 'transparent',
         }, 'fast')
     });
+
+    //initialization part
     var contentWidth = $('.profile-row-downer').width();
     var boxWidth = contentWidth / 2 - 15;
     var grey_bg = $('.grey-bg');
-    $('.right-person-info-row-box').outerWidth(boxWidth);
-
+    var right_person_info_row_box = $('.right-person-info-row-box');
+    right_person_info_row_box.outerWidth(boxWidth);
     $('.strength-box-inside').outerWidth(boxWidth);
+    var language_box_row_last = $('.language-box-row:last');
+
+
+    languageTestIelts();
 
     $('.edit-info').click(function () {
         var body = document.body.clientHeight;
@@ -56,17 +62,6 @@ $(document).ready(function () {
         })
     })
 
-    $('.edit-stre').click(function (){
-        var body = document.body.clientHeight;
-        var bg = body;
-        grey_bg.css({
-            "height": bg,
-            "top": 0
-        });
-        grey_bg.fadeIn();
-        $('.strength-box').fadeIn();
-
-    })
 
     $('.add-award').click(function () {
         var body = document.body.clientHeight;
@@ -143,7 +138,6 @@ $(document).ready(function () {
         $(this).animate({
             borderBottomColor: '#1BA2B9'
         });
-        console.log(right_class_whole.is(':hidden'));
         if (right_class_whole.is(':hidden')) {
             right_class_whole.delay('fast').fadeIn('fast');
         }
@@ -235,6 +229,28 @@ $(document).ready(function () {
             $(this).children('.class-adding-checkbox').prop('checked', false);
         }
     });
+    $('.class-swapping-row').click(function (){
+        if ($(this).css('border-color') == 'rgb(208, 208, 208)') {
+            $(this).animate({
+                borderColor: '#0a7afa',
+            });
+            $(this).children('.class-adding-img').text('check_box');
+            $(this).children('.class-adding-img').animate({
+                color: '#0a7afa'
+            });
+            singleChose($(this), $(this).children('.class-adding-checkbox').attr('name'))
+        } else {
+            $(this).animate({
+                borderColor: '#D0D0D0',
+            });
+            $(this).children('.class-adding-img').text('check_box_outline_blank');
+            $(this).children('.class-adding-img').animate({
+                color: '#707070'
+            });
+            $(this).children('.class-adding-checkbox').prop('checked', false);
+        }
+    })
+
     $('.class-adding-button').click(function () {
         var body = document.body.clientHeight;
         var bg = body;
@@ -255,6 +271,17 @@ $(document).ready(function () {
         $('.class-deleting-box').fadeIn();
         grey_bg.fadeIn();
     });
+    $('.class-swapping-button').click(function (){
+        var body = document.body.clientHeight;
+        var bg = body;
+        grey_bg.css({
+            "height": bg,
+            "top": 0
+        });
+        $('.class-swapping-box').fadeIn();
+        grey_bg.fadeIn();
+    })
+
     var pending_box = $('.pending-box');
     $('.pending-row').click(function () {
         var body = document.body.clientHeight;
@@ -331,13 +358,16 @@ $(document).ready(function () {
         grey_bg.fadeIn();
         var classId = $(this).children('.edit-class-id').val();
         $('.edit-score-id').val(classId);
-        var className = $(this).children('.right-box-title').val();
-        $('current-class-name').val(className);
+        var className = $(this).find('.right-box-title').text().trim();
+        $('.current-class-name').text(className);
         var testId = $(this).children('.current-test-id').val();
         $('.edit-test-id').val(testId);
 
+        var midGoalScore = $(this).find('.right-box-detail-name').eq(0).text().trim();
+        $('.score-editing-innerbox-input').eq(0).val(midGoalScore);
+        var finalGoalScore = $(this).find('.right-box-detail-name').eq(1).text().trim();
+        $('.score-editing-innerbox-input').eq(1).val(finalGoalScore);
     });
-
     $('.confirm-box-input').on("input propertychange", function () {
         var passFir = $('.password-input-first:password').val();
         var passSec = $('.confirm-box-input:password').val();
@@ -350,6 +380,184 @@ $(document).ready(function () {
         }
     });
 
+
+
+    $('.add-strength').click(function (){
+        var body = document.body.clientHeight;
+        var bg = body;
+        grey_bg.css({
+            "height": bg,
+            "top": 0
+        });
+        $('.strength-box-add').fadeIn();
+        $('.grey-bg').fadeIn()
+    })
+
+    $('.delete-strength').click(function (){
+        var body = document.body.clientHeight;
+        var bg = body;
+        grey_bg.css({
+            "height": bg,
+            "top": 0
+        });
+        $('.strength-box-delete').fadeIn();
+        $('.grey-bg').fadeIn()
+    })
+
+    $('.add-dp-course').click(function (){
+        var body = document.body.clientHeight;
+        var bg = body;
+        grey_bg.css({
+            "height": bg,
+            "top": 0
+        });
+        $('.dp-box-add').fadeIn();
+        $('.grey-bg').fadeIn()
+    })
+
+    $('.delete-dp-course').click(function (){
+        var body = document.body.clientHeight;
+        var bg = body;
+        grey_bg.css({
+            "height": bg,
+            "top": 0
+        });
+        $('.dp-box-delete').fadeIn();
+        $('.grey-bg').fadeIn()
+    })
+
+    $('.add-language').click(function (){
+        var body = document.body.clientHeight;
+        var bg = body;
+        grey_bg.css({
+            "height": bg,
+            "top": 0
+        });
+        $('.language-box-add').fadeIn();
+        $('.grey-bg').fadeIn()
+    })
+
+    $('.delete-langauge').click(function (){
+        var body = document.body.clientHeight;
+        var bg = body;
+        grey_bg.css({
+            "height": bg,
+            "top": 0
+        });
+        $('.language-box-delete').fadeIn();
+        $('.grey-bg').fadeIn()
+    })
+
+    var origin_class_name = "";
+    var origin_class_id = "";
+    var target_class_name = "";
+    var target_class_id = "";
+    $('.share-box-double-button').click(function (){
+        var currentBtnName = $(this).attr('name');
+        var swap_class_origin = $('.swap-class-origin');
+        var swap_class_target = $('.swap-class-target');
+        var swap_class_confirm = $('.swap-class-confirm');
+        if(currentBtnName == 'fstSwpNxt'){
+            var checked = checkCheckboxes($('.class-adding-checkbox[name="swap-origin"]'));
+            if(!checked){
+                alert("Please select a course")
+            }else{
+                swap_class_origin.fadeOut('fast');
+                swap_class_target.animate({
+                    height: '165px'
+                }, 'fast');
+                swap_class_target.fadeIn('fast');
+                var checkedInput = $('input[name="swap-origin"]:checked');
+                origin_class_name = checkedInput.siblings('.class-adding-text').text().trim();
+                origin_class_id = checkedInput.val();
+            }
+        }else if(currentBtnName == 'secSwpBck'){
+            swap_class_target.fadeOut('fast');
+            swap_class_origin.animate({
+                height: '475px'
+            }, 'fast');
+            swap_class_origin.fadeIn('fast');
+        }else if(currentBtnName == 'secSwpNxt'){
+            var checked = checkCheckboxes($('.class-adding-checkbox[name="swap-target"]'));
+            if(!checked){
+                alert("Please select a course")
+            }else{
+                swap_class_target.fadeOut('fast');
+                swap_class_confirm.animate({
+                    height: '250px'
+                }, 'fast');
+                swap_class_confirm.fadeIn('fast');
+                var checkedInput = $('input[name="swap-target"]:checked');
+                target_class_name = checkedInput.siblings('.class-adding-text').text().trim();
+                target_class_id = checkedInput.val()
+                $('.swap-origin-display').text(origin_class_name);
+                $('.swap-target-display').text(target_class_name);
+            }
+        }else if(currentBtnName == 'tirSwpBck'){
+            swap_class_confirm.fadeOut('fast');
+            swap_class_target.animate({
+                height: '165px'
+            }, 'fast');
+            swap_class_target.fadeIn('fast');
+        }
+    })
+
+    right_person_info_row_box.click(function (){
+        var boxType = $(this).parent().siblings('.right-person-info-row-upper').children('.right-person-info-row-title').text().trim();
+        if(boxType == "Strength & Hobby"){
+
+        }
+    })
+
+
+    $('select[name="language-test-type"]').change(function (){
+        var testType=$(this).children('option:selected').val();
+        if(testType == 'IELTS'){
+            languageTestIelts();
+        }else if(testType == 'TOEFL'){
+            languageTestToefl();
+        }else if(testType == 'DUOLINGUAL'){
+            languageTestDuo();
+        }
+    })
+
+    function languageTestToefl(){
+        var overallScoreContent = "";
+        for(var i=120; i>=0; i--){
+            overallScoreContent += "<option>" + i + "</option>";
+        }
+        $('.language-box-row:first').find('.edit-box-innerbox-select:last').html(overallScoreContent);
+        var separateScoreContent = "";
+        for(var i=30; i>=0; i--){
+            separateScoreContent += "<option>" + i + "</option>";
+        }
+        if(language_box_row_last.css('display') == 'none'){
+            language_box_row_last.css('display', 'block');
+        }
+        $('.language-box-quater').find('.edit-box-innerbox-select').html(separateScoreContent);
+    }
+
+    function languageTestIelts(){
+        var scoreContent = "";
+        for(var i=9.0; i>=3; i-=0.5){
+            scoreContent += "<option>" + i + "</option>";
+        }
+        if(language_box_row_last.css('display') == 'none'){
+            language_box_row_last.css('display', 'block');
+        }
+        $('.language-box-row:first').find('.edit-box-innerbox-select:last').html(scoreContent);
+        $('.language-box-quater').find('.edit-box-innerbox-select').html(scoreContent);
+    }
+
+    function languageTestDuo(){
+        var scoreContent = "";
+        for(var i=160; i>=0; i--){
+            scoreContent += "<option>" + i + "</option>";
+        }
+        $('.language-box-row:first').find('.edit-box-innerbox-select:last').html(scoreContent);
+        language_box_row_last.css('display', 'none');
+    }
+
     function updatePasswordCheck() {
         if ($(".edit-box-innerbox-input[name='update-password']").val() == "" || $(".edit-box-innerbox-input[name='current-password']") == "" || $('.confirm-box-unmatched').css('display') == 'block') {
             return false;
@@ -358,5 +566,13 @@ $(document).ready(function () {
         }
     }
 
-
+    function checkCheckboxes(selector){
+        var returnVal = false;
+        selector.each(function (){
+            if($(this).get(0).checked){
+                 returnVal = true;
+            }
+        })
+        return returnVal;
+    }
 });
