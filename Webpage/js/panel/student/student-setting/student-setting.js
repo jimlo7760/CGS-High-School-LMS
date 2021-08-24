@@ -20,8 +20,16 @@ $(document).ready(function () {
     $('.strength-box-inside').outerWidth(boxWidth);
     var language_box_row_last = $('.language-box-row:last');
 
-
     languageTestIelts();
+
+    $(".ticket-box-row-img").each(function (){
+        var currentStatus = $(this).text().trim();
+        if(currentStatus == 'check_circle'){
+            $(this).parent().css('color', 'rgb(41, 167, 69)')
+        }else if(currentStatus == 'close'){
+            $(this).parent().css('color', 'rgb(221, 52, 68)')
+        }
+    })
 
     $('.edit-info').click(function () {
         var body = document.body.clientHeight;
@@ -520,6 +528,7 @@ $(document).ready(function () {
             languageTestDuo();
         }
     })
+
 
     function languageTestToefl(){
         var overallScoreContent = "";

@@ -507,3 +507,15 @@
     user-select: none;
     cursor: pointer;
 }
+.ticket-box-row{
+    font-size: 14px;
+    margin: 10px;
+    overflow: hidden;
+    zoom: 1;
+}
+.ticket-box-row-img{
+    float: left;
+}
+.ticket-box-row-text{
+    float: left;
+}

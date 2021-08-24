@@ -103,12 +103,6 @@ $_SESSION["exam_id_2"] = 0;
                 </div>
             </div>
             <div class="right-top-right">
-                <i class="material-icons right-top-noti">
-                    notifications
-                </i>
-                <div class="right-top-noti-cir">
-
-                </div>
                 <div class="right-top-person">
                     <div class="right-top-person-name stm">
                         <?php
@@ -2120,8 +2114,29 @@ END;
                         <div class="pending-box-innerbox-title str">
                             Ticket Status
                         </div>
-                        <div class="pending-box-innerbox-status stb" style="color: #FFC103;">
-                            Pending
+                        <div class="ticket-box-row">
+                            <span class="material-icons ticket-box-row-img">
+                                check_circle
+                            </span>
+                            <div class="ticket-box-row-text">
+                                Subject Teacher Approved
+                            </div>
+                        </div>
+                        <div class="ticket-box-row">
+                            <span class="material-icons ticket-box-row-img">
+                                check_circle
+                            </span>
+                            <div class="ticket-box-row-text">
+                                Homeroom Approved
+                            </div>
+                        </div>
+                        <div class="ticket-box-row">
+                            <span class="material-icons ticket-box-row-img">
+                                check_circle
+                            </span>
+                            <div class="ticket-box-row-text">
+                                Administrator Approved
+                            </div>
                         </div>
                     </div>
                     <div class="edit-box-grey stb">

@@ -70,12 +70,6 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
                 </div>
             </div>
             <div class="right-top-right">
-                <i class="material-icons right-top-noti">
-                    notifications
-                </i>
-                <div class="right-top-noti-cir">
-
-                </div>
                 <div class="right-top-person">
                     <div class="right-top-person-name stm">
                         <?php
