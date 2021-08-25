@@ -493,6 +493,9 @@
 .language-box-delete{
     display: none;
 }
+.class-swapping-box{
+    display: none;
+}
 .swap-class-origin{
 
 }
@@ -518,4 +521,29 @@
 }
 .ticket-box-row-text{
     float: left;
+}
+.strength-box-edit{
+    display: none;
+}
+.award-box-edit{
+    display: none;
+}
+.university-box-edit{
+    display: none;
+}
+.dp-box-edit{
+    display: none;
+}
+.language-box-edit{
+    display: none;
+}
+.detention-ticket-innerbox{
+    overflow: hidden;
+    zoom:1;
+}
+.detention-ticket-innerbox-left{
+    float: left;
+}
+.detention-ticket-innerbox-right{
+    float: right;
 }

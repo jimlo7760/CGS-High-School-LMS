@@ -429,6 +429,8 @@ $_SESSION["exam_id_2"] = 0;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="strength-box-id" value="123123">
+                                    <input type="hidden" class="strength-box-des" value="I love this hobby">
                                 </div>
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
@@ -447,6 +449,9 @@ $_SESSION["exam_id_2"] = 0;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="strength-box-id" value="123123">
+                                    <input type="hidden" class="strength-box-des" value="I love ABC">
+
                                 </div>
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
@@ -465,6 +470,7 @@ $_SESSION["exam_id_2"] = 0;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="strength-box-id" value="123123">
                                 </div>
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
@@ -483,6 +489,7 @@ $_SESSION["exam_id_2"] = 0;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="strength-box-id" value="123123">
                                 </div>
                             </div>
                         </div>
@@ -623,7 +630,7 @@ END;
                             <div class="right-person-info-row-downer profile-row-downer">
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
-                                        Chinese A
+                                        Chinese
                                     </div>
                                     <div class="right-person-info-row-box-right">
                                         <div class="right-person-info-row-box-text">
@@ -641,7 +648,7 @@ END;
                                 </div>
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
-                                        English B
+                                        English
                                     </div>
                                     <div class="right-person-info-row-box-right">
                                         <div class="right-person-info-row-box-text">
@@ -740,7 +747,7 @@ END;
                             <div class="right-person-info-row-downer">
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
-                                        7.0
+                                        7
                                     </div>
                                     <div class="right-person-info-row-box-right">
                                         <div class="right-person-info-row-box-text">
@@ -755,10 +762,16 @@ END;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="language-type" value="IELTS">
+                                    <input type="hidden" class="language-listening" value="8">
+                                    <input type="hidden" class="language-reading" value="7">
+                                    <input type="hidden" class="language-speaking" value="6.5">
+                                    <input type="hidden" class="language-writing" value="7">
+                                    <input type="hidden" class="language-reflect" value="I love this test">
                                 </div>
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
-                                        7.5
+                                        100
                                     </div>
                                     <div class="right-person-info-row-box-right">
                                         <div class="right-person-info-row-box-text">
@@ -773,6 +786,12 @@ END;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="language-type" value="TOEFL">
+                                    <input type="hidden" class="language-listening" value="28">
+                                    <input type="hidden" class="language-reading" value="27">
+                                    <input type="hidden" class="language-speaking" value="22">
+                                    <input type="hidden" class="language-writing" value="23">
+                                    <input type="hidden" class="language-reflect" value="I don't like this test">
                                 </div>
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
@@ -798,6 +817,15 @@ END;
                             <div class="right-person-info-row-upper">
                                 <div class="right-person-info-row-title stb" style="color: #DD3444;!important;">
                                     Detentions
+                                </div>
+                                <div class="right-person-edit delete-langauge right-person-delete"
+                                     style="margin-right: 7px">
+                                    <span class="material-icons right-person-edit-img">
+                                        create
+                                    </span>
+                                    <div class="right-person-edit-text stm">
+                                        Apply Detention Removal
+                                    </div>
                                 </div>
                             </div>
                             <div class="right-person-info-row-downer">
@@ -1569,6 +1597,47 @@ END;
                 </div>
             </form>
         </div>
+        <div class="share-box strength-box-edit">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Edit Strength & Hobby
+                </div>
+                <span class="material-icons edit-box-close">
+                            close
+                </span>
+            </div>
+            <form method="" action="">
+                <div class="edit-box-downer">
+                    <div class="strength-box-row">
+                        <div class="edit-box-innerbox award-box-big str">
+                            <div class="edit-box-innerbox-title">
+                                Strength & Hobby
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="strength-title"
+                                   placeholder="Add a new strength or hobby...">
+                        </div>
+                        <div class="edit-box-innerbox award-box-small str">
+                            <div class="edit-box-innerbox-title">
+                                Year Started
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="strength-start-year"
+                                   placeholder="When start...">
+                        </div>
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Strength & Hobby Description
+                        </div>
+                        <textarea type="text" class="edit-box-innerbox-input edit-comment-box str"
+                                  name="strength-comment"
+                                  placeholder="Write your description here..."></textarea>
+                    </div>
+                    <input type="hidden" class="student-id" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
+                    <input type="hidden" class="strength-id" value="" name="stren_id">
+                    <input type="submit" class="edit-box-green stb" value="Save">
+                </div>
+            </form>
+        </div>
 
         <div class="share-box award-box-delete">
             <div class="edit-box-top">
@@ -1633,6 +1702,37 @@ END;
                 </div>
             </form>
         </div>
+        <div class="share-box award-box-edit">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Edit Awards & Prizes
+                </div>
+                <span class="material-icons edit-box-close">
+                            close
+                        </span>
+            </div>
+            <form action="" method="">
+                <div class="edit-box-downer">
+                    <div class="award-box-row">
+                        <div class="edit-box-innerbox award-box-big str">
+                            <div class="edit-box-innerbox-title">
+                                Award or Prize Title
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="award-title"
+                                   placeholder="Add a new award or prize…">
+                        </div>
+                        <div class="edit-box-innerbox award-box-small str">
+                            <div class="edit-box-innerbox-title">
+                                Date Received
+                            </div>
+                            <input type="date" class="edit-box-innerbox-input str" name="award-year">
+                        </div>
+                    </div>
+                    <input type="hidden" value="<?php echo $_SESSION['id']?>" name="sutd_id">
+                    <input type="submit" class="edit-box-green stb" value="Save Awards & Prizes">
+                </div>
+            </form>
+        </div>
 
         <div class="share-box university-box-add">
             <div class="edit-box-top">
@@ -1660,7 +1760,7 @@ END;
                             <input type="text" class="edit-box-innerbox-input str" name="university-major">
                         </div>
                     </div>
-                    <input class="edit-box-green stb" type="submit" value="Addy">
+                    <input class="edit-box-green stb" type="submit" value="Add">
                 </div>
             </form>
         </div>
@@ -1675,7 +1775,7 @@ END;
             </div>
             <form method="post">
                 <div class="edit-box-downer">
-                    <!--                    require_once is required-->
+                    <!--                    require_once to stud_univ-->
                     <div class="class-adding-subtitle str">
                         Select Goal University
                     </div>
@@ -1694,6 +1794,37 @@ END;
                         </div>
                     </div>
                     <input type="submit" value="Delete" class="edit-box-red stb">
+                </div>
+            </form>
+        </div>
+        <div class="share-box university-box-edit">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Edit Goal University
+                </div>
+                <span class="material-icons edit-box-close">
+                            close
+                        </span>
+            </div>
+            <form method="" action="">
+                <div class="edit-box-downer">
+                    <div class="edit-box-row">
+                        <div class="edit-box-innerbox award-box-big str">
+                            <div class="edit-box-innerbox-title">
+                                University
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="university-name"
+                                   placeholder="Input your goal university here...">
+                        </div>
+                        <div class="edit-box-innerbox award-box-small str">
+                            <div class="edit-box-innerbox-title">
+                                Major
+                            </div>
+                            <input type="text" class="edit-box-innerbox-input str" name="university-major">
+                        </div>
+                    </div>
+                    <input type="hidden" value="<?php echo $_SESSION['id']?>" name="sutd_id">
+                    <input class="edit-box-green stb" type="submit" value="Save">
                 </div>
             </form>
         </div>
@@ -1776,6 +1907,52 @@ END;
                 </div>
             </form>
         </div>
+        <div class="share-box dp-box-edit">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Edit DP Course
+                </div>
+                <span class="material-icons edit-box-close">
+                            close
+                </span>
+            </div>
+            <form method="" action="">
+                <div class="edit-box-downer">
+                    <div class="edit-box-row">
+                        <div class="edit-box-innerbox award-box-big str" style="width: 290px">
+                            <div class="edit-box-innerbox-title">
+                                Course Title
+                            </div>
+                            <select type="text" class="edit-box-innerbox-select str" name="dp-course-title">
+                                <option>Chinese</option>
+                                <option>English</option>
+                                <option>Mathematics: Analysis and Approach</option>
+                                <option>Mathematics: Application and Interpretation</option>
+                                <option>Economics</option>
+                                <option>Business</option>
+                                <option>Psychology</option>
+                                <option>Computer Science</option>
+                                <option>Physics</option>
+                                <option>Chemistry</option>
+                                <option>Biology</option>
+                                <option>History</option>
+                            </select>
+                        </div>
+                        <div class="edit-box-innerbox award-box-small str" style="width: 120px">
+                            <div class="edit-box-innerbox-title">
+                                Course Level
+                            </div>
+                            <select type="text" class="edit-box-innerbox-select str" name="dp-course-level">
+                                <option>HL</option>
+                                <option>SL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input type="hidden" value="<?php echo $_SESSION['id']?>" name="sutd_id">
+                    <input type="submit" class="edit-box-green stb" value="Save">
+                </div>
+            </form>
+        </div>
 
         <div class="share-box language-box-add">
             <div class="edit-box-top">
@@ -1850,7 +2027,13 @@ END;
                                   name="language-test-comment"
                                   placeholder="Write your description here..."></textarea>
                     </div>
-                    <input type="submit" class="edit-box-green stb" value="Save">
+                    <div class='edit-box-innerbox str'>
+                        <div class="edit-box-innerbox-title">
+                            Test Date
+                        </div>
+                        <input type="date" class="edit-box-innerbox-input" name="language_test_date">
+                    </div>
+                    <input type="submit" class="edit-box-green stb" value="Add">
                 </div>
             </form>
         </div>
@@ -1887,6 +2070,155 @@ END;
                 </div>
             </form>
         </div>
+        <div class="share-box language-box-edit">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Edit Linguistic Test Score
+                </div>
+                <span class="material-icons edit-box-close">
+                            close
+                </span>
+            </div>
+            <form method="" action="">
+                <div class="edit-box-downer">
+                    <div class="edit-box-row">
+                        <div class="edit-box-innerbox language-box-half str">
+                            <div class="edit-box-innerbox-title">
+                                Test Type
+                            </div>
+                            <select class="edit-box-innerbox-select str" name="language-test-type">
+                                <option>IELTS</option>
+                                <option>TOEFL</option>
+                                <option>DUOLINGUAL</option>
+                            </select>
+                        </div>
+                        <div class="edit-box-innerbox language-box-half str">
+                            <div class="edit-box-innerbox-title">
+                                Overall Score
+                            </div>
+                            <select class="edit-box-innerbox-select str" name="language-test-overall">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="edit-box-row">
+                        <div class="edit-box-innerbox language-box-quater">
+                            <div class="edit-box-innerbox-title">
+                                Listening Test
+                            </div>
+                            <select class="edit-box-innerbox-select str" name="language-test-listening">
+
+                            </select>
+                        </div>
+                        <div class="edit-box-innerbox language-box-quater">
+                            <div class="edit-box-innerbox-title">
+                                Reading Test
+                            </div>
+                            <select class="edit-box-innerbox-select str" name="language-test-reading">
+
+                            </select>
+                        </div>
+                        <div class="edit-box-innerbox language-box-quater">
+                            <div class="edit-box-innerbox-title">
+                                Writing Test
+                            </div>
+                            <select class="edit-box-innerbox-select str" name="language-test-writing">
+
+                            </select>
+                        </div>
+                        <div class="edit-box-innerbox language-box-quater">
+                            <div class="edit-box-innerbox-title">
+                                Speaking Test
+                            </div>
+                            <select class="edit-box-innerbox-select str" name="language-test-speaking">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Test Reflection
+                        </div>
+                        <textarea type="text" class="edit-box-innerbox-input edit-comment-box str"
+                                  name="language-test-comment"
+                                  placeholder="Write your description here..."></textarea>
+                    </div>
+                    <div class='edit-box-innerbox str'>
+                        <div class="edit-box-innerbox-title">
+                            Test Date
+                        </div>
+                        <input type="date" class="edit-box-innerbox-input" name="language_test_date">
+                    </div>
+                    <input type="submit" class="edit-box-green stb" value="Save">
+                </div>
+            </form>
+        </div>
+
+        <div class="share-box detention-apply-box">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Apply Remove Detention
+                </div>
+                <span class="material-icons edit-box-close">
+                            close
+                </span>
+            </div>
+            <form method="post">
+                <div class="edit-box-upper">
+                    <div class="class-adding-subtitle str">
+                        Select Detention
+                    </div>
+                    <div class="class-deleting-row share-box-fully-select">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
+                               value=$detention_id style="">
+                        <div class="class-adding-text str">
+                            One-girl dating
+                        </div>
+                    </div>
+                    <div class="class-deleting-row share-box-fully-select">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
+                               value=$detention_id style="">
+                        <div class="class-adding-text str">
+                            Two-girl dating
+                        </div>
+                    </div>
+                    <div class="class-deleting-row share-box-fully-select">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
+                               value=$subj_class_id style="">
+                        <div class="class-adding-text str">
+                            Multiple-girl dating
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit" class="edit-box-red stb">
+                </div>
+                <div class="edit-box-downer">
+                    <div class="class-deleting-row share-box-fully-select">
+                        <div class="detention-ticket-innerbox">
+                            <div class="detention-ticket-innerbox-left">
+                                <div class="right-person-info-row-box-subtitle">
+                                    Detention Title
+                                </div>
+                                <div class="right-person-info-row-box-des">
+                                    Dating with the a girl
+                                </div>
+                            </div>
+                            <div class="detention-ticket-innerbox-right">
+                                <div class="right-person-info-row-box-subtitle">
+                                    Status
+                                </div>
+                                <div class="right-person-info-row-box-des">
+                                    Pending
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+
 
         <div class="share-box class-swapping-box">
             <div class="edit-box-top">
@@ -2036,52 +2368,23 @@ END;
                             Chinese A1
                         </div>
                     </div>
-                    <div class="class-deleting-row">
+                    <div class="class-deleting-row share-box-fully-select">
                         <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
                                value=$subj_class_id style="">
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
                     </div>
-                    <div class="class-deleting-row">
+                    <div class="class-deleting-row share-box-fully-select">
                         <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
                                value=$subj_class_id style="">
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
-
                     </div>
-                    <div class="class-deleting-row">
+                    <div class="class-deleting-row share-box-fully-select">
                         <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
                                value=$subj_class_id style="">
-
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-
-                    </div>
-                    <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-deelete"
-                               value=$subj_class_id style="">
-
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-
-                    </div>
-                    <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
-                               value=$subj_class_id style="">
-
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-
-                    </div>
-                    <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
-                               value=$subj_class_id style="">
-
                         <div class="class-adding-text str">
                             Chinese A1
                         </div>
@@ -2264,6 +2567,5 @@ END;
                 </div>
             </form>
         </div>
-
     </div>
 </div>

@@ -20,7 +20,7 @@ $(document).ready(function () {
     $('.strength-box-inside').outerWidth(boxWidth);
     var language_box_row_last = $('.language-box-row:last');
 
-    languageTestIelts();
+    languageTestIelts($('.language-box-add'));
 
     $(".ticket-box-row-img").each(function (){
         var currentStatus = $(this).text().trim();
@@ -512,30 +512,79 @@ $(document).ready(function () {
 
     right_person_info_row_box.click(function (){
         var boxType = $(this).parent().siblings('.right-person-info-row-upper').children('.right-person-info-row-title').text().trim();
-        if(boxType == "Strength & Hobby"){
+        var boxName = $(this).find('.right-person-info-row-box-title').text().trim();
+        var boxSub = $(this).find('.right-person-info-row-box-des').text().trim();
 
+        if(boxType == "Strength & Hobby"){
+            var strenDes = $(this).find('.strength-box-des').val().trim();
+            var strenId = $(this).find('.strength-box-id').text().trim();
+            var strength_box_edit = $('.strength-box-edit');
+            shareboxPop(strength_box_edit);
+            strength_box_edit.find('.edit-box-innerbox-input').eq(0).val(boxName);
+            strength_box_edit.find('.edit-box-innerbox-input').eq(1).val(boxSub);
+            strength_box_edit.find('.edit-box-innerbox-input').eq(2).val(strenDes);
+            $('.strength-id').val(strenId);
+        }else if(boxType == "Awards & Prizes"){
+            var award_box_edit = $('.award-box-edit');
+            shareboxPop(award_box_edit);
+            award_box_edit.find('.edit-box-innerbox-input').eq(0).val(boxName);
+            award_box_edit.find('.edit-box-innerbox-input').eq(1).val(boxSub);
+        }else if(boxType == "Goal University"){
+            var university_box_edit = $(".university-box-edit");
+            shareboxPop(university_box_edit);
+            university_box_edit.find('.edit-box-innerbox-input').eq(0).val(boxName);
+            university_box_edit.find('.edit-box-innerbox-input').eq(1).val(boxSub);
+        }else if(boxType == 'Expected Curriculum in DP'){
+            var dp_box_edit = $('.dp-box-edit');
+            shareboxPop(dp_box_edit);
+            dp_box_edit.find('.edit-box-innerbox-select').eq(0).find('option:contains("' + boxName + '")').attr("selected", true);
+            dp_box_edit.find('.edit-box-innerbox-select').eq(1).find('option:contains("' + boxSub + '")').attr("selected", true);
+        }else if(boxType == 'Linguistic Test'){
+            var language_box_edit = $('.language-box-edit');
+            shareboxPop(language_box_edit);
+            var languageType = $(this).find('.language-type').val();
+            if(languageType == 'TOEFL'){
+                languageTestToefl(language_box_edit);
+            }else if(languageType == 'IELTS'){
+                languageTestIelts(language_box_edit);
+            }else if(languageType == 'DUOLINGUAL'){
+                languageTestDuo(language_box_edit);
+            }
+            language_box_edit.find('.edit-box-innerbox-select').eq(0).find('option:contains("' + languageType + '")').attr("selected", true);
+            language_box_edit.find('.edit-box-innerbox-select').eq(1).find('option:contains("' + boxName + '")').attr("selected", true);
+            if(languageType == 'IELTS' || languageType == 'TOEFL'){
+                var listeningScore = $(this).find('.language-listening').val();
+                var readingScore = $(this).find('.language-reading').val();
+                var speakingScore = $(this).find('.language-speaking').val();
+                var writingScore = $(this).find('.language-writing').val();
+                language_box_edit.find('.edit-box-innerbox-select').eq(2).find('option:contains("' + listeningScore + '")').attr("selected", true);
+                language_box_edit.find('.edit-box-innerbox-select').eq(3).find('option:contains("' + readingScore + '")').attr("selected", true);
+                language_box_edit.find('.edit-box-innerbox-select').eq(4).find('option:contains("' + speakingScore + '")').attr("selected", true);
+                language_box_edit.find('.edit-box-innerbox-select').eq(5).find('option:contains("' + writingScore + '")').attr("selected", true);
+            }
         }
     })
 
 
     $('select[name="language-test-type"]').change(function (){
         var testType=$(this).children('option:selected').val();
+        var language_box_add = $('.language-box-add')
         if(testType == 'IELTS'){
-            languageTestIelts();
+            languageTestIelts(language_box_add);
         }else if(testType == 'TOEFL'){
-            languageTestToefl();
+            languageTestToefl(language_box_add);
         }else if(testType == 'DUOLINGUAL'){
-            languageTestDuo();
+            languageTestDuo(language_box_add);
         }
     })
 
 
-    function languageTestToefl(){
+    function languageTestToefl(shareBoxSelector){
         var overallScoreContent = "";
         for(var i=120; i>=0; i--){
             overallScoreContent += "<option>" + i + "</option>";
         }
-        $('.language-box-row:first').find('.edit-box-innerbox-select:last').html(overallScoreContent);
+        shareBoxSelector.find('.edit-box-innerbox-select').eq(1).html(overallScoreContent);
         var separateScoreContent = "";
         for(var i=30; i>=0; i--){
             separateScoreContent += "<option>" + i + "</option>";
@@ -546,7 +595,7 @@ $(document).ready(function () {
         $('.language-box-quater').find('.edit-box-innerbox-select').html(separateScoreContent);
     }
 
-    function languageTestIelts(){
+    function languageTestIelts(shareBoxSelector){
         var scoreContent = "";
         for(var i=9.0; i>=3; i-=0.5){
             scoreContent += "<option>" + i + "</option>";
@@ -554,16 +603,17 @@ $(document).ready(function () {
         if(language_box_row_last.css('display') == 'none'){
             language_box_row_last.css('display', 'block');
         }
-        $('.language-box-row:first').find('.edit-box-innerbox-select:last').html(scoreContent);
+
+        shareBoxSelector.find('.edit-box-innerbox-select').eq(1).html(scoreContent);
         $('.language-box-quater').find('.edit-box-innerbox-select').html(scoreContent);
     }
 
-    function languageTestDuo(){
+    function languageTestDuo(shareBoxSelector){
         var scoreContent = "";
         for(var i=160; i>=0; i--){
             scoreContent += "<option>" + i + "</option>";
         }
-        $('.language-box-row:first').find('.edit-box-innerbox-select:last').html(scoreContent);
+        shareBoxSelector.find('.edit-box-innerbox-select').eq(1).html(scoreContent);
         language_box_row_last.css('display', 'none');
     }
 

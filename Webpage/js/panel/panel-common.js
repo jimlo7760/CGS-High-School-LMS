@@ -1,6 +1,6 @@
-$()
-
 $(document).ready(function () {
+
+
     $('.right-top-research-text').on('input propertychange', function () {
         var input = $('.right-top-research-text').val();
         $(".result-box-name").each(function (item) {
@@ -176,12 +176,14 @@ $(document).ready(function () {
 });
 
 $(window).load(function (){
-    var right_top_noti = $('.right-top-noti');
-    var notiX = right_top_noti.offset().left;
-    var notiY = right_top_noti.offset().top;
-    var right_top_noti_cir = $('.right-top-noti-cir');
-    right_top_noti_cir.offset({top: notiY, left: notiX});
-    right_top_noti_cir.fadeTo("fast", 1);
+    if($('.right-top-noti').length>0){
+        var right_top_noti = $('.right-top-noti');
+        var notiX = right_top_noti.offset().left;
+        var notiY = right_top_noti.offset().top;
+        var right_top_noti_cir = $('.right-top-noti-cir');
+        right_top_noti_cir.offset({top: notiY, left: notiX});
+        right_top_noti_cir.fadeTo("fast", 1);
+    }
     $('.all').animate({
         opacity: '1'
     });
@@ -233,4 +235,15 @@ function singleChose(selector, name){
         }
     })
     selector.children('.class-adding-checkbox').prop('checked', true);
+}
+function shareboxPop(boxSelector){
+    var body = document.body.clientHeight;
+    var bg = body;
+    var grey_bg = $('.grey-bg');
+    grey_bg.css({
+        "height": bg,
+        "top": 0
+    });
+    grey_bg.fadeIn();
+    boxSelector.fadeIn();
 }
