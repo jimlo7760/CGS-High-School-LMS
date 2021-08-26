@@ -106,10 +106,17 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
         $chi_name = $_SESSION['chi_name'];
         $eng_name = $_SESSION["eng_name"];
         echo "You have already logged in, <br> Welcome, $chi_name ($eng_name)";
-        ob_start();
-        header('Location: '. "../../Webpage/html/student/student-main.php");
-        ob_end_flush();
-        die();
+        if ($_SESSION["user_role"] == 1) {
+            ob_start();
+            header('Location: '. "../../Webpage/html/subjectTeacher/subjectTeacher-main.php");
+            ob_end_flush();
+            die();
+        } else if ($_SESSION["user_role"] == 0) {
+            ob_start();
+            header('Location: '. "../../Webpage/html/student/student-main.php");
+            ob_end_flush();
+            die();
+        }
     } else if ($tot_res == 0) {
         echo "Failed to login. Error:  ";
         echo $tot_res[2];

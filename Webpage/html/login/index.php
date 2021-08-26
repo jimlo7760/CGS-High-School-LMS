@@ -1,10 +1,18 @@
 <?php
 session_start();
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
-    ob_start();
-    header('Location: '. "../student/student-main.php");
-    ob_end_flush();
-    die();
+
+    if ($_SESSION["user_role"] == 1) {
+        ob_start();
+        header('Location: '. "../subjectTeacher/subjectTeacher-main.php");
+        ob_end_flush();
+        die();
+    } else if ($_SESSION["user_role"] == 0) {
+        ob_start();
+        header('Location: '. "../student/student-main.php");
+        ob_end_flush();
+        die();
+    }
 }
 ?>
 <html lang="en">

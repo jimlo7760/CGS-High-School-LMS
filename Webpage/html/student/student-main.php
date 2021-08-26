@@ -30,6 +30,9 @@ session_start();
         <div class="left-box">
             <div class="left-content-title stm">
                 MYP Student Management System
+                <?php
+                echo $_SESSION["user_role"];
+                ?>
             </div>
             <div class="left-content-navi">
                 <div class="left-content-navi-item">
