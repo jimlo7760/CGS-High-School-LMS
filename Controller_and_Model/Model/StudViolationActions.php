@@ -21,10 +21,9 @@ require_once 'LoginCredentials.php';
  * </p>
  * @author Binghe Yi
  */
-function InsertNewViolation($level_severity, $title_of_violation, $content_of_violation, $time_of_violation, $stud_id)
-{
+function InsertNewViolation($level_severity, $title_of_violation, $content_of_violation, $time_of_violation, $stud_id) {
     $conn = createconn();
-    $stmt = $conn->prepare('Insert into stud_violation(level_severity, title_of_violation, content_of_violation, time_of_violation, create_time, stud_id) values (?,?,?,?,?,?)');
+    $stmt = $conn->prepare('Insert into stud_violation(level_of_severity, title_of_violation, content_of_violation, time_of_violation, create_time, stud_id) values (?,?,?,?,?,?)');
     $stmt->bind_param('issssi', $insertLevelSeversity, $insertTitleOfViolation, $insertContentOfViolation, $insertTimeOfViolation, $insertCreateTime, $insertStudId);
     $insertLevelSeversity = $level_severity;
     $insertTitleOfViolation = $title_of_violation;

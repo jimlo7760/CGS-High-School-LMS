@@ -2172,27 +2172,26 @@ END;
                     <div class="class-adding-subtitle str">
                         Select Detention
                     </div>
-                    <div class="detention-apply-row share-box-fully-select">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="detention-id"
-                               value=$detention_id style="">
-                        <div class="class-adding-text str">
-                            One-girl dating
-                        </div>
-                    </div>
-                    <div class="detention-apply-row share-box-fully-select">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="detention-id"
-                               value=$detention_id style="">
-                        <div class="class-adding-text str">
-                            Two-girl dating
-                        </div>
-                    </div>
-                    <div class="detention-apply-row share-box-fully-select">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="detention-id"
-                               value=$subj_class_id style="">
-                        <div class="class-adding-text str">
-                            Multiple-girl dating
-                        </div>
-                    </div>
+                    <?php
+                    $tot_res = FetchStudViolationsByStudId($_SESSION["id"]);
+                    foreach ($tot_res as $vio_info) {
+                        $vio_id = $vio_info[0];
+                        $level_of_severity = $vio_info[2];
+                        $title_of_violation = $vio_info[3];
+                        $content_of_violation = $vio_info[4];
+                        $time_of_violation = $vio_info[5];
+                        $status = $vio_info[8];
+                        echo <<< END
+                            <div class="detention-apply-row share-box-fully-select">
+                                 <input type="checkbox" class="class-adding-checkbox class-adding-img" name="detention-id"
+                                  value=$vio_id style="">
+                                      <div class="class-adding-text str">
+                                           $title_of_violation
+                                      </div>
+                            </div>
+END;
+                    }
+                    ?>
                 </div>
                 <div class="edit-box-downer">
                     <div class="class-adding-subtitle str">
@@ -2271,7 +2270,7 @@ END;
                            class="edit-box-red detention-box-next stb">
                 </div>
             </div>
-            <form action="" method="">
+            <form action="#" method="get">
                 <div class="detention-box-sec">
                     <div class="edit-box-upper">
                         <div class="class-adding-subtitle str">
@@ -2288,7 +2287,7 @@ END;
                         <textarea type="text" class="edit-box-innerbox-input edit-comment-box str"
                                   name="detention-comment"
                                   placeholder="Write your description here..."></textarea>
-                        <input type="button" value="Next" name="detentionApplyFst"
+                        <input type="submit" value="Next" name="detentionApplyFst"
                                class="edit-box-red detention-box-next stb">
                     </div>
                     <input type="hidden" class="detention-id" name="detention_id">
