@@ -78,10 +78,10 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
                 }
                 $_SESSION["subj_class_ids"] = $subj_class_ids;
             }
-
-
-
-
+            ob_start();
+            header('Location: '. "../../Webpage/html/student/student-main.php");
+            ob_end_flush();
+            die();
 
         } else if ($tot_res[1] == 1) {
             $_SESSION["user_role"] = 1;
@@ -96,11 +96,12 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
                 $subj_class_ids[] = $subj_class_array[0];
             }
             $_SESSION["subj_class_ids"] = $subj_class_ids;
+            ob_start();
+            header('Location: '. "../../Webpage/html/subjectTeacher/subjectTeacher-main.php");
+            ob_end_flush();
+            die();
         }
-        ob_start();
-        header('Location: '. "../../Webpage/html/subjectTeacher/subjectTeacher-main.php");
-        ob_end_flush();
-        die();
+
     } else if ($_SESSION["logged_in"]) {
         $chi_name = $_SESSION['chi_name'];
         $eng_name = $_SESSION["eng_name"];
