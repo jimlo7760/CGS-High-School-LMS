@@ -2175,13 +2175,11 @@ END;
                     <?php
                     $tot_res = FetchStudViolationsByStudId($_SESSION["id"]);
                     foreach ($tot_res as $vio_info) {
-                        $vio_id = $vio_info[0];
-                        $level_of_severity = $vio_info[2];
-                        $title_of_violation = $vio_info[3];
-                        $content_of_violation = $vio_info[4];
-                        $time_of_violation = $vio_info[5];
-                        $status = $vio_info[8];
-                        echo <<< END
+                        if ($vio_info[9] == 3) {
+                            $vio_id = $vio_info[0];
+                            $title_of_violation = $vio_info[3];
+
+                            echo <<< END
                             <div class="detention-apply-row share-box-fully-select">
                                  <input type="checkbox" class="class-adding-checkbox class-adding-img" name="detention-id"
                                   value=$vio_id style="">
@@ -2190,6 +2188,7 @@ END;
                                       </div>
                             </div>
 END;
+                        }
                     }
                     ?>
                 </div>
@@ -2197,80 +2196,48 @@ END;
                     <div class="class-adding-subtitle str">
                         Submitted Remove Tickets
                     </div>
-                    <div class="class-deleting-row share-box-fully-select">
-                        <input type="hidden" class="detention-status" value="0">
-                        <!--
-                        echo detention status above
-                        0: pending, 1: approved, 2: no-approved
-                        -->
-                        <div class="detention-ticket-innerbox">
-                            <div class="detention-ticket-innerbox-left">
-                                <div class="right-person-info-row-box-subtitle str">
-                                    Detention Title
-                                </div>
-                                <div class="right-person-info-row-box-des stm">
-                                    Dating with a girl
+                    <?php
+                    $tot_res = FetchStudViolationsByStudId($_SESSION["id"]);
+                    foreach ($tot_res as $vio_info) {
+                        if ($vio_info[9] != 3) {
+                            $title_of_violation = $vio_info[3];
+                            $status = $vio_info[9];
+                            echo <<< END
+                            <div class="class-deleting-row share-box-fully-select">
+                                <input type="hidden" class="detention-status" value="$status">
+                                <!--
+                                echo detention status above
+                                0: pending, 1: approved, 2: not-approved, 3: initialized.
+                                -->
+                                <div class="detention-ticket-innerbox">
+                                    <div class="detention-ticket-innerbox-left">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Detention Title
+                                        </div>
+                                        <div class="right-person-info-row-box-des stm">
+                                            $title_of_violation
+                                        </div>
+                                    </div>
+                                    <div class="detention-ticket-innerbox-right">
+                                        <div class="right-person-info-row-box-subtitle str">
+                                            Status
+                                        </div>
+                                        <div class="right-person-info-row-box-des stb">
+        
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="detention-ticket-innerbox-right">
-                                <div class="right-person-info-row-box-subtitle str">
-                                    Status
-                                </div>
-                                <div class="right-person-info-row-box-des stb">
+END;
+                        }
+                    }
+                    ?>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="class-deleting-row share-box-fully-select">
-                        <input type="hidden" class="detention-status" value="1">
-                        <!--                        echo detention status above-->
-                        <div class="detention-ticket-innerbox">
-                            <div class="detention-ticket-innerbox-left">
-                                <div class="right-person-info-row-box-subtitle str">
-                                    Detention Title
-                                </div>
-                                <div class="right-person-info-row-box-des stm">
-                                    Dating with a girl
-                                </div>
-                            </div>
-                            <div class="detention-ticket-innerbox-right">
-                                <div class="right-person-info-row-box-subtitle str">
-                                    Status
-                                </div>
-                                <div class="right-person-info-row-box-des stb">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="class-deleting-row share-box-fully-select">
-                        <input type="hidden" class="detention-status" value="2">
-                        <!--                        echo detention status above-->
-                        <div class="detention-ticket-innerbox">
-                            <div class="detention-ticket-innerbox-left">
-                                <div class="right-person-info-row-box-subtitle str">
-                                    Detention Title
-                                </div>
-                                <div class="right-person-info-row-box-des stm">
-                                    Dating with a girl
-                                </div>
-                            </div>
-                            <div class="detention-ticket-innerbox-right">
-                                <div class="right-person-info-row-box-subtitle str">
-                                    Status
-                                </div>
-                                <div class="right-person-info-row-box-des stb">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <input type="button" value="Next" name="detentionApplyFst"
                            class="edit-box-red detention-box-next stb">
                 </div>
             </div>
-            <form action="#" method="get">
+            <form action="../../../Controller_and_Model/Controller/SubmitDetentionRemovalApplication.php" method="post">
                 <div class="detention-box-sec">
                     <div class="edit-box-upper">
                         <div class="class-adding-subtitle str">

@@ -86,6 +86,33 @@ function UpdateStudVio($level_severity, $title_of_violation, $content_of_violati
 }
 
 /**
+ * For students and teachers to update detention ticket.
+ *
+ * @param int $viol_id ID of detention ticket.
+ * @param string $removal_comments Comments from students and teachers to remove or disapprove.
+ * @param int $status Corresponding status for teachers to change.
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, empty array]
+ */
+function UpdateDetentionRemoval($viol_id, $removal_comments, $status) {
+    $conn = createconn();
+    $stmt = $conn->prepare("update stud_violation set removal_comments = ?, update_time = ?, status = ? where id = ?");
+    $stmt->bind_param("ssii", $stmt_comments, $stmt_update_time, $stmt_status, $stmt_id);
+    $stmt_comments = $removal_comments;
+    $stmt_update_time = date('Y-m-d H:i:s');
+    $stmt_status = $status;
+    $stmt_id = $viol_id;
+    $stmt->execute();
+    $res = $stmt->affected_rows;
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
+
+/**
  * Fetching All violations he/she did from a student <br>
  *
  * @param int $stud_id Student id to search.
