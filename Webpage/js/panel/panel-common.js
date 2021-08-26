@@ -109,10 +109,6 @@ $(document).ready(function () {
         $('.share-box').fadeOut();
         $('.grey-bg').fadeOut();
     });
-    $('.edit-box-red').click(function () {
-        $('.share-box').fadeOut();
-        $('.grey-bg').fadeOut();
-    });
     $('.edit-box-grey').click(function () {
         $('.share-box').fadeOut();
         $('.grey-bg').fadeOut();
@@ -246,4 +242,26 @@ function shareboxPop(boxSelector){
     });
     grey_bg.fadeIn();
     boxSelector.fadeIn();
+}
+
+function singleChooseWhole(rowSelector, color){
+    if (rowSelector.css('border-color') == 'rgb(208, 208, 208)') {
+        rowSelector.animate({
+            borderColor: color,
+        });
+        rowSelector.children('.class-adding-img').text('check_box');
+        rowSelector.children('.class-adding-img').animate({
+            color: color
+        });
+        singleChose(rowSelector, rowSelector.children('.class-adding-checkbox').attr('name'))
+    } else {
+        rowSelector.animate({
+            borderColor: '#D0D0D0',
+        });
+        rowSelector.children('.class-adding-img').text('check_box_outline_blank');
+        rowSelector.children('.class-adding-img').animate({
+            color: '#707070'
+        });
+        rowSelector.children('.class-adding-checkbox').prop('checked', false);
+    }
 }

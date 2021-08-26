@@ -375,7 +375,7 @@
     width: 84%;
     height: 90%;
     opacity: 0.6;
-    /*display: none;*/
+    display: none;
 }
 
 .result-box {
@@ -546,7 +546,6 @@
 }
 
 .edit-box-upper {
-    margin-top: 30px;
     padding-bottom: 30px;
     border-bottom: 2px solid #EAEBEB;
 }

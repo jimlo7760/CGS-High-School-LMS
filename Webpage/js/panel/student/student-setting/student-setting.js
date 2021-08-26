@@ -195,69 +195,18 @@ $(document).ready(function () {
         })
     });
     $('.class-adding-row').click(function () {
-        if ($(this).css('border-color') == 'rgb(208, 208, 208)') {
-            $(this).animate({
-                borderColor: '#1BA2B9',
-            });
-            $(this).children('.class-adding-img').text('check_box');
-            $(this).children('.class-adding-img').animate({
-                color: '#1BA2B9'
-            });
-            $(this).children('.class-adding-checkbox').prop('checked', true);
-        } else {
-            $(this).animate({
-                borderColor: '#D0D0D0',
-            });
-            $(this).children('.class-adding-img').text('check_box_outline_blank');
-            $(this).children('.class-adding-img').animate({
-                color: '#707070'
-            });
-            $(this).children('.class-adding-checkbox').prop('checked', false);
-
-        }
+        singleChooseWhole($(this), '#1BA2B9')
     });
     $('.class-deleting-row').click(function () {
-        if ($(this).css('border-color') == 'rgb(208, 208, 208)') {
-            $(this).animate({
-                borderColor: '#DD3444',
-            });
-            $(this).children('.class-adding-img').text('check_box');
-            $(this).children('.class-adding-img').animate({
-                color: '#DD3444'
-            });
-            $(this).children('.class-adding-checkbox').prop('checked', true);
-        } else {
-            $(this).animate({
-                borderColor: '#D0D0D0',
-            });
-            $(this).children('.class-adding-img').text('check_box_outline_blank');
-            $(this).children('.class-adding-img').animate({
-                color: '#707070'
-            });
-            $(this).children('.class-adding-checkbox').prop('checked', false);
-        }
+        singleChooseWhole($(this), '#DD3444');
     });
     $('.class-swapping-row').click(function (){
-        if ($(this).css('border-color') == 'rgb(208, 208, 208)') {
-            $(this).animate({
-                borderColor: '#0a7afa',
-            });
-            $(this).children('.class-adding-img').text('check_box');
-            $(this).children('.class-adding-img').animate({
-                color: '#0a7afa'
-            });
-            singleChose($(this), $(this).children('.class-adding-checkbox').attr('name'))
-        } else {
-            $(this).animate({
-                borderColor: '#D0D0D0',
-            });
-            $(this).children('.class-adding-img').text('check_box_outline_blank');
-            $(this).children('.class-adding-img').animate({
-                color: '#707070'
-            });
-            $(this).children('.class-adding-checkbox').prop('checked', false);
-        }
+        singleChooseWhole($(this), '#0a7afa');
     })
+    $('.detention-apply-row').click(function (){
+        singleChooseWhole($(this), '#DD3444');
+    })
+
 
     $('.class-adding-button').click(function () {
         var body = document.body.clientHeight;
@@ -302,6 +251,36 @@ $(document).ready(function () {
         });
         pending_box.fadeIn();
         grey_bg.fadeIn();
+        var currentStatus = $(this).find('.pending-row-status').val();
+        var statusRow = pending_box.find('.ticket-box-row');
+        if(currentStatus == 0){
+            statusRow.css('color', 'rgb(226, 226, 226)');
+        }else if(currentStatus == 1){
+            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(1).css('color', 'rgb(226, 226, 226)');
+            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
+        }else if(currentStatus == 2){
+            statusRow.eq(0).find('.ticket-box-row-img').text(close);
+            statusRow.eq(0).css('color', 'rgb(221, 52, 68)');
+            statusRow.eq(1).css('color', 'rgb(226, 226, 226)');
+            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
+        }else if(currentStatus == 3){
+            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(1).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
+        }else if(currentStatus == 4){
+            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(1).find('.ticket-box-row-img').text(close);
+            statusRow.eq(1).css('color', 'rgb(221, 52, 68)');
+            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
+        }else if(currentStatus == 5){
+            statusRow.css('color', 'rgb(41, 167, 69)');
+        }else if(currentStatus == 6){
+            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(1).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(2).find('.ticket-box-row-img').text(close);
+            statusRow.eq(2).css('color', 'rgb(221, 52, 68)');
+        }
     });
     var aprove_box = $('.aprove-box');
     $('.aprove-row').click(function () {
@@ -461,6 +440,7 @@ $(document).ready(function () {
     var target_class_name = "";
     var target_class_id = "";
     $('.share-box-double-button').click(function (){
+        //swap class part
         var currentBtnName = $(this).attr('name');
         var swap_class_origin = $('.swap-class-origin');
         var swap_class_target = $('.swap-class-target');
@@ -562,6 +542,40 @@ $(document).ready(function () {
                 language_box_edit.find('.edit-box-innerbox-select').eq(4).find('option:contains("' + speakingScore + '")').attr("selected", true);
                 language_box_edit.find('.edit-box-innerbox-select').eq(5).find('option:contains("' + writingScore + '")').attr("selected", true);
             }
+        }
+    })
+
+    $('.detention-apply').click(function (){
+        shareboxPop($('.detention-apply-box'));
+    })
+
+    $('.detention-box-next').click(function (){
+        $('.detention-box-first').fadeOut('fast');
+        var detention_box_sec = $('.detention-box-sec')
+        detention_box_sec.animate({
+            height: '430px'
+        }, 'fast');
+        detention_box_sec.fadeIn('fast');
+        var detention_apply_box = $('.detention-apply-box');
+        var detentionId = detention_apply_box.find('input:checkbox:checked').val();
+        var detentionName = detention_apply_box.find('input:checkbox:checked').siblings('.class-adding-text').text().trim();
+        $('.apply-target-display').text(detentionName);
+        $('.detention-id').val(detentionId);
+    })
+
+    $('.detention-status').each(function (){
+        var curStatus = $(this).val();
+        var statusDisplay = $(this).siblings('.detention-ticket-innerbox').find('.right-person-info-row-box-des').eq(1)
+        if(curStatus == 0){
+            statusDisplay.text('Pending')
+            statusDisplay.css('color', 'rgb(255, 193, 3)')
+        }else if(curStatus == 1){
+            statusDisplay.text('Approved')
+            statusDisplay.css('color', 'rgb(27, 162, 185)')
+
+        }else if(curStatus == 2){
+            statusDisplay.text('Not Approved')
+            statusDisplay.css('color', 'rgb(221, 52, 68)')
         }
     })
 

@@ -547,3 +547,10 @@
 .detention-ticket-innerbox-right{
     float: right;
 }
+.detention-box-sec{
+    display: none;
+}
+.detention-apply-box{
+    display: none;
+
+}

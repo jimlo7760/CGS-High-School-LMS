@@ -818,7 +818,7 @@ END;
                                 <div class="right-person-info-row-title stb" style="color: #DD3444;!important;">
                                     Detentions
                                 </div>
-                                <div class="right-person-edit delete-langauge right-person-delete"
+                                <div class="right-person-edit detention-apply right-person-delete"
                                      style="margin-right: 7px">
                                     <span class="material-icons right-person-edit-img">
                                         create
@@ -1018,6 +1018,8 @@ EOD;
                                     </i>
                                 </div>
                             </div>
+                            <input type="hidden" class="pending-row-status" value="">
+<!--echo the status here-->
 END;
 
                                 } else if ($status == "1") {
@@ -1728,7 +1730,7 @@ END;
                             <input type="date" class="edit-box-innerbox-input str" name="award-year">
                         </div>
                     </div>
-                    <input type="hidden" value="<?php echo $_SESSION['id']?>" name="sutd_id">
+                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="sutd_id">
                     <input type="submit" class="edit-box-green stb" value="Save Awards & Prizes">
                 </div>
             </form>
@@ -1823,7 +1825,7 @@ END;
                             <input type="text" class="edit-box-innerbox-input str" name="university-major">
                         </div>
                     </div>
-                    <input type="hidden" value="<?php echo $_SESSION['id']?>" name="sutd_id">
+                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="sutd_id">
                     <input class="edit-box-green stb" type="submit" value="Save">
                 </div>
             </form>
@@ -1948,7 +1950,7 @@ END;
                             </select>
                         </div>
                     </div>
-                    <input type="hidden" value="<?php echo $_SESSION['id']?>" name="sutd_id">
+                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="sutd_id">
                     <input type="submit" class="edit-box-green stb" value="Save">
                 </div>
             </form>
@@ -2053,14 +2055,16 @@ END;
                         Select Linguistic Score
                     </div>
                     <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="linguistic-score-select"
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img"
+                               name="linguistic-score-select"
                                value=$linguistic_score_id style="">
                         <div class="class-adding-text str">
                             $linguistic_score_name
                         </div>
                     </div>
                     <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="linguistic-score-select"
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img"
+                               name="linguistic-score-select"
                                value=$linguistic_score_id style="">
                         <div class="class-adding-text str">
                             $linguistic_score_name
@@ -2163,61 +2167,134 @@ END;
                             close
                 </span>
             </div>
-            <form method="post">
+            <div class="detention-box-first">
                 <div class="edit-box-upper">
                     <div class="class-adding-subtitle str">
                         Select Detention
                     </div>
-                    <div class="class-deleting-row share-box-fully-select">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
+                    <div class="detention-apply-row share-box-fully-select">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="detention-id"
                                value=$detention_id style="">
                         <div class="class-adding-text str">
                             One-girl dating
                         </div>
                     </div>
-                    <div class="class-deleting-row share-box-fully-select">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
+                    <div class="detention-apply-row share-box-fully-select">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="detention-id"
                                value=$detention_id style="">
                         <div class="class-adding-text str">
                             Two-girl dating
                         </div>
                     </div>
-                    <div class="class-deleting-row share-box-fully-select">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
+                    <div class="detention-apply-row share-box-fully-select">
+                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="detention-id"
                                value=$subj_class_id style="">
                         <div class="class-adding-text str">
                             Multiple-girl dating
                         </div>
                     </div>
-                    <input type="submit" value="Submit" class="edit-box-red stb">
                 </div>
                 <div class="edit-box-downer">
+                    <div class="class-adding-subtitle str">
+                        Submitted Remove Tickets
+                    </div>
                     <div class="class-deleting-row share-box-fully-select">
+                        <input type="hidden" class="detention-status" value="0">
+                        <!--
+                        echo detention status above
+                        0: pending, 1: approved, 2: no-approved
+                        -->
                         <div class="detention-ticket-innerbox">
                             <div class="detention-ticket-innerbox-left">
-                                <div class="right-person-info-row-box-subtitle">
+                                <div class="right-person-info-row-box-subtitle str">
                                     Detention Title
                                 </div>
-                                <div class="right-person-info-row-box-des">
-                                    Dating with the a girl
+                                <div class="right-person-info-row-box-des stm">
+                                    Dating with a girl
                                 </div>
                             </div>
                             <div class="detention-ticket-innerbox-right">
-                                <div class="right-person-info-row-box-subtitle">
+                                <div class="right-person-info-row-box-subtitle str">
                                     Status
                                 </div>
-                                <div class="right-person-info-row-box-des">
-                                    Pending
+                                <div class="right-person-info-row-box-des stb">
+
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="class-deleting-row share-box-fully-select">
+                        <input type="hidden" class="detention-status" value="1">
+                        <!--                        echo detention status above-->
+                        <div class="detention-ticket-innerbox">
+                            <div class="detention-ticket-innerbox-left">
+                                <div class="right-person-info-row-box-subtitle str">
+                                    Detention Title
+                                </div>
+                                <div class="right-person-info-row-box-des stm">
+                                    Dating with a girl
+                                </div>
+                            </div>
+                            <div class="detention-ticket-innerbox-right">
+                                <div class="right-person-info-row-box-subtitle str">
+                                    Status
+                                </div>
+                                <div class="right-person-info-row-box-des stb">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class-deleting-row share-box-fully-select">
+                        <input type="hidden" class="detention-status" value="2">
+                        <!--                        echo detention status above-->
+                        <div class="detention-ticket-innerbox">
+                            <div class="detention-ticket-innerbox-left">
+                                <div class="right-person-info-row-box-subtitle str">
+                                    Detention Title
+                                </div>
+                                <div class="right-person-info-row-box-des stm">
+                                    Dating with a girl
+                                </div>
+                            </div>
+                            <div class="detention-ticket-innerbox-right">
+                                <div class="right-person-info-row-box-subtitle str">
+                                    Status
+                                </div>
+                                <div class="right-person-info-row-box-des stb">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="button" value="Next" name="detentionApplyFst"
+                           class="edit-box-red detention-box-next stb">
+                </div>
+            </div>
+            <form action="" method="">
+                <div class="detention-box-sec">
+                    <div class="edit-box-upper">
+                        <div class="class-adding-subtitle str">
+                            Selected Detention
+                        </div>
+                        <div class="share-box-fully-select apply-target-display stb">
+
+                        </div>
+                    </div>
+                    <div class="edit-box-downer">
+                        <div class="class-adding-subtitle str">
+                            Please Provide Comments
+                        </div>
+                        <textarea type="text" class="edit-box-innerbox-input edit-comment-box str"
+                                  name="detention-comment"
+                                  placeholder="Write your description here..."></textarea>
+                        <input type="button" value="Next" name="detentionApplyFst"
+                               class="edit-box-red detention-box-next stb">
+                    </div>
+                    <input type="hidden" class="detention-id" name="detention_id">
                 </div>
             </form>
         </div>
-
-
-
 
 
         <div class="share-box class-swapping-box">
@@ -2229,27 +2306,27 @@ END;
                             close
                         </span>
             </div>
-                <div class="edit-box-downer swap-class-origin">
-                    <div class="class-adding-subtitle str">
-                        Swap this class
-                    </div>
-                    <?php
-                    require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
-                    require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+            <div class="edit-box-downer swap-class-origin">
+                <div class="class-adding-subtitle str">
+                    Swap this class
+                </div>
+                <?php
+                require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
+                require_once "../../../Controller_and_Model/Model/SubjectActions.php";
 
-                    $tot_res = FetchAllStudIdAndSubjectClasses();
-                    if ($tot_res[0]) {
-                        $tot_res = $tot_res[1];
-                    }
-                    foreach ($tot_res as $subj_class_info) {
-                        $subj_class_id = $subj_class_info[0];
-                        $subj_id = $subj_class_info[2];
-                        $subj_info = FetchSubjById($subj_id);
-                        if ($subj_info[0]) {
-                            $subj_info = $subj_info[1][0];
-                            $subj_id = $subj_info[0];
-                            $subj_name = $subj_info[1];
-                            echo <<< END
+                $tot_res = FetchAllStudIdAndSubjectClasses();
+                if ($tot_res[0]) {
+                    $tot_res = $tot_res[1];
+                }
+                foreach ($tot_res as $subj_class_info) {
+                    $subj_class_id = $subj_class_info[0];
+                    $subj_id = $subj_class_info[2];
+                    $subj_info = FetchSubjById($subj_id);
+                    if ($subj_info[0]) {
+                        $subj_info = $subj_info[1][0];
+                        $subj_id = $subj_info[0];
+                        $subj_name = $subj_info[1];
+                        echo <<< END
                                 <div class="class-swapping-row share-box-fully-select">
                                     <input type="checkbox" class="class-adding-checkbox class-adding-img" name="swap-origin" value=$subj_class_id style="">
                                     <div class="class-adding-text str">
@@ -2257,50 +2334,55 @@ END;
                                     </div>
                                 </div>
                             END;
-                        }
                     }
-                    ?>
-                    <div class="share-box-button-row">
-                        <input type="button" value="Next" name="fstSwpNxt" class="edit-box-blue share-box-double-button stb">
-                        <input type="button" value="Back" class="edit-box-white share-box-double-button edit-box-close stb">
+                }
+                ?>
+                <div class="share-box-button-row">
+                    <input type="button" value="Next" name="fstSwpNxt"
+                           class="edit-box-blue share-box-double-button stb">
+                    <input type="button" value="Back" class="edit-box-white share-box-double-button edit-box-close stb">
+                </div>
+            </div>
+            <div class="edit-box-downer swap-class-target">
+                <div class="class-adding-subtitle str">
+                    With this class
+                </div>
+                <div class="class-swapping-row share-box-fully-select">
+                    <input type="checkbox" class="class-adding-checkbox class-adding-img" name="swap-target"
+                           value=$subj_class_id style="">
+                    <div class="class-adding-text str">
+                        $subj_name
                     </div>
                 </div>
-                <div class="edit-box-downer swap-class-target">
-                    <div class="class-adding-subtitle str">
-                        With this class
-                    </div>
-                    <div class="class-swapping-row share-box-fully-select">
-                            <input type="checkbox" class="class-adding-checkbox class-adding-img" name="swap-target" value=$subj_class_id style="">
-                            <div class="class-adding-text str">
-                                $subj_name
-                            </div>
-                    </div>
-                    <div class="share-box-button-row">
-                        <input type="button" value="Next" name="secSwpNxt" class="edit-box-blue share-box-double-button stb">
-                        <input type="button" value="Back" name="secSwpBck" class="edit-box-white share-box-double-button edit-box-close stb">
-                    </div>
+                <div class="share-box-button-row">
+                    <input type="button" value="Next" name="secSwpNxt"
+                           class="edit-box-blue share-box-double-button stb">
+                    <input type="button" value="Back" name="secSwpBck"
+                           class="edit-box-white share-box-double-button edit-box-close stb">
                 </div>
-                <div class="edit-box-downer swap-class-confirm">
-                    <div class="class-adding-subtitle str">
-                        Swap this class
-                    </div>
-                    <div class="class-swapping-row share-box-fully-select swap-origin-display stb">
-                        AAA
-                    </div>
-                    <div class="class-adding-subtitle str">
-                        With this class
-                    </div>
-                    <div class="class-swapping-row share-box-fully-select swap-target-display stb">
-                        BBB
-                    </div>
-                    <input class="student-id" hidden="true" value="<?php
-                            echo $_SESSION['id'];
-                        ?>">
-                    <div class="share-box-button-row">
-                        <input type="submit" value="Next" class="edit-box-blue share-box-double-button stb">
-                        <input type="button" value="Back" name="tirSwpBck" class="edit-box-white share-box-double-button stb">
-                    </div>
+            </div>
+            <div class="edit-box-downer swap-class-confirm">
+                <div class="class-adding-subtitle str">
+                    Swap this class
                 </div>
+                <div class="class-swapping-row share-box-fully-select swap-origin-display stb">
+                    AAA
+                </div>
+                <div class="class-adding-subtitle str">
+                    With this class
+                </div>
+                <div class="class-swapping-row share-box-fully-select swap-target-display stb">
+                    BBB
+                </div>
+                <input class="student-id" hidden="true" value="<?php
+                echo $_SESSION['id'];
+                ?>">
+                <div class="share-box-button-row">
+                    <input type="submit" value="Next" class="edit-box-blue share-box-double-button stb">
+                    <input type="button" value="Back" name="tirSwpBck"
+                           class="edit-box-white share-box-double-button stb">
+                </div>
+            </div>
         </div>
         <div class="share-box class-adding-box">
             <div class="edit-box-top">
@@ -2395,6 +2477,17 @@ END;
         </div>
 
         <div class="share-box pending-box">
+            <input type="hidden" class="pending-box-status" name="pending_box_status">
+            <!--
+                    0：正在等待学科老师同意；
+                    1：学科老师同意，正在等待班主任同意；
+                    2:学科老师不同意；
+                    3：学科老师+班主任同意，正在等待项目处同意；
+                    4：学科老师同意，班主任不同意；
+                    5:学科老师+班主任+项目处同意；
+                    6：学科老师+班主任同意，项目处不同意；
+            -->
+            <input type="hidden" class="pending-box-id" name="subject_application_id">
             <form method="post">
                 <div class="edit-box-upper">
                     <div class="edit-box-top">
