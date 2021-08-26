@@ -32,42 +32,4 @@ $(document).ready(function () {
         $('.homeroomT-homeroomList:first').fadeIn('fast');
     }
 
-    $(".right-down-info-button").click(function () {
-        $('.homeroomT-addHomeroom-box').fadeIn('fast');
-        $('.grey-bg').fadeIn('fast');
-
-        var current_add = 0;
-        $('.homeroomT-homeroomList').each(function () {
-            if ($(this).css('display') == 'block') {
-                current_add = $(this).attr('id');
-            }
-        })
-        $('.current_adding_semester').val(current_add)
-    })
-
-    $('.homeroom-add').click(function () {                          // Homeroom class verification
-        var className = $('input[name="add-homeroom-name"]').val();
-        if (!className) {
-            alert("Please type in your class")
-        } else {
-            var departVerify = className.split(' ');
-            if (!departVerify[1]) {
-                alert("Please follow the format 'MYP 9-1'")
-            } else {
-                var classVerify = departVerify[1].split('-');
-                if ((departVerify[0] != ('MYP' || 'PreDP')) || classVerify[0] != ('9' || '10')) {
-                    alert("Please follow the format 'MYP 9-1'");
-                }else{
-                    var currentHeight = $('.homeroomT-addHomeroom-box').height();
-                    $('homeroomT-addHomeroom-box').css('height', currentHeight);
-                    //    添加ajax 方法 目的：添加homeroom
-                    $('.edit-box-innerbox').fadeOut('fast');
-                    $('.edit-box-text').delay('fast').fadeIn('fast');
-                    $('.edit-box-className').text(className + " Added Successfully");
-                    $('.homeroom-add').fadeOut('fast');
-                    $('.homeroom-close').delay('fast').fadeIn('fast');
-                }
-            }
-        }
-    })
 });
