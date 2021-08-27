@@ -251,142 +251,165 @@ $_SESSION["exam_id_2"] = 0;
                                     </div>
                                 </div>
                             </div>
-                            <div class="right-person-info-row-downer private-info-row">
-                                <div class="private-info-row-upper">
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Passport Name
+                            <?php
+                            require_once "../../../Controller_and_Model/Model/UserActions.php";
+//                            Personal information in database:
+//                                    0. Passport Name,
+//                                    1. Chinese Name,
+//                                    2. English Name,
+//                                    3. Gender,
+//                                    4. Student Number,
+//                                    5. Nationality,
+//                                    6. Date of Birth,
+//                                    7. Phone Number,
+//                                    8. Mother's Name,
+//                                    9. Mother's Phone Number,
+//                                    10. Mother's Job Category,
+//                                    11. Mother's Job Title,
+//                                    12. Father's Name,
+//                                    13. Father's Phone Number,
+//                                    14. Father's Job Category,
+//                                    15. Father's Job Title
+                            $tot_res = FetchStudInfoByStudId($_SESSION["id"]);
+                            $raw_personal_info = $tot_res[1][0][15];
+                            $personal_info = explode(",", $raw_personal_info);
+                            echo <<< END
+                                <div class="right-person-info-row-downer private-info-row">
+                                    <div class="private-info-row-upper">
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Passport Name
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[0]
+                                            </div>
                                         </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            DANYANG XU
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Chinese Name
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[1]
+                                            </div>
+                                        </div>
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                English Name
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[2]
+                                            </div>
+                                        </div>
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Gender
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[3]
+                                            </div>
+                                        </div>
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Student Number
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[4]
+                                            </div>
+                                        </div>
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Nationality
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[5]
+                                            </div>
+                                        </div>
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Date of Birth
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[6]
+                                            </div>
+                                        </div>
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Phone Number
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[7]
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Chinese Name
+                                    <div class="private-info-row-downer">
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Mother's Name
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[8]
+                                            </div>
                                         </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            许丹阳
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Mother's Phone Number
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[9]
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            English Name
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Mother's Job Category
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[10]
+                                            </div>
                                         </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            Danny
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Mother's Job Title
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[11]
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Gender
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Father's Name
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[12]
+                                            </div>
                                         </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            Male
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Father's Phone Number
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[13]
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Student Number
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Father's Job Category
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[14]
+                                            </div>
                                         </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            0108706
-                                        </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Nationality
-                                        </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            China
-                                        </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Date of Birth
-                                        </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            September 11, 2001
-                                        </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Phone Number
-                                        </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            18676599192
+                                        <div class="private-info-row-box">
+                                            <div class="right-person-info-row-box-subtitle str">
+                                                Father's Job Title
+                                            </div>
+                                            <div class="right-person-info-row-box-des stm">
+                                                $personal_info[15]
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="private-info-row-downer">
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Mother's Name
-                                        </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            Someb
-                                        </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Mother's Phone Number
-                                        </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            18676599192
-                                        </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Mother's Job Category
-                                        </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            Banking
-                                        </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Mother's Job Title
-                                        </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            Manager
-                                        </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Father's Name
-                                        </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            Someb
-                                        </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Father's Phone Number
-                                        </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            18676599192
-                                        </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Father's Job Category
-                                        </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            Banking
-                                        </div>
-                                    </div>
-                                    <div class="private-info-row-box">
-                                        <div class="right-person-info-row-box-subtitle str">
-                                            Father's Job Title
-                                        </div>
-                                        <div class="right-person-info-row-box-des stm">
-                                            Manager
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
+END;
+                            ?>
                         </div>
 
                         <div class="right-person-info-row">
@@ -1342,30 +1365,13 @@ END;
                             close
                 </span>
             </div>
-            <form method="" action="">
+            <form method="post" action="../../../Controller_and_Model/Controller/UpdatePersonalInfo.php">
                 <div class="edit-box-downer">
                     <div class="private-box-upper">
                         <div class="edit-box-row">
                             <div class="edit-box-innerbox private-box-inner str">
                                 <div class="edit-box-innerbox-title">
                                     Passport Name
-<!--                                    Personal information in database:-->
-<!--                                    0. Passport Name,-->
-<!--                                    1. Chinese Name,-->
-<!--                                    2. English Name,-->
-<!--                                    3. Gender,-->
-<!--                                    4. Student Number,-->
-<!--                                    5. Nationality,-->
-<!--                                    6. Date of Birth,-->
-<!--                                    7. Phone Number,-->
-<!--                                    8. Mother's Name,-->
-<!--                                    9. Mother's Phone Number,-->
-<!--                                    10. Mother's Job Category,-->
-<!--                                    11. Mother's Job Title,-->
-<!--                                    12. Father's Name,-->
-<!--                                    13. Father's Phone Number,-->
-<!--                                    14. Father's Job Category,-->
-<!--                                    15. Father's Job Title-->
                                     <span style="color: #DD3444">
                                     *
                                 </span>
