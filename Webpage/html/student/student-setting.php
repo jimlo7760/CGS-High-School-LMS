@@ -559,9 +559,9 @@ END;
 
                                 $tot_res = FetchStudUniv($_SESSION["id"]);
                                 foreach ($tot_res as $univ_info) {
-                                    $univ_name = $univ_info[3];
-                                    $univ_major = $univ_info[4];
-                                    if ($univ_info[7] == 1) {
+                                    $univ_name = $univ_info[2];
+                                    $univ_major = $univ_info[3];
+                                    if ($univ_info[6] == 1) {
                                         echo <<< END
                                         <div class="right-person-info-row-box">
                                             <div class="right-person-info-row-box-title stm">
@@ -1776,9 +1776,9 @@ END;
                     require_once "../../../Controller_and_Model/Model/StudUnivActions.php";
                     $raw_stud_univ = FetchStudUniv($_SESSION["id"]);
                     foreach ($raw_stud_univ as $univ) {
-                        $univ_name = $univ[3];
+                        $univ_name = $univ[2];
                         $univ_id = $univ[0];
-                        $status = $univ[7];
+                        $status = $univ[6];
                         if ($status == 1) {
                             echo <<< END
                                 <div class="class-deleting-row">

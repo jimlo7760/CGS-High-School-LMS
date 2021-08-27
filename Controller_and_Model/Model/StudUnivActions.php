@@ -4,9 +4,6 @@ require_once 'LoginCredentials.php';
  * For student to insert the university he/she wants to go
  * QWQ
  *
- * @param string $univ_country <p>
- * Student's chosen university's location (country)
- * </p>
  * @param string $univ_name <p>
  * Student's chosen university's name
  * </p>
@@ -18,15 +15,14 @@ require_once 'LoginCredentials.php';
  * </p>
  * @author Binghe Yi
  */
-function InsertNewUniv($univ_country, $univ_name, $major, $stud_id) {
+function InsertNewUniv($univ_name, $major, $stud_id) {
     $univ_num = count(FetchStudUniv($stud_id));
     if ($univ_num == 4) {
         return [false, "Limit reached"];
     } else {
         $conn = createconn();
-        $stmt = $conn->prepare('Insert into stud_univ(univ_country, univ_name, create_time, major, stud_id) values (?,?,?,?,?)');
-        $stmt->bind_param('sssi', $insertUnivCountry, $insertUnivName, $insertCreateTime, $insertMajor, $insertStudId);
-        $insertUnivCountry = $univ_country;
+        $stmt = $conn->prepare('Insert into stud_univ(univ_name, create_time, major, stud_id) values (?,?,?,?)');
+        $stmt->bind_param('sssi',  $insertUnivName, $insertCreateTime, $insertMajor, $insertStudId);
         $insertUnivName = $univ_name;
         $insertCreateTime = date('Y-m-d H:i:s');
         $insertMajor = $major;
@@ -43,9 +39,6 @@ function InsertNewUniv($univ_country, $univ_name, $major, $stud_id) {
  * For student to update the university he/she wants to go
  *
  *
- * @param string $univ_country <p>
- * Student's chosen university's location (country)
- * </p>
  * @param string $univ_name <p>
  * Student's chosen university's name
  * </p>
@@ -58,12 +51,11 @@ function InsertNewUniv($univ_country, $univ_name, $major, $stud_id) {
  * @author Binghe Yi
  */
 
-function UpdateStudUniv($univ_country, $univ_name, $stud_id)
+function UpdateStudUniv($univ_name, $stud_id)
 {
     $conn = createconn();
-    $stmt = $conn->prepare('update stud_univ set univ_country = ?, $univ_name = ?, update_time = ? where stud_id = ?');
-    $stmt->bind_param('sss', $updateUnivCountry, $updateUnivName, $updateUpdateTime, $updateStudId);
-    $updateUnivCountry = $univ_country;
+    $stmt = $conn->prepare('update stud_univ set $univ_name = ?, update_time = ? where stud_id = ?');
+    $stmt->bind_param('ssi',  $updateUnivName, $updateUpdateTime, $updateStudId);
     $updateUnivName = $univ_name;
     $updateUpdateTime = date('Y-m-d H:i:s');
     $updateStudId = $stud_id;
