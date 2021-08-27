@@ -147,7 +147,7 @@ function FetchStudAllAwardsByHRClass($target_program, $target_grade, $target_cla
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
  * @author Yiming Su
  */
-function UpdateStudAwardByExamIdAndStudId($stud_id, $award_id, $audit_res) {
+function UpdateStudAwardByStudId($stud_id, $award_id, $audit_res) {
     $conn = createconn();
     $query = "update stud_award set status=? where id=? and stud_id=?";
     $stmt = $conn->prepare($query);
@@ -183,7 +183,6 @@ function InsertNewAward($stud_id, $award_name, $comp_time) {
     $stmt = $conn->prepare($query);
     $stmt->bind_param("issss", $stmt_stud_id, $stmt_award_name, $stmt_comp_time, $stmt_create_time, $stmt_update_time);
     $stmt_stud_id = $stud_id;
-    $stmt_comp_name = $comp_name;
     $stmt_award_name = $award_name;
     $stmt_comp_time = $comp_time;
     $stmt_create_time = date("Y-m-d");

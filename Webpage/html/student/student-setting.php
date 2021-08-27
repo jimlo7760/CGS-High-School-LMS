@@ -504,26 +504,28 @@ END;
                                 foreach ($raw_award_info as $award_info) {
                                     $award_name = $award_info[2];
                                     $award_time = $award_info[3];
-                                    echo <<< END
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        $award_name
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Date Recived
+                                    if ($award_info[6] == 1) {
+                                        echo <<< END
+                                            <div class="right-person-info-row-box">
+                                                <div class="right-person-info-row-box-title stm">
+                                                    $award_name
+                                                </div>
+                                                <div class="right-person-info-row-box-right">
+                                                    <div class="right-person-info-row-box-text">
+                                                        <div class="right-person-info-row-box-subtitle str">
+                                                            Date Recived
+                                                        </div>
+                                                        <div class="right-person-info-row-box-des stm">
+                                                            $award_time
+                                                        </div>
+                                                    </div>
+                                                    <i class="material-icons right-person-info-row-box-img">
+                                                        chevron_right
+                                                    </i>
+                                                </div>
                                             </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                $award_time
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                </div>
 END;
+                                    }
                                 }
                                 ?>
                             </div>
@@ -1634,26 +1636,29 @@ END;
                             close
                 </span>
             </div>
-            <form method="post">
+            <form method="post" action="../../../Controller_and_Model/Controller/DeleteAward.php">
                 <div class="edit-box-downer">
-                    <!--                    require_once is required-->
                     <div class="class-adding-subtitle str">
                         Select Awards & Prizes
                     </div>
-                    <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="award-delete"
-                               value=$subj_class_id style="">
-                        <div class="class-adding-text str">
-                            $award_name
-                        </div>
-                    </div>
-                    <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="award-delete"
-                               value=$subj_class_id style="">
-                        <div class="class-adding-text str">
-                            $award_name
-                        </div>
-                    </div>
+                    <?php
+                    require_once "../../../Controller_and_Model/Model/StudAwardActions.php";
+                    $tot_res = FetchStudAllAwardsByStudId($_SESSION["id"]);
+                    $awards = $tot_res[1];
+                    foreach ($awards as $award) {
+                        if ($award[6] == 1)
+                        echo <<< END
+                            <div class="class-deleting-row">
+                                <input type="checkbox" class="class-adding-checkbox class-adding-img" name="award-delete"
+                                       value=$award[0] style="">
+                                <div class="class-adding-text str">
+                                    $award[2]
+                                </div>
+                            </div>
+END;
+                    }
+
+                    ?>
                     <input type="submit" value="Delete" class="edit-box-red stb">
                 </div>
             </form>
