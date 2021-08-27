@@ -253,3 +253,30 @@ function UpdateStudPersonalInfo($stud_id, $personal_info) {
     }
 }
 
+/**
+ * Update a student's strength and hobby, the parameter
+ * need to be a string.
+ * use comma to separate different streng/hobby,
+ * use hyphen(-) to separate details.
+ *
+ * @param int $stud_id the student's id.
+ * @param string $raw_strength the student's raw strength.
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, empty array]
+ */
+function UpdateStrength($stud_id, $raw_strength) {
+    $conn = createconn();
+    $stmt = $conn->prepare("update stud_info set strength = ? where id = ?;");
+    $stmt->bind_param("si", $stmt_strength, $stmt_id);
+    $stmt_strength = $raw_strength;
+    $stmt_id = $stud_id;
+    $stmt->execute();
+    $res = $stmt->affected_rows;
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
+
