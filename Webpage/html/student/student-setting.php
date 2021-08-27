@@ -500,6 +500,7 @@ END;
                                 $raw_award_info = $tot_res[1];
                                 $award_length = count($tot_res[1]);
                                 foreach ($raw_award_info as $award_info) {
+                                    $award_id = $award_info[0];
                                     $award_name = $award_info[2] . ": " . $award_info[3];
                                     $award_time = $award_info[4];
                                     echo <<< END
@@ -520,6 +521,7 @@ END;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="award-box-id" name="award_id" value=$award_id >
                                 </div>
 END;
                                 }
@@ -556,6 +558,7 @@ END;
                                 $tot_res = FetchStudUniv($_SESSION["id"]);
                                 foreach ($tot_res as $univ_info) {
                                     $univ_name = $univ_info[3];
+                                    $univ_id = $univ_info[0];
                                     echo <<< END
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
@@ -574,6 +577,7 @@ END;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="univ-box-id" value=$univ_id>
                                 </div>
 END;
                                 }
@@ -621,6 +625,7 @@ END;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="dp-box-id" value=$dp_info[0]>
                                 </div>
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
@@ -639,6 +644,8 @@ END;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="dp-box-id" value=$dp_info[0]>
+
                                 </div>
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
@@ -657,6 +664,8 @@ END;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="dp-box-id" value=$dp_info[0]>
+
                                 </div>
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
@@ -675,6 +684,8 @@ END;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="dp-box-id" value=$dp_info[0]>
+
                                 </div>
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
@@ -693,6 +704,8 @@ END;
                                             chevron_right
                                         </i>
                                     </div>
+                                    <input type="hidden" class="dp-box-id" value=$dp_info[0]>
+
                                 </div>
 
                             </div>
@@ -744,6 +757,7 @@ END;
                                     <input type="hidden" class="language-speaking" value="6.5">
                                     <input type="hidden" class="language-writing" value="7">
                                     <input type="hidden" class="language-reflect" value="I love this test">
+                                    <input type="hidden" class="language-box-id" value=$language_info[0]>
                                 </div>
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
@@ -768,24 +782,7 @@ END;
                                     <input type="hidden" class="language-speaking" value="22">
                                     <input type="hidden" class="language-writing" value="23">
                                     <input type="hidden" class="language-reflect" value="I don't like this test">
-                                </div>
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        8.0
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Test Date
-                                            </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                2020-03-01
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
+                                    <input type="hidden" class="language-box-id" value=$language_info[0]>
                                 </div>
                             </div>
                         </div>
@@ -1712,7 +1709,8 @@ END;
                             <input type="date" class="edit-box-innerbox-input str" name="award-year">
                         </div>
                     </div>
-                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="sutd_id">
+                    <input type="hidden" value="" class="award-id" name="award_id">
+                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
                     <input type="submit" class="edit-box-green stb" value="Save Awards & Prizes">
                 </div>
             </form>
@@ -1744,6 +1742,7 @@ END;
                             <input type="text" class="edit-box-innerbox-input str" name="university-major">
                         </div>
                     </div>
+                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
                     <input class="edit-box-green stb" type="submit" value="Add">
                 </div>
             </form>
@@ -1777,6 +1776,8 @@ END;
                             $univ_name
                         </div>
                     </div>
+                    <input type="hidden" value="" class="univ-id" name="univ_id">
+                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
                     <input type="submit" value="Delete" class="edit-box-red stb">
                 </div>
             </form>
@@ -1807,7 +1808,8 @@ END;
                             <input type="text" class="edit-box-innerbox-input str" name="university-major">
                         </div>
                     </div>
-                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="sutd_id">
+                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
+                    <input type="hidden" value="" class="univ-id" name="univ_id">
                     <input class="edit-box-green stb" type="submit" value="Save">
                 </div>
             </form>
@@ -1932,7 +1934,8 @@ END;
                             </select>
                         </div>
                     </div>
-                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="sutd_id">
+                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
+                    <input type="hidden" value="" class="dp-id" name="dp_id">
                     <input type="submit" class="edit-box-green stb" value="Save">
                 </div>
             </form>
@@ -2135,6 +2138,8 @@ END;
                         </div>
                         <input type="date" class="edit-box-innerbox-input" name="language_test_date">
                     </div>
+                    <input type="hidden" value="" class="language-id" name="language-id">
+                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
                     <input type="submit" class="edit-box-green stb" value="Save">
                 </div>
             </form>
