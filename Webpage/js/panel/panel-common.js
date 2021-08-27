@@ -169,6 +169,25 @@ $(document).ready(function () {
         }
     })
 
+    $('.right-table-content-action-edit').click(function (){
+        $(this).parent().siblings('.test-stud-id').val();
+        var subjectT_editTest_box = $('.subjectT-editTest-box');
+        shareboxPop(subjectT_editTest_box);
+        var testId = $(this).parent().siblings('.current-test-id').val();
+        var testTitle = $(this).parent().siblings('.right-table-content-title').text().trim()
+        var testType = $(this).parent().siblings('.right-table-content-type').text().trim();
+        var testDate = $(this).parent().siblings('.right-table-content-date').text().trim();
+        var testDes = $(this).parent().siblings('.current-test-des').val();
+        var testComment = $(this).parent().siblings('.current-test-comment').val();
+        var testMax = $(this).parent().siblings('.current-test-max-score').val();
+        subjectT_editTest_box.find('.edit-box-innerbox-input').eq(0).val(testTitle);
+        subjectT_editTest_box.find('.edit-box-innerbox-input').eq(1).text(testDes);
+        subjectT_editTest_box.find('.edit-box-innerbox-select').find("option:contains('" + testType + "')").attr("selected", true);
+        subjectT_editTest_box.find('.edit-box-innerbox-input').eq(2).val(testMax);
+        subjectT_editTest_box.find('.edit-box-innerbox-input').eq(3).val(testDate);
+        subjectT_editTest_box.find('.edit-box-innerbox-input').eq(4).text(testComment);
+    })
+
 });
 
 $(window).load(function (){

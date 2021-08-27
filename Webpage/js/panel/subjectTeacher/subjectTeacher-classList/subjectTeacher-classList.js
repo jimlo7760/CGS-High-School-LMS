@@ -190,10 +190,7 @@ $(document).ready(function () {
                 var titleWid = tableWid * 0.3;
                 $('.right-table-title-title').width(titleWid);
                 $('.right-table-content-title').width(titleWid);
-                var gradeWid = tableWid * 0.17;
-                $('.right-table-title-grade').width(gradeWid);
-                $('.right-table-content-grade').width(gradeWid);
-                var typeWid = tableWid * 0.1;
+                var typeWid = tableWid * 0.19;
                 $('.right-table-title-type').width(typeWid);
                 $('.right-table-content-type').width(typeWid);
                 var dateWid = tableWid * 0.25;

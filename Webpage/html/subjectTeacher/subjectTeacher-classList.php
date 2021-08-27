@@ -335,9 +335,6 @@
                         <div class="right-table-title-title">
                             Title
                         </div>
-                        <div class="right-table-title-grade">
-                            Grade
-                        </div>
                         <div class="right-table-title-type">
                             Type
                         </div>
@@ -350,11 +347,31 @@
                     </div>
                     <div class="right-table-content stb">
                         <div class="right-table-content-row">
+                            <input type="hidden" class="current-test-id" value="123123" name="test_id">
+                            <input type="hidden" class="current-test-comment" value="great" name="test_comment">
+                            <input type="hidden" class="current-test-des" value="hard test" name="test_des">
+                            <input type="hidden" class="current-test-max-score" value="7" name="test_max_score">
                             <div class="right-table-content-title">
                                 Vendor support ending for Collaborate CV
                             </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
+                            <div class="right-table-content-type">
+                                Mid-term Examination
+                            </div>
+                            <div class="right-table-content-date">
+                                2020-04-29
+                            </div>
+                            <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="right-table-content-row">
+                            <div class="right-table-content-title">
+                                Vendor support ending for Collaborate CV
                             </div>
                             <div class="right-table-content-type">
                                 Exam
@@ -375,8 +392,24 @@
                             <div class="right-table-content-title">
                                 Vendor support ending for Collaborate CV
                             </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
+                            <div class="right-table-content-type">
+                                Exam
+                            </div>
+                            <div class="right-table-content-date">
+                                Apr 29, 2020 11:00 AM
+                            </div>
+                            <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="right-table-content-row">
+                            <div class="right-table-content-title">
+                                Vendor support ending for Collaborate CV
                             </div>
                             <div class="right-table-content-type">
                                 Exam
@@ -397,9 +430,6 @@
                             <div class="right-table-content-title">
                                 Vendor support ending for Collaborate CV
                             </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
-                            </div>
                             <div class="right-table-content-type">
                                 Exam
                             </div>
@@ -419,9 +449,6 @@
                             <div class="right-table-content-title">
                                 Vendor support ending for Collaborate CV
                             </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
-                            </div>
                             <div class="right-table-content-type">
                                 Exam
                             </div>
@@ -440,53 +467,6 @@
                         <div class="right-table-content-row">
                             <div class="right-table-content-title">
                                 Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                            <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                            <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-grade">
-                                80 / 100
                             </div>
                             <div class="right-table-content-type">
                                 Exam
@@ -1003,6 +983,80 @@
             </div>
         </div>
 
+        <div class="subjectT-test-detail">
+            <div class="right-down">
+                <div class="right-info test-detail">
+                    <div class="right-return return-from-test-detail">
+                    <span class="material-icons right-return-img">
+                        chevron_left
+                    </span>
+                        <div class="right-return-text sts">
+                            Chinese A1 Exam & Tests
+                        </div>
+                    </div>
+                    <div class="right-info-left stb">
+                        <div class="right-title">
+                            Unit 5 Exam
+                        </div>
+                    </div>
+                    <div class="right-person-edit right-person-add edit-test-detail stm">
+                                    <span class="material-icons right-person-edit-img">
+                                        create
+                                    </span>
+                        <div class="right-person-edit-text">
+                            Edit Exam / Tests
+                        </div>
+                    </div>
+                </div>
+                <div class="test-detail-mid">
+                    <div class="test-detail-mid-left">
+                        <div class="test-detail-mid-box-small">
+                            <div class="test-detail-mid-box-small-title stb">
+                                Type
+                            </div>
+                            <div class="test-detail-mid-box-small-des str">
+
+                            </div>
+                        </div>
+                        <div class="test-detail-mid-box-small">
+                            <div class="test-detail-mid-box-small-title stb">
+                                Due Date
+                            </div>
+                            <div class="test-detail-mid-box-small-des str">
+
+                            </div>
+                        </div>
+                        <div class="test-detail-mid-box-small">
+                            <div class="test-detail-mid-box-small-title stb">
+                                Score Out Off
+                            </div>
+                            <div class="test-detail-mid-box-small-des str">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-detail-mid-right">
+                        <div class="test-detail-mid-box-big">
+                            <div class="test-detail-mid-box-big-title stb">
+                                Description
+                            </div>
+                            <div class="test-detail-mid-box-big-des str">
+
+                            </div>
+                        </div>
+                        <div class="test-detail-mid-box-big">
+                            <div class="test-detail-mid-box-big-title stb">
+                                Comments
+                            </div>
+                            <div class="test-detail-mid-box-big-des str">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="personal-panel">
             <div class="personal-panel-top">
                 <img src="../../img/图像 1@2x.png" height="30" width="30" class="personal-panel-portrait"/>
@@ -1133,6 +1187,64 @@
                             Due Date
                         </div>
                         <input class="edit-box-innerbox-input str" name="add-test-date" type="date">
+                    </div>
+                    <input class="edit-box-green stb" type="submit" value="Save">
+                </div>
+            </form>
+        </div>
+
+        <div class="share-box subjectT-editTest-box" value="">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Edit New Exam / Test
+                </div>
+                <span class="material-icons edit-box-close">
+                    close
+                </span>
+            </div>
+            <form method="post">
+                <div class="edit-box-downer">
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Title
+                        </div>
+                        <input class="edit-box-innerbox-input str" name="add-test-title">
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Descriptions
+                        </div>
+                        <textarea type="text" class="edit-box-innerbox-input edit-comment-box str" name="add-test-description"
+                                  placeholder="Write your description here..."></textarea>
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Type
+                        </div>
+                        <select name="add-test-type" class="edit-box-innerbox-select subjectT-addCourse-box-select">
+                            <option>Monthly Examination</option>
+                            <option>Mid-term Examination</option>
+                            <option>Final Examination</option>
+                        </select>
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Score Out Of
+                        </div>
+                        <input class="edit-box-innerbox-input str" name="add-test-ceiling">
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Due Date
+                        </div>
+                        <input class="edit-box-innerbox-input str" name="add-test-date" type="date">
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            After Exam / Test Comment
+                        </div>
+                        <textarea type="text" class="edit-box-innerbox-input edit-comment-box str" name="add-test-description"
+                                  placeholder="Write your comment here..."></textarea>
                     </div>
                     <input class="edit-box-green stb" type="submit" value="Save">
                 </div>

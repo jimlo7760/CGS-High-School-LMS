@@ -39,6 +39,7 @@
 }
 
 .student-crew-list{
+    display: none;
 
 }
 .subjectT-student-list{
@@ -197,6 +198,9 @@
 .subjectT-addTest-box{
     display: none;
 }
+.subjectT-editTest-box{
+    display: none;
+}
 .subjectT-addScore-box{
     display: none;
 }
@@ -255,4 +259,38 @@
 .subjectT-test{
     border-top: #6C757E 1px solid;
     display: none;
+}
+.right-table-content-action-edit{
+    cursor: pointer;
+}
+.right-person-edit{
+    margin-top: 10px;
+    overflow: hidden;
+    zoom:1;
+    float:right;
+    cursor: pointer;
+}
+.right-person-add{
+    color: #1BA2B9;
+}
+.right-person-edit-img{
+    float:left;
+}
+.right-person-edit-text{
+    float:left;
+    font-size:13px;
+    margin: 5px 0 0 10px;
+}
+.test-detail-mid{
+    overflow: hidden;
+    zoom: 1;
+}
+.test-detail-mid-left{
+    float: left;
+}
+.test-detail-mid-right{
+    float: right;
+}
+.test-detail-mid-box-small-title{
+    font-size: 15px;
 }
