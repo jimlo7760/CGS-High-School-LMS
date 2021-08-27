@@ -40,11 +40,13 @@ if ((isset($_POST["passport-name"]) && $_POST["passport-name"] != NULL) &&
         "," . $father_name . "," . $father_phone . "," . $father_job_cate .
         "," . $father_job_title;
     $tot_res = UpdateStudPersonalInfo($_SESSION["id"], $raw_personal_info);
-    if ($tot_res > 0) {
+    if ($tot_res[1] > 0) {
         ob_start();
         header('Location: '. "../../Webpage/html/student/student-setting.php");
         ob_end_flush();
         die();
+    } else {
+        echo "Please check your input.";
     }
 }
 ?>

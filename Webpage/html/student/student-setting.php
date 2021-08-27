@@ -435,85 +435,38 @@ END;
                                 </div>
                             </div>
                             <div class="right-person-info-row-downer">
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        Arduino
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Year Started
+                                <?php
+                                require_once "../../../Controller_and_Model/Model/UserActions.php";
+                                $tot_res = FetchStudInfoByStudId($_SESSION["id"]);
+                                $raw_strength = $tot_res[1][0][16];
+                                $strengths = explode(",", $raw_strength);
+                                foreach ($strengths as $strength) {
+                                    $strength_details = explode("-", $strength);
+                                    echo <<< END
+                                        <div class="right-person-info-row-box">
+                                            <div class="right-person-info-row-box-title stm">
+                                                $strength_details[0]
                                             </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                2014
+                                            <div class="right-person-info-row-box-right">
+                                                <div class="right-person-info-row-box-text">
+                                                    <div class="right-person-info-row-box-subtitle str">
+                                                        Year Started
+                                                    </div>
+                                                    <div class="right-person-info-row-box-des stm">
+                                                        $strength_details[1]
+                                                    </div>
+                                                </div>
+                                                <i class="material-icons right-person-info-row-box-img">
+                                                    chevron_right
+                                                </i>
                                             </div>
+                                            <input type="hidden" class="strength-box-id" value="123123">
+                                            <input type="hidden" class="strength-box-des" value="$strength_details[2]">
                                         </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                    <input type="hidden" class="strength-box-id" value="123123">
-                                    <input type="hidden" class="strength-box-des" value="I love this hobby">
-                                </div>
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        On-road Bicycle
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Year Started
-                                            </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                2016
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                    <input type="hidden" class="strength-box-id" value="123123">
-                                    <input type="hidden" class="strength-box-des" value="I love ABC">
+END;
+                                }
+                                ?>
 
-                                </div>
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        Badminton
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Year Started
-                                            </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                2012
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                    <input type="hidden" class="strength-box-id" value="123123">
-                                </div>
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        Basketball
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Year Started
-                                            </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                2012
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                    <input type="hidden" class="strength-box-id" value="123123">
-                                </div>
                             </div>
                         </div>
 
@@ -1559,7 +1512,7 @@ END;
                             close
                 </span>
             </div>
-            <form method="" action="">
+            <form method="post" action="../../../Controller_and_Model/Controller/SubmitNewStrength.php">
                 <div class="edit-box-downer">
                     <div class="strength-box-row">
                         <div class="edit-box-innerbox award-box-big str">

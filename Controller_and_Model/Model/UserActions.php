@@ -238,9 +238,10 @@ function FetchStudInfoByStudId($stud_id) {
  */
 function UpdateStudPersonalInfo($stud_id, $personal_info) {
     $conn = createconn();
-    $stmt = $conn->prepare("update stud_info set personal_info = ? where id = ?");
-    $stmt->bind_param("si", $stmt_info, $stmt_id);
+    $stmt = $conn->prepare("update stud_info set personal_info = ?, update_time = ? where id = ?");
+    $stmt->bind_param("ssi", $stmt_info, $stmt_update_time, $stmt_id);
     $stmt_info = $personal_info;
+    $stmt_update_time = date("Y-m-d H:i:s");
     $stmt_id = $stud_id;
     $stmt->execute();
     $res = $stmt->affected_rows;
@@ -265,9 +266,10 @@ function UpdateStudPersonalInfo($stud_id, $personal_info) {
  */
 function UpdateStrength($stud_id, $raw_strength) {
     $conn = createconn();
-    $stmt = $conn->prepare("update stud_info set strength = ? where id = ?;");
-    $stmt->bind_param("si", $stmt_strength, $stmt_id);
+    $stmt = $conn->prepare("update stud_info set strength = ?, update_time = ? where id = ?;");
+    $stmt->bind_param("ssi", $stmt_strength, $stmt_update_time, $stmt_id);
     $stmt_strength = $raw_strength;
+    $stmt_update_time = date("Y-m-d H:i:s");
     $stmt_id = $stud_id;
     $stmt->execute();
     $res = $stmt->affected_rows;
