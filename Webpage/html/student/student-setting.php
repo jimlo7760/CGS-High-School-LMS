@@ -440,6 +440,7 @@ END;
                                 $tot_res = FetchStudInfoByStudId($_SESSION["id"]);
                                 $raw_strength = $tot_res[1][0][16];
                                 $strengths = explode(",", $raw_strength);
+                                $count = 0;
                                 foreach ($strengths as $strength) {
                                     $strength_details = explode("-", $strength);
                                     echo <<< END
@@ -460,10 +461,11 @@ END;
                                                     chevron_right
                                                 </i>
                                             </div>
-                                            <input type="hidden" class="strength-box-id" value="123123">
+                                            <input type="hidden" class="strength-box-id" value="$count">
                                             <input type="hidden" class="strength-box-des" value="$strength_details[2]">
                                         </div>
 END;
+                                    $count = $count + 1;
                                 }
                                 ?>
 
@@ -500,8 +502,8 @@ END;
                                 $raw_award_info = $tot_res[1];
                                 $award_length = count($tot_res[1]);
                                 foreach ($raw_award_info as $award_info) {
-                                    $award_name = $award_info[2] . ": " . $award_info[3];
-                                    $award_time = $award_info[4];
+                                    $award_name = $award_info[2];
+                                    $award_time = $award_info[3];
                                     echo <<< END
                                 <div class="right-person-info-row-box">
                                     <div class="right-person-info-row-box-title stm">
@@ -1590,7 +1592,7 @@ END;
                             close
                 </span>
             </div>
-            <form method="" action="">
+            <form method="get" action="#">
                 <div class="edit-box-downer">
                     <div class="strength-box-row">
                         <div class="edit-box-innerbox award-box-big str">
@@ -1617,7 +1619,7 @@ END;
                                   placeholder="Write your description here..."></textarea>
                     </div>
                     <input type="hidden" class="student-id" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
-                    <input type="hidden" class="strength-id" value="" name="stren_id">
+                    <input type="hidden" class="strength-id" value="" name="strength_id">
                     <input type="submit" class="edit-box-green stb" value="Save">
                 </div>
             </form>
@@ -1665,7 +1667,7 @@ END;
                             close
                         </span>
             </div>
-            <form action="" method="">
+            <form action="../../../Controller_and_Model/Controller/SubmitNewAward.php" method="post">
                 <div class="edit-box-downer">
                     <div class="award-box-row">
                         <div class="edit-box-innerbox award-box-big str">
@@ -1712,7 +1714,7 @@ END;
                             <input type="date" class="edit-box-innerbox-input str" name="award-year">
                         </div>
                     </div>
-                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="sutd_id">
+                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
                     <input type="submit" class="edit-box-green stb" value="Save Awards & Prizes">
                 </div>
             </form>
@@ -1932,7 +1934,7 @@ END;
                             </select>
                         </div>
                     </div>
-                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="sutd_id">
+                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
                     <input type="submit" class="edit-box-green stb" value="Save">
                 </div>
             </form>

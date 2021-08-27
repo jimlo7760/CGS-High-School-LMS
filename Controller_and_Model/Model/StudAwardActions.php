@@ -177,11 +177,11 @@ function UpdateStudAwardByExamIdAndStudId($stud_id, $award_id, $audit_res) {
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
  * @author Yiming Su
  */
-function InsertNewAward($stud_id, $comp_name, $award_name, $comp_time) {
+function InsertNewAward($stud_id, $award_name, $comp_time) {
     $conn = createconn();
-    $query = "insert into stud_award (stud_id, comp_name, award_name, comp_time, create_time, update_time) values (?, ?, ?, ?, ?, ?)";
+    $query = "insert into stud_award (stud_id, award_name, comp_time, create_time, update_time) values (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("isssss", $stmt_stud_id, $stmt_comp_name, $stmt_award_name, $stmt_comp_time, $stmt_create_time, $stmt_update_time);
+    $stmt->bind_param("issss", $stmt_stud_id, $stmt_award_name, $stmt_comp_time, $stmt_create_time, $stmt_update_time);
     $stmt_stud_id = $stud_id;
     $stmt_comp_name = $comp_name;
     $stmt_award_name = $award_name;
