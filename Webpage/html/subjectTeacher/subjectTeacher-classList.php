@@ -635,16 +635,16 @@
                         <div class="right-table-content stb">
                             <div class="right-table-content-row">
                                 <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
+                                    Unit 5 Exam
                                 </div>
                                 <div class="right-table-content-grade">
-                                    80 / 100
+                                    6 / 7
                                 </div>
                                 <div class="right-table-content-type">
-                                    Exam
+                                    Mid-term Examination
                                 </div>
                                 <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
+                                    2019-09-22
                                 </div>
                                 <div class="right-table-content-action">
                                     <span class="material-icons right-table-content-action-edit">
@@ -823,16 +823,16 @@
                         <div class="right-table-content stb">
                             <div class="right-table-content-row">
                                 <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
+                                    Unit 5 Exam
                                 </div>
                                 <div class="right-table-content-grade">
-                                    80 / 100
+                                    6 / 7
                                 </div>
                                 <div class="right-table-content-type">
-                                    Exam
+                                    Mid-term Examination
                                 </div>
                                 <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
+                                    2019-09-22
                                 </div>
                                 <div class="right-table-content-action">
                                     <span class="material-icons right-table-content-action-edit">

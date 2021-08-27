@@ -506,27 +506,27 @@ $(document).ready(function () {
             $('.strength-id').val(strenId);
         }else if(boxType == "Awards & Prizes"){
             var award_box_edit = $('.award-box-edit');
-            var awardId = $(this).find('.award-box-id').val().trim();
+            var awardId = $(this).find('.award-box-id').val();
             shareboxPop(award_box_edit);
             award_box_edit.find('.edit-box-innerbox-input').eq(0).val(boxName);
             award_box_edit.find('.edit-box-innerbox-input').eq(1).val(boxSub);
             award_box_edit.find('.award-id').val(awardId);
         }else if(boxType == "Goal University"){
-            var univId = $(this).find('.univ-box-id').val().trim();
+            var univId = $(this).find('.univ-box-id').val();
             var university_box_edit = $(".university-box-edit");
             shareboxPop(university_box_edit);
             university_box_edit.find('.edit-box-innerbox-input').eq(0).val(boxName);
             university_box_edit.find('.edit-box-innerbox-input').eq(1).val(boxSub);
             university_box_edit.find('.univ-id').val(univId);
         }else if(boxType == 'Expected Curriculum in DP'){
-            var dpId = $(this).find('.dp-box-id').val().trim();
+            var dpId = $(this).find('.dp-box-id').val();
             var dp_box_edit = $('.dp-box-edit');
             shareboxPop(dp_box_edit);
             dp_box_edit.find('.edit-box-innerbox-select').eq(0).find('option:contains("' + boxName + '")').attr("selected", true);
             dp_box_edit.find('.edit-box-innerbox-select').eq(1).find('option:contains("' + boxSub + '")').attr("selected", true);
             dp_box_edit.find('.dp-id').val(dpId);
         }else if(boxType == 'Linguistic Test'){
-            var languageId = $(this).find('.language-box-id').val().trim();
+            var languageId = $(this).find('.language-box-id').val();
             var language_box_edit = $('.language-box-edit');
             shareboxPop(language_box_edit);
             language_box_edit.find('.language-id').val(languageId);
