@@ -1594,7 +1594,7 @@ END;
                             close
                 </span>
             </div>
-            <form method="get" action="#">
+            <form method="post" action="../../../Controller_and_Model/Controller/ModifyStrength.php">
                 <div class="edit-box-downer">
                     <div class="strength-box-row">
                         <div class="edit-box-innerbox award-box-big str">
