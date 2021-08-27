@@ -560,26 +560,29 @@ END;
                                 $tot_res = FetchStudUniv($_SESSION["id"]);
                                 foreach ($tot_res as $univ_info) {
                                     $univ_name = $univ_info[3];
-                                    echo <<< END
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        $univ_name
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Major
+                                    $univ_major = $univ_info[4];
+                                    if ($univ_info[7] == 1) {
+                                        echo <<< END
+                                        <div class="right-person-info-row-box">
+                                            <div class="right-person-info-row-box-title stm">
+                                                $univ_name
                                             </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                Computer Science
+                                            <div class="right-person-info-row-box-right">
+                                                <div class="right-person-info-row-box-text">
+                                                    <div class="right-person-info-row-box-subtitle str">
+                                                        Major
+                                                    </div>
+                                                    <div class="right-person-info-row-box-des stm">
+                                                        $univ_major
+                                                    </div>
+                                                </div>
+                                                <i class="material-icons right-person-info-row-box-img">
+                                                    chevron_right
+                                                </i>
                                             </div>
                                         </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                </div>
 END;
+                                    }
                                 }
                                 ?>
                             </div>
@@ -1734,7 +1737,7 @@ END;
                             close
                         </span>
             </div>
-            <form method="" action="">
+            <form method="post" action="../../../Controller_and_Model/Controller/SubmitNewGoalUniversities.php">
                 <div class="edit-box-downer">
                     <div class="edit-box-row">
                         <div class="edit-box-innerbox award-box-big str">
@@ -1764,26 +1767,32 @@ END;
                             close
                         </span>
             </div>
-            <form method="post">
+            <form method="post" action="../../../Controller_and_Model/Controller/DeleteGoalUniversities.php">
                 <div class="edit-box-downer">
-                    <!--                    require_once to stud_univ-->
                     <div class="class-adding-subtitle str">
                         Select Goal University
                     </div>
-                    <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="goal-univ"
-                               value=$subj_class_id style="">
-                        <div class="class-adding-text str">
-                            $univ_name
-                        </div>
-                    </div>
-                    <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="goal-univ"
-                               value=$subj_class_id style="">
-                        <div class="class-adding-text str">
-                            $univ_name
-                        </div>
-                    </div>
+                    <?php
+                    require_once "../../../Controller_and_Model/Model/StudUnivActions.php";
+                    $raw_stud_univ = FetchStudUniv($_SESSION["id"]);
+                    foreach ($raw_stud_univ as $univ) {
+                        $univ_name = $univ[3];
+                        $univ_id = $univ[0];
+                        $status = $univ[7];
+                        if ($status == 1) {
+                            echo <<< END
+                                <div class="class-deleting-row">
+                                    <input type="checkbox" class="class-adding-checkbox class-adding-img" name="goal-univ"
+                                           value=$univ_id style="">
+                                    <div class="class-adding-text str">
+                                        $univ_name
+                                    </div>
+                                </div>
+END;
+                        }
+
+                    }
+                    ?>
                     <input type="submit" value="Delete" class="edit-box-red stb">
                 </div>
             </form>

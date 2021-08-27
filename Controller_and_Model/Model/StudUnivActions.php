@@ -101,3 +101,29 @@ function FetchStudUniv($stud_id)
     $conn->close();
     return $result;
 }
+
+/**
+ * Update the status of a goal university.
+ *
+ * @param int $univ_id the id in the table.
+ * @param int $stud_id student's id.
+ * @param int $status the status. 0 - deleted. 1 - active.
+ * @return array
+ */
+function UpdateGoalUnivStatus($univ_id, $stud_id, $status) {
+    $conn = createconn();
+    $stmt = $conn->prepare("update stud_univ set status = ? where id = ? and stud_id = ?");
+    $stmt->bind_param("iii", $stmt_status, $stmt_id, $stmt_stud_id);
+    $stmt_status = $status;
+    $stmt_id = $univ_id;
+    $stmt_stud_id = $stud_id;
+    $stmt->execute();
+    $res = $stmt->affected_rows;
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
