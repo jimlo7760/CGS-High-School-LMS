@@ -1349,6 +1349,23 @@ END;
                             <div class="edit-box-innerbox private-box-inner str">
                                 <div class="edit-box-innerbox-title">
                                     Passport Name
+<!--                                    Personal information in database:-->
+<!--                                    0. Passport Name,-->
+<!--                                    1. Chinese Name,-->
+<!--                                    2. English Name,-->
+<!--                                    3. Gender,-->
+<!--                                    4. Student Number,-->
+<!--                                    5. Nationality,-->
+<!--                                    6. Date of Birth,-->
+<!--                                    7. Phone Number,-->
+<!--                                    8. Mother's Name,-->
+<!--                                    9. Mother's Phone Number,-->
+<!--                                    10. Mother's Job Category,-->
+<!--                                    11. Mother's Job Title,-->
+<!--                                    12. Father's Name,-->
+<!--                                    13. Father's Phone Number,-->
+<!--                                    14. Father's Job Category,-->
+<!--                                    15. Father's Job Title-->
                                     <span style="color: #DD3444">
                                     *
                                 </span>

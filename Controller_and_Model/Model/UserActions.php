@@ -228,3 +228,28 @@ function FetchStudInfoByStudId($stud_id) {
     }
 }
 
+/**
+ * For a student to update his/her personal info.
+ * The personal info should be a comma-separated string.
+ *
+ * @param int $stud_id the student's id.
+ * @param string $personal_info The string that contains all the info.
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, empty array]
+ */
+function UpdateStudPersonalInfo($stud_id, $personal_info) {
+    $conn = createconn();
+    $stmt = $conn->prepare("update stud_info set personal_info = ? where id = ?");
+    $stmt->bind_param("si", $stmt_info, $stmt_id);
+    $stmt_info = $personal_info;
+    $stmt_id = $stud_id;
+    $stmt->execute();
+    $res = $stmt->affected_rows;
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else {
+        return [true, $res];
+    }
+}
+
