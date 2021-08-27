@@ -39,7 +39,7 @@
 }
 
 .student-crew-list{
-    display: none;
+    /*display: none;*/
 
 }
 .subjectT-student-list{
@@ -284,6 +284,8 @@
 .test-detail-mid{
     overflow: hidden;
     zoom: 1;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #EAEBEB;
 }
 .test-detail-mid-left{
     float: left;
@@ -291,6 +293,34 @@
 .test-detail-mid-right{
     float: right;
 }
+.test-detail-mid-box-small{
+    overflow: hidden;
+    zoom: 1;
+}
 .test-detail-mid-box-small-title{
     font-size: 15px;
+    float: left;
+    width: 120px;
+    margin: 10px 15px 0 0;
+}
+.test-detail-mid-box-small-des{
+    float: left;
+    margin: 10px 15px 0 0;
+}
+.test-detail-mid-box-big{
+    overflow: hidden;
+    zoom: 1;
+}
+.test-detail-mid-box-big-title{
+    float: left;
+    width: 120px;
+    margin: 10px 15px 0 0;
+
+}
+.test-detail-mid-box-big-des{
+    float: right;
+    margin: 10px 15px 0 0;
+}
+.subjectT-test-detail{
+    display: none;
 }

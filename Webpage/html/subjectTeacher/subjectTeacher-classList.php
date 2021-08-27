@@ -1015,7 +1015,7 @@
                                 Type
                             </div>
                             <div class="test-detail-mid-box-small-des str">
-
+                                Mid-term Examination
                             </div>
                         </div>
                         <div class="test-detail-mid-box-small">
@@ -1023,15 +1023,15 @@
                                 Due Date
                             </div>
                             <div class="test-detail-mid-box-small-des str">
-
+                                2019-02-26
                             </div>
                         </div>
                         <div class="test-detail-mid-box-small">
                             <div class="test-detail-mid-box-small-title stb">
-                                Score Out Off
+                                Score Out Of
                             </div>
-                            <div class="test-detail-mid-box-small-des str">
-
+                            <div class="test-detail-mid-box-small-des str" style="color: #DD3444">
+                                7
                             </div>
                         </div>
                     </div>
@@ -1041,7 +1041,7 @@
                                 Description
                             </div>
                             <div class="test-detail-mid-box-big-des str">
-
+                                BACABC
                             </div>
                         </div>
                         <div class="test-detail-mid-box-big">
@@ -1049,7 +1049,91 @@
                                 Comments
                             </div>
                             <div class="test-detail-mid-box-big-des str">
-
+                                QWEQWE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-table">
+                    <div class="right-table-title sts">
+                        <div class="right-table-title-title">
+                            Student
+                        </div>
+                        <div class="right-table-title-grade">
+                            Score
+                        </div>
+                        <div class="right-table-title-type">
+                            Date
+                        </div>
+                        <div class="right-table-title-date">
+                            Action
+                        </div>
+                    </div>
+                    <div class="right-table-content stb">
+                        <div class="right-table-content-row">
+                            <div class="right-table-content-title">
+                                Danny
+                            </div>
+                            <div class="right-table-content-grade">
+                                6
+                            </div>
+                            <div class="right-table-content-type">
+                                Exam
+                            </div>
+                            <div class="right-table-content-date">
+                                2019-09-22
+                            </div>
+                            <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="right-table-content-row">
+                            <div class="right-table-content-title">
+                                Danny
+                            </div>
+                            <div class="right-table-content-grade">
+                                6
+                            </div>
+                            <div class="right-table-content-type">
+                                Exam
+                            </div>
+                            <div class="right-table-content-date">
+                                2019-09-22
+                            </div>
+                            <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="right-table-content-row">
+                            <div class="right-table-content-title">
+                                Danny
+                            </div>
+                            <div class="right-table-content-grade">
+                                6
+                            </div>
+                            <div class="right-table-content-type">
+                                Exam
+                            </div>
+                            <div class="right-table-content-date">
+                                2019-09-22
+                            </div>
+                            <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
                             </div>
                         </div>
                     </div>

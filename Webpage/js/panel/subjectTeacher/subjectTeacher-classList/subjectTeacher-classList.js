@@ -18,6 +18,9 @@ $(document).ready(function () {
         }
     })
 
+    var contentWid = $('.test-detail-mid').width();
+    $('.test-detail-mid-box-big-des').width(contentWid/3);
+
     $('.right-box').click(function () {
         $(this).find("form").submit();
     })
@@ -123,6 +126,16 @@ $(document).ready(function () {
             noPermit_modification.find('.right-table-title-date').width(dateWid);
             noPermit_modification.find('.right-table-content-date').width(dateWid);
             noPermit_modification.find('.subjectT-studentScore-add-outer').remove();
+
+            var subjectT_test_detail = $('.subjectT-test-detail');
+            subjectT_test_detail.find('.right-table-title-title').width(titleWid);
+            subjectT_test_detail.find('.right-table-content-title').width(titleWid);
+            subjectT_test_detail.find('.right-table-title-grade').width(gradeWid);
+            subjectT_test_detail.find('.right-table-content-grade').width(gradeWid);
+            subjectT_test_detail.find('.right-table-title-type').width(typeWid);
+            subjectT_test_detail.find('.right-table-content-type').width(typeWid);
+            subjectT_test_detail.find('.right-table-title-date').width(dateWid);
+            subjectT_test_detail.find('.right-table-content-date').width(dateWid);
 
             var right_navi_item_last = $('.right-navi-item:last');
             var gapWidth = ($('.right-navi-item-right').position().left) - ((right_navi_item_last.position().left) + right_navi_item_last.width()) - 6;
