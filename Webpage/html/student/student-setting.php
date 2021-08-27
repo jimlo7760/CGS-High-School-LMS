@@ -1551,26 +1551,32 @@ END;
                             close
                         </span>
             </div>
-            <form method="post">
+            <form method="post" action="../../../Controller_and_Model/Controller/DeleteStrength.php">
                 <div class="edit-box-downer">
                     <!--                    require_once is required-->
                     <div class="class-adding-subtitle str">
                         Select Strength & Hobby
                     </div>
-                    <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="strength-select"
-                               value=$srength_id style="">
-                        <div class="class-adding-text str">
-                            $strength_name
-                        </div>
-                    </div>
-                    <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="strength-select"
-                               value=$strength_id style="">
-                        <div class="class-adding-text str">
-                            $strength_name
-                        </div>
-                    </div>
+                    <?php
+                    require_once "../../../Controller_and_Model/Model/UserActions.php";
+                    $tot_res = FetchStudInfoByStudId($_SESSION["id"]);
+                    $raw_strength = $tot_res[1][0][16];
+                    $strengths = explode(",", $raw_strength);
+                    $count = 0;
+                    foreach ($strengths as $strength) {
+                        $strength_details = explode("-", $strength);
+                        echo <<< END
+                            <div class="class-deleting-row">
+                                <input type="checkbox" class="class-adding-checkbox class-adding-img" name="strength-select"
+                                       value=$count style="">
+                                <div class="class-adding-text str">
+                                    $strength_details[0]
+                                </div>
+                            </div>
+END;
+                        $count = $count + 1;
+                    }
+                    ?>
                     <input type="submit" value="Delete" class="edit-box-red stb">
                 </div>
             </form>
