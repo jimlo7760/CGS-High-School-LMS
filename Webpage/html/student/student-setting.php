@@ -1838,7 +1838,7 @@ END;
                             close
                 </span>
             </div>
-            <form method="" action="">
+            <form method="post" action="../../../Controller_and_Model/Controller/SubmitNewExpectedCurr.php">
                 <div class="edit-box-downer">
                     <div class="edit-box-row">
                         <div class="edit-box-innerbox award-box-big str" style="width: 290px">
