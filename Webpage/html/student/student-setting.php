@@ -675,72 +675,56 @@ END;
                                 </div>
                             </div>
                             <div class="right-person-info-row-downer">
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        7
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Test Date
+                                <?php
+                                require_once "../../../Controller_and_Model/Model/LingScoreActions.php";
+                                $results = FetchStudLingScore($_SESSION["id"])[1];
+                                foreach ($results as $ling_score) {
+                                    $test_id = $ling_score[0];
+                                    $test_name = $ling_score[2];
+
+                                    $raw_score = $ling_score[3];
+                                    $scores = explode(",", $raw_score);
+                                    $listening = $scores[0];
+                                    $reading = $scores[1];
+                                    $writing = $scores[2];
+                                    $speaking = $scores[3];
+
+                                    $overall = $ling_score[4];
+                                    $reflection = $ling_score[5];
+                                    $test_date = $ling_score[6];
+                                    $status = $ling_score[9];
+
+                                    if ($status == 1) {
+                                        echo <<< END
+                                            <div class="right-person-info-row-box">
+                                                <div class="right-person-info-row-box-title stm">
+                                                    $overall
+                                                </div>
+                                                <div class="right-person-info-row-box-right">
+                                                    <div class="right-person-info-row-box-text">
+                                                        <div class="right-person-info-row-box-subtitle str">
+                                                            Test Date
+                                                        </div>
+                                                        <div class="right-person-info-row-box-des stm">
+                                                            $test_date
+                                                        </div>
+                                                    </div>
+                                                    <i class="material-icons right-person-info-row-box-img">
+                                                        chevron_right
+                                                    </i>
+                                                </div>
+                                                <input type="hidden" class="language-type" value="$test_name">
+                                                <input type="hidden" class="language-listening" value="$listening">
+                                                <input type="hidden" class="language-reading" value="$reading">
+                                                <input type="hidden" class="language-speaking" value="$speaking">
+                                                <input type="hidden" class="language-writing" value="$writing">
+                                                <input type="hidden" class="language-reflect" value="$reflection">
                                             </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                2020-01-01
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                    <input type="hidden" class="language-type" value="IELTS">
-                                    <input type="hidden" class="language-listening" value="8">
-                                    <input type="hidden" class="language-reading" value="7">
-                                    <input type="hidden" class="language-speaking" value="6.5">
-                                    <input type="hidden" class="language-writing" value="7">
-                                    <input type="hidden" class="language-reflect" value="I love this test">
-                                </div>
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        100
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Test Date
-                                            </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                2020-02-01
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                    <input type="hidden" class="language-type" value="TOEFL">
-                                    <input type="hidden" class="language-listening" value="28">
-                                    <input type="hidden" class="language-reading" value="27">
-                                    <input type="hidden" class="language-speaking" value="22">
-                                    <input type="hidden" class="language-writing" value="23">
-                                    <input type="hidden" class="language-reflect" value="I don't like this test">
-                                </div>
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        8.0
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Test Date
-                                            </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                2020-03-01
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                </div>
+END;
+                                    }
+                                }
+                                ?>
+
                             </div>
                         </div>
                         <div class="right-person-info-row">
@@ -1915,7 +1899,7 @@ END;
                             close
                 </span>
             </div>
-            <form method="get" action="#">
+            <form method="post" action="../../../Controller_and_Model/Controller/SubmitNewLingScore.php">
                 <div class="edit-box-downer">
                     <div class="edit-box-row">
                         <div class="edit-box-innerbox language-box-half str">
@@ -1983,7 +1967,7 @@ END;
                         <div class="edit-box-innerbox-title">
                             Test Date
                         </div>
-                        <input type="date" class="edit-box-innerbox-input" name="language_test_date">
+                        <input type="date" class="edit-box-innerbox-input" name="language-test-date">
                     </div>
                     <input type="submit" class="edit-box-green stb" value="Add">
                 </div>
