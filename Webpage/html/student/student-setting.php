@@ -686,13 +686,15 @@ END;
                                 foreach ($results as $ling_score) {
                                     $test_id = $ling_score[0];
                                     $test_name = $ling_score[2];
+                                    if (strcmp($test_name, "DUOLINGUAL")) {
+                                        $raw_score = $ling_score[3];
+                                        $scores = explode(",", $raw_score);
+                                        $listening = $scores[0];
+                                        $reading = $scores[1];
+                                        $writing = $scores[2];
+                                        $speaking = $scores[3];
+                                    }
 
-                                    $raw_score = $ling_score[3];
-                                    $scores = explode(",", $raw_score);
-                                    $listening = $scores[0];
-                                    $reading = $scores[1];
-                                    $writing = $scores[2];
-                                    $speaking = $scores[3];
 
                                     $overall = $ling_score[4];
                                     $reflection = $ling_score[5];
@@ -2031,7 +2033,7 @@ END;
                             close
                 </span>
             </div>
-            <form method="" action="">
+            <form method="post" action="../../../Controller_and_Model/Controller/ModifyLingScore.php">
                 <div class="edit-box-downer">
                     <div class="edit-box-row">
                         <div class="edit-box-innerbox language-box-half str">
@@ -2099,7 +2101,7 @@ END;
                         <div class="edit-box-innerbox-title">
                             Test Date
                         </div>
-                        <input type="date" class="edit-box-innerbox-input" name="language_test_date">
+                        <input type="date" class="edit-box-innerbox-input" name="language-test-date">
                     </div>
                     <input type="hidden" class="language-id" name="language-id" value="">
                     <input type="submit" class="edit-box-green stb" value="Save">
