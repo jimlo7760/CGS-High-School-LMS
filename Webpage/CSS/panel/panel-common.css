@@ -482,7 +482,7 @@
     background-color: white;
     padding: 30px;
     border-radius: 10px;
-    /*display: none;*/
+    display: none;
 }
 
 .share-box-title {

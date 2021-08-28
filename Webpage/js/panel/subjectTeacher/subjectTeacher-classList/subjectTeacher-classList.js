@@ -127,7 +127,7 @@ $(document).ready(function () {
             noPermit_modification.find('.right-table-content-date').width(dateWid);
             noPermit_modification.find('.subjectT-studentScore-add-outer').remove();
 
-            var subjectT_test_detail = $('.subjectT-test-detail');
+            var subjectT_test_detail = $('.subjectT-test-detail');      //table: in test-detail
             subjectT_test_detail.find('.right-table-title-title').width(titleWid);
             subjectT_test_detail.find('.right-table-content-title').width(titleWid);
             subjectT_test_detail.find('.right-table-title-grade').width(gradeWid);
@@ -248,6 +248,14 @@ $(document).ready(function () {
         });
         grey_bg.fadeIn();
         $('.subjectT-addTest-box').fadeIn();
+    })
+
+    $('.right-table-content-title').click(function (){
+        if(subjectT_studentScore.css('display') == 'block'){
+            subjectT_studentScore.fadeOut('fast');
+            var subjectT_test_detail = $('.subjectT-test-detail');
+
+        }
     })
 })
 

@@ -18,7 +18,6 @@ $(document).ready(function () {
     var right_person_info_row_box = $('.right-person-info-row-box');
     right_person_info_row_box.outerWidth(boxWidth);
     $('.strength-box-inside').outerWidth(boxWidth);
-    var language_box_row_last = $('.language-box-row:last');
 
     languageTestIelts($('.language-box-add'));
 
@@ -532,14 +531,21 @@ $(document).ready(function () {
             language_box_edit.find('.language-id').val(languageId);
             var languageType = $(this).find('.language-type').val();
             if(languageType == 'TOEFL'){
+                language_box_edit.find('.edit-box-innerbox-select').val('TOEFL')
                 languageTestToefl(language_box_edit);
             }else if(languageType == 'IELTS'){
+                language_box_edit.find('.edit-box-innerbox-select').val('IELTS')
                 languageTestIelts(language_box_edit);
             }else if(languageType == 'DUOLINGUAL'){
+                language_box_edit.find('.edit-box-innerbox-select').val('DUOLINGUAL')
                 languageTestDuo(language_box_edit);
             }
-            language_box_edit.find('.edit-box-innerbox-select').eq(0).find('option:contains("' + languageType + '")').attr("selected", true);
+
             language_box_edit.find('.edit-box-innerbox-select').eq(1).find('option:contains("' + boxName + '")').attr("selected", true);
+            var testReflect = $(this).find('.language-reflect').val()
+            var testDate = $(this).find('.right-person-info-row-box-des').text().trim();
+            language_box_edit.find('.edit-box-innerbox-input').eq(0).val(testReflect);
+            language_box_edit.find('.edit-box-innerbox-input').eq(1).val(testDate);
             if(languageType == 'IELTS' || languageType == 'TOEFL'){
                 var listeningScore = $(this).find('.language-listening').val();
                 var readingScore = $(this).find('.language-reading').val();
@@ -591,12 +597,19 @@ $(document).ready(function () {
     $('select[name="language-test-type"]').change(function (){
         var testType=$(this).children('option:selected').val();
         var language_box_add = $('.language-box-add')
+        var language_box_edit = $('.language-box-edit');
+        var currentLanguageBox;
+        if(language_box_edit.css('display') == 'block'){
+            currentLanguageBox = language_box_edit;
+        }else if(language_box_add.css('display') == 'block'){
+            currentLanguageBox = language_box_add;
+        }
         if(testType == 'IELTS'){
-            languageTestIelts(language_box_add);
+            languageTestIelts(currentLanguageBox);
         }else if(testType == 'TOEFL'){
-            languageTestToefl(language_box_add);
+            languageTestToefl(currentLanguageBox);
         }else if(testType == 'DUOLINGUAL'){
-            languageTestDuo(language_box_add);
+            languageTestDuo(currentLanguageBox);
         }
     })
 
@@ -607,10 +620,12 @@ $(document).ready(function () {
             overallScoreContent += "<option>" + i + "</option>";
         }
         shareBoxSelector.find('.edit-box-innerbox-select').eq(1).html(overallScoreContent);
+        console.log(shareBoxSelector.find('.edit-box-innerbox-select').eq(1))
         var separateScoreContent = "";
         for(var i=30; i>=0; i--){
             separateScoreContent += "<option>" + i + "</option>";
         }
+        var language_box_row_last = shareBoxSelector.find('.edit-box-row:last');
         if(language_box_row_last.css('display') == 'none'){
             language_box_row_last.css('display', 'block');
         }
@@ -622,6 +637,7 @@ $(document).ready(function () {
         for(var i=9.0; i>=3; i-=0.5){
             scoreContent += "<option>" + i + "</option>";
         }
+        var language_box_row_last = shareBoxSelector.find('.edit-box-row:last');
         if(language_box_row_last.css('display') == 'none'){
             language_box_row_last.css('display', 'block');
         }
@@ -636,6 +652,7 @@ $(document).ready(function () {
             scoreContent += "<option>" + i + "</option>";
         }
         shareBoxSelector.find('.edit-box-innerbox-select').eq(1).html(scoreContent);
+        var language_box_row_last = shareBoxSelector.find('.edit-box-row:last');
         language_box_row_last.css('display', 'none');
     }
 

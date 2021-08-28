@@ -502,6 +502,7 @@ END;
                                 $raw_award_info = $tot_res[1];
                                 $award_length = count($tot_res[1]);
                                 foreach ($raw_award_info as $award_info) {
+                                    $award_id = $award_info[0];
                                     $award_name = $award_info[2];
                                     $award_time = $award_info[3];
                                     if ($award_info[6] == 1) {
@@ -523,6 +524,7 @@ END;
                                                         chevron_right
                                                     </i>
                                                 </div>
+                                                <input type="hidden" class="award-box-id" value="$award_id">
                                             </div>
 END;
                                     }
@@ -559,6 +561,7 @@ END;
 
                                 $tot_res = FetchStudUniv($_SESSION["id"]);
                                 foreach ($tot_res as $univ_info) {
+                                    $univ_id = $univ_info[0];
                                     $univ_name = $univ_info[2];
                                     $univ_major = $univ_info[3];
                                     if ($univ_info[6] == 1) {
@@ -580,6 +583,7 @@ END;
                                                     chevron_right
                                                 </i>
                                             </div>
+                                            <input type="hidden" class="univ-box-id" value="$univ_id">
                                         </div>
 END;
                                     }
@@ -643,6 +647,7 @@ END;
                                                         chevron_right
                                                     </i>
                                                 </div>
+                                                <input type="hidden" class="expected-box-id" value="$course_id">
                                             </div>
 END;
                                     }
@@ -719,6 +724,7 @@ END;
                                                 <input type="hidden" class="language-speaking" value="$speaking">
                                                 <input type="hidden" class="language-writing" value="$writing">
                                                 <input type="hidden" class="language-reflect" value="$reflection">
+                                                <input type="hidden" class="language-box-id" value="$test_id">
                                             </div>
 END;
                                     }
@@ -1504,7 +1510,7 @@ END;
                     foreach ($strengths as $strength) {
                         $strength_details = explode("-", $strength);
                         echo <<< END
-                            <div class="class-deleting-row">
+                            <div class="class-deleting-row share-box-fully-select">
                                 <input type="checkbox" class="class-adding-checkbox class-adding-img" name="strength-select"
                                        value=$count style="">
                                 <div class="class-adding-text str">
@@ -1582,7 +1588,7 @@ END;
                     foreach ($awards as $award) {
                         if ($award[6] == 1)
                         echo <<< END
-                            <div class="class-deleting-row">
+                            <div class="class-deleting-row share-box-fully-select">
                                 <input type="checkbox" class="class-adding-checkbox class-adding-img" name="award-delete"
                                        value=$award[0] style="">
                                 <div class="class-adding-text str">
@@ -1653,6 +1659,7 @@ END;
                             <input type="date" class="edit-box-innerbox-input str" name="award-year">
                         </div>
                     </div>
+                    <input type="hidden" value="" name="award-id" class="award-id">
                     <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
                     <input type="submit" class="edit-box-green stb" value="Save Awards & Prizes">
                 </div>
@@ -1712,7 +1719,7 @@ END;
                         $status = $univ[6];
                         if ($status == 1) {
                             echo <<< END
-                                <div class="class-deleting-row">
+                                <div class="class-deleting-row share-box-fully-select">
                                     <input type="checkbox" class="class-adding-checkbox class-adding-img" name="goal-univ"
                                            value=$univ_id style="">
                                     <div class="class-adding-text str">
@@ -1754,6 +1761,7 @@ END;
                             <input type="text" class="edit-box-innerbox-input str" name="university-major">
                         </div>
                     </div>
+                    <input type="hidden" class="univ-id" value="" name="univ-id">
                     <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
                     <input class="edit-box-green stb" type="submit" value="Save">
                 </div>
@@ -1828,12 +1836,13 @@ END;
                         $status = $expected_curr[6];
                         if ($status == 1) {
                             echo <<< END
-                            <div class="class-deleting-row">
+                            <div class="class-deleting-row share-box-fully-select">
                                 <input type="checkbox" class="class-adding-checkbox class-adding-img" name="dp-course-select"
                                        value=$course_id style="">
                                 <div class="class-adding-text str">
                                     $course_name
                                 </div>
+                                <input type="hidden" class="expected-box-id" value="">
                             </div>
 END;
                         }
@@ -1884,6 +1893,7 @@ END;
                             </select>
                         </div>
                     </div>
+                    <input type="hidden" value="" name="course-id" class="dp-id">
                     <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
                     <input type="submit" class="edit-box-green stb" value="Save">
                 </div>
@@ -1996,7 +2006,7 @@ END;
                         $status = $ling_score[9];
                         if ($status == 1) {
                             echo <<< END
-                                <div class="class-deleting-row">
+                                <div class="class-deleting-row share-box-fully-select">
                                     <input type="checkbox" class="class-adding-checkbox class-adding-img"
                                            name="linguistic-score-select"
                                            value=$test_id style="">
@@ -2091,6 +2101,7 @@ END;
                         </div>
                         <input type="date" class="edit-box-innerbox-input" name="language_test_date">
                     </div>
+                    <input type="hidden" class="language-id" name="language-id" value="">
                     <input type="submit" class="edit-box-green stb" value="Save">
                 </div>
             </form>
