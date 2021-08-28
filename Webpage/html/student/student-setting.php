@@ -2309,7 +2309,7 @@ END;
                             close
                 </span>
             </div>
-            <form method="get" action="../../../Controller_and_Model/Controller/SubmitClassExchangeApplication.php">
+            <form method="post" action="../../../Controller_and_Model/Controller/SubmitNewAddRequest.php">
                 <div class="edit-box-downer">
                     <div class="class-adding-subtitle str">
                         Select Courses
