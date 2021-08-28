@@ -611,96 +611,41 @@ END;
                                 </div>
                             </div>
                             <div class="right-person-info-row-downer profile-row-downer">
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        Chinese
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Course Level
+                                <?php
+                                require_once "../../../Controller_and_Model/Model/ExpectedCurrActions.php";
+                                $expected_currs = FetchStudExpectedCurr($_SESSION["id"])[1];
+                                foreach ($expected_currs as $expected_curr) {
+                                    $course_id = $expected_curr[0];
+                                    $course_name = $expected_curr[2];
+                                    $raw_course_level = $expected_curr[3];
+                                    $course_level = "SL";
+                                    if (!strcmp($raw_course_level, "1")) {
+                                        $course_level = "HL";
+                                    }
+
+                                    echo <<< END
+                                        <div class="right-person-info-row-box">
+                                            <div class="right-person-info-row-box-title stm">
+                                                $course_name
                                             </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                SL
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                </div>
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        English
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Course Level
-                                            </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                SL
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                </div>
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        Mathematics: Analysis and Approach
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Course Level
-                                            </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                HL
+                                            <div class="right-person-info-row-box-right">
+                                                <div class="right-person-info-row-box-text">
+                                                    <div class="right-person-info-row-box-subtitle str">
+                                                        Course Level
+                                                    </div>
+                                                    <div class="right-person-info-row-box-des stm">
+                                                        $course_level
+                                                    </div>
+                                                </div>
+                                                <i class="material-icons right-person-info-row-box-img">
+                                                    chevron_right
+                                                </i>
                                             </div>
                                         </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                </div>
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        Computer Science
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Course Level
-                                            </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                HL
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                </div>
-                                <div class="right-person-info-row-box">
-                                    <div class="right-person-info-row-box-title stm">
-                                        Physics
-                                    </div>
-                                    <div class="right-person-info-row-box-right">
-                                        <div class="right-person-info-row-box-text">
-                                            <div class="right-person-info-row-box-subtitle str">
-                                                Course Level
-                                            </div>
-                                            <div class="right-person-info-row-box-des stm">
-                                                SL
-                                            </div>
-                                        </div>
-                                        <i class="material-icons right-person-info-row-box-img">
-                                            chevron_right
-                                        </i>
-                                    </div>
-                                </div>
+END;
+
+                                }
+                                ?>
 
                             </div>
                         </div>
