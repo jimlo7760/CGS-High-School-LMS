@@ -51,12 +51,15 @@ function InsertNewUniv($univ_name, $major, $stud_id) {
  * @author Binghe Yi
  */
 
-function UpdateStudUniv($univ_name, $stud_id)
-{
+function UpdateStudUnivDetail($univ_name, $univ_id, $major, $stud_id) {
     $conn = createconn();
-    $stmt = $conn->prepare('update stud_univ set $univ_name = ?, update_time = ? where stud_id = ?');
-    $stmt->bind_param('ssi',  $updateUnivName, $updateUpdateTime, $updateStudId);
+    $stmt = $conn->prepare('update stud_univ set univ_name = ?, major = ?, update_time = ? 
+                           where stud_id = ? and id = ?');
+    $stmt->bind_param('sssii',  $updateUnivName, $updateMajor, $updateUpdateTime, $updateStudId,
+                      $updateId);
     $updateUnivName = $univ_name;
+    $updateMajor = $major;
+    $updateId = $univ_id;
     $updateUpdateTime = date('Y-m-d H:i:s');
     $updateStudId = $stud_id;
     $stmt->execute();
