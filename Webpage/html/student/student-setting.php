@@ -1823,7 +1823,7 @@ END;
                             <input type="text" class="edit-box-innerbox-input str" name="university-major">
                         </div>
                     </div>
-                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="sutd_id">
+                    <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="stud_id">
                     <input class="edit-box-green stb" type="submit" value="Save">
                 </div>
             </form>
@@ -1916,7 +1916,7 @@ END;
                             close
                 </span>
             </div>
-            <form method="" action="">
+            <form method="get" action="#">
                 <div class="edit-box-downer">
                     <div class="edit-box-row">
                         <div class="edit-box-innerbox award-box-big str" style="width: 290px">
@@ -1963,7 +1963,7 @@ END;
                             close
                 </span>
             </div>
-            <form method="" action="">
+            <form method="get" action="#">
                 <div class="edit-box-downer">
                     <div class="edit-box-row">
                         <div class="edit-box-innerbox language-box-half str">
