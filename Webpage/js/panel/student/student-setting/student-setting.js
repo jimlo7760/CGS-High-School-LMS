@@ -125,8 +125,8 @@ $(document).ready(function () {
         $(this).animate({
             borderBottomColor: '#1BA2B9'
         });
-        if (grey_bg.is(":hidden")) {
-            $(".right-profile-whole").delay('fast').fadeIn('fast');
+        if (right_profile_whole.is(":hidden")) {
+            right_profile_whole.delay('fast').fadeIn('fast');
         }
         $('.navi-class').animate({
             borderBottomColor: '#EAEBEB'

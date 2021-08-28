@@ -647,7 +647,7 @@ END;
                                                         chevron_right
                                                     </i>
                                                 </div>
-                                                <input type="hidden" class="expected-box-id" value="$course_id">
+                                                <input type="hidden" class="dp-box-id" value="$course_id">
                                             </div>
 END;
                                     }
@@ -2310,26 +2310,28 @@ END;
                 </div>
             </div>
             <div class="edit-box-downer swap-class-confirm">
-                <div class="class-adding-subtitle str">
-                    Swap this class
-                </div>
-                <div class="class-swapping-row share-box-fully-select swap-origin-display stb">
-                    AAA
-                </div>
-                <div class="class-adding-subtitle str">
-                    With this class
-                </div>
-                <div class="class-swapping-row share-box-fully-select swap-target-display stb">
-                    BBB
-                </div>
-                <input class="student-id" hidden="true" value="<?php
-                echo $_SESSION['id'];
-                ?>">
-                <div class="share-box-button-row">
-                    <input type="submit" value="Next" class="edit-box-blue share-box-double-button stb">
-                    <input type="button" value="Back" name="tirSwpBck"
-                           class="edit-box-white share-box-double-button stb">
-                </div>
+                <form method="" action="">
+                    <div class="class-adding-subtitle str">
+                        Swap this class
+                    </div>
+                    <div class="class-swapping-row share-box-fully-select swap-origin-display stb">
+                        AAA
+                    </div>
+                    <div class="class-adding-subtitle str">
+                        With this class
+                    </div>
+                    <div class="class-swapping-row share-box-fully-select swap-target-display stb">
+                        BBB
+                    </div>
+                    <input class="student-id" hidden="true" value="<?php
+                    echo $_SESSION['id'];
+                    ?>">
+                    <div class="share-box-button-row">
+                        <input type="submit" value="Submit" class="edit-box-blue share-box-double-button stb">
+                        <input type="button" value="Back" name="tirSwpBck"
+                               class="edit-box-white share-box-double-button stb">
+                    </div>
+                </form>
             </div>
         </div>
         <div class="share-box class-adding-box">
