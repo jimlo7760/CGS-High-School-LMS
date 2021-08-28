@@ -1642,7 +1642,7 @@ END;
                             close
                         </span>
             </div>
-            <form action="#" method="get">
+            <form action="../../../Controller_and_Model/Controller/ModifyAward.php" method="post">
                 <div class="edit-box-downer">
                     <div class="award-box-row">
                         <div class="edit-box-innerbox award-box-big str">

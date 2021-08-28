@@ -180,7 +180,7 @@ function UpdateStudAwardByStudId($stud_id, $award_id, $audit_res) {
 function UpdateStudAwardDetail(int $stud_id, int $award_id, string $award_name, string $comp_time) {
     $conn = createconn();
     $stmt = $conn->prepare("update stud_award set award_name = ?, comp_time = ?
-                           where stud_id = ? and award_id = ?");
+                           where stud_id = ? and id = ?");
     $stmt->bind_param("ssii", $stmt_award_name, $stmt_comp_time, $stmt_stud_id, $stmt_award_id);
     $stmt_award_name = $award_name;
     $stmt_stud_id = $stud_id;
