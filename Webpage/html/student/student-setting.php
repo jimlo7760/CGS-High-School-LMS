@@ -695,7 +695,6 @@ END;
                                         $speaking = $scores[3];
                                     }
 
-
                                     $overall = $ling_score[4];
                                     $reflection = $ling_score[5];
                                     $test_date = $ling_score[6];
