@@ -1982,28 +1982,32 @@ END;
                             close
                         </span>
             </div>
-            <form method="post">
+            <form method="post" action="../../../Controller_and_Model/Controller/DeleteLingScore.php">
                 <div class="edit-box-downer">
-                    <!--                    require_once is required-->
                     <div class="class-adding-subtitle str">
                         Select Linguistic Score
                     </div>
-                    <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img"
-                               name="linguistic-score-select"
-                               value=$linguistic_score_id style="">
-                        <div class="class-adding-text str">
-                            $linguistic_score_name
-                        </div>
-                    </div>
-                    <div class="class-deleting-row">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img"
-                               name="linguistic-score-select"
-                               value=$linguistic_score_id style="">
-                        <div class="class-adding-text str">
-                            $linguistic_score_name
-                        </div>
-                    </div>
+                    <?php
+                    require_once "../../../Controller_and_Model/Model/LingScoreActions.php";
+                    $results = FetchStudLingScore($_SESSION["id"])[1];
+                    foreach ($results as $ling_score) {
+                        $test_id = $ling_score[0];
+                        $test_name = $ling_score[2];
+                        $status = $ling_score[9];
+                        if ($status == 1) {
+                            echo <<< END
+                                <div class="class-deleting-row">
+                                    <input type="checkbox" class="class-adding-checkbox class-adding-img"
+                                           name="linguistic-score-select"
+                                           value=$test_id style="">
+                                    <div class="class-adding-text str">
+                                        $test_name
+                                    </div>
+                                </div>
+END;
+                        }
+                    }
+                    ?>
                     <input type="submit" value="Delete" class="edit-box-red stb">
                 </div>
             </form>
