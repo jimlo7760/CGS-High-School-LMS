@@ -95,6 +95,7 @@ function UpdateExpectedCourseStatus(int $stud_id, int $course_id, int $status) {
     $stmt_status = $status;
     $stmt_stud_id = $stud_id;
     $stmt_id = $course_id;
+    $stmt->execute();
     $res = $stmt->affected_rows;
     $stmt->close();
     $conn->close();
