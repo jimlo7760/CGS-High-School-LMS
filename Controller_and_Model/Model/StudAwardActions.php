@@ -166,12 +166,42 @@ function UpdateStudAwardByStudId($stud_id, $award_id, $audit_res) {
     }
 }
 
+/**
+ * Update the detail of an award entry.
+ *
+ * @param int $stud_id student's id
+ * @param int $award_id the award's id
+ * @param string $award_name the name of the award
+ * @param string $comp_time time of receiving the award.
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
+ *
+ * @author Yiming Su
+ */
+function UpdateStudAwardDetail(int $stud_id, int $award_id, string $award_name, string $comp_time) {
+    $conn = createconn();
+    $stmt = $conn->prepare("update stud_award set award_name = ?, comp_time = ?
+                           where stud_id = ? and award_id = ?");
+    $stmt->bind_param("ssii", $stmt_award_name, $stmt_comp_time, $stmt_stud_id, $stmt_award_id);
+    $stmt_award_name = $award_name;
+    $stmt_stud_id = $stud_id;
+    $stmt_award_id = $award_id;
+    $stmt_comp_time = $comp_time;
+    $stmt->execute();
+    $res = $stmt->affected_rows;
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
+    } else if ($res == 1) {
+        return [true, $res];
+    }
+}
+
 
 /**
  * Inserting new award entry into stud_award table.
  *
  * @param int $stud_id Student id.
- * @param int $comp_name Name of the competition
  * @param string $award_name Title of the award.
  * @param int $comp_time Time when the award is awarded.
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]

@@ -1705,7 +1705,7 @@ END;
                             close
                         </span>
             </div>
-            <form action="" method="">
+            <form action="#" method="get">
                 <div class="edit-box-downer">
                     <div class="award-box-row">
                         <div class="edit-box-innerbox award-box-big str">
