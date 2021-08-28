@@ -42,16 +42,13 @@ function FetchStudExpectedCurr(int $stud_id) {
     $stmt->bind_param("i", $stmt_stud_id);
     $stmt_stud_id = $stud_id;
     $stmt->execute();
-    $result = $stmt->get_result()->fetch_all();
-    if ($result > 0) {
-        $stmt->close();
-        $conn->close();
-        return $result;
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+    if (!$res) {
+        return [false, $res];
     } else {
-        $error = $stmt->error;
-        $stmt->close();
-        $conn->close();
-        return $error;
+        return [true, $res];
     }
 }
 

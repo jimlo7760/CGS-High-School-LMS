@@ -7,7 +7,7 @@ if ((isset($_POST["dp-course-title"]) && $_POST["dp-course-title"] != NULL) &&
     $title = get_post("dp-course-title");
     $raw_level = get_post("dp-course-level");
     $level = 0;
-    if (strcmp($raw_level, "HL")) {
+    if (!strcmp($raw_level, "HL")) {
         $level = 1;
     }
     $tot_res = InsertNewExpectedCourse($_SESSION["id"], $title, $level);
