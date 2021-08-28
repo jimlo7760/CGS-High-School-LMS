@@ -36,7 +36,7 @@ function InsertNewExpectedCourse(int $stud_id, string $course_name, int $level) 
  * @param int $stud_id the student's id.
  * @return mixed|string If successfully executed: [True, select results] <br> If not: [False, empty array]
  */
-function FetchStudExpectedCurr(int $stud_id) {
+function FetchStudExpectedCurrByStudId(int $stud_id) {
     $conn = createconn();
     $stmt = $conn->prepare("select * from expected_curr where stud_id = ?");
     $stmt->bind_param("i", $stmt_stud_id);

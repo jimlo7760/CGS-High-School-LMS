@@ -45,7 +45,7 @@ function InsertNewLingScore(int $stud_id, string $test_name, string $test_score,
  * @param int $stud_id student's id.
  * @return array If successfully executed: [True, select results] <br> If not: [False, empty array]
  */
-function FetchStudLingScore(int $stud_id) {
+function FetchStudLingScoreByStudId(int $stud_id) {
     $conn = createconn();
     $stmt = $conn->prepare("select * from ling_score where stud_id = ?");
     $stmt->bind_param("i", $stmt_stud_id);

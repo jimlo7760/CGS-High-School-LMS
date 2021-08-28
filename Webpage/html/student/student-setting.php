@@ -617,7 +617,7 @@ END;
                             <div class="right-person-info-row-downer profile-row-downer">
                                 <?php
                                 require_once "../../../Controller_and_Model/Model/ExpectedCurrActions.php";
-                                $expected_currs = FetchStudExpectedCurr($_SESSION["id"])[1];
+                                $expected_currs = FetchStudExpectedCurrByStudId($_SESSION["id"])[1];
                                 foreach ($expected_currs as $expected_curr) {
                                     $course_id = $expected_curr[0];
                                     $course_name = $expected_curr[2];
@@ -682,7 +682,7 @@ END;
                             <div class="right-person-info-row-downer">
                                 <?php
                                 require_once "../../../Controller_and_Model/Model/LingScoreActions.php";
-                                $results = FetchStudLingScore($_SESSION["id"])[1];
+                                $results = FetchStudLingScoreByStudId($_SESSION["id"])[1];
                                 foreach ($results as $ling_score) {
                                     $test_id = $ling_score[0];
                                     $test_name = $ling_score[2];
@@ -874,6 +874,7 @@ EOD;
                             <?php
                             require_once "../../../Controller_and_Model/Model/SwapSubjAppActions.php";
                             require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
+                            require_once "../../../Controller_and_Model/Model/AddDropSubjApplicationActions.php";
                             $i = 0;
                             foreach ($_SESSION["swap_app_ids"] as $swap_app_id) {
                                 $swap_app_info = FetchSwapSubjAppById($swap_app_id)[1][0];
@@ -900,49 +901,48 @@ EOD;
 
                                 if ($status == "0") {
                                     echo <<< END
-                            <div class="right-class-process-row pending-row">
-                                <div class="right-class-process-left">
-                                    <div class="right-class-process-box">
-                                        <div class="right-class-process-box-title str">
-                                            Added Classes
+                                        <div class="right-class-process-row pending-row">
+                                            <div class="right-class-process-left">
+                                                <div class="right-class-process-box">
+                                                    <div class="right-class-process-box-title str">
+                                                        Added Classes
+                                                    </div>
+                                                    <div class="right-class-process-box-content stm">
+                                                        $orig_class_name, $target_class_name
+                                                    </div>
+                                                    <div style="display: none">
+                                                            $orig_class_name
+                                                    </div>
+                                                    <div style="display: none">
+                                                            $target_class_name
+                                                    </div>
+                                                </div>
+                                                <div class="right-class-process-box">
+                                                    <div class="right-class-process-box-title str">
+                                                        Submit Date
+                                                    </div>
+                                                    <div class="right-class-process-box-content stm">
+                                                        $create_time
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="right-class-process-right">
+                                                <div class="right-class-process-box">
+                                                    <div class="right-class-process-box-title str" style="text-align:right">
+                                                        Status
+                                                    </div>
+                                                    <div class="right-class-process-box-content stm" style="color: #FFC103">
+                                                        Pending
+                                                    </div>
+                                                </div>
+                                                <i class="material-icons right-class-process-right-box-img" style="color: #343A3E;">
+                                                    chevron_right
+                                                </i>
+                                            </div>
                                         </div>
-                                        <div class="right-class-process-box-content stm">
-                                            $orig_class_name, $target_class_name
-                                        </div>
-                                        <div style="display: none">
-                                                $orig_class_name
-                                        </div>
-                                        <div style="display: none">
-                                                $target_class_name
-                                        </div>
-                                    </div>
-                                    <div class="right-class-process-box">
-                                        <div class="right-class-process-box-title str">
-                                            Submit Date
-                                        </div>
-                                        <div class="right-class-process-box-content stm">
-                                            $create_time
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="right-class-process-right">
-                                    <div class="right-class-process-box">
-                                        <div class="right-class-process-box-title str" style="text-align:right">
-                                            Status
-                                        </div>
-                                        <div class="right-class-process-box-content stm" style="color: #FFC103">
-                                            Pending
-                                        </div>
-                                    </div>
-                                    <i class="material-icons right-class-process-right-box-img" style="color: #343A3E;">
-                                        chevron_right
-                                    </i>
-                                </div>
-                            </div>
-                            <input type="hidden" class="pending-row-status" value="">
+                                        <input type="hidden" class="pending-row-status" value="$status">
 <!--echo the status here-->
 END;
-
                                 } else if ($status == "1") {
                                     echo <<< END
                             <div class="right-class-process-row aprove-row">
@@ -1035,6 +1035,10 @@ END;
                                 }
                             }
                             $_SESSION["swap_app_info"] = FetchSwapSubjAppByStudId($_SESSION["id"]);
+                            $_SESSION["add_drop_app_info"] = FetchStudAddDropAppByStudId($_SESSION["id"]);
+                            $add_drop_app_info = FetchStudAddDropAppByStudId($_SESSION["id"]);
+
+
                             ?>
                         </div>
                     </div>
@@ -1830,7 +1834,7 @@ END;
                     </div>
                     <?php
                     require_once "../../../Controller_and_Model/Model/ExpectedCurrActions.php";
-                    $expected_currs = FetchStudExpectedCurr($_SESSION["id"])[1];
+                    $expected_currs = FetchStudExpectedCurrByStudId($_SESSION["id"])[1];
                     foreach ($expected_currs as $expected_curr) {
                         $course_id = $expected_curr[0];
                         $course_name = $expected_curr[2];
@@ -2000,7 +2004,7 @@ END;
                     </div>
                     <?php
                     require_once "../../../Controller_and_Model/Model/LingScoreActions.php";
-                    $results = FetchStudLingScore($_SESSION["id"])[1];
+                    $results = FetchStudLingScoreByStudId($_SESSION["id"])[1];
                     foreach ($results as $ling_score) {
                         $test_id = $ling_score[0];
                         $test_name = $ling_score[2];
@@ -2263,6 +2267,34 @@ END;
                 <div class="class-adding-subtitle str">
                     With this class
                 </div>
+                <?php
+                require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
+                require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+
+                $tot_res = FetchAllStudIdAndSubjectClasses();
+                if ($tot_res[0]) {
+                    $tot_res = $tot_res[1];
+                }
+                foreach ($tot_res as $subj_class_info) {
+                    $subj_class_id = $subj_class_info[0];
+                    $subj_id = $subj_class_info[2];
+                    $subj_info = FetchSubjById($subj_id);
+                    if ($subj_info[0]) {
+                        $subj_info = $subj_info[1][0];
+                        $subj_id = $subj_info[0];
+                        $subj_name = $subj_info[1];
+                        echo <<< END
+                                <div class="class-swapping-row share-box-fully-select">
+                                    <input type="checkbox" class="class-adding-checkbox class-adding-img" name="swap-target"
+                                           value=$subj_class_id style="">
+                                    <div class="class-adding-text str">
+                                        $subj_name
+                                    </div>
+                                </div>
+                            END;
+                    }
+                }
+                ?>
                 <div class="class-swapping-row share-box-fully-select">
                     <input type="checkbox" class="class-adding-checkbox class-adding-img" name="swap-target"
                            value=$subj_class_id style="">
@@ -2309,7 +2341,7 @@ END;
                             close
                 </span>
             </div>
-            <form method="post" action="../../../Controller_and_Model/Controller/SubmitNewAddRequest.php">
+            <form method="post" action="../../../Controller_and_Model/Controller/SubmitNewAddDropRequest.php">
                 <div class="edit-box-downer">
                     <div class="class-adding-subtitle str">
                         Select Courses
@@ -2354,39 +2386,39 @@ END;
                             close
                 </span>
             </div>
-            <form method="post">
+            <form method="post" action="../../../Controller_and_Model/Controller/SubmitNewAddDropRequest.php">
                 <div class="edit-box-downer">
                     <div class="class-adding-subtitle str">
                         Select Courses
                     </div>
-                    <div class="class-deleting-row share-box-fully-select">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
-                               value=$subj_class_id style="">
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-                    </div>
-                    <div class="class-deleting-row share-box-fully-select">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
-                               value=$subj_class_id style="">
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-                    </div>
-                    <div class="class-deleting-row share-box-fully-select">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
-                               value=$subj_class_id style="">
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-                    </div>
-                    <div class="class-deleting-row share-box-fully-select">
-                        <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
-                               value=$subj_class_id style="">
-                        <div class="class-adding-text str">
-                            Chinese A1
-                        </div>
-                    </div>
+                    <?php
+                    require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
+                    require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+
+                    $tot_res = FetchAllStudIdAndSubjectClasses();
+                    if ($tot_res[0]) {
+                        $tot_res = $tot_res[1];
+                    }
+                    foreach ($tot_res as $subj_class_info) {
+                        $subj_class_id = $subj_class_info[0];
+                        $subj_id = $subj_class_info[2];
+                        $subj_info = FetchSubjById($subj_id);
+                        if ($subj_info[0]) {
+                            $subj_info = $subj_info[1][0];
+                            $subj_id = $subj_info[0];
+                            $subj_name = $subj_info[1];
+                            echo <<< END
+                                <div class="class-deleting-row share-box-fully-select">
+                                    <input type="checkbox" class="class-adding-checkbox class-adding-img" name="course-delete"
+                                           value=$subj_class_id style="">
+                                    <div class="class-adding-text str">
+                                        $subj_name
+                                    </div>
+                                </div>
+                            END;
+                        }
+                    }
+                    ?>
                     <input type="submit" value="Submit" class="edit-box-red stb">
                 </div>
             </form>

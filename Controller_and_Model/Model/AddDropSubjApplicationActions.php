@@ -38,7 +38,7 @@ function InsertNewAddDropApp(int $stud_id, int $target_subj_class_id, int $actio
  * @return array If successfully executed: [True, select results] <br> If not: [False, empty array]
  * @author Yiming Su
  */
-function FetchStudAddDropApp(int $stud_id) {
+function FetchStudAddDropAppByStudId(int $stud_id) {
     $conn = createconn();
     $stmt = $conn->prepare("select * from add_drop_subj_application where stud_id = ?");
     $stmt->bind_param("i", $stmt_stud_id);
