@@ -2,7 +2,7 @@
 require_once "../Model/LoginCredentials.php";
 require_once "../Model/TermTargetActions.php";
 session_start();
-$conn = createconn();
+
 $mid_goal = 0;
 $fin_goal = 0;
 $exam_ids = get_post("test-id");
@@ -46,5 +46,12 @@ $term_target_id = $tot_res[0];
 $targets = explode(",", $tot_res[4]);
 $targets[$subj_idx] = $fin_goal;
 $fin = implode(",", $targets);
-UpdateTermTarget($term_target_id, $_SESSION["id"], $exam_ids[1], $fin, 1);
-$conn->close();
+$tot_res = UpdateTermTarget($term_target_id, $_SESSION["id"], $exam_ids[1], $fin, 1);
+if ($tot_res > 0) {
+    ob_start();
+    header('Location: '. "../../Webpage/html/student/student-setting.php");
+    ob_end_flush();
+    die();
+} else {
+    echo "Please check your input1.";
+}
