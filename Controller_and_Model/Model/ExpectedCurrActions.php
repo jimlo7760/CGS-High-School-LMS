@@ -58,17 +58,20 @@ function FetchStudExpectedCurrByStudId(int $stud_id) {
  * @param int $stud_id student's id.
  * @param string $course_name Name of the course.
  * @param int $level course level, 0: SL, 1: HL.
+ * @param int $course_id course id.
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, empty array]
  */
-function UpdateExpectedCourseDetail(int $stud_id, string $course_name, int $level) {
+function UpdateExpectedCourseDetail(int $stud_id, string $course_name, int $level, int $course_id) {
     $conn = createconn();
     $stmt = $conn->prepare("update expected_curr set course_name = ?, level = ?, update_time = ? where
-                           stud_id = ?");
-    $stmt->bind_param("sisi", $stmt_course_name, $stmt_level, $stmt_update_time, $stmt_stud_id);
+                           stud_id = ? and id = ?");
+    $stmt->bind_param("sisii", $stmt_course_name, $stmt_level, $stmt_update_time, $stmt_stud_id,
+                      $stmt_id);
     $stmt_course_name = $course_name;
     $stmt_level = $level;
     $stmt_update_time = date('Y-m-d H:i:s');
     $stmt_stud_id = $stud_id;
+    $stmt_id = $course_id;
     $stmt->execute();
     $res = $stmt->affected_rows;
     $stmt->close();
