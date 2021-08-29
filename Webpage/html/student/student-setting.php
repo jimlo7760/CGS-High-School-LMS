@@ -253,23 +253,23 @@ $_SESSION["exam_id_2"] = 0;
                             </div>
                             <?php
                             require_once "../../../Controller_and_Model/Model/UserActions.php";
-//                            Personal information in database:
-//                                    0. Passport Name,
-//                                    1. Chinese Name,
-//                                    2. English Name,
-//                                    3. Gender,
-//                                    4. Student Number,
-//                                    5. Nationality,
-//                                    6. Date of Birth,
-//                                    7. Phone Number,
-//                                    8. Mother's Name,
-//                                    9. Mother's Phone Number,
-//                                    10. Mother's Job Category,
-//                                    11. Mother's Job Title,
-//                                    12. Father's Name,
-//                                    13. Father's Phone Number,
-//                                    14. Father's Job Category,
-//                                    15. Father's Job Title
+                            //                            Personal information in database:
+                            //                                    0. Passport Name,
+                            //                                    1. Chinese Name,
+                            //                                    2. English Name,
+                            //                                    3. Gender,
+                            //                                    4. Student Number,
+                            //                                    5. Nationality,
+                            //                                    6. Date of Birth,
+                            //                                    7. Phone Number,
+                            //                                    8. Mother's Name,
+                            //                                    9. Mother's Phone Number,
+                            //                                    10. Mother's Job Category,
+                            //                                    11. Mother's Job Title,
+                            //                                    12. Father's Name,
+                            //                                    13. Father's Phone Number,
+                            //                                    14. Father's Job Category,
+                            //                                    15. Father's Job Title
                             $tot_res = FetchStudInfoByStudId($_SESSION["id"]);
                             $raw_personal_info = $tot_res[1][0][15];
                             $personal_info = explode(",", $raw_personal_info);
@@ -1822,7 +1822,7 @@ END;
                     $awards = $tot_res[1];
                     foreach ($awards as $award) {
                         if ($award[6] == 1)
-                        echo <<< END
+                            echo <<< END
                             <div class="class-deleting-row share-box-fully-select">
                                 <input type="checkbox" class="class-adding-checkbox class-adding-img" name="award-delete"
                                        value=$award[0] style="">
@@ -2448,35 +2448,36 @@ END;
 
 
         <div class="share-box class-swapping-box">
-            <div class="edit-box-top">
-                <div class="edit-box-title stm">
-                    Swap Classes
-                </div>
-                <span class="material-icons edit-box-close">
+            <form action="" method="">
+                <div class="edit-box-top">
+                    <div class="edit-box-title stm">
+                        Swap Classes
+                    </div>
+                    <span class="material-icons edit-box-close">
                             close
                         </span>
-            </div>
-            <div class="edit-box-downer swap-class-origin">
-                <div class="class-adding-subtitle str">
-                    Swap this class
                 </div>
-                <?php
-                require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
-                require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                <div class="edit-box-downer swap-class-origin">
+                    <div class="class-adding-subtitle str">
+                        Swap this class
+                    </div>
+                    <?php
+                    require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
+                    require_once "../../../Controller_and_Model/Model/SubjectActions.php";
 
-                $tot_res = FetchAllStudIdAndSubjectClasses();
-                if ($tot_res[0]) {
-                    $tot_res = $tot_res[1];
-                }
-                foreach ($tot_res as $subj_class_info) {
-                    $subj_class_id = $subj_class_info[0];
-                    $subj_id = $subj_class_info[2];
-                    $subj_info = FetchSubjById($subj_id);
-                    if ($subj_info[0]) {
-                        $subj_info = $subj_info[1][0];
-                        $subj_id = $subj_info[0];
-                        $subj_name = $subj_info[1];
-                        echo <<< END
+                    $tot_res = FetchAllStudIdAndSubjectClasses();
+                    if ($tot_res[0]) {
+                        $tot_res = $tot_res[1];
+                    }
+                    foreach ($tot_res as $subj_class_info) {
+                        $subj_class_id = $subj_class_info[0];
+                        $subj_id = $subj_class_info[2];
+                        $subj_info = FetchSubjById($subj_id);
+                        if ($subj_info[0]) {
+                            $subj_info = $subj_info[1][0];
+                            $subj_id = $subj_info[0];
+                            $subj_name = $subj_info[1];
+                            echo <<< END
                                 <div class="class-swapping-row share-box-fully-select">
                                     <input type="checkbox" class="class-adding-checkbox class-adding-img" name="swap-origin" value=$subj_class_id style="">
                                     <div class="class-adding-text str">
@@ -2484,36 +2485,37 @@ END;
                                     </div>
                                 </div>
                             END;
+                        }
                     }
-                }
-                ?>
-                <div class="share-box-button-row">
-                    <input type="button" value="Next" name="fstSwpNxt"
-                           class="edit-box-blue share-box-double-button stb">
-                    <input type="button" value="Back" class="edit-box-white share-box-double-button edit-box-close stb">
+                    ?>
+                    <div class="share-box-button-row">
+                        <input type="button" value="Next" name="fstSwpNxt"
+                               class="edit-box-blue share-box-double-button stb">
+                        <input type="button" value="Back"
+                               class="edit-box-white share-box-double-button edit-box-close stb">
+                    </div>
                 </div>
-            </div>
-            <div class="edit-box-downer swap-class-target">
-                <div class="class-adding-subtitle str">
-                    With this class
-                </div>
-                <?php
-                require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
-                require_once "../../../Controller_and_Model/Model/SubjectActions.php";
+                <div class="edit-box-downer swap-class-target">
+                    <div class="class-adding-subtitle str">
+                        With this class
+                    </div>
+                    <?php
+                    require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
+                    require_once "../../../Controller_and_Model/Model/SubjectActions.php";
 
-                $tot_res = FetchAllStudIdAndSubjectClasses();
-                if ($tot_res[0]) {
-                    $tot_res = $tot_res[1];
-                }
-                foreach ($tot_res as $subj_class_info) {
-                    $subj_class_id = $subj_class_info[0];
-                    $subj_id = $subj_class_info[2];
-                    $subj_info = FetchSubjById($subj_id);
-                    if ($subj_info[0]) {
-                        $subj_info = $subj_info[1][0];
-                        $subj_id = $subj_info[0];
-                        $subj_name = $subj_info[1];
-                        echo <<< END
+                    $tot_res = FetchAllStudIdAndSubjectClasses();
+                    if ($tot_res[0]) {
+                        $tot_res = $tot_res[1];
+                    }
+                    foreach ($tot_res as $subj_class_info) {
+                        $subj_class_id = $subj_class_info[0];
+                        $subj_id = $subj_class_info[2];
+                        $subj_info = FetchSubjById($subj_id);
+                        if ($subj_info[0]) {
+                            $subj_info = $subj_info[1][0];
+                            $subj_id = $subj_info[0];
+                            $subj_name = $subj_info[1];
+                            echo <<< END
                                 <div class="class-swapping-row share-box-fully-select">
                                     <input type="checkbox" class="class-adding-checkbox class-adding-img" name="swap-target"
                                            value=$subj_class_id style="">
@@ -2522,18 +2524,17 @@ END;
                                     </div>
                                 </div>
                             END;
+                        }
                     }
-                }
-                ?>
-                <div class="share-box-button-row">
-                    <input type="button" value="Next" name="secSwpNxt"
-                           class="edit-box-blue share-box-double-button stb">
-                    <input type="button" value="Back" name="secSwpBck"
-                           class="edit-box-white share-box-double-button edit-box-close stb">
+                    ?>
+                    <div class="share-box-button-row">
+                        <input type="button" value="Next" name="secSwpNxt"
+                               class="edit-box-blue share-box-double-button stb">
+                        <input type="button" value="Back" name="secSwpBck"
+                               class="edit-box-white share-box-double-button edit-box-close stb">
+                    </div>
                 </div>
-            </div>
-            <div class="edit-box-downer swap-class-confirm">
-                <form method="get" action="../../../Controller_and_Model/test.php">
+                <div class="edit-box-downer swap-class-confirm">
                     <div class="class-adding-subtitle str">
                         Swap this class
                     </div>
@@ -2554,8 +2555,8 @@ END;
                         <input type="button" value="Back" name="tirSwpBck"
                                class="edit-box-white share-box-double-button stb">
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
         <div class="share-box class-adding-box">
             <div class="edit-box-top">
