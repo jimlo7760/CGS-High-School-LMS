@@ -1,5 +1,5 @@
 <?php
-require_once "../Model/LoginCredentials.php";
+require_once "LoginCredentials.php";
 /**
  * Submitting a new add/drop request.
  *
