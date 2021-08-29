@@ -2525,13 +2525,6 @@ END;
                     }
                 }
                 ?>
-                <div class="class-swapping-row share-box-fully-select">
-                    <input type="checkbox" class="class-adding-checkbox class-adding-img" name="swap-target"
-                           value=$subj_class_id style="">
-                    <div class="class-adding-text str">
-                        $subj_name
-                    </div>
-                </div>
                 <div class="share-box-button-row">
                     <input type="button" value="Next" name="secSwpNxt"
                            class="edit-box-blue share-box-double-button stb">
@@ -2540,7 +2533,7 @@ END;
                 </div>
             </div>
             <div class="edit-box-downer swap-class-confirm">
-                <form method="" action="">
+                <form method="get" action="../../../Controller_and_Model/test.php">
                     <div class="class-adding-subtitle str">
                         Swap this class
                     </div>
