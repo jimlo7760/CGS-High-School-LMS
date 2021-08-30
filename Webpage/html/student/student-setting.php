@@ -883,7 +883,7 @@ EOD;
                                 $target_subj_class_id = $swap_app_info[3];
                                 $action_required = $swap_app_info[5];
                                 $_SESSION["action_required"] = $action_required;
-                                $create_time = $swap_app_info[6];
+                                $create_time = $swap_app_info[5];
 
                                 $orig_class_info = FetchSubjClassBySubjClassId($orig_subj_class_id);
                                 if ($orig_class_info[0]) {
@@ -908,13 +908,13 @@ EOD;
                                                         Added Classes
                                                     </div>
                                                     <div class="right-class-process-box-content stm">
-                                                        $orig_class_name, $target_class_name
+                                                        From: $orig_class_name, To: $target_class_name
                                                     </div>
                                                     <div style="display: none">
-                                                            $orig_class_name
+                                                            From: $orig_class_name
                                                     </div>
                                                     <div style="display: none">
-                                                            $target_class_name
+                                                            To: $target_class_name
                                                     </div>
                                                 </div>
                                                 <div class="right-class-process-box">
@@ -952,13 +952,13 @@ END;
                                             Added Classes
                                         </div>
                                         <div class="right-class-process-box-content stm">
-                                            $orig_class_name, $target_class_name
+                                            From: $orig_class_name, To: $target_class_name
                                         </div>
                                         <div style="display: none">
-                                                $orig_class_name
+                                                From: $orig_class_name
                                         </div>
                                         <div style="display: none">
-                                                $target_class_name
+                                                To: $target_class_name
                                         </div>
                                     </div>
                                     <div class="right-class-process-box">
@@ -995,13 +995,13 @@ END;
                                             Added Classes
                                         </div>
                                         <div class="right-class-process-box-content stm">
-                                            $orig_class_name, $target_class_name
+                                            From: $orig_class_name, To: $target_class_name
                                         </div>
                                         <div style="display: none">
-                                                $orig_class_name
+                                                From: $orig_class_name
                                         </div>
                                         <div style="display: none">
-                                                $target_class_name
+                                                To: $target_class_name
                                         </div>
                                     </div>
                                     <div class="right-class-process-box">
@@ -2448,7 +2448,7 @@ END;
 
 
         <div class="share-box class-swapping-box">
-            <form action="" method="">
+            <form action="../../../Controller_and_Model/Controller/SubmitClassExchangeApplication.php" method="post">
                 <div class="edit-box-top">
                     <div class="edit-box-title stm">
                         Swap Classes
