@@ -71,6 +71,10 @@ $res = UpdateEmailAndAvatar($_SESSION["id"], $email, $new_avatar_filename, $_SES
 echo "<br>";
 if ($res[0]) {
     echo "Your avatar or email are updated! Please restart your browser and re-login to see the effect";
+    ob_start();
+    header('Location: '. "../../Webpage/html/student/student-setting.php");
+    ob_end_flush();
+    die();
 } else {
     echo "Unexpected error happened, please contact administrator.";
 }
