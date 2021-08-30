@@ -18,8 +18,7 @@ $(document).ready(function () {
         }
     })
 
-    var contentWid = $('.test-detail-mid').width();
-    $('.test-detail-mid-box-big-des').width(contentWid/3);
+
 
     $('.right-box').click(function () {
         $(this).find("form").submit();
@@ -252,8 +251,25 @@ $(document).ready(function () {
 
     $('.right-table-content-title').click(function (){
         if(subjectT_studentScore.css('display') == 'block'){
-            subjectT_studentScore.fadeOut('fast');
             var subjectT_test_detail = $('.subjectT-test-detail');
+            var subjectT_student_class = $('.subjectT-student-class');
+            var currentRow = $(this).parent();
+            var testTitle = currentRow.find('.right-table-content-title').text().trim();
+            var gradeRaw = currentRow.find('.right-table-content-grade').text().trim();
+            var testGrade = gradeRaw.split('/')[1];
+            var testType = currentRow.find('.right-table-content-type').text().trim();
+            var testDate = currentRow.find('.right-table-content-date').text().trim();
+            var testId = currentRow.find('.test-box-id').text().trim();
+            var testDes = currentRow.find('.test-box-des').text().trim();
+            var testStu = currentRow.find('.test-box-student').val().split(' ');
+            subjectT_student_class.fadeOut('fast');
+            subjectT_test_detail.delay('fast').fadeIn('fast');
+            var contentWid = $(this).parents('.right-table').width();
+            $('.test-detail-mid-box-big-des').width(contentWid/3);
+            subjectT_test_detail.find('.right-title').text(testTitle);
+            subjectT_test_detail.find('.test-detail-mid-box-small-des').eq(0).text(testType);
+            subjectT_test_detail.find('.test-detail-mid-box-small-des').eq(1).text(testDate);
+            subjectT_test_detail.find('.test-detail-mid-box-small-des').eq(2).text(testGrade);
 
         }
     })

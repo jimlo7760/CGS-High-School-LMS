@@ -654,6 +654,7 @@
                                         delete_forever
                                     </span>
                                 </div>
+                                <input type="hidden" class="test-id-row" name="test_id" value="123123">
                             </div>
                             <div class="right-table-content-row">
                                 <div class="right-table-content-title">
@@ -842,6 +843,10 @@
                                         delete_forever
                                     </span>
                                 </div>
+                                <input type="hidden" class="test-box-student" value="1-Danny-6 2-Ken-7">
+                                <input type="hidden" class="test-box-des" value="awful">
+                                <input type="hidden" class="test-box-comment" value="this is a wonderful test">
+                                <input type="hidden" class="test-box-id" value="123123">
                             </div>
                             <div class="right-table-content-row">
                                 <div class="right-table-content-title">
@@ -975,11 +980,9 @@
                                     </span>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -1053,6 +1056,7 @@
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" class="current-test-id">
                 </div>
                 <div class="right-table">
                     <div class="right-table-title sts">
@@ -1077,9 +1081,6 @@
                             <div class="right-table-content-grade">
                                 6
                             </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
                             <div class="right-table-content-date">
                                 2019-09-22
                             </div>
@@ -1099,9 +1100,6 @@
                             <div class="right-table-content-grade">
                                 6
                             </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
                             <div class="right-table-content-date">
                                 2019-09-22
                             </div>
@@ -1120,9 +1118,6 @@
                             </div>
                             <div class="right-table-content-grade">
                                 6
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
                             </div>
                             <div class="right-table-content-date">
                                 2019-09-22

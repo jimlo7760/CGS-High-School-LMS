@@ -237,7 +237,6 @@ $(document).ready(function () {
         $('.class-swapping-box').fadeIn();
         grey_bg.fadeIn();
     })
-
     var pending_box = $('.pending-box');
     $('.pending-row').click(function () {
         var body = document.body.clientHeight;
@@ -451,7 +450,7 @@ $(document).ready(function () {
             }else{
                 swap_class_origin.fadeOut('fast');
                 swap_class_target.animate({
-                    height: '165px'
+                    height: '475px'
                 }, 'fast');
                 swap_class_target.fadeIn('fast');
                 var checkedInput = $('input[name="swap-origin"]:checked');
