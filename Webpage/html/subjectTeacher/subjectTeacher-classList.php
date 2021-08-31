@@ -186,6 +186,9 @@
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" class="enrolled-student-class" value="10">
+                    <input type="hidden" class="enrolled-student-depart" value="IG">
+                    <input type="hidden" class="enrolled-student-grade" value="11">
                 </div>
                 <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
@@ -347,6 +350,7 @@
                     </div>
                     <div class="right-table-content stb">
                         <div class="right-table-content-row">
+                            <input type="hidden" class="current-test-student" value="1-Danny-6 2-Wang-7">
                             <input type="hidden" class="current-test-id" value="123123" name="test_id">
                             <input type="hidden" class="current-test-comment" value="great" name="test_comment">
                             <input type="hidden" class="current-test-des" value="hard test" name="test_des">
@@ -503,10 +507,10 @@
                         <img src="../../img/图像%201@2x.png" height="70" width="70" class="right-info-portrait">
                         <div class="right-info-left stb">
                             <div class="right-title">
-                                Danny Xu
+
                             </div>
                             <div class="right-subtitle">
-                                许丹阳
+
                             </div>
                         </div>
                         <div class="right-info-right">
@@ -596,9 +600,6 @@
                     <div class="right-navi-gap-large">
                         &nbsp;
                     </div>
-                    <div class="right-navi-item-right">
-                        Profile
-                    </div>
 
                 </div>
 
@@ -654,7 +655,11 @@
                                         delete_forever
                                     </span>
                                 </div>
-                                <input type="hidden" class="test-id-row" name="test_id" value="123123">
+                                <input type="hidden" class="current-test-student" value="1-Danny-6 2-Ken-7">
+                                <input type="hidden" class="current-test-des" value="awful">
+                                <input type="hidden" class="current-test-comment" value="this is a wonderful test">
+                                <input type="hidden" class="current-test-id" value="123123">
+                                <input type="hidden" class="current-test-max-score" value="7">
                             </div>
                             <div class="right-table-content-row">
                                 <div class="right-table-content-title">
@@ -846,7 +851,7 @@
                                 <input type="hidden" class="test-box-student" value="1-Danny-6 2-Ken-7">
                                 <input type="hidden" class="test-box-des" value="awful">
                                 <input type="hidden" class="test-box-comment" value="this is a wonderful test">
-                                <input type="hidden" class="test-box-id" value="123123">
+                                <input type="hidden" class="current-test-id" value="123123">
                             </div>
                             <div class="right-table-content-row">
                                 <div class="right-table-content-title">
@@ -999,7 +1004,7 @@
                     </div>
                     <div class="right-info-left stb">
                         <div class="right-title">
-                            Unit 5 Exam
+
                         </div>
                     </div>
                     <div class="right-person-edit right-person-add edit-test-detail stm">
@@ -1018,7 +1023,7 @@
                                 Type
                             </div>
                             <div class="test-detail-mid-box-small-des str">
-                                Mid-term Examination
+
                             </div>
                         </div>
                         <div class="test-detail-mid-box-small">
@@ -1026,7 +1031,7 @@
                                 Due Date
                             </div>
                             <div class="test-detail-mid-box-small-des str">
-                                2019-02-26
+
                             </div>
                         </div>
                         <div class="test-detail-mid-box-small">
@@ -1044,7 +1049,7 @@
                                 Description
                             </div>
                             <div class="test-detail-mid-box-big-des str">
-                                BACABC
+
                             </div>
                         </div>
                         <div class="test-detail-mid-box-big">
@@ -1052,7 +1057,7 @@
                                 Comments
                             </div>
                             <div class="test-detail-mid-box-big-des str">
-                                QWEQWE
+
                             </div>
                         </div>
                     </div>
@@ -1074,63 +1079,7 @@
                         </div>
                     </div>
                     <div class="right-table-content stb">
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Danny
-                            </div>
-                            <div class="right-table-content-grade">
-                                6
-                            </div>
-                            <div class="right-table-content-date">
-                                2019-09-22
-                            </div>
-                            <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Danny
-                            </div>
-                            <div class="right-table-content-grade">
-                                6
-                            </div>
-                            <div class="right-table-content-date">
-                                2019-09-22
-                            </div>
-                            <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Danny
-                            </div>
-                            <div class="right-table-content-grade">
-                                6
-                            </div>
-                            <div class="right-table-content-date">
-                                2019-09-22
-                            </div>
-                            <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -1275,7 +1224,7 @@
         <div class="share-box subjectT-editTest-box" value="">
             <div class="edit-box-top">
                 <div class="edit-box-title stm">
-                    Edit New Exam / Test
+                    Edit Exam / Test
                 </div>
                 <span class="material-icons edit-box-close">
                     close

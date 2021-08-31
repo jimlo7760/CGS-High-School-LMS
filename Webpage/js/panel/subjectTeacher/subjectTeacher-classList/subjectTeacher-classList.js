@@ -126,34 +126,37 @@ $(document).ready(function () {
             noPermit_modification.find('.right-table-content-date').width(dateWid);
             noPermit_modification.find('.subjectT-studentScore-add-outer').remove();
 
-            var subjectT_test_detail = $('.subjectT-test-detail');      //table: in test-detail
-            subjectT_test_detail.find('.right-table-title-title').width(titleWid);
-            subjectT_test_detail.find('.right-table-content-title').width(titleWid);
-            subjectT_test_detail.find('.right-table-title-grade').width(gradeWid);
-            subjectT_test_detail.find('.right-table-content-grade').width(gradeWid);
-            subjectT_test_detail.find('.right-table-title-type').width(typeWid);
-            subjectT_test_detail.find('.right-table-content-type').width(typeWid);
-            subjectT_test_detail.find('.right-table-title-date').width(dateWid);
-            subjectT_test_detail.find('.right-table-content-date').width(dateWid);
-
-            var right_navi_item_last = $('.right-navi-item:last');
-            var gapWidth = ($('.right-navi-item-right').position().left) - ((right_navi_item_last.position().left) + right_navi_item_last.width()) - 6;
-            $('.right-navi-gap-large').width(gapWidth);
+            var accuWid = 0;
+            $('.right-navi-item').each(function (){
+                accuWid += $(this).outerWidth(true);
+            })
+            $('.right-navi-gap').each(function (){
+                accuWid += $(this).outerWidth(true);
+            })
+            var gapWidth = $('.right-nevi').width() - accuWid;
+            $('.right-navi-gap-large').width(gapWidth - 7);
         }, 250)
 
         var selectedStuID = $(this).find('.right-box-detail-name:first').text().trim();
         var selectedStuEmail = $(this).find('.right-box-detail-name:last').text().trim();
         var selectedStuName = $(this).find('.right-box-title').text().trim();
-        $('.right-info-dataBox-content:first').text(selectedStuID);
-        $('.right-info-dataBox-content:last').text(selectedStuEmail);
-        $('.right-title:last').text(selectedStuName)
+        var selectedStuClass = $(this).find('.enrolled-student-class').val();
+        var selectedStuDepart = $(this).find('.enrolled-student-depart').val();
+        var selectedStuGrade = $(this).find('.enrolled-student-grade').val();
+        var right_info_dataBox_content = $('.right-info-dataBox-content');
+        right_info_dataBox_content.eq(0).text(selectedStuID);
+        right_info_dataBox_content.eq(1).text(selectedStuDepart);
+        right_info_dataBox_content.eq(2).text(selectedStuGrade);
+        right_info_dataBox_content.eq(3).text(selectedStuClass);
+        right_info_dataBox_content.eq(4).text(selectedStuEmail);
+        $('.right-title').eq(1).text(selectedStuName)
+        $
         //    require .ajax to assign values for homeroomT-homeroomStudent-class
     });
 
     $('.return-from-student').click(function () {
         $('.subjectT-student-class').fadeOut('fast');
         $('.student-crew-list').delay(250).fadeIn('fast');
-
 
     })
 
@@ -250,7 +253,9 @@ $(document).ready(function () {
     })
 
     $('.right-table-content-title').click(function (){
-        if(subjectT_studentScore.css('display') == 'block'){
+        var permit_modification = $('.permit-modification');
+        var subjectT_test = $('.subjectT-test');
+        if(permit_modification.css('display') == 'block' || subjectT_test.css('display') == 'block') {
             var subjectT_test_detail = $('.subjectT-test-detail');
             var subjectT_student_class = $('.subjectT-student-class');
             var currentRow = $(this).parent();
@@ -259,10 +264,59 @@ $(document).ready(function () {
             var testGrade = gradeRaw.split('/')[1];
             var testType = currentRow.find('.right-table-content-type').text().trim();
             var testDate = currentRow.find('.right-table-content-date').text().trim();
-            var testId = currentRow.find('.test-box-id').text().trim();
-            var testDes = currentRow.find('.test-box-des').text().trim();
-            var testStu = currentRow.find('.test-box-student').val().split(' ');
-            subjectT_student_class.fadeOut('fast');
+            var testId = currentRow.find('.current-test-id').val();
+            var testDes = currentRow.find('.current-test-des').val();
+            var testComment = currentRow.find('.current-test-comment').val();
+            var stuRaw = currentRow.find('.current-test-student').val().split(' ');
+            var studentShowArray = "";
+            for(var i=0; i<=stuRaw.length-1; i++){
+                studentShowArray += "<div class=\"right-table-content-row\">\n" +
+                    "                            <div class=\"right-table-content-title\">\n" +
+                    stuRaw[i].split('-')[1] +
+                    "                            </div>\n" +
+                    "                            <div class=\"right-table-content-grade\">\n" +
+                    stuRaw[i].split('-')[2] +
+                    "                            </div>\n" +
+                    "                            <div class=\"right-table-content-date\">\n" +
+                    "                                2019-09-22\n" +
+                    "                            </div>\n" +
+                    "                            <div class=\"right-table-content-action\">\n" +
+                    "                                    <span class=\"material-icons right-table-content-action-edit\">\n" +
+                    "                                        edit\n" +
+                    "                                    </span>\n" +
+                    "                                <span class=\"material-icons right-table-content-delete\">\n" +
+                    "                                        delete_forever\n" +
+                    "                                    </span>\n" +
+                    "                            </div>\n" +
+                    "                        </div>"
+            }
+            subjectT_test_detail.find('.right-table-content').html(studentShowArray);
+
+            if(subjectT_student_class.css('display') == 'block') {
+                var tableWid = parseInt(subjectT_studentScore.css('width'));
+            }else if(subjectT_test.css('display') == 'block') {
+                var tableWid = parseInt(subjectT_test.css('width'));
+            }
+
+                //table: in test-detail
+            var titleWid = tableWid * 0.28;
+            var gradeWid = tableWid * 0.18;
+            var typeWid = tableWid * 0.23;
+            var dateWid = tableWid * 0.21;
+            subjectT_test_detail.find('.right-table-title-title').width(titleWid);
+            subjectT_test_detail.find('.right-table-content-title').width(titleWid);
+            subjectT_test_detail.find('.right-table-title-grade').width(gradeWid);
+            subjectT_test_detail.find('.right-table-content-grade').width(gradeWid);
+            subjectT_test_detail.find('.right-table-title-type').width(typeWid);
+            subjectT_test_detail.find('.right-table-content-type').width(typeWid);
+            subjectT_test_detail.find('.right-table-title-date').width(dateWid);
+            subjectT_test_detail.find('.right-table-content-date').width(dateWid);
+
+            if(subjectT_student_class.css('display') == 'block'){
+                subjectT_student_class.fadeOut('fast');
+            }else if(subjectT_test.css('display') == 'block'){
+                $('.student-crew-list').fadeOut('fast');
+            }
             subjectT_test_detail.delay('fast').fadeIn('fast');
             var contentWid = $(this).parents('.right-table').width();
             $('.test-detail-mid-box-big-des').width(contentWid/3);
@@ -270,8 +324,29 @@ $(document).ready(function () {
             subjectT_test_detail.find('.test-detail-mid-box-small-des').eq(0).text(testType);
             subjectT_test_detail.find('.test-detail-mid-box-small-des').eq(1).text(testDate);
             subjectT_test_detail.find('.test-detail-mid-box-small-des').eq(2).text(testGrade);
-
+            subjectT_test_detail.find('.test-detail-mid-box-big-des').eq(0).text(testDes);
+            subjectT_test_detail.find('.test-detail-mid-box-big-des').eq(1).text(testComment);
+            subjectT_test_detail.find('.current-test-id').val(testId);
         }
+
+        $('.edit-test-detail').click(function (){
+            var subjectT_editTest_box = $('.subjectT-editTest-box');
+            var testId = $(this).siblings('.current-test-id').val();
+            var testTitle = $(this).siblings('.right-info-left').find('.right-title').text().trim();
+            var testType = $(this).parent().siblings('.test-detail-mid').find('.test-detail-mid-box-small-des').eq(0).text().trim();
+            var testDate = $(this).parent().siblings('.test-detail-mid').find('.test-detail-mid-box-small-des').eq(1).text().trim();
+            var testMax = $(this).parent().siblings('.test-detail-mid').find('.test-detail-mid-box-small-des').eq(2).text().trim();
+            var testDes = $(this).parent().siblings('.test-detail-mid').find('.test-detail-mid-box-big-des').eq(0).text().trim();
+            var testComment = $(this).parent().siblings('.test-detail-mid').find('.test-detail-mid-box-big-des').eq(1).text().trim();
+
+            shareboxPop(subjectT_editTest_box);
+            subjectT_editTest_box.find('.edit-box-innerbox-input').eq(0).val(testTitle);
+            subjectT_editTest_box.find('.edit-box-innerbox-input').eq(1).text(testDes);
+            subjectT_editTest_box.find('.edit-box-innerbox-select').find("option:contains('" + testType + "')").attr("selected", true);
+            subjectT_editTest_box.find('.edit-box-innerbox-input').eq(2).val(testMax);
+            subjectT_editTest_box.find('.edit-box-innerbox-input').eq(3).val(testDate);
+            subjectT_editTest_box.find('.edit-box-innerbox-input').eq(4).text(testComment);
+        })
     })
 })
 
