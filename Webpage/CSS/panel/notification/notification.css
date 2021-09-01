@@ -1,0 +1,86 @@
+.right-person-info-row-box{
+    margin: 5px;
+    overflow: hidden;
+    zoom:1;
+    padding: 5px;
+    border: #D0D0D0 solid 1px;
+    border-radius:5px;
+    cursor: pointer;
+}
+.right-person-info-row-box-title{
+    float:left;
+    font-size:13px;
+    padding:10px;
+}
+.right-person-info-row-box-right{
+    float:right;
+    overflow: hidden;
+    zoom:1;
+}
+.right-person-info-row-box-text{
+    float:left;
+    margin-right: 20px;
+}
+.right-person-info-row-box-subtitle{
+    color:#999C9E;
+    font-size:13px;
+    transform: scale(0.9);
+}
+.right-person-info-row-box-des{
+    font-size:13px;
+    margin-left:5px;
+}
+.right-person-info-row-box-img{
+    float:right;
+    margin:5px;
+}
+.unread-notification{
+    margin-top: 15px;
+    height: 6px;
+    width: 6px;
+    float: left;
+    background-color: red;
+    border-radius: 50%;
+}
+.ticket-detail-large{
+    float:left;
+    width: 280px;
+    border: none;
+}
+.ticket-detail-small{
+    float:left;
+    width:110px;
+    margin-left:20px;
+    border: none;
+}
+.adding-course-name{
+    margin-top: 15px;
+}
+
+.pending-box-innerbox{
+    margin-top:20px;
+}
+.pending-box-innerbox-title{
+    color: #6C757E;
+    font-size: 13px;
+    transform: scale(0.99)
+}
+.pending-box-innerbox-status{
+    margin-top:5px;
+    font-size:17px;
+}
+.ticket-box-row{
+    font-size: 14px;
+    margin: 10px;
+    overflow: hidden;
+    zoom: 1;
+}
+.ticket-box-row-img{
+    float: left;
+}
+.ticket-box-row-text{
+    float: left;
+}
+.application-operation-box{
+    display: none;
+}
