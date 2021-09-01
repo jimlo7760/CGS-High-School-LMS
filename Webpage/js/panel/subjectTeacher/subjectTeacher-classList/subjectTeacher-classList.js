@@ -256,6 +256,11 @@ $(document).ready(function () {
         var permit_modification = $('.permit-modification');
         var subjectT_test = $('.subjectT-test');
         if(permit_modification.css('display') == 'block' || subjectT_test.css('display') == 'block') {
+            if(permit_modification.css('display') == 'block') {
+                $('.return-from-test-detail').attr('onclick', 'testDetailReturnToStud()')
+            }else{
+                $('.return-from-test-detail').attr('onclick', 'testDetailReturnToTest()');
+            }
             var subjectT_test_detail = $('.subjectT-test-detail');
             var subjectT_student_class = $('.subjectT-student-class');
             var currentRow = $(this).parent();
@@ -350,4 +355,12 @@ $(document).ready(function () {
     })
 })
 
-
+function testDetailReturnToStud(){
+    console.log(123123)
+    $('.subjectT-test-detail').fadeOut('fast');
+    $('.subjectT-student-class').delay('fast').fadeIn('fast');
+}
+function testDetailReturnToTest(){
+    $('.subjectT-test-detail').fadeOut('fast');
+    $('.student-crew-list').delay('fast').fadeIn('fast');
+}

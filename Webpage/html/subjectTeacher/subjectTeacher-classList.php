@@ -995,6 +995,7 @@
             <div class="right-down">
                 <div class="right-info test-detail">
                     <div class="right-return return-from-test-detail">
+                        <input type="hidden" class="test-detail-access-from" value="">
                     <span class="material-icons right-return-img">
                         chevron_left
                     </span>

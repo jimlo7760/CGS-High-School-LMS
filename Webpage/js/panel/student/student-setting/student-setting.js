@@ -241,8 +241,10 @@ $(document).ready(function () {
     $('.pending-row').click(function () {
         var body = document.body.clientHeight;
         var bg = body;
-        pending_box[0].children[0].children[0].children[1].children[1].value = this.children[0].children[0].children[2].innerHTML;
-        pending_box[0].children[0].children[0].children[1].children[2].value = this.children[0].children[0].children[3].innerHTML;
+
+        pending_box.find('.pending-box-input').eq(0).val()
+        // pending_box[0].children[0].children[0].children[1].children[1].value = this.children[0].children[0].children[2].innerHTML;
+        // pending_box[0].children[0].children[0].children[1].children[2].value = this.children[0].children[0].children[3].innerHTML;
         grey_bg.css({
             "height": bg,
             "top": 0

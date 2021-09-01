@@ -2730,8 +2730,6 @@ END;
                         </div>
                         <input type="text" class="pending-box-input stb" value="" disabled="disabled">
                         <input type="text" class="pending-box-input stb" value="" disabled="disabled">
-
-
                     </div>
                 </div>
                 <div class="edit-box-downer">
