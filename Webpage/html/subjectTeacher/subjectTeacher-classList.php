@@ -1280,6 +1280,41 @@
             </form>
         </div>
 
+        <div class="share-box edit-student-score">
+            <div class="edit-box-top">
+                <div class="edit-box-title stm">
+                    Edit Student's Score
+                </div>
+                <span class="material-icons edit-box-close">
+                    close
+                </span>
+            </div>
+            <form method="post">
+                <div class="edit-box-downer">
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Test Title
+                        </div>
+                        <input class="edit-box-innerbox-input stb" name="add-test-title" contenteditable="false" disabled="disabled" >
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Student Name
+                        </div>
+                        <input class="edit-box-innerbox-input stb" name="add-test-title" contenteditable="false" disabled="disabled" >
+                    </div>
+                    <div class="edit-box-innerbox str">
+                        <div class="edit-box-innerbox-title">
+                            Score Out Of
+                        </div>
+                        <input class="edit-box-innerbox-input stb" name="add-test-ceiling">
+                    </div>
+                    <input type="hidden" class="test-id" name="stud_id" value="">
+                    <input type="hidden" class="student-id" name="stud_id" value="">
+                    <input class="edit-box-green stb" type="submit" value="Save">
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -194,17 +194,6 @@ $(document).ready(function () {
         editTestTable(testId, testTitle, testDes, testType, testMax, testDate, testComment);
     })
 
-
-    $('.test-detail').find('.right-table-content-action-edit').click(function (){
-        var studentName = $(this).parent().parent().siblings('.right-table-content-title').text().trim();
-        var studentGrade = $(this).parent().parent().siblings('.right-table-content-grade').text().trim();
-        var studentId = $(this).parent().parent().siblings('.student-id').val();
-        var testId = $(this).parent().parent().siblings('.test-id').val();
-
-    })
-
-
-
 });
 
 $(window).load(function (){
