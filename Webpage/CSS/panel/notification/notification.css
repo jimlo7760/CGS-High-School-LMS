@@ -84,3 +84,6 @@
 .application-operation-box{
     display: none;
 }
+.notification-box-display{
+    margin-top: 10px;
+}

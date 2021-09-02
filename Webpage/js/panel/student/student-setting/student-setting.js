@@ -253,34 +253,7 @@ $(document).ready(function () {
         grey_bg.fadeIn();
         var currentStatus = $(this).find('.pending-row-status').val();
         var statusRow = pending_box.find('.ticket-box-row');
-        if(currentStatus == 0){
-            statusRow.css('color', 'rgb(226, 226, 226)');
-        }else if(currentStatus == 1){
-            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
-            statusRow.eq(1).css('color', 'rgb(226, 226, 226)');
-            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
-        }else if(currentStatus == 2){
-            statusRow.eq(0).find('.ticket-box-row-img').text(close);
-            statusRow.eq(0).css('color', 'rgb(221, 52, 68)');
-            statusRow.eq(1).css('color', 'rgb(226, 226, 226)');
-            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
-        }else if(currentStatus == 3){
-            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
-            statusRow.eq(1).css('color', 'rgb(41, 167, 69)');
-            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
-        }else if(currentStatus == 4){
-            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
-            statusRow.eq(1).find('.ticket-box-row-img').text(close);
-            statusRow.eq(1).css('color', 'rgb(221, 52, 68)');
-            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
-        }else if(currentStatus == 5){
-            statusRow.css('color', 'rgb(41, 167, 69)');
-        }else if(currentStatus == 6){
-            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
-            statusRow.eq(1).css('color', 'rgb(41, 167, 69)');
-            statusRow.eq(2).find('.ticket-box-row-img').text(close);
-            statusRow.eq(2).css('color', 'rgb(221, 52, 68)');
-        }
+        ticketProcess(currentStatus, statusRow);
     });
     var aprove_box = $('.aprove-box');
     $('.aprove-row').click(function () {

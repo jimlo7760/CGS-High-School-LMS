@@ -21,6 +21,23 @@
     </script>
 </head>
 <body>
+
+<input type="hidden" class="user-type" value="0">
+<!--
+    input the type of teacher here
+    0: subject;
+    1: homeroom;
+    2: coordinator
+-->
+
+<input type="hidden" class="course-id" value="1">
+<!--
+    Only echo when the teacher is subject teacher
+-->
+<input type="hidden" class="homeroom-id" value="2">
+<!--
+    Only echo when the teacher is homeroom teacher
+-->
 <div class="all">
     <div class="left-content" style="height: 700px;">
         <div class="left-box">
@@ -161,16 +178,100 @@
                         <div class="right-person-info-row-box-subtitle str">
                             Status
                         </div>
-                        <div class="right-person-info-row-box-des stm">
+                        <div class="right-person-info-row-box-des stm" style="color: #FFC103">
 
                         </div>
                     </div>
+                    <input type="hidden" class="first-class" value="abcab">
+                    <input type="hidden" class="status-id" value="2">
+                    <input type="hidden" class="application-id" value="">
                     <i class="material-icons right-person-info-row-box-img">
                         chevron_right
                     </i>
                 </div>
-                <input type="hidden" class="dp-box-id" value="$course_id">
             </div>
+            <div class="right-person-info-row-box">
+                <div class="unread-notification">
+
+                </div>
+                <div class="right-person-info-row-box-title stm">
+                    Delete Course
+                </div>
+                <div class="right-person-info-row-box-right">
+                    <div class="right-person-info-row-box-text">
+                        <div class="right-person-info-row-box-subtitle str">
+                            Student Name
+                        </div>
+                        <div class="right-person-info-row-box-des stm">
+                            abcde
+                        </div>
+                    </div>
+                    <div class="right-person-info-row-box-text">
+                        <div class="right-person-info-row-box-subtitle str">
+                            Dated Received
+                        </div>
+                        <div class="right-person-info-row-box-des stm">
+                            2019-03-31
+                        </div>
+                    </div>
+                    <div class="right-person-info-row-box-text">
+                        <div class="right-person-info-row-box-subtitle str">
+                            Status
+                        </div>
+                        <div class="right-person-info-row-box-des stm" style="color: #FFC103">
+                            Waiting for Approval
+                        </div>
+                    </div>
+                    <input type="hidden" class="first-class" value="abcab">
+                    <input type="hidden" class="status-id" value="1">
+                    <input type="hidden" class="application-id" value="">
+                    <i class="material-icons right-person-info-row-box-img">
+                        chevron_right
+                    </i>
+                </div>
+            </div>
+            <div class="right-person-info-row-box">
+                <div class="unread-notification">
+
+                </div>
+                <div class="right-person-info-row-box-title stm">
+                    Swap Course
+                </div>
+                <div class="right-person-info-row-box-right">
+                    <div class="right-person-info-row-box-text">
+                        <div class="right-person-info-row-box-subtitle str">
+                            Student Name
+                        </div>
+                        <div class="right-person-info-row-box-des stm">
+                            abcde
+                        </div>
+                    </div>
+                    <div class="right-person-info-row-box-text">
+                        <div class="right-person-info-row-box-subtitle str">
+                            Dated Received
+                        </div>
+                        <div class="right-person-info-row-box-des stm">
+                            2019-03-31
+                        </div>
+                    </div>
+                    <div class="right-person-info-row-box-text">
+                        <div class="right-person-info-row-box-subtitle str">
+                            Status
+                        </div>
+                        <div class="right-person-info-row-box-des stm" style="color: #FFC103">
+                            Waiting for Approval
+                        </div>
+                    </div>
+                    <input type="hidden" class="first-class" value="abcab">
+                    <input type="hidden" class="second-class" value="edcbd">
+                    <input type="hidden" class="status-id" value="3">
+                    <input type="hidden" class="application-id" value="">
+                    <i class="material-icons right-person-info-row-box-img">
+                        chevron_right
+                    </i>
+                </div>
+            </div>
+
         </div>
         <div class="right-down">
             <div class="right-info">
@@ -182,7 +283,7 @@
             </div>
             <div class="right-person-info-row-box">
                 <div class="right-person-info-row-box-title stm">
-                    $application_type
+                    Swap Course
                 </div>
                 <div class="right-person-info-row-box-right">
                     <div class="right-person-info-row-box-text">
@@ -190,7 +291,7 @@
                             Student Name
                         </div>
                         <div class="right-person-info-row-box-des stm">
-                            $application_student_name
+                            abcde
                         </div>
                     </div>
                     <div class="right-person-info-row-box-text">
@@ -198,22 +299,25 @@
                             Dated Received
                         </div>
                         <div class="right-person-info-row-box-des stm">
-                            $application_date
+                            2019-03-31
                         </div>
                     </div>
                     <div class="right-person-info-row-box-text">
                         <div class="right-person-info-row-box-subtitle str">
                             Status
                         </div>
-                        <div class="right-person-info-row-box-des stm">
-
+                        <div class="right-person-info-row-box-des stm" style="color: #29A745">
+                            Approved
                         </div>
                     </div>
+                    <input type="hidden" class="first-class" value="abcab">
+                    <input type="hidden" class="second-class" value="edcbd">
+                    <input type="hidden" class="status-id" value="2">
+                    <input type="hidden" class="application-id" value="">
                     <i class="material-icons right-person-info-row-box-img">
                         chevron_right
                     </i>
                 </div>
-                <input type="hidden" class="dp-box-id" value="$course_id">
             </div>
         </div>
         <div class="grey-bg">
@@ -265,7 +369,7 @@
         </div>
 
         <div class="share-box application-operation-box">
-            <form method="post">
+            <form method="post" name="application_operation">
                 <div class="edit-box-upper">
                     <div class="edit-box-top">
                         <div class="edit-box-title stm">
@@ -278,26 +382,28 @@
                             <div class="edit-box-innerbox-title">
                                 Student Name
                             </div>
-                            <input type="text" class="edit-box-innerbox-input str" name="application-student-name"
-                                   style="border: none; background-color: transparent" contenteditable="false"
-                                   disabled="disabled">
+                            <div class="notification-box-display str">
+
+                            </div>
                         </div>
                         <div class=" edit-box-innerbox ticket-detail-small str">
                             <div class="edit-box-innerbox-title">
                                 Date
                             </div>
-                            <input type="text" class="edit-box-innerbox-input str" name="application-date"
-                                   style="border: none; background-color: transparent" contenteditable="false"
-                                   disabled="disabled">
+                            <div class="notification-box-display str">
+
+                            </div>
                         </div>
                     </div>
-                    <div class="class-adding-subtitle str">
+                    <div class="class-adding-subtitle str" style="margin-top: 15px;">
                         Added Course
                     </div>
                     <div class="adding-course-name stb">
                         AAA
                     </div>
-
+                    <div class="adding-course-name stb" style="display: none">
+                        BBB
+                    </div>
                 </div>
                 <div class="edit-box-downer">
                     <div class="pending-box-innerbox">
@@ -329,9 +435,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="edit-box-grey stb">
-                        Dismiss
-                    </div>
+                    <input type="hidden" class="application-id" value="">
+                    <input type="button" class="share-box-double-button edit-box-green" value="Approve" onclick="approveApplication()">
+                    <input type="button" class="share-box-double-button edit-box-red" value="Reject" onclick="rejectApplication()">
                 </div>
             </form>
         </div>
