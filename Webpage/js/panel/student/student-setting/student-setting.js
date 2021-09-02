@@ -253,6 +253,8 @@ $(document).ready(function () {
         grey_bg.fadeIn();
         var currentStatus = $(this).find('.pending-row-status').val();
         var statusRow = pending_box.find('.ticket-box-row');
+        pending_box.find('.pending-box-status').val(currentStatus)
+        console.log(currentStatus);
         ticketProcess(currentStatus, statusRow);
     });
     var aprove_box = $('.aprove-box');

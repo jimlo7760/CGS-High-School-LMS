@@ -899,7 +899,7 @@ EOD;
                                 $target_subj_id = $target_class_info[2];
                                 $target_class_name = FetchSubjById($target_subj_id)[1][0][1];
 
-                                if ($status == "0") {
+                                if ($status != 5) {
                                     echo <<< END
                                         <div class="right-class-process-row pending-row">
                                             <div class="right-class-process-left">
@@ -939,9 +939,10 @@ EOD;
                                                     chevron_right
                                                 </i>
                                             </div>
+                                            <!--echo the status here-->
+                                            <input type="hidden" class="pending-row-status" value="$status">
                                         </div>
-                                        <input type="hidden" class="pending-row-status" value="$status">
-<!--echo the status here-->
+                                        
 END;
                                 } else if ($status == "1") {
                                     echo <<< END
@@ -1123,9 +1124,9 @@ END;
                                             <input type="hidden" class="pending-row-status" value="$status">
 <!--echo the status here-->
 END;
-                                } else if ($status == "1") {
+                                } else if ($status == "6" ) {
                                     echo <<< END
-                                        <div class="right-class-process-row aprove-row">
+                                        <div class="right-class-process-row pending-box">
                                             <div class="right-class-process-left">
                                                 <div class="right-class-process-box">
                                     END;
@@ -1194,7 +1195,7 @@ END;
                                         </div>
 END;
 
-                                } else if ($status == "2") {
+                                } else if ($status == ("2" || "4" || "6")) {
                                     echo <<< END
                                         <div class="right-class-process-row unaprove-row">
                                             <div class="right-class-process-left">
