@@ -872,6 +872,8 @@ EOD;
                         </div>
                         <div class="right-class-process-list">
                             <?php
+
+                            //                          Fetch swap_subj_application;
                             require_once "../../../Controller_and_Model/Model/SwapSubjAppActions.php";
                             require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
                             require_once "../../../Controller_and_Model/Model/AddDropSubjApplicationActions.php";
@@ -899,13 +901,20 @@ EOD;
                                 $target_subj_id = $target_class_info[2];
                                 $target_class_name = FetchSubjById($target_subj_id)[1][0][1];
 
-                                if ($status != 5) {
-                                    echo <<< END
+                                //                  Explanation for variable "status":
+                                //                  0：正在等待学科老师同意；
+                                //                  1：学科老师同意，正在等待班主任同意；
+                                //                  2:学科老师不同意；
+                                //                  3：学科老师+班主任同意，正在等待项目处同意；
+                                //                  4：学科老师同意，班主任不同意；
+                                //                  5:学科老师+班主任+项目处同意；
+                                //                  6：学科老师+班主任同意，项目处不同意；
+                                echo <<< END
                                         <div class="right-class-process-row pending-row">
                                             <div class="right-class-process-left">
                                                 <div class="right-class-process-box">
                                                     <div class="right-class-process-box-title str">
-                                                        Added Classes
+                                                        Swapped Classes
                                                     </div>
                                                     <div class="right-class-process-box-content stm">
                                                         From: $orig_class_name, To: $target_class_name
@@ -931,111 +940,42 @@ EOD;
                                                     <div class="right-class-process-box-title str" style="text-align:right">
                                                         Status
                                                     </div>
-                                                    <div class="right-class-process-box-content stm" style="color: #FFC103">
+                                    END;
+                                if ($status == 0 || $status == 1 || $status == 3) {
+                                    echo <<< END
+                                            <div class="right-class-process-box-content stm" style="color: #FFC103">
                                                         Pending
                                                     </div>
-                                                </div>
-                                                <i class="material-icons right-class-process-right-box-img" style="color: #343A3E;">
-                                                    chevron_right
-                                                </i>
-                                            </div>
-                                            <!--echo the status here-->
-                                            <input type="hidden" class="pending-row-status" value="$status">
-                                        </div>
-                                        
-END;
-                                } else if ($status == "1") {
+                                        END;
+                                } else if ($status == 5) {
                                     echo <<< END
-                            <div class="right-class-process-row aprove-row">
-                                <div class="right-class-process-left">
-                                    <div class="right-class-process-box">
-                                        <div class="right-class-process-box-title str">
-                                            Added Classes
-                                        </div>
-                                        <div class="right-class-process-box-content stm">
-                                            From: $orig_class_name, To: $target_class_name
-                                        </div>
-                                        <div style="display: none">
-                                                From: $orig_class_name
-                                        </div>
-                                        <div style="display: none">
-                                                To: $target_class_name
-                                        </div>
-                                    </div>
-                                    <div class="right-class-process-box">
-                                        <div class="right-class-process-box-title str">
-                                            Submit Date
-                                        </div>
-                                        <div class="right-class-process-box-content stm">
-                                            $create_time
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="right-class-process-right">
-                                    <div class="right-class-process-box">
-                                        <div class="right-class-process-box-title str" style="text-align:right">
-                                            Status
-                                        </div>
-                                        <div class="right-class-process-box-content stm" style="color: #1BA2B9">
+                                            <div class="right-class-process-box-content stm" style="color: #1BA2B9">
                                             Approved
-                                        </div>
-                                    </div>
-                                    <i class="material-icons right-class-process-right-box-img" style="color: #343A3E;">
-                                        chevron_right
-                                    </i>
-                                </div>
-                            </div>
-END;
-
-                                } else if ($status == "2") {
-                                    echo <<< END
-                            <div class="right-class-process-row unaprove-row">
-                                <div class="right-class-process-left">
-                                    <div class="right-class-process-box">
-                                        <div class="right-class-process-box-title str">
-                                            Added Classes
-                                        </div>
-                                        <div class="right-class-process-box-content stm">
-                                            From: $orig_class_name, To: $target_class_name
-                                        </div>
-                                        <div style="display: none">
-                                                From: $orig_class_name
-                                        </div>
-                                        <div style="display: none">
-                                                To: $target_class_name
-                                        </div>
-                                    </div>
-                                    <div class="right-class-process-box">
-                                        <div class="right-class-process-box-title str">
-                                            Submit Date
-                                        </div>
-                                        <div class="right-class-process-box-content stm">
-                                            $create_time
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="right-class-process-right">
-                                    <div class="right-class-process-box">
-                                        <div class="right-class-process-box-title str" style="text-align:right">
-                                            Status
-                                        </div>
-                                        <div class="right-class-process-box-content stm" style="color: #DD3444">
-                                            Not Approved
-                                        </div>
-                                            <div style="display: none" id="unapproved_$i">
-                                                $action_required
                                             </div>
-                                        </div>
-                                    <i class="material-icons right-class-process-right-box-img" style="color: #343A3E;">
-                                        chevron_right
-                                    </i>
-                                </div>
-                            </div>
-END;
-                                    $i++;
+                                        END;
+                                } else if ($status == 2 || $status == 4 || $status == 6) {
+                                    echo <<< END
+                                            <div class="right-class-process-box-content stm" style="color: #DD3444">
+                                            Not Approved
+                                            </div>
+                                                <div style="display: none" id="unapproved_$i">
+                                                    $action_required
+                                                </div>
+                                            END;
                                 }
+                                echo <<< END
+                                        
+                                        </div >
+                                                <i class="material-icons right-class-process-right-box-img" style = "color: #343A3E;" >
+                                                    chevron_right
+                                                </i >
+                                        </div >
+                                            <input type = "hidden" class="pending-row-status" value = "$status" >
+                                        </div >
+                                        END;
+                                $i++;
                             }
-                            $_SESSION["swap_app_info"] = FetchSwapSubjAppByStudId($_SESSION["id"]);
+                                                        $_SESSION["swap_app_info"] = FetchSwapSubjAppByStudId($_SESSION["id"]);
                             $_SESSION["add_drop_app_info"] = FetchStudAddDropAppByStudId($_SESSION["id"]);
                             $add_drop_app_info = FetchStudAddDropAppByStudId($_SESSION["id"]);
                             if ($add_drop_app_info[0] == 1) {
@@ -1050,16 +990,15 @@ END;
                                 $create_time = $info[5];
                                 $status = $info[7];
                                 $target_class_info = FetchSubjClassBySubjClassId($target_subj_class_id)[1][0];
-                                $target_subj_id = $target_class_info[1];
+                                $target_subj_id = $target_class_info[2];
                                 $target_class_name = FetchSubjById($target_subj_id)[1][0][1];
-                                if ($status == "0") {
-                                    echo <<< END
+                                echo <<< END
                                             <div class="right-class-process-row pending-row">
                                                 <div class="right-class-process-left">
                                                     <div class="right-class-process-box">
                                     END;
-                                    if ($action == 1) {
-                                        echo <<< END
+                                if ($action == 1) {
+                                    echo <<< END
                                             <div class="right-class-process-box-title str">
                                                 Added Classes
                                             </div>
@@ -1067,18 +1006,18 @@ END;
                                                 Add: $target_class_name
                                             </div>
                                         END;
-                                    } else if ($action == 0) {
-                                        echo <<< END
+                                } else if ($action == 0) {
+                                    echo <<< END
                                             <div class="right-class-process-box-title str">
-                                                Added Classes
+                                                Dropped Classes
                                             </div>
                                             <div class="right-class-process-box-content stm">
                                                 Drop: $target_class_name
                                             </div>
                                         END;
-                                    }
-                                    if ($action == 1) {
-                                        echo <<< END
+                                }
+                                if ($action == 1) {
+                                    echo <<< END
                                             <div style="display: none">
                                                     Add
                                             </div>
@@ -1086,8 +1025,8 @@ END;
                                                     $target_class_name
                                             </div>
                                         END;
-                                    } else if ($action == 0) {
-                                        echo <<< END
+                                } else if ($action == 0) {
+                                    echo <<< END
                                             <div style="display: none">
                                                     $target_class_name
                                             </div>
@@ -1095,180 +1034,59 @@ END;
                                                     Drop
                                             </div>
                                         END;
-                                    }
-                                    echo <<< END
-                                            </div>
-                                                    <div class="right-class-process-box">
-                                                        <div class="right-class-process-box-title str">
-                                                            Submit Date
-                                                        </div>
-                                                        <div class="right-class-process-box-content stm">
+                                }
+                                echo <<< END
+</div>
+END;
+                                echo <<< END
+                                                        <div class="right-class-process-box">
+                                                            <div class="right-class-process-box-title str">
+                                                                Submit Date
+                                                            </div>
+                                                            <div class="right-class-process-box-content stm">
                                                             $create_time
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="right-class-process-right">
+                                                    <div class="right-class-process-right">
                                                     <div class="right-class-process-box">
                                                         <div class="right-class-process-box-title str" style="text-align:right">
                                                             Status
                                                         </div>
+                                                    END;
+                                if ($status == 0 || $status == 1 || $status == 3) {
+                                    echo <<< END
                                                         <div class="right-class-process-box-content stm" style="color: #FFC103">
-                                                            Pending
-                                                        </div>
-                                                    </div>
-                                                    <i class="material-icons right-class-process-right-box-img" style="color: #343A3E;">
-                                                        chevron_right
-                                                    </i>
-                                                </div>
-                                            </div>
-                                            <input type="hidden" class="pending-row-status" value="$status">
-<!--echo the status here-->
-END;
-                                } else if ($status == "6" ) {
+                                                                    Pending
+                                                                </div>
+                                                    END;
+                                } else if ($status == 5) {
                                     echo <<< END
-                                        <div class="right-class-process-row pending-box">
-                                            <div class="right-class-process-left">
-                                                <div class="right-class-process-box">
-                                    END;
-                                    if ($action == 1) {
-                                        echo <<< END
-                                            <div class="right-class-process-box-title str">
-                                                Added Classes
-                                            </div>
-                                            <div class="right-class-process-box-content stm">
-                                                Add: $target_class_name
-                                            </div>
-                                        END;
-                                    } else if ($action == 0) {
-                                        echo <<< END
-                                            <div class="right-class-process-box-title str">
-                                                Added Classes
-                                            </div>
-                                            <div class="right-class-process-box-content stm">
-                                                Drop: $target_class_name
-                                            </div>
-                                        END;
-                                    }
-                                    if ($action == 1) {
-                                        echo <<< END
-                                            <div style="display: none">
-                                                    Add
-                                            </div>
-                                            <div style="display: none">
-                                                    $target_class_name
-                                            </div>
-                                        END;
-                                    } else if ($action == 2) {
-                                        echo <<< END
-                                            <div style="display: none">
-                                                    $target_class_name
-                                            </div>
-                                            <div style="display: none">
-                                                    Drop
-                                            </div>
-                                        END;
-                                    }
-                                    echo <<< END
-                                                </div>
-                                                <div class="right-class-process-box">
-                                                    <div class="right-class-process-box-title str">
-                                                        Submit Date
-                                                    </div>
-                                                    <div class="right-class-process-box-content stm">
-                                                        $create_time
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="right-class-process-right">
-                                                <div class="right-class-process-box">
-                                                    <div class="right-class-process-box-title str" style="text-align:right">
-                                                        Status
-                                                    </div>
-                                                    <div class="right-class-process-box-content stm" style="color: #1BA2B9">
+                                                        <div class="right-class-process-box-content stm" style="color: #1BA2B9">
                                                         Approved
-                                                    </div>
-                                                </div>
-                                                <i class="material-icons right-class-process-right-box-img" style="color: #343A3E;">
-                                                    chevron_right
-                                                </i>
-                                            </div>
-                                        </div>
-END;
-
-                                } else if ($status == ("2" || "4" || "6")) {
-                                    echo <<< END
-                                        <div class="right-class-process-row unaprove-row">
-                                            <div class="right-class-process-left">
-                                                <div class="right-class-process-box">
-                                    END;
-                                    if ($action == 1) {
-                                        echo <<< END
-                                            <div class="right-class-process-box-title str">
-                                                Added Classes
-                                            </div>
-                                            <div class="right-class-process-box-content stm">
-                                                Add: $target_class_name
-                                            </div>
-                                        END;
-                                    } else if ($action == 2) {
-                                        echo <<< END
-                                            <div class="right-class-process-box-title str">
-                                                Added Classes
-                                            </div>
-                                            <div class="right-class-process-box-content stm">
-                                                Drop: $target_class_name
-                                            </div>
-                                        END;
-                                    }
-                                    if ($action == 1) {
-                                        echo <<< END
-                                            <div style="display: none">
-                                                    Add
-                                            </div>
-                                            <div style="display: none">
-                                                    $target_class_name
-                                            </div>
-                                        END;
-                                    } else if ($action == 2) {
-                                        echo <<< END
-                                            <div style="display: none">
-                                                    $target_class_name
-                                            </div>
-                                            <div style="display: none">
-                                                    Drop
-                                            </div>
-                                        END;
-                                    }
-                                    echo <<< END
-                                                </div>
-                                                <div class="right-class-process-box">
-                                                    <div class="right-class-process-box-title str">
-                                                        Submit Date
-                                                    </div>
-                                                    <div class="right-class-process-box-content stm">
-                                                        $create_time
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="right-class-process-right">
-                                                <div class="right-class-process-box">
-                                                    <div class="right-class-process-box-title str" style="text-align:right">
-                                                        Status
-                                                    </div>
-                                                    <div class="right-class-process-box-content stm" style="color: #DD3444">
-                                                        Not Approved
-                                                    </div>
-                                                        <div style="display: none" id="unapproved_$i">
-                                                            $action_required
                                                         </div>
-                                                    </div>
-                                                <i class="material-icons right-class-process-right-box-img" style="color: #343A3E;">
-                                                    chevron_right
-                                                </i>
-                                            </div>
-                                        </div>
-END;
+                                                    END;
+                                } else if ($status == 2 || $status == 4 || $status == 6) {
+                                    echo <<< END
+                                                        <div class="right-class-process-box-content stm" style="color: #DD3444">
+                                                        Not Approved
+                                                        </div>
+                                                            <div style="display: none" id="unapproved_$i">
+                                                                $action_required
+                                                            </div>
+                                                        END;
                                 }
+                                echo <<< END
+                                                    
+                                                    </div >
+                                                            <i class="material-icons right-class-process-right-box-img" style = "color: #343A3E;" >
+                                                                chevron_right
+                                                            </i >
+                                                    </div >
+                                                        <input type = "hidden" class="pending-row-status" value = "$status" >
+                                                    </div >
+                                                    END;
+                                $i++;
                             }
                             ?>
                         </div>
