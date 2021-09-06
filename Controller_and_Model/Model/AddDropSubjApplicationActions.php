@@ -6,16 +6,18 @@ require_once "LoginCredentials.php";
  * @param int $stud_id student's id.
  * @param int $target_subj_class_id the target class id of add/drop action.
  * @param int $action the action, 1 - add, 0 - drop.
+ * @param int $hr_class_id the homeroom class of that student.
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, empty array]
  * @author Yiming Su
  */
-function InsertNewAddDropApp(int $stud_id, int $target_subj_class_id, int $action) {
+function InsertNewAddDropApp(int $stud_id, int $target_subj_class_id, int $hr_class_id, int $action) {
     $conn = createconn();
     $stmt = $conn->prepare("insert into add_drop_subj_application (stud_id, target_subj_class_id, 
-                            add_drop, create_time, update_time) values (?, ?, ?, ?, ?)");
-    $stmt->bind_param("iiiss", $stmt_stud_id, $stmt_target_subj_class_id, $stmt_add_drop,
-                      $stmt_create_time, $stmt_update_time);
+                            hr_class_id, add_drop, create_time, update_time) values (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("iiiiss", $stmt_stud_id, $stmt_target_subj_class_id,
+                      $stmt_hr_class_id, $stmt_add_drop, $stmt_create_time, $stmt_update_time);
     $stmt_stud_id = $stud_id;
+    $stmt_hr_class_id = $hr_class_id;
     $stmt_target_subj_class_id = $target_subj_class_id;
     $stmt_add_drop = $action;
     $stmt_create_time = date('Y-m-d H:i:s');

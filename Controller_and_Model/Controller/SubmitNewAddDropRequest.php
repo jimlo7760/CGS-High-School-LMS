@@ -18,7 +18,8 @@ if (isset($_POST["course-select"]) && $_POST["course-select"] != NULL) {
     $input = true;
 }
 if ($input) {
-    $tot_res = InsertNewAddDropApp($stud_id, $subj_class_id, $action);
+    $hr_class_id = $_SESSION["class_id"];
+    $tot_res = InsertNewAddDropApp($stud_id, $subj_class_id, $hr_class_id, $action);
     if ($tot_res[1] > 0) {
         ob_start();
         header('Location: '. "../../Webpage/html/student/student-setting.php");
