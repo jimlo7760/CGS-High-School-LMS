@@ -6,7 +6,9 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hi Danny</title>
+    <title>Hi <?php
+        echo $_SESSION['eng_name'];
+        ?></title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../CSS/whole-common.css">
     <link rel="stylesheet" type="text/css" href="../../CSS/panel/panel-common.css">
