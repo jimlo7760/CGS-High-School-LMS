@@ -191,6 +191,150 @@
     background-color: #1BA2B9;
     border-radius: 5px;
 }
-.homeroomT-addScore-box{
+.right-person-info-row{
+    padding:30px 0;
+    border-bottom:2px solid #EAEBEB;
+}
+.right-person-info-row-upper{
+    overflow: hidden;
+    zoom:1;
+}
+.right-person-info-row-title{
+    float:left;
+    font-size:28px;
+    cursor: default;
+}
+.right-person-info-row-downer{
+    overflow: hidden;
+    zoom:1;
+    padding-top:20px;
+}
+
+.private-info-row{
+    border: #D0D0D0 solid 1px;
+    border-radius:5px;
+    margin-top: 20px;
+    padding-top: 0;
+}
+
+.private-info-row-upper{
+    overflow: hidden;
+    zoom: 1;
+}
+.private-info-row-downer{
+    overflow: hidden;
+    zoom: 1;
+}
+.private-info-row-box{
+    float: left;
+    margin: 7px;
+    padding-right: 8px;
+}
+.right-person-info-row-box{
+    margin: 5px;
+    float:left;
+    overflow: hidden;
+    zoom:1;
+    padding: 5px;
+    border: #D0D0D0 solid 1px;
+    border-radius:5px;
+    cursor: pointer;
+}
+.right-person-info-row-box-title{
+    float:left;
+    font-size:13px;
+    padding:10px;
+}
+.right-person-info-row-box-right{
+    float:right;
+    overflow: hidden;
+    zoom:1;
+}
+.right-person-info-row-box-text{
+    float:left;
+    margin-right: 20px;
+}
+.right-person-info-row-box-subtitle{
+    color:#999C9E;
+    font-size:13px;
+    transform: scale(0.9);
+}
+.right-person-info-row-box-des{
+    font-size:13px;
+    margin-left:5px;
+}
+.right-person-info-row-box-img{
+    float:left;
+    margin:5px;
+}
+.right-person-edit{
+    margin-top: 10px;
+    overflow: hidden;
+    zoom:1;
+    float:right;
+    cursor: pointer;
+}
+.right-person-add{
+    color: #1BA2B9;
+}
+.right-person-delete{
+    color: #DD3444;
+}
+.right-person-edit-interval{
+    padding-right: 15px;
+    border-right: 2px solid;
+    margin-right: 15px;
+}
+.right-person-edit-img{
+    float:left;
+}
+.right-person-edit-text{
+    float:left;
+    font-size:13px;
+    margin: 5px 0 0 10px;
+}
+
+.strength-box-add{
+
+}
+.strength-box-delete{
+    display: none;
+}
+.strength-box-add{
+    display: none;
+}
+.strength-box-inside{
+    float: left;
+}
+.strength-box-row{
+    overflow: hidden;
+    zoom: 1;
+}
+.language-box-add{
+    display: none;
+}
+.language-box-half{
+    width: 49.9%;
+    float: left;
+}
+.language-box-quater{
+    width: 22.7%;
+    float: left;
+    margin-right: 10px;
+}
+.dp-box-add{
+    display: none;
+}
+.strength-box-delete{
+    display: none;
+}
+.dp-box-delete{
+    display: none;
+}
+
+.language-box-delete{
+    display: none;
+}
+.class-swapping-box{
     display: none;
 }

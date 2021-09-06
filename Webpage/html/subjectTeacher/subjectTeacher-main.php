@@ -149,14 +149,6 @@ session_start();
                         2019 - 2020 First Semester
                     </div>
                 </div>
-                <div class="right-down-info-button">
-                    <span class="material-icons right-down-info-button-img">
-                        add
-                    </span>
-                    <div class="right-down-info-button-text stb">
-                        ADD COURSE
-                    </div>
-                </div>
             </div>
 
             <div class="subjectT-right-down-main">
@@ -209,14 +201,6 @@ session_start();
                         2018 - 2019 Second Semester
                     </div>
                 </div>
-                <div class="right-down-info-button">
-                    <span class="material-icons right-down-info-button-img">
-                        add
-                    </span>
-                    <div class="right-down-info-button-text stb">
-                        ADD COURSE
-                    </div>
-                </div>
 
             </div>
             <div class="subjectT-right-down-main">
@@ -266,14 +250,6 @@ session_start();
                     </div>
                     <div class="right-subtitle">
                         2018 - 2019 First Semester
-                    </div>
-                </div>
-                <div class="right-down-info-button">
-                    <span class="material-icons right-down-info-button-img">
-                        add
-                    </span>
-                    <div class="right-down-info-button-text stb">
-                        ADD COURSE
                     </div>
                 </div>
 
@@ -489,29 +465,6 @@ session_start();
             <div class="result-box-empty">
                 No result found containing 'Spainish'
             </div>
-        </div>
-
-        <div class="share-box subjectT-addCourse-box">
-            <div class="edit-box-top">
-                <div class="edit-box-title stm">
-                    Add New Course
-                </div>
-                <span class="material-icons edit-box-close">
-                    close
-                </span>
-            </div>
-            <form method="post">
-                <div class="edit-box-downer">
-                    <div class="edit-box-innerbox str">
-                        <div class="edit-box-innerbox-title">
-                            Course Name
-                        </div>
-                        <input type="text" class="edit-box-innerbox-input str" name="add-course-name"
-                               placeholder="English A2 - 001">
-                    </div>
-                    <input class="edit-box-green stb" type="submit" value="Save">
-                </div>
-            </form>
         </div>
     </div>
 </div>

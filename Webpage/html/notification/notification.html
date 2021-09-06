@@ -22,22 +22,24 @@
 </head>
 <body>
 
-<input type="hidden" class="user-type" value="0">
-<!--
-    input the type of teacher here
-    0: subject;
-    1: homeroom;
-    2: coordinator
--->
+<div class="teacher-information">
+    <input type="hidden" class="user-type" value="0">
+    <!--
+        input the type of teacher here
+        0: subject;
+        1: homeroom;
+        2: coordinator
+    -->
 
-<input type="hidden" class="course-id" value="1">
-<!--
-    Only echo when the teacher is subject teacher
--->
-<input type="hidden" class="homeroom-id" value="2">
-<!--
-    Only echo when the teacher is homeroom teacher
--->
+    <input type="hidden" class="course-id" value="1">
+    <!--
+        Only echo when the teacher is subject teacher
+    -->
+    <input type="hidden" class="homeroom-id" value="2">
+    <!--
+        Only echo when the teacher is homeroom teacher
+    -->
+</div>
 <div class="all">
     <div class="left-content" style="height: 700px;">
         <div class="left-box">
@@ -312,6 +314,7 @@
                     </div>
                     <input type="hidden" class="first-class" value="abcab">
                     <input type="hidden" class="second-class" value="edcbd">
+                    <input type="hidden" class="homeroom-class-id" value="3">
                     <input type="hidden" class="status-id" value="2">
                     <input type="hidden" class="application-id" value="">
                     <i class="material-icons right-person-info-row-box-img">
@@ -375,7 +378,9 @@
                         <div class="edit-box-title stm">
                             Ticket Details
                         </div>
-                        <img src="../../img/ic_close_18px@2x.png" height="12" width="12" class="edit-box-close">
+                        <span class="material-icons edit-box-close">
+                            close
+                        </span>
                     </div>
                     <div class="edit-box-row">
                         <div class="edit-box-innerbox ticket-detail-large str">

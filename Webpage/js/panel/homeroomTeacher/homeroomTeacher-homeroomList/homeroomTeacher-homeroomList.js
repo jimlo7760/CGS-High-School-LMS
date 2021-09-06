@@ -22,10 +22,10 @@ $(document).ready(function () {
         $(this).find("form").submit();
     })
 
-    $('.enrolled-student').click(function (){
+    $('.enrolled-student').click(function () {
         $('.student-crew-list').fadeOut('fast');
         $('.homeroomT-homeroomStudent-class').delay('fast').fadeIn('fast');
-        setTimeout(function (){
+        setTimeout(function () {
             var tableWid = parseInt(homeroomT_studentScore.css('width'));
             var titleWid = tableWid * 0.3;
             $('.right-table-title-title').width(titleWid);
@@ -57,22 +57,22 @@ $(document).ready(function () {
         var selectedGrade = tempSplitClass[0];
         var selectedClass = tempSplitClass[1];
         var accumu = 0;
-        $('.right-info-dataBox-content').each(function (){
+        $('.right-info-dataBox-content').each(function () {
             accumu += 1
-            if(accumu == 1){
+            if (accumu == 1) {
                 $(this).text(selectedStuID);
-            }else if(accumu == 2){
+            } else if (accumu == 2) {
                 $(this).text(selectedDepart);
-            }else if(accumu == 3){
+            } else if (accumu == 3) {
                 $(this).text(selectedGrade);
-            }else if(accumu == 4){
+            } else if (accumu == 4) {
                 $(this).text(selectedClass);
-            }else{
+            } else {
                 $(this).text(selectedStuEmail);
             }
         })
         $('.right-title:last').text(selectedStuName);
-    //    require .ajax to assign values for homeroomT-homeroomStudent-class
+        //    require .ajax to assign values for homeroomT-homeroomStudent-class
     })
 
     $('.right-navi-item').click(function () {
@@ -94,6 +94,10 @@ $(document).ready(function () {
         }
     })
 
+    $('.right-navi-item-right').click(function (){
+
+    })
+
     homeroomT_studentScore.each(function () {
         if ($(this)[0] == $('.homeroomT-studentScore')[0]) {
             $(this).css('display', 'block');
@@ -107,7 +111,7 @@ $(document).ready(function () {
         $('.student-crew-list').delay(250).fadeIn('fast');
     })
 
-    $('.homeroomT-studentScore-add').click(function (){
+    $('.homeroomT-studentScore-add').click(function () {
         var targetSub = "";
         $('.right-navi-item').each(function () {
             if ($(this).css('color') == 'rgb(33, 37, 41)') {
