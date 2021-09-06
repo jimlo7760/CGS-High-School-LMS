@@ -975,7 +975,7 @@ EOD;
                                         END;
                                 $i++;
                             }
-                                                        $_SESSION["swap_app_info"] = FetchSwapSubjAppByStudId($_SESSION["id"]);
+//                                                        $_SESSION["swap_app_info"] = FetchSwapSubjAppByStudId($_SESSION["id"]);
                             $_SESSION["add_drop_app_info"] = FetchStudAddDropAppByStudId($_SESSION["id"]);
                             $add_drop_app_info = FetchStudAddDropAppByStudId($_SESSION["id"]);
                             if ($add_drop_app_info[0] == 1) {
