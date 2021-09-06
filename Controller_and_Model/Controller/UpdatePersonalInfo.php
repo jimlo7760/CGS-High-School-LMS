@@ -41,6 +41,8 @@ if ((isset($_POST["passport-name"]) && $_POST["passport-name"] != NULL) &&
         "," . $father_job_title;
     $tot_res = UpdateStudPersonalInfo($_SESSION["id"], $raw_personal_info);
     if ($tot_res[1] > 0) {
+        $_SESSION['chi_name'] = $c_name;
+        $_SESSION['eng_name'] = $e_name;
         ob_start();
         header('Location: '. "../../Webpage/html/student/student-setting.php");
         ob_end_flush();
