@@ -984,11 +984,11 @@ EOD;
                             foreach ($add_drop_app_info as $info) {
                                 $app_id = $info[0];
                                 $stud_id = $info[1];
-                                $target_subj_class_id = $info[1];
-                                $action = $info[3];
-                                $admin_comment = $info[4];
-                                $create_time = $info[5];
-                                $status = $info[7];
+                                $target_subj_class_id = $info[2];
+                                $action = $info[4];
+                                $admin_comment = $info[5];
+                                $create_time = $info[6];
+                                $status = $info[8];
                                 $target_class_info = FetchSubjClassBySubjClassId($target_subj_class_id)[1][0];
                                 $target_subj_id = $target_class_info[2];
                                 $target_class_name = FetchSubjById($target_subj_id)[1][0][1];
