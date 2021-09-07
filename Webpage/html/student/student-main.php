@@ -99,7 +99,7 @@ session_start();
                 <div class="right-top-person">
                     <div class="right-top-person-name stm">
                         <?php
-                            echo $_SESSION["eng_name"];
+                        echo $_SESSION["eng_name"];
                         ?>
                     </div>
                     <?php
@@ -223,10 +223,10 @@ session_start();
                 </form>
             </div>
 END;
-                $i ++;
+                $i++;
             }
             ?>
-            </div>
+        </div>
         <div class="right-down" id="20192">
             <div class="right-info">
                 <div class="right-info-left stb">
@@ -338,7 +338,7 @@ END;
                 </form>
             </div>
 END;
-                $i ++;
+                $i++;
             }
             ?>
         </div>
@@ -453,51 +453,51 @@ END;
                 </form>
             </div>
 END;
-                $i ++;
+                $i++;
             }
             ?>
         </div>
 
     </div>
-        <div class="personal-panel">
-            <div class="personal-panel-top">
-                <?php
-                $avatar_path = $_SESSION["avatar_path"];
-                echo "<img src=\"../../../Controller_and_Model/uploads/$avatar_path\" height=\"30\" width=\"30\" class=\"personal-panel-portrait\">";
-                ?>
-                <div class="personal-panel-des">
-                    <div class="personal-panel-name stb">
-                        <?php
-                        echo $_SESSION["eng_name"];
-                        ?>
-                    </div>
-                    <div class="personal-panel-mail str">
-                        <?php
-                        echo $_SESSION["email_address"];
-                        ?>
-                    </div>
+    <div class="personal-panel">
+        <div class="personal-panel-top">
+            <?php
+            $avatar_path = $_SESSION["avatar_path"];
+            echo "<img src=\"../../../Controller_and_Model/uploads/$avatar_path\" height=\"30\" width=\"30\" class=\"personal-panel-portrait\">";
+            ?>
+            <div class="personal-panel-des">
+                <div class="personal-panel-name stb">
+                    <?php
+                    echo $_SESSION["eng_name"];
+                    ?>
                 </div>
-            </div>
-            <div class="personal-panel-bottom">
-                <div class="personal-panel-row str" onclick="window.location='student-setting.php'">
-                    My Profile
-                </div>
-                <div class="personal-panel-row str">
-                    Add / Drop Class
-                </div>
-                <div class="personal-panel-row str">
-                    Goal Score
-                </div>
-                <div class="personal-panel-row-last str" onclick="window.location='../login/index.html'">
-                    Sign Out
+                <div class="personal-panel-mail str">
+                    <?php
+                    echo $_SESSION["email_address"];
+                    ?>
                 </div>
             </div>
         </div>
-        <div class="grey-bg grey-bg-main">
+        <div class="personal-panel-bottom">
+            <div class="personal-panel-row str" onclick="window.location='student-setting.php'">
+                My Profile
+            </div>
+            <div class="personal-panel-row str">
+                Add / Drop Class
+            </div>
+            <div class="personal-panel-row str">
+                Goal Score
+            </div>
+            <div class="personal-panel-row-last str" onclick="window.location='../login/index.html'">
+                Sign Out
+            </div>
+        </div>
+    </div>
+    <div class="grey-bg grey-bg-main">
 
-        </div>
-        <div class="result-box">
-        </div>
+    </div>
+    <div class="result-box">
+
     </div>
 </div>
 </body>

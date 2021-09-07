@@ -3,6 +3,12 @@ $(document).ready(function () {
 
     $('.right-top-research-text').on('input propertychange', function () {
         var input = $('.right-top-research-text').val();
+        var result_box = $('.result-box');
+        if(input){
+            result_box.fadeIn();
+        }else{
+            result_box.fadeOut();
+        }
         $(".result-box-name").each(function (item) {
             count = 0;
             var contentValue = $(".result-box-name")[item].innerText;
@@ -41,18 +47,21 @@ $(document).ready(function () {
     var count = 0;
     $('.right-top-left').click(function () {
         count++;
-        var search = body - 75 + 'px';
+        var search = $(document.body).outerHeight(true) - 75 + 'px';
         grey_bg.css({
             'top': '75px',
             'height': search,
         });
-        $('.right-top-research-text').toggleClass('pointer-alt');
+        var right_top_search_text = $('.right-top-search-text');
+        right_top_search_text.toggleClass('pointer-alt');
+        var typingText = right_top_search_text.val();
+
+        var result_box = $('.result-box');
         if (count % 2 == 1) {
             grey_bg.fadeIn();
-            $('.result-box').fadeIn();
         } else {
             grey_bg.fadeOut();
-            grey_bg.fadeOut();
+            result_box.fadeOut();
         }
     });
 
