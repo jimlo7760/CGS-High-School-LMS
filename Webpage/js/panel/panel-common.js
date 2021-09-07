@@ -136,7 +136,7 @@ $(document).ready(function () {
 
     $('.left-content-manu-nevi').click(function () {    //check if the clicked nevi is the "semester", switch list as not the click semester not as same as displaying semester
         var clicked_navi = $(this).attr('name');
-        if ($(this).children().hasClass('left-content-manu-current')) {  // navigator above
+        if ($(this).children().hasClass('left-content-manu-current')) {  // top-half navigator: select semester
             $('.left-content-manu-nevi').each(function () {
                 if($(this).css('background-color') == 'rgb(0, 60, 70)'){
                     $(this).animate({
@@ -153,7 +153,7 @@ $(document).ready(function () {
                     $('#' + current_display_list).fadeOut('fast');
                 }
             })
-        }else{                                                  // navigator below
+        }else{                                                  // down-half navigator: select class information
             var target_downl_list = $("#" + clicked_navi);
             var subjectT_courseList = $('.subjectT-courseList');
             var homeroomT_homeroomList = $('.homeroomT-homeroomList');

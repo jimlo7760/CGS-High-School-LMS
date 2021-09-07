@@ -36,7 +36,7 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
             <div class="left-content-navi">
                 <div class="left-content-navi-item">
                     <div class="left-content-navi-title stb">
-                        SCHOOL YEAR
+                        MANAGE
                     </div>
                     <div class="left-content-navi-content">
                         <i class="material-icons left-content-navi-img initial_transform">
@@ -45,11 +45,6 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
                     </div>
                 </div>
                 <div class="left-content-manu stb">
-                    <div class="left-content-manu-nevi">
-                        <div class="left-content-manu-year">
-                            Overview
-                        </div>
-                    </div>
                     <div class="left-content-manu-nevi-cur">
                         <div class="left-content-manu-year">
                             Exams & Tests

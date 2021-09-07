@@ -99,3 +99,7 @@
     float:left;
     cursor: default;
 }
+
+.table-sharing{
+    display: none;
+}

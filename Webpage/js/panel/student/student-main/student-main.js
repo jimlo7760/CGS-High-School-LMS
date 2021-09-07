@@ -1,4 +1,10 @@
 $(document).ready(function () {
+
+    //Initialization
+
+    $('.right-down').hide();
+    $('.right-down').eq(0).show();
+
     var left_content_manu_nevi = $('.left-content-manu-nevi');
     left_content_manu_nevi.mouseenter(function () {
         $(this).animate({
