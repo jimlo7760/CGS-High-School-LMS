@@ -18,8 +18,18 @@ $(document).ready(function () {
     var right_person_info_row_box = $('.right-person-info-row-box');
     right_person_info_row_box.outerWidth(boxWidth);
     $('.strength-box-inside').outerWidth(boxWidth);
-
     languageTestIelts($('.language-box-add'));
+    var targetInterface = $('.target-operation').val();
+    var right_profile_whole = $('.right-profile-whole');
+    var right_class_whole = $('.right_class_whole');
+    var right_score_whole = $('.right_score_whole');
+    if(targetInterface == 'manage_class'){
+        right_profile_whole.hide();
+        right_class_whole.show();
+    }else if(targetInterface == 'manage_score'){
+        right_profile_whole.hide();
+        right_score_whole.show();
+    }
 
     $(".ticket-box-row-img").each(function (){
         var currentStatus = $(this).text().trim();
@@ -114,9 +124,6 @@ $(document).ready(function () {
         $('.university-box-delete').fadeIn();
     });
 
-    var right_class_whole = $(".right-class-whole");
-    var right_score_whole = $(".right-score-whole");
-    var right_profile_whole = $('.right-profile-whole');
     var navi_score = $('.navi-score');
     $('.edit-box-portrait-button').click(function () {
         $('.uploadPortrait').click();
@@ -568,7 +575,6 @@ $(document).ready(function () {
         }
     })
 
-
     $('select[name="language-test-type"]').change(function (){
         var testType=$(this).children('option:selected').val();
         var language_box_add = $('.language-box-add')
@@ -586,6 +592,12 @@ $(document).ready(function () {
         }else if(testType == 'DUOLINGUAL'){
             languageTestDuo(currentLanguageBox);
         }
+    })
+
+    $('.left-content-manu').click(function (){
+        var targetSemester = $(this).attr('name');
+        var data = {"[navi_id]": targetSemester};
+        doPost('student-main.php', data);
     })
 
 
@@ -649,3 +661,14 @@ $(document).ready(function () {
         return returnVal;
     }
 });
+
+
+// window.οnbefοreunlοad=function (event){
+//     alert("===οnbefοreunlοad===");
+//     if(event.clientX>document.body.clientWidth && event.clientY < 0 || event.altKey){
+//         alert("你关闭了浏览器");
+//
+//     }else{
+//         alert("你正在刷新页面");
+//     }
+// }

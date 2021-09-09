@@ -479,13 +479,13 @@ END;
             </div>
         </div>
         <div class="personal-panel-bottom">
-            <div class="personal-panel-row str" onclick="window.location='student-setting.php'">
+            <div class="personal-panel-row str" name="profile">
                 My Profile
             </div>
-            <div class="personal-panel-row str">
+            <div class="personal-panel-row str" name="manage_class">
                 Add / Drop Class
             </div>
-            <div class="personal-panel-row str">
+            <div class="personal-panel-row str" name="manage_score">
                 Goal Score
             </div>
             <div class="personal-panel-row-last str" onclick="window.location='../login/index.html'">

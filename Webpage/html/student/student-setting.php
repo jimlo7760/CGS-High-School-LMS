@@ -47,6 +47,15 @@ $_SESSION["exam_id_2"] = 0;
 </head>
 <body>
 <div class="all">
+    <?php //get the button clicked from student-main.php and student-setting.php
+    $id = "";
+    if (isset($_POST['target_operation'])) {
+        $target_operation = $_POST['target_operation'];
+    }
+    echo "<input hidden='true' id='target-operation' value='";
+    echo $id;
+    echo "'>";
+    ?>
     <div class="left-content">
         <div class="left-box">
             <div class="left-content-title stm">
@@ -64,7 +73,7 @@ $_SESSION["exam_id_2"] = 0;
                     </div>
                 </div>
                 <div class="left-content-manu stb">
-                    <div class="left-content-manu-nevi" onclick="window.location='student-main.php'">
+                    <div class="left-content-manu-nevi" name="20201">
                         <div class="left-content-manu-year">
                             2019 - 2020
                         </div>
@@ -72,7 +81,7 @@ $_SESSION["exam_id_2"] = 0;
                             CURRENT
                         </div>
                     </div>
-                    <div class="left-content-manu-nevi">
+                    <div class="left-content-manu-nevi" name="20192">
                         <div class="left-content-manu-year">
                             2019 - 2020
                         </div>
@@ -80,7 +89,7 @@ $_SESSION["exam_id_2"] = 0;
                             CURRENT
                         </div>
                     </div>
-                    <div class="left-content-manu-nevi">
+                    <div class="left-content-manu-nevi" name="20191">
                         <div class="left-content-manu-year">
                             2019 - 2020
                         </div>
@@ -1220,13 +1229,13 @@ END;
                 </div>
             </div>
             <div class="personal-panel-bottom">
-                <div class="personal-panel-row str">
+                <div class="personal-panel-row str" name="profile">
                     My Profile
                 </div>
-                <div class="personal-panel-row str">
+                <div class="personal-panel-row str" name="manage_class">
                     Add / Drop Class
                 </div>
-                <div class="personal-panel-row str">
+                <div class="personal-panel-row str" name="manage_score">
                     Goal Score
                 </div>
                 <div class="personal-panel-row-last str" onclick="window.location='../login/index.html'">

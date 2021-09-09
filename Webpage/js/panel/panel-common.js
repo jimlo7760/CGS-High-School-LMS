@@ -203,6 +203,11 @@ $(document).ready(function () {
         editTestTable(testId, testTitle, testDes, testType, testMax, testDate, testComment);
     })
 
+    $('.personal-panel-row').click(function (){
+        var clickInterface = $(this).attr('name');
+        var data = {"target_operation": clickInterface};
+        doPost('student-setting.php', data);
+    })
 });
 
 $(window).load(function (){
@@ -237,7 +242,9 @@ function editTestTable(testId, testTitle, testDes, testType, testMax, testDate, 
     subjectT_editTest_box.find('.edit-box-innerbox-input').eq(4).text(testComment);
 }
 
+//            var data = {"[name]": idVal}: packing the data before calling
 function doPost(URL, data) {
+
     var PARAMS = data;
 
     var temp = document.createElement("form");
