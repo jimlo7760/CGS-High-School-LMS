@@ -83,12 +83,13 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
             ob_end_flush();
             die();
 
-        } else if ($tot_res[1] == 1) {
-            $_SESSION["user_role"] = 1;
-            UpdateLoginTime($id, 1);
+        } else{
+            $_SESSION["user_role"] = $tot_res[1];
+            UpdateLoginTime($id, $tot_res[1]);
             echo "Teacher $chi_name ($eng_name)";
             $_SESSION["subject_id"] = $tot_res[2][6];
-            $raw_res = FetchSubjClassBySubjTeacherId(1)[1];
+            $raw_res = FetchSubjClassBySubjTeacherId($tot_res[2][0])[1];
+            $raw_res_homeroom = FetchHRClassByHRTeacherId($tot_res[2][0])[1];
             $subj_class_ids = [];
             foreach ($raw_res as $subj_class_array) {
                 print_r($subj_class_array);
@@ -96,9 +97,19 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
                 $subj_class_ids[] = $subj_class_array[0];
             }
             $_SESSION["subj_class_ids"] = $subj_class_ids;
-            ob_start();
-            header('Location: '. "../../Webpage/html/subjectTeacher/subjectTeacher-main.php");
-            ob_end_flush();
+            if($_SESSION["user_role"] == 1 || $_SESSION["user_role"] == 4){
+                ob_start();
+                header('Location: '. "../../Webpage/html/subjectTeacher/subjectTeacher-main.php");
+                ob_end_flush();
+            }else if($_SESSION["user_role"] == 2 || $_SESSION["user_role"] == 3 || $_SESSION['user_role'] == 5){
+                ob_start();
+                header('Location: '. "../../Webpage/html/homeroomTeacher/homeroomTeacher-main.php");
+                ob_end_flush();
+            }else if($_SESSION["user_role"] == 6){
+                ob_start();
+                header('Location: '. "../../Webpage/html/coordinator/coordinator-main.php");
+                ob_end_flush();
+            }
             die();
         }
 
@@ -117,7 +128,7 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
             ob_end_flush();
             die();
         }
-    } else if ($tot_res == 0) {
+    } else if (!$tot_res[0]) {
         echo "Failed to login. Error:  ";
         echo $tot_res[2];
     }

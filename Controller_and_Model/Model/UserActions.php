@@ -57,12 +57,20 @@ function UserAuth($school_num, $password) {
     $isStu = false;
     $isTea = false;
     $conn = createconn();
-    $q = "select * from teacher_info where teacher_num=?"; // First query, check if user is teacher
+    $q = "select * from teacher_info where teacher_num=?"; // First query, check if user is teacher by teacher_num
     $stmt = $conn->prepare($q);
     $stmt->bind_param("s", $stmt_teacher_num);
     $stmt_teacher_num = $school_num;
     $stmt->execute();
     $res = $stmt->get_result()->fetch_all();
+    if(count($res) == 0){
+        $q = "select * from teacher_info where email_address=?"; // First query, check if user is teacher by teacher_email
+        $stmt = $conn->prepare($q);
+        $stmt->bind_param("s", $stmt_teacher_num);
+        $stmt_teacher_num = $school_num;
+        $stmt->execute();
+        $res = $stmt->get_result()->fetch_all();
+    }
     if (count($res) > 0) {
         $isTea = true;
         $db_pw = $res[0][4];
@@ -78,12 +86,22 @@ function UserAuth($school_num, $password) {
             // back to login screen.
         }
     } else {
-       $q = "select * from stud_info where stud_number=?"; // Second query, check if user is student
+       $q = "select * from stud_info where stud_number=?"; // Second query, check if user is student by stud_num
        $stmt = $conn->prepare($q);
        $stmt->bind_param("s", $stmt_stud_number);
        $stmt_stud_number = $school_num;
        $stmt->execute();
        $res = $stmt->get_result()->fetch_all();
+       if(count($res) == 0){
+           $conn = createconn();
+           $q = "select * from stud_info where email_address=?"; // Second query, check if user is student by email
+           $stmt = $conn->prepare($q);
+           $stmt->bind_param("s",$stmt_stud_number);
+           $stmt->execute();
+           $res = $stmt->get_result()->fetch_all();
+           $stmt->close();
+           $conn->close();
+       }
        if (count($res) > 0) {
            $isStu = true;
            $db_pw = $res[0][9];
@@ -123,7 +141,7 @@ function UpdateLoginTime($id, $user_role) {
     $q = "";
     if ($user_role == 0) {
         $q = "update stud_info set last_login_time=? where id=?";
-    } else if ($user_role == 1) {
+    } else if ($user_role == 1 || $user_role == 2 || $user_role == 3 || $user_role == 4 || $user_role == 5) {
         $q = "update teacher_info set last_login_time=? where id=?";
     }
     $stmt = $conn->prepare($q);

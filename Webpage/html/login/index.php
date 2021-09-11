@@ -1,7 +1,11 @@
 <?php
 session_start();
+$_SESSION = array();
+if (isset($_COOKIE[session_name()])) {
+    setcookie(session_name(), '', time()-42000, '/');
+}
+session_destroy();
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
-
     if ($_SESSION["user_role"] == 1) {
         ob_start();
         header('Location: '. "../subjectTeacher/subjectTeacher-main.php");
