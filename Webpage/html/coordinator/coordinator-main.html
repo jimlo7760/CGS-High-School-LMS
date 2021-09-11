@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../CSS/whole-common.css">
+    <link rel="stylesheet" type="text/css" href="../../CSS/panel/panel-common.css">
+    <link rel="stylesheet" type="text/css" href="../../CSS/panel/coordinator/coordinator-main.css">
+
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+
+    </script>
+    <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile">
+
+    </script>
+
+    <script type="text/javascript" src="../../js/panel/panel-common.js">
+
+    </script>
+    <script type="text/javascript" src="../../js/panel/coordinator/coordinator-main.js">
+
+    </script>
+</head>
+<body>
+<div class="all">
+    <div class="left-content">
+        <div class="left-box">
+            <div class="left-content-title stm">
+                MYP Student Management System
+            </div>
+            <div class="left-content-navi">
+                <div class="left-content-navi-item">
+                    <div class="left-content-navi-title stb">
+                        SCHOOL YEAR
+                    </div>
+                    <div class="left-content-navi-content">
+                        <span class="material-icons left-content-navi-img initial_transform">
+                            keyboard_arrow_up
+                        </span>
+                    </div>
+                </div>
+                <div class="left-content-manu stb">
+                    <div class="left-content-manu-nevi" name="20201">
+                        <div class="left-content-manu-year">
+                            2019 - 2020
+                        </div>
+                        <div class="left-content-manu-current">
+                            CURRENT
+                        </div>
+                    </div>
+                    <div class="left-content-manu-nevi" name="20192">
+                        <div class="left-content-manu-year">
+                            2018 - 2019
+                        </div>
+                        <div class="left-content-manu-current no-select">
+                            CURRENT
+                        </div>
+                    </div>
+                    <div class="left-content-manu-nevi" name="20191">
+                        <div class="left-content-manu-year">
+                            2018 - 2019
+                        </div>
+                        <div class="left-content-manu-current no-select">
+                            CURRENT
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="left-box-add">
+            <div class="left-content-navi">
+                <div class="left-content-navi-item">
+                    <div class="left-content-navi-title stb">
+                        MANAGE
+                    </div>
+                    <div class="left-content-navi-content">
+                        <span class="material-icons left-content-navi-img initial_transform">
+                            keyboard_arrow_up
+                        </span>
+                    </div>
+                </div>
+                <div class="left-content-manu navi-manage-student stb">
+                    <div class="left-content-manu-nevi" name="student" id="student-nevi">
+                        <div class="left-content-manu-year">
+                            All Students
+                        </div>
+                    </div>
+                    <div class="left-content-manu-nevi" name="student" id="teacher-nevi">
+                        <div class="left-content-manu-year">
+                            All Teachers
+                        </div>
+                    </div>
+                    <div class="left-content-manu-nevi" name="student" id="course-nevi">
+                        <div class="left-content-manu-year">
+                            All Courses
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right-content">
+        <div class="right-top">
+            <div class="right-top-left">
+                <div class="right-top-research">
+                    <span class="material-icons right-top-research-img">
+                        search
+                    </span>
+                    <input class="right-top-research-text pointer-alt stm" placeholder="Search by course name"
+                           type="text"
+                           maxlength="50">
+                </div>
+            </div>
+            <div class="right-top-right">
+                <span class="material-icons right-top-noti">
+                    notifications
+                </span>
+                <div class="right-top-noti-cir">
+
+                </div>
+                <div class="right-top-person">
+                    <div class="right-top-person-name stm">
+                        Danny Xu
+                    </div>
+                    <img src="../../img/图像 1@2x.png" height="45" width="45" class="right-top-person-portrait"/>
+                    <span class="material-icons right-top-person-arrow initial_transform">
+                        keyboard_arrow_down
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="right-down coordinator-roomList" id="20201">
+            <div class="coordinator-roomList-top">
+                <div class="right-info">
+                    <div class="right-info-left stb">
+                        <div class="right-title">
+                            All Homerooms & Classes
+                        </div>
+                        <div class="right-subtitle">
+                            2019 - 2020 First Semester
+                        </div>
+                    </div>
+                </div>
+                <div class="right-nevi str">
+                    <div class="right-navi-item">
+                        Homeroom
+                    </div>
+                    <div class="right-navi-gap">
+                        &nbsp;
+                    </div>
+                    <div class="right-navi-item">
+                        Classroom
+                    </div>
+                    <div class="right-navi-gap">
+                        &nbsp;
+                    </div>
+                    <div class="right-navi-gap-last">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="coordinator-homeroom">
+                <div class="coordinator-studentScore-add-outer">
+                    <div class="coordinator-studentScore-add">
+                            <span class="material-icons right-down-info-button-img">
+                                add
+                            </span>
+
+                        <div class="right-down-info-button-text stb">
+                            ADD HOMEROOM
+                        </div>
+                    </div>
+                </div>
+                <div class="coordinator-homeroomRow">
+                    <div class="right-box thinner-box"
+                         onclick="window.location='homeroomTeacher-homeroomList.html'">
+                        <div class="right-box-title stb">
+                            MYP 9-2
+                        </div>
+                        <span class="material-icons thinner-box-img">
+                            chevron_right
+                            </span>
+                    </div>
+                    <div class="right-box thinner-box"
+                         onclick="window.location='homeroomTeacher-homeroomList.html'">
+                        <div class="right-box-title stb">
+                            MYP 9-2
+                        </div>
+                        <span class="material-icons thinner-box-img">
+                            chevron_right
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="coordinator-classroom">
+                <div class="coordinator-studentScore-add-outer">
+                    <div class="coordinator-studentScore-add">
+                            <span class="material-icons right-down-info-button-img">
+                                add
+                            </span>
+
+                        <div class="right-down-info-button-text stb">
+                            ADD CLASSROOM
+                        </div>
+                    </div>
+                    <div class="coordinator-studentScore-add">
+                            <span class="material-icons right-down-info-button-img">
+                                add
+                            </span>
+
+                        <div class="right-down-info-button-text stb">
+                            ADD COURSE
+                        </div>
+                    </div>
+                </div>
+                <div class="coordinator-homeroomRow">
+                    <div class="right-box thinner-box"
+                         onclick="window.location='homeroomTeacher-homeroomList.html'">
+                        <div class="right-box-title stb">
+                            Chinese 1
+                        </div>
+                        <span class="material-icons thinner-box-img">
+                            chevron_right
+                            </span>
+                    </div>
+                    <div class="right-box thinner-box"
+                         onclick="window.location='homeroomTeacher-homeroomList.html'">
+                        <div class="right-box-title stb">
+                            English 1
+                        </div>
+                        <span class="material-icons thinner-box-img">
+                            chevron_right
+                            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="personal-panel">
+        <div class="personal-panel-top">
+            <img src="../../img/图像 1@2x.png" height="30" width="30" class="personal-panel-portrait"/>
+            <div class="personal-panel-des">
+                <div class="personal-panel-name stb">
+                    Danny Xu
+                </div>
+                <div class="personal-panel-mail str">
+                    dannyxu@163.com
+                </div>
+            </div>
+        </div>
+        <div class="personal-panel-bottom">
+            <div class="personal-panel-row str">
+                My Profile
+            </div>
+            <div class="personal-panel-row-last str" onclick="window.location='../login/index.html'">
+                Sign Out
+            </div>
+        </div>
+    </div>
+    <div class="grey-bg">
+
+    </div>
+    <div class="result-box">
+        <ul class="result-box-row">
+            <li class="result-box-sort" value="class">
+                Class
+            </li>
+            <li class="result-box-name">
+                Chinese A1
+            </li>
+            <li class="result-box-year">
+                2019 - 2020
+            </li>
+        </ul>
+        <ul class="result-box-row">
+            <li class="result-box-sort">
+                Class
+            </li>
+            <li class="result-box-name">
+                English
+            </li>
+            <li class="result-box-year">
+                2019 - 2020
+            </li>
+        </ul>
+        <ul class="result-box-row">
+            <li class="result-box-sort">
+                Teacher
+            </li>
+            <li class="result-box-name">
+                Danny
+            </li>
+            <li class="result-box-year">
+
+            </li>
+        </ul>
+        <div class="result-box-empty">
+            No result found containing 'Spainish'
+        </div>
+    </div>
+    <div class="share-box edit-score-box">
+        <div class="edit-box-top">
+            <div class="edit-box-title stm">
+                Add New Homeroom
+            </div>
+            <span class="material-icons edit-box-close">
+                            close
+            </span>
+        </div>
+        <form method="post">
+            <div class="edit-box-downer">
+                <div class="edit-box-innerbox str">
+                    <div class="score-editing-innerbox">
+                        <div class="edit-box-innerbox-title score-editing-innerbox-title">
+                            Midterm Goal
+                        </div>
+                    </div>
+                    <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
+                           name="current-password"
+                           placeholder="">
+                </div>
+                <div class="edit-box-innerbox edit-box-half str">
+                    <div class="edit-box-innerbox-title">
+                        Final Exam Goal
+                    </div>
+                    <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
+                           name="current-password"
+                           placeholder="">
+                </div>
+                <div class="edit-box-innerbox edit-box-half str">
+                    <div class="edit-box-innerbox-title">
+                        Final Exam Goal
+                    </div>
+                    <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
+                           name="current-password"
+                           placeholder="">
+                </div>
+                <input class="edit-box-green stb" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

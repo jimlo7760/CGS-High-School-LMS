@@ -1,0 +1,61 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+.coordinator-roomList-top{
+    padding-bottom: 20px;
+}
+.right-nevi{
+    margin-top: 20px;
+    overflow:hidden;
+    zoom:1;
+}
+.right-navi-item {
+    float: left;
+    padding-bottom: 10px;
+    border-bottom:#EAEBEB 2px solid ;
+    cursor: pointer;
+}
+.navi-profile{
+    border-bottom: 2px solid #1BA2B9;!important;
+}
+.right-navi-gap{
+    float:left;
+    width: 25px;
+    border-bottom:#EAEBEB 2px solid;
+    padding-bottom:10px;
+}
+.right-navi-gap-last{
+    float: left;
+    border-bottom:#EAEBEB 2px solid;
+    padding-bottom:10px;
+}
+.coordinator-homeroomRow{
+    overflow: hidden;
+    zoom: 1;
+
+}
+.coordinator-studentScore-add-outer{
+    overflow: hidden;
+    zoom: 1;
+    margin-top: 15px;
+}
+.coordinator-studentScore-add{
+    margin-left: 20px;
+    cursor: pointer;
+    float: right;
+    overflow: hidden;
+    zoom: 1;
+    padding: 10px;
+    background-color: #1BA2B9;
+    border-radius: 5px;
+}
+.coordinator-classroom{
+    display: none;
+}
+.edit-box-half{
+    width: 45%;
+    float: left;
+}
