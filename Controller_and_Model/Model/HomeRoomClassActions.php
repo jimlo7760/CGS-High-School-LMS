@@ -2,7 +2,7 @@
 require_once 'LoginCredentials.php';
 function InsertNewHomeRoomClass($grade, $program, $class, $home_room_teacher_id, $stud_ids, $num_of_stud) {
     $conn = createconn();
-    $stmt = $conn->prepare("insert into homeroom_class(grade, program, class, home_room_teacher_id, stud_id, num_of_stud, create_time) values (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("insert into homeroom_class(grade, program, class, homeroom_teacher_id, stud_ids, num_of_stud, create_time) values (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("iiiisis", $stmt_grade, $stmt_program, $stmt_class, $stmt_home_room_teacher_id, $stmt_stud_id, $stmt_num_of_stud, $stmt_create_time);
     $stmt_grade = $grade;
     $stmt_program = $program;
@@ -24,7 +24,7 @@ function InsertNewHomeRoomClass($grade, $program, $class, $home_room_teacher_id,
 
 function updateHomeroomClass($homeroom_class_id, $grade, $program, $class, $home_room_teacher_id, $stud_ids, $num_of_stud, $class_avg_grades, $ranking, $updater_id, $audit_res){
     $conn = createconn();
-    $stmt = $conn->prepare("update homeroom_class set grade = ?, program = ?, class = ?, home_room_teacher_id = ?, stud_id=?, num_of_stud = ?, class_avg_grades = ?, ranking = ?, updater_id = ?, update_time = ?, status=? where id = ?");
+    $stmt = $conn->prepare("update homeroom_class set grade = ?, program = ?, class = ?, homeroom_teacher_id = ?, stud_ids=?, num_of_stud = ?, class_avg_grades = ?, ranking = ?, updater_id = ?, update_time = ?, status=? where id = ?");
     $stmt->bind_param("iiiisissisii", $stmt_grade, $stmt_program, $stmt_class, $stmt_home_room_teacher_id, $stmt_stud_ids, $stmt_num_of_stud, $stmt_class_avg_grades, $stmt_ranking, $stmt_updater_id, $stmt_update_time, $stmt_status, $stmt_homeroom_class_id);
     $stmt_grade = $grade;
     $stmt_program = $program;

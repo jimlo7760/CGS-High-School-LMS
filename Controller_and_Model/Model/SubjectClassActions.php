@@ -2,7 +2,7 @@
 require_once 'LoginCredentials.php';
 function InsertNewSubjectClass($subj_teacher_id, $subj_id, $stud_ids, $stud_num_limit, $grade) {
     $conn = createconn();
-    $stmt = $conn->prepare("insert into subject_class(subj_teacher_id, subj_id, stud_ids, stud_num_limt, grade, create_time) values (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("insert into subject_class(subj_teacher_id, subj_id, stud_ids, stud_num_limit, grade, create_time) values (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("iisiii", $stmt_subj_teacher_id, $stmt_subj_id, $stmt_stud_ids, $stmt_num_limit, $stmt_grade, $stmt_create_time );
     $stmt_subj_id = $subj_id;
     $stmt_subj_teacher_id = $subj_teacher_id;
