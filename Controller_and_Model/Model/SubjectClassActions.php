@@ -23,7 +23,7 @@ function InsertNewSubjectClass($subj_teacher_id, $subj_id, $stud_ids, $stud_num_
 
 function updateSubjectClass($subj_class_id, $subj_teacher_id, $subj_id, $stud_ids, $stud_num_limit, $grade, $avg_grade, $subj_ranking, $audit_res){
     $conn = createconn();
-    $stmt = $conn->prepare("update subject_class set subj_teacher_id = ?, subj_id = ?, stud_ids = ?, stud_num_limit = ?, grade = ?, avg_grade = ?, subj_ranking = ?, status = ? where id = ?");
+    $stmt = $conn->prepare("update subject_class set subj_teacher_id = ?, subj_id = ?, stud_ids = ?, stud_num_limit = ?, grade = ?, class_num = ?, subj_ranking = ?, status = ? where id = ?");
     $stmt->bind_param('iisiidsii', $stmt_subj_teacher_id, $stmt_subj_id, $stmt_stud_ids, $stmt_num_limit, $stmt_grade, $stmt_avg_grade, $stmt_subj_ranking, $stmt_status, $stmt_subject_class_id);
     $stmt_subj_id = $subj_id;
     $stmt_subj_teacher_id = $subj_teacher_id;

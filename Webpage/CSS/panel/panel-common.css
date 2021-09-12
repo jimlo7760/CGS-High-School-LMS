@@ -375,7 +375,7 @@
     width: 84%;
     height: 90%;
     opacity: 0.6;
-    /*display: none;*/
+    display: none;
 }
 
 .result-box {

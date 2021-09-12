@@ -52,10 +52,24 @@
     background-color: #1BA2B9;
     border-radius: 5px;
 }
+.coordinator-homeroom{
+    display: none
+}
 .coordinator-classroom{
     display: none;
 }
 .edit-box-half{
     width: 45%;
     float: left;
+}
+.add-homeroom-box{
+    display: none;
+}
+.add-subject-box{
+    display: none;
+
+}
+.add-class-box{
+    display: none;
+
 }

@@ -135,7 +135,7 @@
                 <div class="right-info">
                     <div class="right-info-left stb">
                         <div class="right-title">
-                            All Homerooms & Classes
+                            Homerooms & Classes
                         </div>
                         <div class="right-subtitle">
                             2019 - 2020 First Semester
@@ -143,6 +143,12 @@
                     </div>
                 </div>
                 <div class="right-nevi str">
+                    <div class="right-navi-item">
+                        Your Classroom
+                    </div>
+                    <div class="right-navi-gap">
+                        &nbsp;
+                    </div>
                     <div class="right-navi-item">
                         Homeroom
                     </div>
@@ -160,6 +166,29 @@
                     </div>
                 </div>
             </div>
+            <div class="coordinator-personal-classroom">
+                <div class="coordinator-homeroomRow">
+                    <div class="right-box thinner-box"
+                         onclick="window.location='homeroomTeacher-homeroomList.html'">
+                        <div class="right-box-title stb">
+                            Chinese 1
+                        </div>
+                        <span class="material-icons thinner-box-img">
+                            chevron_right
+                            </span>
+                    </div>
+                    <div class="right-box thinner-box"
+                         onclick="window.location='homeroomTeacher-homeroomList.html'">
+                        <div class="right-box-title stb">
+                            English 1
+                        </div>
+                        <span class="material-icons thinner-box-img">
+                            chevron_right
+                            </span>
+                    </div>
+                </div>
+            </div>
+
             <div class="coordinator-homeroom">
                 <div class="coordinator-studentScore-add-outer">
                     <div class="coordinator-studentScore-add">
@@ -301,10 +330,10 @@
             No result found containing 'Spainish'
         </div>
     </div>
-    <div class="share-box edit-score-box">
+    <div class="share-box add-homeroom-box">
         <div class="edit-box-top">
             <div class="edit-box-title stm">
-                Add New Homeroom
+                Add Homeroom
             </div>
             <span class="material-icons edit-box-close">
                             close
@@ -312,37 +341,115 @@
         </div>
         <form method="post">
             <div class="edit-box-downer">
-                <div class="edit-box-innerbox str">
-                    <div class="score-editing-innerbox">
-                        <div class="edit-box-innerbox-title score-editing-innerbox-title">
-                            Midterm Goal
+                <div class="edit-box-row">
+                    <div class="edit-box-innerbox edit-box-half str" style="margin-right: 20px;">
+                        <div class="edit-box-innerbox-title">
+                            Grade
                         </div>
+                        <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
+                               name="homeroom_grade"
+                               placeholder="">
                     </div>
-                    <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
-                           name="current-password"
-                           placeholder="">
+                    <div class="edit-box-innerbox edit-box-half str">
+                        <div class="edit-box-innerbox-title">
+                            Class
+                        </div>
+                        <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
+                               name="homeroom_class"
+                               placeholder="">
+                    </div>
                 </div>
-                <div class="edit-box-innerbox edit-box-half str">
-                    <div class="edit-box-innerbox-title">
-                        Final Exam Goal
+                <div class="edit-box-row">
+                    <div class="edit-box-innerbox str">
+                        <div class="score-editing-innerbox">
+                            <div class="edit-box-innerbox-title score-editing-innerbox-title">
+                                Homeroom Number
+                            </div>
+                        </div>
+                        <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
+                               name="homeroom_num"
+                               placeholder="">
                     </div>
-                    <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
-                           name="current-password"
-                           placeholder="">
-                </div>
-                <div class="edit-box-innerbox edit-box-half str">
-                    <div class="edit-box-innerbox-title">
-                        Final Exam Goal
-                    </div>
-                    <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
-                           name="current-password"
-                           placeholder="">
                 </div>
                 <input class="edit-box-green stb" type="submit" value="Submit">
             </div>
         </form>
     </div>
-
+    <div class="share-box add-subject-box">
+        <div class="edit-box-top">
+            <div class="edit-box-title stm">
+                Add Subject
+            </div>
+            <span class="material-icons edit-box-close">
+                            close
+            </span>
+        </div>
+        <form method="post">
+            <div class="edit-box-downer">
+                <div class="edit-box-row">
+                    <div class="edit-box-innerbox str">
+                        <div class="score-editing-innerbox">
+                            <div class="edit-box-innerbox-title score-editing-innerbox-title">
+                                Subject Name
+                            </div>
+                        </div>
+                        <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
+                               name="subject_name"
+                               placeholder="">
+                    </div>
+                </div>
+                <input class="edit-box-green stb" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <div class="share-box add-class-box">
+        <div class="edit-box-top">
+            <div class="edit-box-title stm">
+                Add Classroom
+            </div>
+            <span class="material-icons edit-box-close">
+                            close
+            </span>
+        </div>
+        <form method="post">
+            <div class="edit-box-downer">
+                <div class="edit-box-row">
+                    <div class="edit-box-innerbox str">
+                        <div class="score-editing-innerbox">
+                            <div class="edit-box-innerbox-title score-editing-innerbox-title">
+                                Select Subject
+                            </div>
+                        </div>
+                        <select type="text" class="edit-box-innerbox-select score-editing-innerbox-input"
+                               name="homeroom_subject"
+                               placeholder="">
+                            <option>Chinese</option>
+                            <option>English</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="edit-box-row">
+                    <div class="edit-box-innerbox edit-box-half str" style="margin-right: 20px;">
+                        <div class="edit-box-innerbox-title">
+                            Grade
+                        </div>
+                        <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
+                               name="homeroom_grade"
+                               placeholder="">
+                    </div>
+                    <div class="edit-box-innerbox edit-box-half str">
+                        <div class="edit-box-innerbox-title">
+                            Class
+                        </div>
+                        <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input"
+                               name="homeroom_class"
+                               placeholder="">
+                    </div>
+                </div>
+                <input class="edit-box-green stb" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>
