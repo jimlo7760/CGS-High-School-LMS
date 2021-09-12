@@ -71,5 +71,42 @@
 }
 .add-class-box{
     display: none;
+}
+.coordinator-roomList{
+    display: none;
+}
+.coordinator-student-crew{
+    display: none;
+}
+.coordinator-teacher-crew{
+    display: none;
+}
+.coordinator-course-crew{
+    display: none;
 
+}
+.add-teacher-box{
+    width: 650px;
+    display: none;
+}
+
+.private-box-upper{
+    padding-bottom: 15px;
+    border-bottom: #EAEBEB 1px solid;
+}
+
+.private-box-inner{
+    float: left;
+    margin-right: 15px;
+}
+
+.private-box-upper-input{
+    width: 165px;
+}
+
+.private-box-downer-input{
+    width: 272px;
+}
+.private-box-submit{
+    width: 96%;
 }

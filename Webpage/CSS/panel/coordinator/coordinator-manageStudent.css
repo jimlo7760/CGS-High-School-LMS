@@ -4,3 +4,10 @@
     list-style: none;
     text-decoration: none;
 }
+.add-student-box{
+    display: none;
+}
+.delete-student-box{
+    display: none;
+
+}

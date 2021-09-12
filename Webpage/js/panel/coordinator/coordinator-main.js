@@ -2,12 +2,107 @@ $(document).ready(function () {
     // initialization
     var right_navi_item = $('.right-navi-item');
     var right_navi_gap = $('.right-navi-gap');
+    var coordinator_roomList = $('.coordinator-roomList');
+    coordinator_roomList.eq(0).fadeIn('fast');
     right_navi_item.eq(0).css('border-bottom-color', '#1BA2B9');
     var leftOffset = right_navi_gap.eq(2).offset().left;
     var gapStartCoordinate = leftOffset + right_navi_gap.eq(2).width();
-    var coordinator_roomList = $('.coordinator-roomList');
     var gapWidth = coordinator_roomList.offset().left + coordinator_roomList.width() - gapStartCoordinate-25;
     $('.right-navi-gap-last').width(gapWidth);
+
+    // navi
+    var left_content_manu_nevi = $('.left-content-manu-nevi');
+    var subjectT_studentScore = $('.subjectT-studentScore');
+    var coordinator_student_crew = $('.coordinator-student-crew');
+    var coordinator_teacher_crew = $('.coordinator-teacher-crew');
+    var coordinator_course_crew = $('.coordinator-course-crew');
+    var student_navi = $('#student-nevi');
+    var teacher_navi = $('#teacher-nevi');
+    var course_navi = $('#course-nevi');
+    left_content_manu_nevi.mouseenter(function () {
+        $(this).animate({
+            backgroundColor: '#337681',
+        }, 'fast')
+    });
+    left_content_manu_nevi.mouseleave(function () {
+        if (($(this).attr('name') == 'student' && coordinator_student_crew.is(':visible')) ||
+            ($(this).attr('name') == 'teacher' && coordinator_teacher_crew.is(':visible')) ||
+            ($(this).attr('name') == 'course' && coordinator_course_crew.is(':visible'))) {
+            $(this).animate({
+                backgroundColor: 'rgb(0, 60, 70)',
+            }, 'fast')
+        } else {
+            $(this).animate({
+                backgroundColor: 'transparent',
+            }, 'fast')
+        }
+    })
+    left_content_manu_nevi.click(function () {
+        var idVal = $(this).attr('name');
+        if(!isNaN(idVal)){
+            var semester = $('#' + idVal);
+            if(semester.is(':hidden')){
+                $('.coordinator-roomList').each(function (){
+                    if($(this).is(':visible')){
+                        $(this).fadeOut('fast');
+                        var semesterNota = $(this).attr('id');
+                        $('.left-content-manu-nevi[name="' + semesterNota + '"]').find('.left-content-manu-current').addClass('no-select');
+                    }
+                })
+                semester.fadeIn('fast');
+            }
+        }else {
+
+            if (idVal == 'student' && coordinator_student_crew.is(':hidden')) {
+                if (coordinator_roomList.is(':visible')) {
+                    coordinator_roomList.fadeOut('fast');
+                } else if (coordinator_teacher_crew.is(':visible')) {
+                    coordinator_teacher_crew.fadeOut('fast');
+                    teacher_navi.animate({
+                        backgroundColor: 'transparent',
+                    }, 'fast')
+                } else if (coordinator_course_crew.is(':visible')) {
+                    coordinator_course_crew.fadeOut('fast');
+                    course_navi.animate({
+                        backgroundColor: 'transparent',
+                    }, 'fast')
+                }
+                coordinator_student_crew.delay('fast').fadeIn('fast');
+            }
+            if (idVal == 'teacher' && coordinator_teacher_crew.is(':hidden')) {
+                if (coordinator_roomList.is(':visible')) {
+                    coordinator_roomList.fadeOut('fast');
+                } else if (coordinator_student_crew.is(':visible')) {
+                    coordinator_student_crew.fadeOut('fast');
+                    student_navi.animate({
+                        backgroundColor: 'transparent',
+                    }, 'fast')
+                } else if (coordinator_course_crew.is(':visible')) {
+                    coordinator_course_crew.fadeOut('fast');
+                    course_navi.animate({
+                        backgroundColor: 'transparent',
+                    }, 'fast')
+                }
+                coordinator_teacher_crew.delay('fast').fadeIn('fast');
+            }
+            if (idVal == 'course' && coordinator_course_crew.is(':hidden')) {
+                if (coordinator_roomList.is(':visible')) {
+                    coordinator_roomList.fadeOut('fast');
+                } else if (coordinator_teacher_crew.is(':visible')) {
+                    coordinator_teacher_crew.fadeOut('fast');
+                    teacher_navi.animate({
+                        backgroundColor: 'transparent',
+                    }, 'fast')
+                } else if (coordinator_student_crew.is(':visible')) {
+                    coordinator_student_crew.fadeOut('fast');
+                    student_navi.animate({
+                        backgroundColor: 'transparent',
+                    }, 'fast')
+                }
+                coordinator_course_crew.delay('fast').fadeIn('fast');
+            }
+        }
+    });
 
 //    click reaction
     right_navi_item.click(function (){
