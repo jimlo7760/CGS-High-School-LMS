@@ -21,8 +21,8 @@ $(document).ready(function () {
     languageTestIelts($('.language-box-add'));
     var targetInterface = $('.target-operation').val();
     var right_profile_whole = $('.right-profile-whole');
-    var right_class_whole = $('.right_class_whole');
-    var right_score_whole = $('.right_score_whole');
+    var right_class_whole = $('.right-class-whole');
+    var right_score_whole = $('.right-score-whole');
     if(targetInterface == 'manage_class'){
         right_profile_whole.hide();
         right_class_whole.show();
