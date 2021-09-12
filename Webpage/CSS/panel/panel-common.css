@@ -784,3 +784,47 @@
     margin: 5px;
     width: 47%;
 }
+
+.share-box-fully-select{
+    border-radius:5px;
+    margin:10px 0;
+    overflow:hidden;
+    zoom:1;
+    padding:15px;
+    border:1px solid #D0D0D0;
+    cursor: pointer;
+}
+.share-box-fully-select:hover{
+    box-shadow: 0 1px 6px #bbbbbb;
+    border-radius:5px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.class-adding-checkbox{
+    float:left;
+}
+
+
+.class-adding-img{
+    margin-top: 5px;
+    float:left;
+    color: #707070;
+}
+.class-adding-text{
+    float:left;
+    margin:5px 0 0 30px;
+    font-size:13px;
+}
+.fully-select-subtitle{
+    font-size:13px;
+    color: #6C757E;
+}
+.right-return-img{
+    float:left;
+    font-size:18px;
+}
+.right-return{
+    overflow:hidden;
+    zoom:1;
+    cursor: pointer;
+    color: #005462;
+}
