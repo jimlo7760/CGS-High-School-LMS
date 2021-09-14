@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../CSS/whole-common.css">
     <link rel="stylesheet" type="text/css" href="../../CSS/panel/panel-common.css">
-    <link rel="stylesheet" type="text/css" href="../../CSS/panel/notification/notification.css">
+    <link rel="stylesheet" type="text/css" href="../../CSS/panel/teacher-common/notification.css">
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
 
     </script>
@@ -16,7 +16,7 @@
     <script type="text/javascript" src="../../js/panel/panel-common.js">
 
     </script>
-    <script type="text/javascript" src="../../js/notification/notification.js">
+    <script type="text/javascript" src="../../js/teacher-common/notification.js">
 
     </script>
 </head>
