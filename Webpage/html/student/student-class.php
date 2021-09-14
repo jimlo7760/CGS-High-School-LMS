@@ -98,8 +98,8 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
                     <div class="right-title">
                         <?php
                         require_once "../../../Controller_and_Model/Model/SubjectActions.php";
-                        $required_subj_id = get_get("subj_id");
-                        $subj_class_ids = $_SESSION["subj_class_ids"];
+                        $required_subj_id = get_get("subj_id");     //clicked class_id
+                        $subj_class_ids = $_SESSION["subj_class_ids"];  //subject_class_ids: enrolled classes of current student
                         $i = 0;
                         $notInClass = True;
                         while ($i < count($subj_class_ids)) {
@@ -128,7 +128,7 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
                 <div class="right-info-right">
                     <div class="right-info-box">
                         <div class="right-info-box-title str">
-                            Homeroom Teacher
+                            Teacher
                         </div>
                         <div class="right-info-box-content stb">
                             <?php
@@ -194,20 +194,20 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
                     $required_exam_type = array();
                     $required_exam_date = array();
                     $i = 0;
-                    while ($i < count($raw_all_exam)) {
-                        $exam_id = $raw_all_exam[$i][0];
-                        $raw_subj_ids = $raw_all_exam[$i][3];
-                        $subj_ids = explode(",", $raw_subj_ids);
-                        $j = 0;
-                        while ($j < count($subj_ids)) {
-                            if ($subj_ids[$j] == $required_subj_id) {
-                                $required_exam_id[] = $exam_id;
-                            }
-                            $j ++;
-                        }
-                        $i ++;
-                        $_SESSION["required_exam_ids"] = $required_exam_id;
-                    }
+//                    while ($i < count($raw_all_exam)) {
+//                        $exam_id = $raw_all_exam[$i][0];
+//                        $raw_subj_ids = $raw_all_exam[$i][3];
+//                        $subj_ids = explode(",", $raw_subj_ids);
+//                        $j = 0;
+//                        while ($j < count($subj_ids)) {
+//                            if ($subj_ids[$j] == $required_subj_id) {
+//                                $required_exam_id[] = $exam_id;
+//                            }
+//                            $j ++;
+//                        }
+//                        $i ++;
+//                        $_SESSION["required_exam_ids"] = $required_exam_id;
+//                    }
                     $stud_all_score = FetchStudAllScoresByStudId($_SESSION["id"]);
                     $stud_all_score = $stud_all_score[1];
                     $required_score = array();
@@ -302,7 +302,7 @@ END;
                 <div class="personal-panel-row str">
                     Goal Score
                 </div>
-                <div class="personal-panel-row-last str" onclick="window.location='../login/index.html'">
+                <div class="personal-panel-row-last str" onclick="window.location='../../../Controller_and_Model/Controller/Logout.php'">
                     Sign Out
                 </div>
             </div>

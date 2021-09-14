@@ -304,10 +304,20 @@ session_start();
             </div>
             <div class="studentList-right-down-main">
                 <div class="studentList-right-down-row">
-                    <div class="right-box">
+                    <?php
+                    require_once "../../../Controller_and_Model/Model/UserActions.php";
+                    $tot_res = FetchAllStudent();
+                    foreach ($tot_res as $stud_info) {
+                        $stud_chi = $stud_info[1];
+                        $stud_eng = $stud_info[2];
+                        $stud_email = $stud_info[3];
+                        $stud_num = $stud_info[8];
+                        $stud_name_row = $stud_chi . ' ' . $stud_eng;
+                        echo <<< END
+                <div class="right-box">
                         <div class="right-box-upper">
                             <div class="right-box-title stb">
-                                Danny Xu
+                                $stud_name_row
                             </div>
                             <i class="material-icons right-box-arrow">
                                 chevron_right
@@ -319,7 +329,7 @@ session_start();
                                     ID
                                 </div>
                                 <div class="right-box-detail-name stm">
-                                    0108721
+                                    $stud_num;
                                 </div>
                             </div>
                             <div class="right-box-detail">
@@ -327,95 +337,15 @@ session_start();
                                     Email
                                 </div>
                                 <div class="right-box-detail-name stm">
-                                    dannyxu@163.com
+                                    $stud_email;
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="right-box">
-                        <div class="right-box-upper">
-                            <div class="right-box-title stb">
-                                Danny Xu
-                            </div>
-                            <i class="material-icons right-box-arrow">
-                                chevron_right
-                            </i>
-                        </div>
-                        <div class="right-box-downer">
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    ID
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    0108721
-                                </div>
-                            </div>
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    Email
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    dannyxu@163.com
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-box">
-                        <div class="right-box-upper">
-                            <div class="right-box-title stb">
-                                Danny Xu
-                            </div>
-                            <i class="material-icons right-box-arrow">
-                                chevron_right
-                            </i>
-                        </div>
-                        <div class="right-box-downer">
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    ID
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    0108721
-                                </div>
-                            </div>
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    Email
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    dannyxu@163.com
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-box">
-                        <div class="right-box-upper">
-                            <div class="right-box-title stb">
-                                Danny Xu
-                            </div>
-                            <i class="material-icons right-box-arrow">
-                                chevron_right
-                            </i>
-                        </div>
-                        <div class="right-box-downer">
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    ID
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    0108721
-                                </div>
-                            </div>
-                            <div class="right-box-detail">
-                                <div class="right-box-detail-title str">
-                                    Email
-                                </div>
-                                <div class="right-box-detail-name stm">
-                                    dannyxu@163.com
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    
+ END;
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -442,7 +372,7 @@ session_start();
                 <div class="personal-panel-row str">
                     Goal Score
                 </div>
-                <div class="personal-panel-row-last str" onclick="window.location='../login/index.php'">
+                <div class="personal-panel-row-last str" onclick="window.location='../../../Controller_and_Model/Controller/Logout.php'">
                     Sign Out
                 </div>
             </div>

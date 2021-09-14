@@ -1102,7 +1102,7 @@
                 <div class="personal-panel-row str">
                     My Profile
                 </div>
-                <div class="personal-panel-row-last str" onclick="window.location='../login/index.php'">
+                <div class="personal-panel-row-last str" onclick="window.location='../../../Controller_and_Model/Controller/Logout.php'">
                     Sign Out
                 </div>
             </div>

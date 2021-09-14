@@ -1238,7 +1238,7 @@ END;
                 <div class="personal-panel-row str" name="manage_score">
                     Goal Score
                 </div>
-                <div class="personal-panel-row-last str" onclick="window.location='../login/index.html'">
+                <div class="personal-panel-row-last str" onclick="window.location='../../../Controller_and_Model/Controller/Logout.php'">
                     Sign Out
                 </div>
             </div>
