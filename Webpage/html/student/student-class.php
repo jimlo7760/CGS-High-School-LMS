@@ -113,7 +113,7 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
                                     echo "unexpected error happened";
                                 }
                             }
-                            $i ++;
+                            $i++;
                         }
 
                         if ($notInClass == True) {
@@ -193,83 +193,54 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
                     $required_exam_name = array();
                     $required_exam_type = array();
                     $required_exam_date = array();
+                    $required_exam_max = array();
                     $i = 0;
-//                    while ($i < count($raw_all_exam)) {
-//                        $exam_id = $raw_all_exam[$i][0];
-//                        $raw_subj_ids = $raw_all_exam[$i][3];
-//                        $subj_ids = explode(",", $raw_subj_ids);
-//                        $j = 0;
-//                        while ($j < count($subj_ids)) {
-//                            if ($subj_ids[$j] == $required_subj_id) {
-//                                $required_exam_id[] = $exam_id;
-//                            }
-//                            $j ++;
-//                        }
-//                        $i ++;
-//                        $_SESSION["required_exam_ids"] = $required_exam_id;
-//                    }
-                    $stud_all_score = FetchStudAllScoresByStudId($_SESSION["id"]);
-                    $stud_all_score = $stud_all_score[1];
-                    $required_score = array();
+                    while ($i < count($raw_all_exam)) {
+                        $exam_subject_id = $raw_all_exam[$i][4];
+                        if ($exam_subject_id == $required_subj_id) {
+                            $exam_id = $raw_all_exam[$i][0];
+                            $exam_name = $raw_all_exam[$i][1];
+                            $exam_type = $raw_all_exam[$i][6];
+                            if ($exam_type == 0) {
+                                $exam_type = 'Monthly';
+                            } else if ($exam_type == 1) {
+                                $exam_type = 'Mid-term';
+                            } else if ($exam_type == 2) {
+                                $exam_type = 'Final';
+                            }
+                            $exam_date = $raw_all_exam[$i][3];
+                            $exam_max = $raw_all_exam[$i][10];
+                            array_push($required_exam_id, $exam_id);
+                            array_push($required_exam_name, $exam_name);
+                            array_push($required_exam_type, $exam_type);
+                            array_push($required_exam_date, $exam_date);
+                            array_push($required_exam_max, $exam_max);
+                        }
+                        $i++;
+                    }
                     $i = 0;
                     while ($i < count($required_exam_id)) {
-                        $exam_result_info = FetchScoresByStudIdAndExamId($_SESSION["id"], $required_exam_id[$i]);
-                        if ($exam_result_info[0]) {
-                            $exam_result_info = $exam_result_info[1][0];
-                            $subj_id_to_find = $required_subj_id;
-                            $tot_res = FetchExamById($required_exam_id[$i]);
-                            if ($tot_res[0] == 1) {
-                                $tot_res = $tot_res[1][0];
-                            }
-                            $required_exam_name[] = $tot_res[1];
-
-                            $required_exam_date[] = $tot_res[7];;
-                            if ($tot_res[6] == "0") {
-                                $required_exam_type[] = "Midterm Exam";
-                            } else if ($tot_res[6] == "1") {
-                                $required_exam_type[] = "Final Exam";
-                            }
-
-                            $subj_ids = explode(",", $tot_res[3]);
-                            $subj_idx = 0;
-                            foreach ($subj_ids as $subj_id) {
-                                if ($subj_id == $subj_id_to_find) {
-                                    break;
-                                }
-                                $subj_idx ++;
-                            }
-
-                            $raw_scores = $exam_result_info[3];
-                            $scores = explode(",", $raw_scores);
-                            $required_score[] = $scores[$subj_idx];
-
-                        }
-                        $i ++;
-                    }
-//                    print_r($required_exam_type);
-                    $i = 0;
-                    while ($i < count($required_score)) {
+                        $required_score = FetchScoresByStudIdAndExamId($_SESSION['id'], $required_exam_id[$i])[1][0][3];
                         echo <<< END
-                    <div class="right-table-content-row">
-                        <div class="right-table-content-title">
-                            $required_exam_name[$i]
-                        </div>
-                        <div class="right-table-content-grade">
-                            $required_score[$i] / 8
-                        </div>
-                        <div class="right-table-content-type">
-                            $required_exam_type[$i]
-                        </div>
-                        <div class="right-table-content-date">
-                            $required_exam_date[$i]
-                        </div>
-                    </div>
-END;
-
-                        $i ++;
+                                        <div class="right-table-content-row">
+                                           <div class="right-table-content-title">
+                                                $required_exam_name[$i]
+                                          </div>
+                                          <div class="right-table-content-grade">
+                                                $required_score / 
+                                                $required_exam_max[$i]
+                                            </div>
+                                            <div class="right-table-content-type">
+                                                $required_exam_type[$i]
+                                            </div>
+                                            <div class="right-table-content-date">
+                                               $required_exam_date[$i]
+                                            </div>
+                                        </div>
+                    END;
+                        $i++;
                     }
                     ?>
-
                 </div>
             </div>
         </div>
@@ -302,7 +273,8 @@ END;
                 <div class="personal-panel-row str">
                     Goal Score
                 </div>
-                <div class="personal-panel-row-last str" onclick="window.location='../../../Controller_and_Model/Controller/Logout.php'">
+                <div class="personal-panel-row-last str"
+                     onclick="window.location='../../../Controller_and_Model/Controller/Logout.php'">
                     Sign Out
                 </div>
             </div>

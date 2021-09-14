@@ -114,6 +114,10 @@ function FetchAllExams() {
     }
 }
 
+/**
+ * @param int $class_id the id of class
+ * @return array Scores of the students in this class
+ */
 function FetchExamByClassId($class_id){
     $conn = createconn();
     $q = "select * from exam where class_id=?";
@@ -124,4 +128,9 @@ function FetchExamByClassId($class_id){
     $res = $stmt->get_result()->fetch_all();
     $stmt->close();
     $conn->close();
+    if (!$res){
+        return [false, $res];
+    }else {
+        return [true, $res];
+    }
 }
