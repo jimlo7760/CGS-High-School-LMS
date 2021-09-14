@@ -18,12 +18,13 @@ require_once "LoginCredentials.php";
  * Value for "status" column
  * </p>
  *
- * @author Yiming Su
- *
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
  *
+ * @author Yiming Su
+ *
  */
-function ReviewStudInfo($stud_info_id, $review_result) {
+function ReviewStudInfo($stud_info_id, $review_result)
+{
     $conn = createconn();
     $query = "update stud_info set status=? where id=?";
     $stmt = $conn->prepare($query);
@@ -53,7 +54,8 @@ function ReviewStudInfo($stud_info_id, $review_result) {
  * @return array If user authenticated: [true, user_role, entry in db] <br> if not: [false, user_role, error]
  * @author Yiming Su
  */
-function UserAuth($school_num, $password) {
+function UserAuth($school_num, $password)
+{
     $isStu = false;
     $isTea = false;
     $conn = createconn();
@@ -63,7 +65,7 @@ function UserAuth($school_num, $password) {
     $stmt_teacher_num = $school_num;
     $stmt->execute();
     $res = $stmt->get_result()->fetch_all();
-    if(count($res) == 0){
+    if (count($res) == 0) {
         $q = "select * from teacher_info where email_address=?"; // First query, check if user is teacher by teacher_email
         $stmt = $conn->prepare($q);
         $stmt->bind_param("s", $stmt_teacher_num);
@@ -86,37 +88,36 @@ function UserAuth($school_num, $password) {
             // back to login screen.
         }
     } else {
-       $q = "select * from stud_info where stud_number=?"; // Second query, check if user is student by stud_num
-       $stmt = $conn->prepare($q);
-       $stmt->bind_param("s", $stmt_stud_number);
-       $stmt_stud_number = $school_num;
-       $stmt->execute();
-       $res = $stmt->get_result()->fetch_all();
-       if(count($res) == 0){
-           $conn = createconn();
-           $q = "select * from stud_info where email_address=?"; // Second query, check if user is student by email
-           $stmt = $conn->prepare($q);
-           $stmt->bind_param("s",$stmt_stud_number);
-           $stmt->execute();
-           $res = $stmt->get_result()->fetch_all();
-           $stmt->close();
-           $conn->close();
-       }
-       if (count($res) > 0) {
-           $isStu = true;
-           $db_pw = $res[0][9];
-           if ($db_pw === $password) {
-               $stmt->close();
-               $conn->close();
-               return [true, 0, $res[0]];
-               // update login time.
-           } else {
-               $stmt->close();
-               $conn->close();
-               return [false, 0, "Wrong password."];
-               // back to login screen.
-           }
-       }
+        $q = "select * from stud_info where stud_number=?"; // Second query, check if user is student by stud_num
+        $stmt = $conn->prepare($q);
+        $stmt->bind_param("s", $stmt_stud_number);
+        $stmt_stud_number = $school_num;
+        $stmt->execute();
+        $res = $stmt->get_result()->fetch_all();
+        if (count($res) == 0) {
+            $conn = createconn();
+            $q = "select * from stud_info where email_address=?"; // Second query, check if user is student by email
+            $stmt = $conn->prepare($q);
+            $stmt->bind_param("s", $stmt_stud_email);
+            $stmt_stud_email = $school_num;
+            $stmt->execute();
+            $res = $stmt->get_result()->fetch_all();
+        }
+        if (count($res) > 0) {
+            $isStu = true;
+            $db_pw = $res[0][9];
+            if ($db_pw === $password) {
+                $stmt->close();
+                $conn->close();
+                return [true, 0, $res[0]];
+                // update login time.
+            } else {
+                $stmt->close();
+                $conn->close();
+                return [false, 0, "Wrong password."];
+                // back to login screen.
+            }
+        }
     }
     if ($isStu == false && $isTea == false) { // If not above, then something wrong in the account num provided.
         $stmt->close();
@@ -136,7 +137,8 @@ function UserAuth($school_num, $password) {
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
  * @author Yiming Su
  */
-function UpdateLoginTime($id, $user_role) {
+function UpdateLoginTime($id, $user_role)
+{
     $conn = createconn();
     $q = "";
     if ($user_role == 0) {
@@ -170,7 +172,8 @@ function UpdateLoginTime($id, $user_role) {
  *
  * @author Yiming Su
  */
-function UpdateEmailAndAvatar($stud_id, $email, $avatar_file_name, $updator_id) {
+function UpdateEmailAndAvatar($stud_id, $email, $avatar_file_name, $updator_id)
+{
     $conn = createconn();
     $query = "update stud_info set avatar_address=?, email_address=?, updater_id=?, update_time=? where id=?";
     $stmt = $conn->prepare($query);
@@ -201,7 +204,8 @@ function UpdateEmailAndAvatar($stud_id, $email, $avatar_file_name, $updator_id) 
  *
  * @author Yiming Su
  */
-function UpdateStudPasswordByStudId($stud_id, $new_pw, $updater_id) {
+function UpdateStudPasswordByStudId($stud_id, $new_pw, $updater_id)
+{
     $conn = createconn();
     $query = "update stud_info set password=?, updater_id=?, update_time=? where id=?";
     $stmt = $conn->prepare($query);
@@ -229,7 +233,8 @@ function UpdateStudPasswordByStudId($stud_id, $new_pw, $updater_id) {
  * @return array If successfully executed: [True, Term target info as array] <br> If not: [False, empty array]
  * @author Yiming Su
  */
-function FetchStudInfoByStudId($stud_id) {
+function FetchStudInfoByStudId($stud_id)
+{
     $conn = createconn();
     $query = "select * from stud_info where id=?";
     $stmt = $conn->prepare($query);
@@ -254,7 +259,8 @@ function FetchStudInfoByStudId($stud_id) {
  * @param string $personal_info The string that contains all the info.
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, empty array]
  */
-function UpdateStudPersonalInfo($stud_id, $personal_info) {
+function UpdateStudPersonalInfo($stud_id, $personal_info)
+{
     $conn = createconn();
     $stmt = $conn->prepare("update stud_info set personal_info = ?, update_time = ? where id = ?");
     $stmt->bind_param("ssi", $stmt_info, $stmt_update_time, $stmt_id);
@@ -282,7 +288,8 @@ function UpdateStudPersonalInfo($stud_id, $personal_info) {
  * @param string $raw_strength the student's raw strength.
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, empty array]
  */
-function UpdateStrength($stud_id, $raw_strength) {
+function UpdateStrength($stud_id, $raw_strength)
+{
     $conn = createconn();
     $stmt = $conn->prepare("update stud_info set strength = ?, update_time = ? where id = ?;");
     $stmt->bind_param("ssi", $stmt_strength, $stmt_update_time, $stmt_id);
@@ -298,5 +305,31 @@ function UpdateStrength($stud_id, $raw_strength) {
     } else {
         return [true, $res];
     }
+}
+
+/**
+ *
+ * fetch all students in stud_info
+ * for teacher's uses
+ * @return string all students
+ */
+function FetchAllStudent()
+{
+    $conn = createconn();
+    $q = 'select * from stud_info';
+    $stmt = $conn->prepare($q);
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    if ($res) {
+        $stmt->close();
+        $conn->close();
+        return $res;
+    } else {
+        $error = $stmt->error;
+        $stmt->close();
+        $conn->close();
+        return $error;
+    }
+
 }
 
