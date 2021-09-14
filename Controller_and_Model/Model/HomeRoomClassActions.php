@@ -25,7 +25,7 @@ function InsertNewHomeRoomClass($grade, $program, $class, $home_room_teacher_id,
 function updateHomeroomClass($homeroom_class_id, $grade, $program, $class, $home_room_teacher_id, $stud_ids, $num_of_stud, $class_num, $ranking, $updater_id, $audit_res){
     $conn = createconn();
     $stmt = $conn->prepare("update homeroom_class set grade = ?, program = ?, class = ?, homeroom_teacher_id = ?, stud_ids=?, num_of_stud = ?, class_num = ?, ranking = ?, updater_id = ?, update_time = ?, status=? where id = ?");
-    $stmt->bind_param("iiiisissisii", $stmt_grade, $stmt_program, $stmt_class, $stmt_home_room_teacher_id, $stmt_stud_ids, $stmt_num_of_stud, $class_num, $stmt_ranking, $stmt_updater_id, $stmt_update_time, $stmt_status, $stmt_homeroom_class_id);
+    $stmt->bind_param("iiiisiisisii", $stmt_grade, $stmt_program, $stmt_class, $stmt_home_room_teacher_id, $stmt_stud_ids, $stmt_num_of_stud, $class_num, $stmt_ranking, $stmt_updater_id, $stmt_update_time, $stmt_status, $stmt_homeroom_class_id);
     $stmt_grade = $grade;
     $stmt_program = $program;
     $stmt_class = $class;

@@ -114,3 +114,14 @@ function FetchAllExams() {
     }
 }
 
+function FetchExamByClassId($class_id){
+    $conn = createconn();
+    $q = "select * from exam where class_id=?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("i", $c_id);
+    $c_id = $class_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+}
