@@ -16,9 +16,7 @@
     cursor: pointer;
 }
 
-.navi-profile{
-    border-bottom: 2px solid #1BA2B9;!important;
-}
+
 .right-navi-gap{
     float:left;
     width: 25px;
@@ -39,8 +37,7 @@
     border-radius: 5px;
 }
 .right-profile-whole{
-
-
+    display: none;
 }
 .right-person-info-left{
     float:left;
@@ -525,5 +522,4 @@
 }
 .detention-apply-box{
     display: none;
-
 }

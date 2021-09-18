@@ -12,12 +12,7 @@ $(document).ready(function () {
     });
 
     //initialization part
-    var contentWidth = $('.profile-row-downer').width();
-    var boxWidth = contentWidth / 2 - 15;
-    var grey_bg = $('.grey-bg');
-    var right_person_info_row_box = $('.right-person-info-row-box');
-    right_person_info_row_box.outerWidth(boxWidth);
-    $('.strength-box-inside').outerWidth(boxWidth);
+
     languageTestIelts($('.language-box-add'));
     var targetInterface = $('.target-operation').val();
     var right_profile_whole = $('.right-profile-whole');
@@ -30,15 +25,27 @@ $(document).ready(function () {
         right_profile_whole.hide();
         right_score_whole.show();
     }
+    var right_person_info_row_box = $('.right-person-info-row-box');
 
-    $(".ticket-box-row-img").each(function (){
-        var currentStatus = $(this).text().trim();
-        if(currentStatus == 'check_circle'){
-            $(this).parent().css('color', 'rgb(41, 167, 69)')
-        }else if(currentStatus == 'close'){
-            $(this).parent().css('color', 'rgb(221, 52, 68)')
-        }
-    })
+    var grey_bg = $('.grey-bg');
+
+    var currentOperation = $('#target-operation').val();
+    if(currentOperation == 'profile'){
+        $('.right-profile-whole').css('display', 'block');
+        $('.navi-profile').animate({
+            borderBottomColor: '#1BA2B9'
+        });
+    }else if(currentOperation == 'manage_class'){
+        $('.right-class-whole').css('display', 'block');
+        $('.navi-class').animate({
+            borderBottomColor: '#1BA2B9'
+        })
+    }else if(currentOperation == 'manage_score'){
+        $('.right-score-whole').css('display', 'block');
+        $('.navi-score').animate({
+            borderBottomColor: '#1BA2B9'
+        })
+    }
 
     $('.edit-info').click(function () {
         var body = document.body.clientHeight;
@@ -259,9 +266,10 @@ $(document).ready(function () {
         pending_box.fadeIn();
         grey_bg.fadeIn();
         var currentStatus = $(this).find('.pending-row-status').val();
+        var currentType = $(this).find('.pending-box-type').val();
         var statusRow = pending_box.find('.ticket-box-row');
         pending_box.find('.pending-box-status').val(currentStatus)
-        ticketProcess(currentStatus, statusRow);
+        ticketProcess(currentStatus, statusRow, currentType);
     });
     var aprove_box = $('.aprove-box');
     $('.aprove-row').click(function () {
@@ -339,7 +347,6 @@ $(document).ready(function () {
     $('.confirm-box-input').on("input propertychange", function () {
         var passFir = $('.password-input-first:password').val();
         var passSec = $('.confirm-box-input:password').val();
-        console.log($('.edit-box-innerbox-input:password').val());
         // console.log(passFir + "------" + passSec);
         if (passFir != passSec) {
             $('.confirm-box-unmatched').fadeIn();
@@ -607,7 +614,6 @@ $(document).ready(function () {
             overallScoreContent += "<option>" + i + "</option>";
         }
         shareBoxSelector.find('.edit-box-innerbox-select').eq(1).html(overallScoreContent);
-        console.log(shareBoxSelector.find('.edit-box-innerbox-select').eq(1))
         var separateScoreContent = "";
         for(var i=30; i>=0; i--){
             separateScoreContent += "<option>" + i + "</option>";
@@ -662,6 +668,13 @@ $(document).ready(function () {
     }
 });
 
+$(window).load(function (){
+    var contentWidth = $('.right-profile-whole').width();
+    var boxWidth = contentWidth / 2 - 30;
+    var right_person_info_row_box = $('.right-person-info-row-box');
+    right_person_info_row_box.outerWidth(boxWidth);
+    $('.strength-box-inside').outerWidth(boxWidth);
+})
 
 // window.οnbefοreunlοad=function (event){
 //     alert("===οnbefοreunlοad===");

@@ -51,16 +51,17 @@ $_SESSION["exam_id_2"] = 0;
     $id = "";
     if (isset($_POST['target_operation'])) {
         $target_operation = $_POST['target_operation'];
+        echo "<input hidden='true' id='target-operation' value='";
+        echo $_POST['target_operation'];
+        echo "'>";
     }
-    echo "<input hidden='true' id='target-operation' value='";
-    echo $id;
-    echo "'>";
     ?>
     <div class="left-content">
         <div class="left-box">
             <div class="left-content-title stm">
                 MYP Student Management System
             </div>
+
             <div class="left-content-navi">
                 <div class="left-content-navi-item">
                     <div class="left-content-navi-title stb">
@@ -952,19 +953,19 @@ EOD;
                                                         Status
                                                     </div>
                                     END;
-                                if ($status == 0 || $status == 1 || $status == 3) {
+                                if ($status == 0 || $status == 1 || $status == 3 || $status == 5) {
                                     echo <<< END
                                             <div class="right-class-process-box-content stm" style="color: #FFC103">
                                                         Pending
                                                     </div>
                                         END;
-                                } else if ($status == 5) {
+                                } else if ($status == 7) {
                                     echo <<< END
                                             <div class="right-class-process-box-content stm" style="color: #1BA2B9">
                                             Approved
                                             </div>
                                         END;
-                                } else if ($status == 2 || $status == 4 || $status == 6) {
+                                } else if ($status == 2 || $status == 4 || $status == 6 || $status == 8) {
                                     echo <<< END
                                             <div class="right-class-process-box-content stm" style="color: #DD3444">
                                             Not Approved
@@ -982,6 +983,7 @@ EOD;
                                                 </i >
                                         </div >
                                             <input type = "hidden" class="pending-row-status" value = "$status" >
+                                            <input type="hidden" class="pending-box-type" value="0">
                                         </div >
                                         END;
                                 $i++;
