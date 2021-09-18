@@ -317,33 +317,84 @@ function singleChooseWhole(rowSelector, color){
     }
 }
 
-function ticketProcess(currentStatus, statusRow){
-    if(currentStatus == 0){
-        statusRow.css('color', 'rgb(226, 226, 226)');
-    }else if(currentStatus == 1){
-        statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
-        statusRow.eq(1).css('color', 'rgb(226, 226, 226)');
-        statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
-    }else if(currentStatus == 2){
-        statusRow.eq(0).find('.ticket-box-row-img').text('close');
-        statusRow.eq(0).css('color', 'rgb(221, 52, 68)');
-        statusRow.eq(1).css('color', 'rgb(226, 226, 226)');
-        statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
-    }else if(currentStatus == 3){
-        statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
-        statusRow.eq(1).css('color', 'rgb(41, 167, 69)');
-        statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
-    }else if(currentStatus == 4){
-        statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
-        statusRow.eq(1).find('.ticket-box-row-img').text('close');
-        statusRow.eq(1).css('color', 'rgb(221, 52, 68)');
-        statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
-    }else if(currentStatus == 5){
-        statusRow.css('color', 'rgb(41, 167, 69)');
-    }else if(currentStatus == 6){
-        statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
-        statusRow.eq(1).css('color', 'rgb(41, 167, 69)');
-        statusRow.eq(2).find('.ticket-box-row-img').text('close');
-        statusRow.eq(2).css('color', 'rgb(221, 52, 68)');
+function ticketProcess(currentStatus, statusRow, currentType){
+    if(currentType == 1){
+        if(currentStatus == 0){
+            statusRow.css('color', 'rgb(226, 226, 226)');
+            statusRow.find('.ticket-box-row-img').text('check_circle');
+        }else if(currentStatus == 1){
+            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(1).css('color', 'rgb(226, 226, 226)');
+            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
+            statusRow.find('.ticket-box-row-img').text('check_circle');
+        }else if(currentStatus == 2){
+            statusRow.eq(0).find('.ticket-box-row-img').text('close');
+            statusRow.eq(0).css('color', 'rgb(221, 52, 68)');
+            statusRow.eq(1).css('color', 'rgb(226, 226, 226)');
+            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
+            statusRow.find('.ticket-box-row-img').eq(1).text('check_circle');
+            statusRow.find('.ticket-box-row-img').eq(2).text('check_circle');
+        }else if(currentStatus == 3){
+            statusRow.find('.ticket-box-row-img').text('check_circle');
+            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(1).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
+        }else if(currentStatus == 4){
+            statusRow.find('.ticket-box-row-img').eq(0).text('check_circle');
+            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(1).find('.ticket-box-row-img').text('close');
+            statusRow.eq(1).css('color', 'rgb(221, 52, 68)');
+            statusRow.find('.ticket-box-row-img').eq(2).text('check_circle');
+            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
+        }else if(currentStatus == 5){
+            statusRow.find('.ticket-box-row-img').text('check_circle');
+            statusRow.css('color', 'rgb(41, 167, 69)');
+        }else if(currentStatus == 6){
+            statusRow.find('.ticket-box-row-img').eq(0).text('check_circle');
+            statusRow.find('.ticket-box-row-img').eq(1).text('check_circle');
+            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(1).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(2).find('.ticket-box-row-img').text('close');
+            statusRow.eq(2).css('color', 'rgb(221, 52, 68)');
+        }
+    }else if(currentType == 0){
+        if(currentStatus == 0 || currentStatus == 1){
+            statusRow.css('color', 'rgb(226, 226, 226)');
+            statusRow.find('.ticket-box-row-img').text('check_circle');
+        }else if(currentStatus == 3){
+            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(1).css('color', 'rgb(226, 226, 226)');
+            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
+            statusRow.find('.ticket-box-row-img').text('check_circle');
+        }else if(currentStatus == 2 || currentStatus == 4){
+            statusRow.eq(0).find('.ticket-box-row-img').text('close');
+            statusRow.eq(0).css('color', 'rgb(221, 52, 68)');
+            statusRow.eq(1).css('color', 'rgb(226, 226, 226)');
+            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
+            statusRow.find('.ticket-box-row-img').eq(1).text('check_circle');
+            statusRow.find('.ticket-box-row-img').eq(2).text('check_circle');
+        }else if(currentStatus == 5){
+            statusRow.find('.ticket-box-row-img').text('check_circle');
+            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(1).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
+        }else if(currentStatus == 6){
+            statusRow.find('.ticket-box-row-img').eq(0).text('check_circle');
+            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(1).find('.ticket-box-row-img').text('close');
+            statusRow.eq(1).css('color', 'rgb(221, 52, 68)');
+            statusRow.find('.ticket-box-row-img').eq(2).text('check_circle');
+            statusRow.eq(2).css('color', 'rgb(226, 226, 226)');
+        }else if(currentStatus == 7){
+            statusRow.find('.ticket-box-row-img').text('check_circle');
+            statusRow.css('color', 'rgb(41, 167, 69)');
+        }else if(currentStatus == 8){
+            statusRow.find('.ticket-box-row-img').eq(0).text('check_circle');
+            statusRow.find('.ticket-box-row-img').eq(1).text('check_circle');
+            statusRow.eq(0).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(1).css('color', 'rgb(41, 167, 69)');
+            statusRow.eq(2).find('.ticket-box-row-img').text('close');
+            statusRow.eq(2).css('color', 'rgb(221, 52, 68)');
+        }
     }
 }
