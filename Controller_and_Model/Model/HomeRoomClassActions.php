@@ -1,8 +1,8 @@
 <?php
 require_once 'LoginCredentials.php';
-function InsertNewHomeRoomClass($grade, $program, $class, $home_room_teacher_id, $stud_ids, $num_of_stud) {
+function InsertNewHomeRoomClass($grade, $program, $class, $home_room_teacher_id, $stud_ids, $num_of_stud, $class_num) {
     $conn = createconn();
-    $stmt = $conn->prepare("insert into homeroom_class(grade, program, class, homeroom_teacher_id, stud_ids, num_of_stud, create_time) values (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("insert into homeroom_class(grade, program, class, homeroom_teacher_id, stud_ids, num_of_stud, class_num, create_time) values (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("iiiisis", $stmt_grade, $stmt_program, $stmt_class, $stmt_home_room_teacher_id, $stmt_stud_id, $stmt_num_of_stud, $stmt_create_time);
     $stmt_grade = $grade;
     $stmt_program = $program;
@@ -10,6 +10,7 @@ function InsertNewHomeRoomClass($grade, $program, $class, $home_room_teacher_id,
     $stmt_home_room_teacher_id = $home_room_teacher_id;
     $stmt_stud_id = $stud_ids;
     $stmt_num_of_stud = $num_of_stud;
+    $stmt_class_num = $class_num;
     $stmt_create_time = date("Y-m-d H:i:s");
     $stmt->execute();
     $res = $stmt->affected_rows;
