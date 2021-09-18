@@ -112,3 +112,14 @@ function FetchSwapSubjAppByStudId($stud_id) {
         return [true, $res];
     }
 }
+
+function FetchSwapSubAppBySubjTeaId($teacher_id){
+    $conn = createconn();
+    $q = "select * from swap_subj_application where s";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("", );
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    $stmt->close();
+    $conn->close();
+}
