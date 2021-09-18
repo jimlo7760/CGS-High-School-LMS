@@ -311,7 +311,7 @@ function UpdateStrength($stud_id, $raw_strength)
  *
  * fetch all students in stud_info
  * for teacher's uses
- * @return string all students
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, error information]
  */
 function FetchAllStudent()
 {
@@ -323,13 +323,37 @@ function FetchAllStudent()
     if ($res) {
         $stmt->close();
         $conn->close();
-        return $res;
+        return [True, $res];
     } else {
         $error = $stmt->error;
         $stmt->close();
         $conn->close();
-        return $error;
+        return [False, $error];
     }
 
 }
 
+/**
+ * @param $student_id int indicate students' ID
+ * @return array If successfully executed: [True, affected rows] <br> If not: [False, error information]
+ */
+function FetchTeaInfoByTeaId($student_id)
+{
+    $conn = createconn();
+    $q = 'select * from teacher_info where id=?';
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("i", $tea_id);
+    $tea_id = $student_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    if($res){
+        $stmt->close();
+        $conn->close();
+        return [True, $res];
+    }else {
+        $error = $stmt->error;
+        $stmt->close();
+        $conn->close();
+        return [False, $error];
+    }
+}
