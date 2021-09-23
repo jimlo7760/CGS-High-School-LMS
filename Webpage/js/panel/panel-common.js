@@ -206,6 +206,7 @@ $(document).ready(function () {
     $('.personal-panel-row').click(function (){
         var clickInterface = $(this).attr('name');
         var data = {"target_operation": clickInterface};
+        $.session.set('target_operation', clickInterface);
         doPost('student-setting.php', data);
     })
 });

@@ -12,7 +12,6 @@ $(document).ready(function () {
     });
 
     //initialization part
-
     languageTestIelts($('.language-box-add'));
     var targetInterface = $('.target-operation').val();
     var right_profile_whole = $('.right-profile-whole');
@@ -26,10 +25,9 @@ $(document).ready(function () {
         right_score_whole.show();
     }
     var right_person_info_row_box = $('.right-person-info-row-box');
-
     var grey_bg = $('.grey-bg');
 
-    var currentOperation = $('#target-operation').val();
+    var currentOperation = $.session.get('target_operation');
     if(currentOperation == 'profile'){
         $('.right-profile-whole').css('display', 'block');
         $('.navi-profile').animate({
@@ -154,6 +152,7 @@ $(document).ready(function () {
         if (right_score_whole.is(":visible")) {
             right_score_whole.fadeOut('fast');
         }
+        $.session.set('target_operation', 'profile');
     });
     $('.navi-class').click(function () {
         $(this).animate({
@@ -174,6 +173,7 @@ $(document).ready(function () {
         if (right_score_whole.is(':visible')) {
             right_score_whole.fadeOut('fast');
         }
+        $.session.set('target_operation', 'manage_class');
     });
 
     navi_score.click(function () {
@@ -195,6 +195,7 @@ $(document).ready(function () {
         if (right_class_whole.is(':visible')) {
             right_class_whole.fadeOut('fast');
         }
+        $.session.set('target_operation', 'manage_score');
     });
     navi_score.click(function () {
         $(this).animate({

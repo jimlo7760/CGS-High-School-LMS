@@ -38,6 +38,9 @@ $_SESSION["exam_id_2"] = 0;
     <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile">
 
     </script>
+    <script type="text/javascript" src="../../js/session-plugin/session-plugin.js">
+
+    </script>
     <script type="text/javascript" src="../../js/panel/panel-common.js">
 
     </script>
@@ -136,6 +139,9 @@ $_SESSION["exam_id_2"] = 0;
                 <div class="right-info-left stb">
                     <div class="right-title setting-title">
                         Setting
+                        <?php
+                        echo $_SESSION['target_operation'];
+                        ?>
                     </div>
                 </div>
             </div>
@@ -2383,6 +2389,9 @@ END;
                     echo $_SESSION['id'];
                     ?>">
                     <div class="share-box-button-row">
+                        <input type="hidden" value="<?php
+                        echo $_SESSION['class_id'];
+                        ?>" name="hr_class_id">
                         <input type="submit" value="Submit" class="edit-box-blue share-box-double-button stb">
                         <input type="button" value="Back" name="tirSwpBck"
                                class="edit-box-white share-box-double-button stb">
