@@ -93,3 +93,51 @@ function UpdateStudAddDropStatus(int $app_id, int $stud_id, string $comment, int
         return [true, $res];
     }
 }
+
+/**
+ * @param int $tar_subj_id id of the target add_drop subject
+ * @return array If successfully: [True, affected_rows]; <br> If unsuccessfully: [False, error_information];
+ */
+function FetchAddDropAppClassBySubjClassId(int $tar_subj_id){
+    $conn = createconn();
+    $q = "select * from add_drop_subj_application where target_subj_class_id=?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("i", $stmt_target_subj_class_id);
+    $stmt_target_subj_class_id = $tar_subj_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    if($res){
+        $stmt->close();
+        $conn->close();
+        return [True, $res];
+    }else{
+        $error = $stmt->error;
+        $stmt->close();
+        $conn->close();
+        return [False, $error];
+    }
+}
+
+/**
+ * @param int $HR_class_id class_id of the homeroom
+ * @return array If successfully: [True, affected_rows]; <br> If unsuccessfully: [False, error_information];
+ */
+function FetchAddDropAppClassBySubjHRClassId(int $HR_class_id){
+    $conn = createconn();
+    $q = "select * from add_drop_subj_application where hr_class_id";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("i", $stmt_hr_class_id);
+    $stmt_hr_class_id = $HR_class_id;
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    if($res){
+        $stmt->close();
+        $conn->close();
+        return [True, $res];
+    }else{
+        $error = $stmt->error;
+        $stmt->close();
+        $conn->close();
+        return [False, $error];
+    }
+}
