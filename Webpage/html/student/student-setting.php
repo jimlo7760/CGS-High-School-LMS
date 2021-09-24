@@ -919,14 +919,16 @@ EOD;
                                 $target_subj_id = $target_class_info[2];
                                 $target_class_name = FetchSubjById($target_subj_id)[1][0][1];
 
-                                //                  Explanation for variable "status":
-                                //                  0：正在等待学科老师同意；
-                                //                  1：学科老师同意，正在等待班主任同意；
-                                //                  2:学科老师不同意；
-                                //                  3：学科老师+班主任同意，正在等待项目处同意；
-                                //                  4：学科老师同意，班主任不同意；
-                                //                  5:学科老师+班主任+项目处同意；
-                                //                  6：学科老师+班主任同意，项目处不同意；
+                                //      Explanation for variable "status":
+                                //      0：正在等待学科老师同意；
+                                //      1：学科老师1同意，正在等待学科老师2同意；
+                                //	    2：学科老师1不同意
+                                //	    3：学科老师2同意，正在等待班主任同意
+                                //	    4：学科老师2不同意
+                                //      5：学科老师+班主任同意，正在等待项目处同意；
+                                //      6：学科老师同意，班主任不同意；
+                                //      7: 学科老师+班主任+项目处同意；
+                                //      8：学科老师+班主任同意，项目处不同意；
                                 echo <<< END
                                         <div class="right-class-process-row pending-row">
                                             <div class="right-class-process-left">
@@ -994,7 +996,6 @@ EOD;
                                         END;
                                 $i++;
                             }
-                            //                                                        $_SESSION["swap_app_info"] = FetchSwapSubjAppByStudId($_SESSION["id"]);
                             $_SESSION["add_drop_app_info"] = FetchStudAddDropAppByStudId($_SESSION["id"]);
                             $add_drop_app_info = FetchStudAddDropAppByStudId($_SESSION["id"]);
                             if ($add_drop_app_info[0] == 1) {
@@ -1011,6 +1012,16 @@ EOD;
                                 $target_class_info = FetchSubjClassBySubjClassId($target_subj_class_id)[1][0];
                                 $target_subj_id = $target_class_info[2];
                                 $target_class_name = FetchSubjById($target_subj_id)[1][0][1];
+
+                                //                  Explanation for variable "status":
+                                //                  0：正在等待学科老师同意；
+                                //                  1：学科老师同意，正在等待班主任同意；
+                                //                  2:学科老师不同意；
+                                //                  3：学科老师+班主任同意，正在等待项目处同意；
+                                //                  4：学科老师同意，班主任不同意；
+                                //                  5:学科老师+班主任+项目处同意；
+                                //                  6：学科老师+班主任同意，项目处不同意；
+
                                 echo <<< END
                                             <div class="right-class-process-row pending-row">
                                                 <div class="right-class-process-left">
@@ -1246,7 +1257,8 @@ END;
                 <div class="personal-panel-row str" name="manage_score">
                     Goal Score
                 </div>
-                <div class="personal-panel-row-last str" onclick="window.location='../../../Controller_and_Model/Controller/Logout.php'">
+                <div class="personal-panel-row-last str"
+                     onclick="window.location='../../../Controller_and_Model/Controller/Logout.php'">
                     Sign Out
                 </div>
             </div>
