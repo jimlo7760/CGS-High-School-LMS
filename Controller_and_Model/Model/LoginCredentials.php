@@ -3,6 +3,8 @@ $db_username = 'root';
 $db_database = 'mypplatform';
 $db_hostname = 'localhost:3306';
 $db_password = 'root';
+date_default_timezone_set("Asia/Shanghai");
+
 
 function createconn() {
     global $db_database, $db_username, $db_hostname, $db_password;
