@@ -1114,6 +1114,8 @@ END;
                                                             </i >
                                                     </div >
                                                         <input type = "hidden" class="pending-row-status" value = "$status" >
+                                                        <input type="hidden" class="pending-box-type" value="1">
+
                                                     </div >
                                                     END;
                                 $i++;
