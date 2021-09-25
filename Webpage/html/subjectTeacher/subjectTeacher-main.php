@@ -39,7 +39,7 @@ session_start();
     echo $id;
     echo "'>";
     ?>
-<!--    <input hidden="true" id="enroll_semester" value="20201,20191,20192">-->
+    <!--    <input hidden="true" id="enroll_semester" value="20201,20191,20192">-->
     <div class="left-content">
         <div class="left-box">
             <div class="left-content-title stm">
@@ -150,44 +150,32 @@ session_start();
                     </div>
                 </div>
             </div>
-
             <div class="subjectT-right-down-main">
                 <div class="subjectT-right-down-row">
-                    <div class="right-box thinner-box" onclick="window.location='subjectTeacher-classList.php'">
-                        <div class="right-box-title stb">
-                            Chinese A1-001
-                            <?php
-                            print_r($_SESSION["subj_class_ids"]);
-                            ?>
-                        </div>
-                        <span class="material-icons thinner-box-img">
-                            chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box thinner-box">
-                        <div class="right-box-title stb">
-                            Chinese A1-001
-                        </div>
-                        <span class="material-icons thinner-box-img">
+                    <?php
+                    require_once '../../../Controller_and_Model/Model/SubjectClassActions.php';
+                    require_once '../../../Controller_and_Model/Model/SubjectActions.php';
+                    $subj_class_ids = $_SESSION['subj_class_ids'];
+                    foreach ($subj_class_ids as $subj_class_id) {
+                        $tot_res = FetchSubjClassBySubjClassId($subj_class_id);
+                        $subj_class_grade = $tot_res[1][0][5];
+                        $subj_class_subj_id = $tot_res[1][0][2];
+                        $subj_class_class_name = $tot_res[1][0][7];
+                        $tot_res = FetchSubjById($subj_class_subj_id);
+                        $subj_class_subj = $tot_res[1][0][1];
+                        $subj_class_combine = 'G' . $subj_class_grade . ' - ' . $subj_class_subj . ' ' . $subj_class_class_name;
+                        echo <<< END
+                        <div class="right-box thinner-box" onclick="window.location='subjectTeacher-classList.php'">
+                            <div class="right-box-title stb">
+                                $subj_class_combine
+                            </div>
+                            <span class="material-icons thinner-box-img">
                                 chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box thinner-box">
-                        <div class="right-box-title stb">
-                            Chinese A1-001
+                            </span>
                         </div>
-                        <span class="material-icons thinner-box-img">
-                                chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box thinner-box">
-                        <div class="right-box-title stb">
-                            Chinese A1-001
-                        </div>
-                        <span class="material-icons thinner-box-img">
-                                chevron_right
-                        </span>
-                    </div>
+ END;
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -372,7 +360,8 @@ session_start();
                 <div class="personal-panel-row str">
                     Goal Score
                 </div>
-                <div class="personal-panel-row-last str" onclick="window.location='../../../Controller_and_Model/Controller/Logout.php'">
+                <div class="personal-panel-row-last str"
+                     onclick="window.location='../../../Controller_and_Model/Controller/Logout.php'">
                     Sign Out
                 </div>
             </div>

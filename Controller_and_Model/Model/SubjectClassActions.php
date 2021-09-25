@@ -1,13 +1,13 @@
 <?php
 require_once 'LoginCredentials.php';
-function InsertNewSubjectClass($subj_teacher_id, $subj_id, $stud_ids, $stud_num_limit, $grade) {
+function InsertNewSubjectClass($subj_teacher_id, $subj_id, $class_name, $class_num, $grade) {
     $conn = createconn();
-    $stmt = $conn->prepare("insert into subject_class(subj_teacher_id, subj_id, stud_ids, stud_num_limit, grade, create_time) values (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("iisiii", $stmt_subj_teacher_id, $stmt_subj_id, $stmt_stud_ids, $stmt_num_limit, $stmt_grade, $stmt_create_time );
+    $stmt = $conn->prepare("insert into subject_class(subj_teacher_id, subj_id, class_name, class_num, grade, create_time) values (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("iiiisi", $stmt_subj_teacher_id, $stmt_subj_id, $stmt_class_name, $stmt_class_num, $stmt_grade, $stmt_create_time );
     $stmt_subj_id = $subj_id;
     $stmt_subj_teacher_id = $subj_teacher_id;
-    $stmt_stud_ids = $stud_ids;
-    $stmt_num_limit = $stud_num_limit;
+    $stmt_class_name = $class_name;
+    $stmt_class_num = $class_num;
     $stmt_grade = $grade;
     $stmt_create_time = date("Y-m-d H:i:s");
     $stmt->execute();
