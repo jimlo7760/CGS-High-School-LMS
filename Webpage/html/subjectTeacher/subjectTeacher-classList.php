@@ -1,8 +1,33 @@
 <!DOCTYPE html>
+<?php
+if (!session_id()) {
+    session_start();
+}
+
+$subj_class_id = $_POST['subj_class_id'];
+
+require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
+$tot_res = FetchSubjClassBySubjClassId($subj_class_id);
+$subj_class_grade = $tot_res[1][0][5];
+$subj_class_subj_id = $tot_res[1][0][2];
+$subj_class_name = $tot_res[1][0][7];
+$subj_class_stud_ids = $tot_res[1][0][3];
+
+require_once '../../../Controller_and_Model/Model/SubjectActions.php';
+$tot_res = FetchSubjById($subj_class_subj_id);
+$subj_class_subj = $tot_res[1][0][1];
+
+$subj_class_combine = 'G' . $subj_class_grade . ' - ' . $subj_class_subj . ' ' . $subj_class_name;
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Chinese A1 - 001</title>
+    <title>
+        <?php
+        echo $subj_class_combine;
+        ?>
+    </title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../CSS/whole-common.css">
     <link rel="stylesheet" type="text/css" href="../../CSS/panel/panel-common.css">
@@ -76,7 +101,9 @@
             <div class="left-content-navi">
                 <div class="left-content-navi-item">
                     <div class="left-content-navi-title stb">
-                        Chinese A1
+                        <?php
+                        echo $subj_class_combine;
+                        ?>
                     </div>
                     <div class="left-content-navi-content">
                         <span class="material-icons left-content-navi-img initial_transform">
@@ -143,7 +170,9 @@
                 </div>
                 <div class="right-info-left stb">
                     <div class="right-title">
-                        Chinese A1
+                        <?php
+                        echo $subj_class_combine;
+                        ?>
                     </div>
                     <div class="right-subtitle">
                         Students
@@ -159,10 +188,25 @@
                 </div>
             </div>
             <div class="right-student-list">
-                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
+                <?php
+                require_once '../../../Controller_and_Model/Model/UserActions.php';
+
+                $raw_stud_ids = explode(',', $subj_class_stud_ids);
+                foreach ($raw_stud_ids as $subj_class_stud_id){
+                    $tot_res = FetchStudInfoByStudId($subj_class_stud_id);
+                    $stud_id = $tot_res[1][0][0];
+
+                    $stud_chi_name = $tot_res[1][0][1];
+                    $stud_eng_name = $tot_res[1][0][2];
+                    $stud_chi_eng_combine = $stud_chi_name . ' ' . $stud_eng_name;
+                    $stud_email = $tot_res[1][0][3];
+                    $stud_num = $tot_res[1][0][8];
+
+                    echo <<< END
+<div class="right-box enrolled-student" name="$subj_class_id">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
-                            Danny Xu
+                            $stud_chi_eng_combine
                         </div>
                         <span class="material-icons right-box-arrow">
                             chevron_right
@@ -174,7 +218,7 @@
                                 ID
                             </div>
                             <div class="right-box-detail-name stm">
-                                0108721
+                                $stud_num
                             </div>
                         </div>
                         <div class="right-box-detail">
@@ -182,14 +226,19 @@
                                 Email
                             </div>
                             <div class="right-box-detail-name stm">
-                                dannyxu@163.com
+                                $stud_email
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" class="enrolled-student-class" value="10">
-                    <input type="hidden" class="enrolled-student-depart" value="IG">
-                    <input type="hidden" class="enrolled-student-grade" value="11">
+                    <input type="hidden" class="enrolled-student-class" value="$subj_class_name">
+                    <input type="hidden" class="enrolled-student-depart" value="MYP">
+                    <input type="hidden" class="enrolled-student-grade" value="$subj_class_grade">
                 </div>
+
+END;
+
+                }
+                ?>
                 <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">

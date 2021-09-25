@@ -1,12 +1,14 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
-
+<?php
+if (!session_id()) {
+    session_start();
+}?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hi Danny</title>
+    <title>Hi <?php
+    echo $_SESSION['eng_name'];
+    ?></title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../CSS/whole-common.css">
     <link rel="stylesheet" type="text/css" href="../../CSS/panel/panel-common.css">
@@ -160,18 +162,19 @@ session_start();
                         $tot_res = FetchSubjClassBySubjClassId($subj_class_id);
                         $subj_class_grade = $tot_res[1][0][5];
                         $subj_class_subj_id = $tot_res[1][0][2];
-                        $subj_class_class_name = $tot_res[1][0][7];
+                        $subj_class_name = $tot_res[1][0][7];
                         $tot_res = FetchSubjById($subj_class_subj_id);
                         $subj_class_subj = $tot_res[1][0][1];
-                        $subj_class_combine = 'G' . $subj_class_grade . ' - ' . $subj_class_subj . ' ' . $subj_class_class_name;
+                        $subj_class_combine = 'G' . $subj_class_grade . ' - ' . $subj_class_subj . ' ' . $subj_class_name;
                         echo <<< END
-                        <div class="right-box thinner-box" onclick="window.location='subjectTeacher-classList.php'">
+                        <div class="right-box thinner-box">
                             <div class="right-box-title stb">
                                 $subj_class_combine
                             </div>
                             <span class="material-icons thinner-box-img">
                                 chevron_right
                             </span>
+                            <input type="hidden" class="subj-class-id" value="$subj_class_id">
                         </div>
  END;
                     }

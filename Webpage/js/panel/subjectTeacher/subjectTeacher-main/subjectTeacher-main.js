@@ -58,4 +58,11 @@ $(document).ready(function () {
         $('.subjectT-courseList:first').fadeIn('fast');
     }
 
+    $('.thinner-box').click(function (){
+        var subj_class_id = $(this).find('.subj-class-id').val();
+        console.log(subj_class_id);
+        var data = {"subj_class_id": subj_class_id};
+        doPost('subjectTeacher-classList.php', data);
+    })
+
 });
