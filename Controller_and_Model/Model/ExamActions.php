@@ -1,15 +1,16 @@
 <?php
 require_once 'LoginCredentials.php';
-function InsertNewExam($exam_title, $target_grades, $subj_ids, $exam_start_time, $duration_in_days) {
+function InsertNewExam($exam_title, $target_grades, $exam_description, $exam_type, $exam_max_score, $exam_start_date) {
     $conn = createconn();
-    $stmt = $conn->prepare("insert into exam(exam_title, target_grades, subj_ids, exam_start_time, duration_in_days, create_time) values (?, ?, ?,?, ?, ?)");
-    $stmt->bind_param("sissss", $stmt_exam_title, $stmt_target_grades, $stmt_subj_ids, $stmt_exam_start_time, $stmt_duration_in_days, $stmt_create_time);
+    $stmt = $conn->prepare("insert into exam(exam_title, target_grades,  exam_description, exam_type, max_score, exam_start_date,  create_time) values (?, ?, ?,?, ?, ?)");
+    $stmt->bind_param("sisiiss", $stmt_exam_title, $stmt_target_grades, $stmt_exam_description, $stmt_exam_type, $stmt_max_score, $stmt_exam_start_date, $stmt_create_time);
     $stmt_exam_title = $exam_title;
     $stmt_target_grades = $target_grades;
-    $stmt_subj_ids = $subj_ids;
-    $stmt_exam_start_time = $exam_start_time;
-    $stmt_duration_in_days = $duration_in_days;
-    $stmt_create_time = date("Y-m-d H:i:s");
+    $stmt_exam_description = $exam_description;
+    $stmt_exam_type = $exam_type;
+    $stmt_max_score = $exam_max_score;
+    $stmt_exam_start_date = $exam_start_date;
+    $stmt_create_time= date("Y-m-d H:i:s");
     $stmt->execute();
     $res = $stmt->affected_rows;
     $stmt->close();

@@ -399,6 +399,12 @@ END;
                     </div>
                     <div class="right-table-content stb">
                         <div class="right-table-content-row">
+                            <?php
+                            require_once '../../../Controller_and_Model/Model/ExamActions.php';
+
+                            $tot_res = FetchExamByClassId($subj_class_id);
+                            
+                            ?>
                             <input type="hidden" class="current-test-student" value="1-Danny-6 2-Wang-7">
                             <input type="hidden" class="current-test-id" value="123123" name="test_id">
                             <input type="hidden" class="current-test-comment" value="great" name="test_comment">
