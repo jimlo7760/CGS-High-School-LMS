@@ -209,7 +209,7 @@ require_once "../../../Controller_and_Model/Model/LoginCredentials.php";
                                 $exam_type = 'Final';
                             }
                             $exam_date = $raw_all_exam[$i][3];
-                            $exam_max = $raw_all_exam[$i][10];
+                            $exam_max = $raw_all_exam[$i][9];
                             array_push($required_exam_id, $exam_id);
                             array_push($required_exam_name, $exam_name);
                             array_push($required_exam_type, $exam_type);
