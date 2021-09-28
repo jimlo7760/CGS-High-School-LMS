@@ -274,7 +274,7 @@ $(document).ready(function () {
             var testComment = currentRow.find('.current-test-comment').val();
             var stuRaw = currentRow.find('.current-test-student').val().split(' ');
             var studentShowArray = "";
-            for (var i = 0; i <= stuRaw.length - 1; i++) {
+            for (var i = 0; i <= stuRaw.length - 2; i++) {
                 studentShowArray += "<div class=\"right-table-content-row\">\n" +
                     "                            <div class=\"right-table-content-title\">\n" +
                     stuRaw[i].split('-')[1] +
@@ -371,12 +371,14 @@ $(document).on("click", ".test-detail-score-edit", function() {
     shareboxPop(edit_student_score);
     var studentId = $(this).parent().siblings('.student-id').val();
     var studentName = $(this).parent().siblings('.right-table-content-title').text().trim();
+    var studentScore = $(this).parent().siblings('.right-table-content-grade').text().trim();
     var testId = $(this).parents('.right-table').siblings('.test-detail-mid').find('.current-test-id').val();
     var testName = $(this).parents('.right-table').siblings(".test-detail").find('.right-title').text().trim();
     edit_student_score.find('.edit-box-innerbox-input').eq(0).val(testName);
     edit_student_score.find('.edit-box-innerbox-input').eq(1).val(studentName);
     edit_student_score.find('.test-id').val(testId);
     edit_student_score.find('.student-id').val(studentId);
+    edit_student_score.find('.edit-box-innerbox-input').eq(2).val(studentScore);
 });
 
 function testDetailReturnToStud() {

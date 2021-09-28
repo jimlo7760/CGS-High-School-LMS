@@ -398,150 +398,81 @@ END;
                         </div>
                     </div>
                     <div class="right-table-content stb">
-                        <div class="right-table-content-row">
                             <?php
+
                             require_once '../../../Controller_and_Model/Model/ExamActions.php';
+                            require_once '../../../Controller_and_Model/Model/StudScoreActions.php';
+                            require_once '../../../Controller_and_Model/Model/SubjectClassActions.php';
+                            require_once '../../../Controller_and_Model/Model/UserActions.php';
 
                             $tot_res = FetchExamByClassId($subj_class_id);
-                            
+                            if($tot_res[0]){
+                                foreach ($tot_res[1] as $exam_info){
+                                    $exam_id = $exam_info[0];
+                                    $exam_title = $exam_info[1];
+                                    $exam_date = $exam_info[3];
+                                    $exam_class_id = $exam_info[4];
+                                    $exam_comment = $exam_info[10];
+                                    $exam_des = $exam_info[8];
+                                    $exam_type = $exam_info[5];
+                                    $exam_max_score = $exam_info[9];
+                                    $included_stud = "";
+                                    $exam_class_raw = FetchSubjClassBySubjClassId($exam_class_id);
+                                    if($exam_class_raw[0]){
+                                        $exam_stud_ids = $exam_class_raw[1][0][3];
+                                        $exam_stud_ids = explode(',', $exam_stud_ids);
+                                        foreach ($exam_stud_ids as $exam_stud_id){
+                                            $included_stud_raw = FetchStudInfoByStudId($exam_stud_id);
+                                            if($included_stud_raw[0]){
+                                                foreach ($included_stud_raw[1] as $included_stud_fetch){
+                                                    $included_stud_id = $included_stud_fetch[0];
+                                                    $included_stud_name = $included_stud_fetch[1] . $included_stud_fetch[2];
+                                                    $raw_stud_score = FetchScoresByStudIdAndExamId($included_stud_id, $exam_id);
+                                                    if($raw_stud_score[0]){
+                                                        $stud_exam_score = $raw_stud_score[1][0][3];
+                                                        $included_stud .= $included_stud_id . '-' . $included_stud_name . '-' . $stud_exam_score . ' ';
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    echo <<< END
+                        <div class="right-table-content-row">
+                            <input type="hidden" class="current-test-student" value="$included_stud">
+                            <input type="hidden" class="current-test-id" value="exam_id" name="exam_id">
+                            <input type="hidden" class="current-test-comment" value="$exam_comment" name="exam_comment">
+                            <input type="hidden" class="current-test-des" value="$exam_des" name="exam_des">
+                            <input type="hidden" class="current-test-max-score" value="$exam_max_score" name="exam_max_score">
+                            <div class="right-table-content-title">
+                                $exam_title
+                            </div>
+                            <div class="right-table-content-type">
+END;
+                                if($exam_type == 0){
+                                    echo 'Monthly Examination';
+                                }else if($exam_type == 1){
+                                    echo "Mid-term Examination";
+                                }else if($exam_type == 2){
+                                    echo "Final Examination";
+                                }
+                                echo <<< END
+                            </div>
+                            <div class="right-table-content-date">
+                                $exam_date
+                            </div>
+                            <div class="right-table-content-action">
+                                    <span class="material-icons right-table-content-action-edit">
+                                        edit
+                                    </span>
+                                <span class="material-icons right-table-content-delete">
+                                        delete_forever
+                                    </span>
+                            </div>
+                        </div>
+END;
+                                }
+                            }
                             ?>
-                            <input type="hidden" class="current-test-student" value="1-Danny-6 2-Wang-7">
-                            <input type="hidden" class="current-test-id" value="123123" name="test_id">
-                            <input type="hidden" class="current-test-comment" value="great" name="test_comment">
-                            <input type="hidden" class="current-test-des" value="hard test" name="test_des">
-                            <input type="hidden" class="current-test-max-score" value="7" name="test_max_score">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-type">
-                                Mid-term Examination
-                            </div>
-                            <div class="right-table-content-date">
-                                2020-04-29
-                            </div>
-                            <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                            <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                            <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                            <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                            <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                            <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                            </div>
-                        </div>
-                        <div class="right-table-content-row">
-                            <div class="right-table-content-title">
-                                Vendor support ending for Collaborate CV
-                            </div>
-                            <div class="right-table-content-type">
-                                Exam
-                            </div>
-                            <div class="right-table-content-date">
-                                Apr 29, 2020 11:00 AM
-                            </div>
-                            <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1350,19 +1281,19 @@ END;
                         <div class="edit-box-innerbox-title">
                             Test Title
                         </div>
-                        <input class="edit-box-innerbox-input stb" name="add-test-title" contenteditable="false" disabled="disabled" >
+                        <input class="edit-box-innerbox-input stb" name="edit-test-title" contenteditable="false" disabled="disabled" >
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
                             Student Name
                         </div>
-                        <input class="edit-box-innerbox-input stb" name="add-test-title" contenteditable="false" disabled="disabled" >
+                        <input class="edit-box-innerbox-input stb" name="edit-test-title" contenteditable="false" disabled="disabled" >
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title">
-                            Score Out Of
+                            Score
                         </div>
-                        <input class="edit-box-innerbox-input stb" name="add-test-ceiling">
+                        <input class="edit-box-innerbox-input stb" name="edit-test-score">
                     </div>
                     <input type="hidden" class="test-id" name="stud_id" value="">
                     <input type="hidden" class="student-id" name="stud_id" value="">
