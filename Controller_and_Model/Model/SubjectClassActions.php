@@ -1,5 +1,7 @@
 <?php
 require_once 'LoginCredentials.php';
+error_log(':::');
+
 function InsertNewSubjectClass($subj_teacher_id, $subj_id, $class_name, $class_num, $grade) {
     $conn = createconn();
     $stmt = $conn->prepare("insert into subject_class(subj_teacher_id, subj_id, class_name, class_num, grade, create_time) values (?, ?, ?, ?, ?, ?)");

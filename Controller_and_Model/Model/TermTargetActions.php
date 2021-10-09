@@ -19,24 +19,41 @@ function InsertNewTermTarget($stud_id, $exam_id, $expected_exam_results) {
     }
 }
 
-function UpdateTermTarget($term_target_id, $stud_id, $exam_id, $expected_exam_results, $audit_res) {
+//function UpdateTermTarget($term_target_id, $stud_id, $exam_id, $expected_exam_results, $audit_res) {
+//    $conn = createconn();
+//    $stmt = $conn->prepare("update term_target set stud_id = ?, exam_id = ?, expected_exam_results = ?, status = ? where id = ?");
+//    $stmt->bind_param("iisii", $stmt_stud_id, $stmt_exam_id, $stmt_expected_exam_results, $stmt_status, $stmt_term_target_id);
+//    $stmt_stud_id = $stud_id;
+//    $stmt_exam_id = $exam_id;
+//    $stmt_expected_exam_results = $expected_exam_results;
+//    $stmt_status = $audit_res;
+//    $stmt_term_target_id = $term_target_id;
+//    $stmt->execute();
+//    $res = $stmt->affected_rows;
+//    $stmt->close();
+//    $conn->close();
+//    if (!$res) {
+//        return [false, $res];
+//    } else {
+//        return [true, $res];
+//    }
+//}
+
+function UpdateTermTarget($target_id, $expected_exam_results){
+    echo $target_id . '-';
+    echo $expected_exam_results . '-';
     $conn = createconn();
-    $stmt = $conn->prepare("update term_target set stud_id = ?, exam_id = ?, expected_exam_results = ?, status = ? where id = ?");
-    $stmt->bind_param("iisii", $stmt_stud_id, $stmt_exam_id, $stmt_expected_exam_results, $stmt_status, $stmt_term_target_id);
-    $stmt_stud_id = $stud_id;
-    $stmt_exam_id = $exam_id;
+    $q = "update term_target set expected_exam_results = ? where id = ?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("ii", $stmt_expected_exam_results, $stmt_target_id);
     $stmt_expected_exam_results = $expected_exam_results;
-    $stmt_status = $audit_res;
-    $stmt_term_target_id = $term_target_id;
+    $stmt_target_id = $target_id;
     $stmt->execute();
     $res = $stmt->affected_rows;
+    echo $res;
     $stmt->close();
     $conn->close();
-    if (!$res) {
-        return [false, $res];
-    } else {
-        return [true, $res];
-    }
+    return [True, $res];
 }
 
 /**

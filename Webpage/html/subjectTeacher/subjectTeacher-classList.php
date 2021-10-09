@@ -233,8 +233,8 @@ $subj_class_combine = 'G' . $subj_class_grade . ' - ' . $subj_class_subj . ' ' .
                     <input type="hidden" class="enrolled-student-class" value="$subj_class_name">
                     <input type="hidden" class="enrolled-student-depart" value="MYP">
                     <input type="hidden" class="enrolled-student-grade" value="$subj_class_grade">
+                    <input type="hidden" class="enrolled-student-id"value="$stud_id">
                 </div>
-
 END;
 
                 }

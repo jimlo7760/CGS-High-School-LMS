@@ -43,7 +43,8 @@ function UpdateSubject($sujbectName, $audit_res) {
  *
  * Won't be long til everybody knows. -- She Couldn't
  */
-function FetchSubjById($subj_id) {
+function FetchSubjById(int $subj_id): array
+{
     $conn = createconn();
     $q = "select * from subject where id=?";
     $stmt = $conn->prepare($q);

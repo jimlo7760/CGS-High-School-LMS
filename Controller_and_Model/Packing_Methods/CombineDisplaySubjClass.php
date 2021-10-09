@@ -1,6 +1,8 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 require_once "../Model/SubjectClassActions.php";
-require_once "../Model/SubjectActions.php";
+
 
 /**
  * @param $subj_class_id int(11) Subject class ID.

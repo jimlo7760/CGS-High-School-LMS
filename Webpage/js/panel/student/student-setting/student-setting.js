@@ -324,14 +324,26 @@ $(document).ready(function () {
     });
 
     $('.score-editing-box').click(function () {
-        var body = document.body.clientHeight;
-        var bg = body;
-        grey_bg.css({
-            "height": bg,
-            "top": 0
-        });
-        $('.edit-score-box').fadeIn();
-        grey_bg.fadeIn();
+        var edit_score_box = $('.edit-score-box');
+        var score_editing_innerbox_input = $('.score-editing-innerbox-input');
+        var score_editing_innerbox_title = $('.score-editing-innerbox-title');
+        var midGoalScore = $(this).find('.right-box-detail-name').eq(0).text().trim();
+        var midGoalTitle = $(this).find('.right-box-detail-title').eq(0).text().trim();
+        var finalGoalScore = $(this).find('.right-box-detail-name').eq(1).text().trim();
+        var finalGoalTitle = $(this).find('.right-box-detail-title').eq(1).text().trim();
+        if(midGoalTitle == 'No Exam Created'){
+            return false;
+        }
+        if(finalGoalTitle == 'No Exam Created'){
+            edit_score_box.find('.edit-box-innerbox').eq(1).empty();
+        }else{
+            var secondTargetId = $(this).find('.target-second-id').val();
+            edit_score_box.find('.second-target-id').val(secondTargetId);
+        }
+        var firstTargetId = $(this).find('.target-first-id').val();
+        edit_score_box.find('.first-target-id').val(firstTargetId);
+
+        shareboxPop(edit_score_box);
         var classId = $(this).children('.edit-class-id').val();
         $('.edit-score-id').val(classId);
         var className = $(this).find('.right-box-title').text().trim();
@@ -339,10 +351,10 @@ $(document).ready(function () {
         var testId = $(this).children('.current-test-id').val();
         $('.edit-test-id').val(testId);
 
-        var midGoalScore = $(this).find('.right-box-detail-name').eq(0).text().trim();
-        $('.score-editing-innerbox-input').eq(0).val(midGoalScore);
-        var finalGoalScore = $(this).find('.right-box-detail-name').eq(1).text().trim();
-        $('.score-editing-innerbox-input').eq(1).val(finalGoalScore);
+        score_editing_innerbox_input.eq(0).val(midGoalScore);
+        score_editing_innerbox_title.eq(0).text(midGoalTitle);
+        score_editing_innerbox_input.eq(1).val(finalGoalScore);
+        score_editing_innerbox_title.eq(1).text(finalGoalTitle);
     });
     $('.confirm-box-input').on("input propertychange", function () {
         var passFir = $('.password-input-first:password').val();

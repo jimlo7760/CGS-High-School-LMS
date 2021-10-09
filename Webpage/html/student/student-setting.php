@@ -1139,64 +1139,58 @@ END;
                             foreach ($_SESSION["subj_class_ids"] as $subj_class_id) {
                                 $midterm_target = 0;
                                 $final_target = 0;
-                                $tot_res = FetchSubjById($subj_class_id);
-                                if ($tot_res[0] == 1) {
-                                    $subj_info = $tot_res[1][0];
-                                    $subj_name = $subj_info[1];
-                                }
+                                $tot_res = FetchSubjClassBySubjClassId($subj_class_id);
+                                $subj_class_subj_id = $tot_res[1][0][2];
+                                $subj_class_grade = $tot_res[1][0][5];
+                                $subj_class_name = $tot_res[1][0][7];
 
-                                $all_exam = FetchActiveExams()[1];
-                                foreach ($all_exam as $exam_info) {
-                                    if ($exam_info[6] == 0) {
-                                        $exam_id = $exam_info[0];
-                                        $raw_term_target = FetchTermTargetsByExamId($exam_id);
-                                        if ($raw_term_target[0] == 1) {
-                                            $term_target = $raw_term_target[1][0];
-                                            $subj_ids = explode(",", $term_target[3]);
-                                            $subj_id_idx = 0;
-                                            foreach ($subj_ids as $subj_id) {
-                                                if ($subj_id == $subj_class_id) {
-                                                    break;
-                                                }
-                                                $subj_id_idx++;
+                                $tot_res = FetchSubjById($subj_class_subj_id);
+                                $subj_class_subj = $tot_res[1][0][1];
+                                $subj_class_combine = 'G' . $subj_class_grade . ' ' . $subj_class_subj . ' ' . $subj_class_name;
+
+
+                                $recent_exams_raw = FetchExamByClassId($subj_class_id);
+                                $check_exam = false;
+                                $check_second = false;
+                                if ($recent_exams_raw[0]) {
+                                    $check_exam = true;
+                                    $check_score_first = false;
+                                    $check_score_second = false;
+                                    $exam_id_first = $recent_exams_raw[1][0][0];
+                                    $exam_title_first = $recent_exams_raw[1][0][1];
+                                    $tot_res = FetchTermTargetsByExamId($exam_id_first);
+                                    if ($tot_res[0]) {
+                                        $exam_target_first = $tot_res[1][0][3];
+                                        $target_first_id = $tot_res[1][0][0];
+                                        $check_score_first = true;
+                                        if (count($recent_exams_raw[1]) > 1) {
+                                            $check_second = true;
+                                            $exam_id_second = $recent_exams_raw[1][1][0];
+                                            $exam_title_second = $recent_exams_raw[1][1][1];
+                                            $tot_res = FetchTermTargetsByExamId($exam_id_second);
+                                            if ($tot_res[0]) {
+                                                $exam_target_second = $tot_res[1][0][3];
+                                                $target_second_id = $tot_res[1][0][0];
+                                                $check_score_second = true;
                                             }
-
-                                            $target_scores = explode(",", $term_target[4]);
-                                            $midterm_target = $target_scores[$subj_id_idx];
-                                            $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
-                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $midterm_target;
-                                            $_SESSION["exam_id_1"] = $exam_id;
-                                        }
-                                    } else if ($exam_info[6] == 1) {
-                                        $exam_id = $exam_info[0];
-                                        $raw_term_target = FetchTermTargetsByExamId($exam_id);
-                                        if ($raw_term_target[0] == 1) {
-                                            $term_target = $raw_term_target[1][0];
-                                            $subj_ids = explode(",", $term_target[3]);
-                                            $subj_id_idx = 0;
-                                            foreach ($subj_ids as $subj_id) {
-                                                if ($subj_id == $subj_class_id) {
-                                                    break;
-                                                }
-                                                $subj_id_idx++;
-                                            }
-
-                                            $target_scores = explode(",", $term_target[4]);
-                                            $final_target = $target_scores[$subj_id_idx];
-                                            $_SESSION["subj_class_id_idxs"][] = $subj_id_idx;
-                                            $_SESSION["subj_orig_term_targets"][$subj_id_idx][] = $final_target;
-                                            $_SESSION["exam_id_2"] = $exam_id;
                                         }
                                     }
+
                                 }
-                                $input2 = "<input class=\"current-test-id\" type=\"text\" style=\"display: none\" value=\"" . $_SESSION["exam_id_1"] . "a" . $_SESSION["exam_id_2"] . "\">";
+
                                 $input1 = "<input class=\"edit-class-id\" type=\"text\" style=\"display: none\" value=\"" . $subj_class_id . "\">";
+                                if ($check_second) {
+                                    $input2 = "<input class=\"current-test-id\" type=\"text\" style=\"display: none\" value=\"" . $exam_id_first . "&" . $exam_id_second . "\">";
+                                } else {
+                                    $input2 = "<input class=\"current-test-id\" type=\"text\" style=\"display: none\" value=\"" . $exam_id_first . "\">";
+                                }
                                 echo <<< END
                                     <div class="right-box score-editing-box">
                                         $input1
+                                        $input2   
                                         <div class="right-box-upper">
                                             <div class="right-box-title stb">
-                                                $subj_name
+                                                $subj_class_combine
                                             </div>
                                             <i class="material-icons right-box-arrow">
                                                 chevron_right
@@ -1205,24 +1199,53 @@ END;
                                         <div class="right-box-downer">
                                             <div class="right-box-detail">
                                                 <div class="right-box-detail-title str">
-                                                    Midterm Goal
+END;
+                                if (!$check_exam) {
+                                    echo "No Exam Created";
+                                    echo "</div></div></div></div>";
+                                } else {
+                                    echo $exam_title_first;
+                                    echo <<< END
                                                 </div>
                                                 <div class="right-box-detail-name stm ">
-                                                    $midterm_target
+END;
+                                    if (!$check_score_first) {
+                                        echo 0;
+                                        echo "</div>";
+                                    } else {
+                                        echo $exam_target_first;
+                                    }
+                                    echo <<< END
+                                                <input type="hidden" class="target-first-id" name="target_first_id" value="$target_first_id">
                                                 </div>
                                             </div>
                                             <div class="right-box-detail">
                                                 <div class="right-box-detail-title str">
-                                                    Final Exam Goal
+END;
+                                    if (!$check_second) {
+                                        echo "No Exam Created";
+                                        echo "</div></div></div></div>";
+                                    } else {
+                                        echo $exam_title_second;
+                                        echo <<< END
                                                 </div>
                                                 <div class="right-box-detail-name stm">
-                                                    $final_target
+END;
+                                        if (!$check_score_second) {
+                                            echo 0;
+                                            echo "</div>";
+                                        } else {
+                                            echo $exam_target_second;
+                                        }
+                                        echo <<< END
+                                                <input type="hidden" class="target-second-id" name="target_second_id" value="$target_second_id">
                                                 </div>
                                             </div>
                                         </div>
-                                        $input2
-                                    </div>
-                                END;
+                                        </div>
+END;
+                                    }
+                                }
                             }
                             ?>
                         </div>
@@ -2672,14 +2695,16 @@ END;
                         <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input str"
                                name="mid-goal"
                                placeholder="">
+                        <input type="hidden" class="first-target-id" name="first_target_id" value="">
                     </div>
                     <div class="edit-box-innerbox str">
                         <div class="edit-box-innerbox-title score-editing-innerbox-title">
                             Final Exam Goal
                         </div>
                         <input type="text" class="edit-box-innerbox-input score-editing-innerbox-input str"
-                               name="finao-goal"
+                               name="final-goal"
                                placeholder="">
+                        <input type="hidden" class="second-target-id" name="second_target_id" value="">
                     </div>
                     <input class="edit-test-id" type="hidden" name="test-id" value="">
                     <input class="edit-score-id" type="hidden" name="class-id" value="">

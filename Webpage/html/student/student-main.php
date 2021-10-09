@@ -18,6 +18,9 @@ session_start();
     <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile">
 
     </script>
+    <script type="text/javascript" src="../../js/session-plugin/session-plugin.js">
+
+    </script>
     <script type="text/javascript" src="../../js/panel/panel-common.js">
 
     </script>
