@@ -15,8 +15,7 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
     $school_num = get_post("email");
     $pw = get_post("password");
     $tot_res = UserAuth($school_num, $pw);
-    echo strcmp($school_num, $_SESSION['school_num']);
-    if ($tot_res[0] && $_SESSION['school_num'] != $school_num) { // When "dashboard" is ready, make sure to jump user to dash board if already login, not to log in again.
+    if(strcmp($school_num, $_SESSION['school_num']) != 0){ // When "dashboard" is ready, make sure to jump user to dash board if already login, not to log in again.
         echo "Logged in. <br> Welcome, ";
         $chi_name = $tot_res[2][1];
         $eng_name = $tot_res[2][2];
@@ -28,6 +27,8 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
         $_SESSION["eng_name"] = $eng_name;
         $_SESSION["email_address"] = $tot_res[2][3];
         $_SESSION["logged_in"] = true;
+
+        $_SESSION['user_role'] = $tot_res[2][7];
 
         if ($tot_res[1] == 0) {
             $_SESSION["user_role"] = 0;
@@ -83,9 +84,7 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
             header('Location: '. "../../Webpage/html/student/student-main.php");
             ob_end_flush();
             die();
-
         } else{
-            $_SESSION["user_role"] = $tot_res[1];
             UpdateLoginTime($id, $tot_res[1]);
             echo "Teacher $chi_name ($eng_name)";
             $_SESSION["subject_id"] = $tot_res[2][6];
@@ -118,16 +117,18 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
         $chi_name = $_SESSION['chi_name'];
         $eng_name = $_SESSION["eng_name"];
         echo "You have already logged in, <br> Welcome, $chi_name ($eng_name)";
-        if ($_SESSION["user_role"] == 1) {
+        if($_SESSION["user_role"] == 1 || $_SESSION["user_role"] == 4){
             ob_start();
             header('Location: '. "../../Webpage/html/subjectTeacher/subjectTeacher-main.php");
             ob_end_flush();
-            die();
-        } else if ($_SESSION["user_role"] == 0) {
+        }else if($_SESSION["user_role"] == 2 || $_SESSION["user_role"] == 3 || $_SESSION['user_role'] == 5){
             ob_start();
-            header('Location: '. "../../Webpage/html/student/student-main.php");
+            header('Location: '. "../../Webpage/html/homeroomTeacher/homeroomTeacher-main.php");
             ob_end_flush();
-            die();
+        }else if($_SESSION["user_role"] == 6){
+            ob_start();
+            header('Location: '. "../../Webpage/html/coordinator/coordinator-main.php");
+            ob_end_flush();
         }
     } else if (!$tot_res[0]) {
         echo "Failed to login. Error:  ";

@@ -79,12 +79,12 @@ function UserAuth($school_num, $password)
         if ($db_pw === $password) {
             $stmt->close();
             $conn->close();
-            return [true, 1, $res[0]];
+            return [true, $res[0][7], $res[0]];
             // update login time.
         } else {
             $stmt->close();
             $conn->close();
-            return [false, 1, "Wrong password."];
+            return [false, $res[0][7], "Wrong password."];
             // back to login screen.
         }
     } else {
