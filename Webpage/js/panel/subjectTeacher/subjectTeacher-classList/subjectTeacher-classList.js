@@ -69,6 +69,7 @@ $(document).ready(function () {
 
     $('.enrolled-student').click(function () {
         $('.student-crew-list').fadeOut('fast');
+        var current_stud_id = $(this).find('.enrolled-student-id').val();
         setTimeout(function () {
             $('.subjectT-student-class').fadeIn('fast');
             var teacherSubjectUnreplaced = $('.right-title:first').text().trim();          //为每个subjectT-studentScore设置权限
@@ -137,6 +138,7 @@ $(document).ready(function () {
             $('.right-navi-gap-large').width(gapWidth - 7);
         }, 250)
 
+
         var selectedStuID = $(this).find('.right-box-detail-name:first').text().trim();
         var selectedStuEmail = $(this).find('.right-box-detail-name:last').text().trim();
         var selectedStuName = $(this).find('.right-box-title').text().trim();
@@ -150,8 +152,6 @@ $(document).ready(function () {
         right_info_dataBox_content.eq(3).text(selectedStuClass);
         right_info_dataBox_content.eq(4).text(selectedStuEmail);
         $('.right-title').eq(1).text(selectedStuName)
-        $
-        //    require .ajax to assign values for homeroomT-homeroomStudent-class
     });
 
     $('.return-from-student').click(function () {

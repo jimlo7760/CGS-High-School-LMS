@@ -239,146 +239,6 @@ END;
 
                 }
                 ?>
-                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
-                    <div class="right-box-upper">
-                        <div class="right-box-title stb">
-                            Steve Jobs
-                        </div>
-                        <span class="material-icons right-box-arrow">
-                            chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box-downer">
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                ID
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                0108722
-                            </div>
-                        </div>
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                Email
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                stevejobs@gmail.com
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
-                    <div class="right-box-upper">
-                        <div class="right-box-title stb">
-                            Elon Musk
-                        </div>
-                        <span class="material-icons right-box-arrow">
-                            chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box-downer">
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                ID
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                0108723
-                            </div>
-                        </div>
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                Email
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                elonmusk@163.com
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
-                    <div class="right-box-upper">
-                        <div class="right-box-title stb">
-                            Danny Xu
-                        </div>
-                        <span class="material-icons right-box-arrow">
-                            chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box-downer">
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                ID
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                0108724
-                            </div>
-                        </div>
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                Email
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                dannyxu@163.com
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
-                    <div class="right-box-upper">
-                        <div class="right-box-title stb">
-                            Danny Xu
-                        </div>
-                        <span class="material-icons right-box-arrow">
-                            chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box-downer">
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                ID
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                0108725
-                            </div>
-                        </div>
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                Email
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                dannyxu@163.com
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="right-box enrolled-student" name="$_SESSION['course_id']">
-                    <div class="right-box-upper">
-                        <div class="right-box-title stb">
-                            Danny Xu
-                        </div>
-                        <span class="material-icons right-box-arrow">
-                            chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box-downer">
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                ID
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                0108726
-                            </div>
-                        </div>
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str">
-                                Email
-                            </div>
-                            <div class="right-box-detail-name stm">
-                                dannyxu@163.com
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="subjectT-test">
@@ -588,7 +448,6 @@ END;
                     </div>
 
                 </div>
-
                 <div class="subjectT-studentScore" id="Chinese_A1">
                     <div class="subjectT-studentScore-add-outer">
                         <div class="subjectT-studentScore-add">
@@ -641,7 +500,7 @@ END;
                                         delete_forever
                                     </span>
                                 </div>
-                                <input type="hidden" class="current-test-student" value="1-Danny-6 2-Ken-7">
+<!--                                <input type="hidden" class="current-test-student" value="1-Danny-6 2-Ken-7">-->
                                 <input type="hidden" class="current-test-des" value="awful">
                                 <input type="hidden" class="current-test-comment" value="this is a wonderful test">
                                 <input type="hidden" class="current-test-id" value="123123">
@@ -834,7 +693,7 @@ END;
                                         delete_forever
                                     </span>
                                 </div>
-                                <input type="hidden" class="test-box-student" value="1-Danny-6 2-Ken-7">
+<!--                                <input type="hidden" class="test-box-student" value="1-Danny-6 2-Ken-7">-->
                                 <input type="hidden" class="test-box-des" value="awful">
                                 <input type="hidden" class="test-box-comment" value="this is a wonderful test">
                                 <input type="hidden" class="current-test-id" value="123123">
