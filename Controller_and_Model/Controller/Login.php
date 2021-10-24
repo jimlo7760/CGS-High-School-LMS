@@ -88,6 +88,8 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
             UpdateLoginTime($id, $tot_res[1]);
             echo "Teacher $chi_name ($eng_name)";
             $_SESSION["subject_id"] = $tot_res[2][6];
+            $_SESSION['teacher_id'] = $tot_res[2][0];
+            $_SESSION['teacher_status'] = $tot_res[2][10];
             $raw_res = FetchSubjClassBySubjTeacherId($tot_res[2][0])[1];
             $raw_res_homeroom = FetchHRClassByHRTeacherId($tot_res[2][0])[1];
             $subj_class_ids = [];
