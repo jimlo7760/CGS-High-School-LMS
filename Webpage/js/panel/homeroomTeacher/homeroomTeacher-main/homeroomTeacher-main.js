@@ -30,6 +30,13 @@ $(document).ready(function () {
         })
     } else {                                //default display
         $('.homeroomT-homeroomList:first').fadeIn('fast');
-    }
+    };
 
+    $('.thinner-box').click(function (){
+        if($(this).find('.homeroom-class-id').length>0){                 //homeroom box
+            var hr_class_id = $(this).find('.homeroom-class-id').val();
+            doPost('homeroomTeacher-homeroomList.php', hr_class_id);
+        }
+
+    })
 });

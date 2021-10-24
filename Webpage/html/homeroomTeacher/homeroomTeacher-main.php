@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+if (!session_id()) {
+    session_start();
+} ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -142,71 +146,130 @@
                     <div class="homeroomT-homeroomTitle stb">
                         Your Homeroom
                     </div>
+                    <?php
+                    require_once '../../../Controller_and_Model/Model/HomeRoomClassActions.php';
+                    $tot_res = FetchHRClassByHRTeacherId($_SESSION['teacher_id']);
+                    if ($tot_res[0]) {
+                        $tot_res = $tot_res[1];
+                    }
+                    foreach ($tot_res as $hr_class_detail) {
+                        $hr_class_id = $hr_class_detail[0];
+                        $hr_class_grade = $hr_class_detail[1];
+                        $hr_class_program = $hr_class_detail[2];
+                        $hr_class_name = $hr_class_detail[3];
+                        if ($hr_class_program == 0) {
+                            $hr_class_program = "MYP";
+                        }
+                        $hr_class_combine = $hr_class_program . ' ' . $hr_class_grade . '-' . $hr_class_name;
+                        echo <<<END
                     <div class="homeroomT-homeroomRow">
-                        <div class="right-box thinner-box"
-                             onclick="window.location='homeroomTeacher-homeroomList.html'">
+                        <div class="right-box thinner-box">
                             <div class="right-box-title stb">
-                                MYP 9-2
+                                $hr_class_combine
+                            </div>
+                            <span class="material-icons thinner-box-img">
+                                chevron_right
+                            </span>
+                            <input type="hidden" class="homeroom-class-id" value="$hr_class_id">
+                        </div>
+                    </div>
+END;
+                    }
+
+                    ?>
+                </div>
+                <div class="homeroomT-homeroomList-down">
+                    <div class="homeroomT-homeroomTitle stb">
+                        Your Courses
+                    </div>
+                    <div class="homeroomT-homeroomRow">
+                        <?php
+                        require_once '../../../Controller_and_Model/Model/SubjectClassActions.php';
+                        require_once '../../../Controller_and_Model/Model/SubjectActions.php';
+
+                        $tot_res = FetchSubjClassBySubjTeacherId($_SESSION['teacher_id']);
+                        if ($tot_res[0]) {
+                            $tot_res = $tot_res[1];
+                        }
+                        foreach ($tot_res as $subj_class_detail) {
+                            $subj_class_id = $subj_class_detail[0];
+                            $subj_class_subj_id = $subj_class_detail[2];
+                            $subj_class_grade = $subj_class_detail[5];
+                            $subj_class_name = $subj_class_detail[7];
+                            $tot_res_subj = FetchSubjById($subj_class_subj_id);
+                            if ($tot_res_subj[0]) {
+                                $tot_res_subj = $tot_res_subj[1][0];
+                            }
+                            $subj_class_subj = $tot_res[1];
+                            $subj_class_combine = 'G' . $subj_class_grade . ' ' . $subj_class_subj . '-' . $subj_class_name;
+                            echo <<<END
+                        <div class="right-box thinner-box"">
+                            <div class="right-box-title stb">
+                                $subj_class_combine
                             </div>
                             <span class="material-icons thinner-box-img">
                             chevron_right
-                        </span>
+                            </span>
+                            <input type="hidden" class="subject-class-id" value="$subj_class_id">
                         </div>
+                    END;
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
-            <div class="homeroomT-homeroomList-down">
-                <div class="homeroomT-homeroomTitle stb">
-                    Your Courses
-                </div>
-                <div class="homeroomT-homeroomRow">
-                    <div class="right-box thinner-box" onclick="window.location=''">
-                        <div class="right-box-title stb">
-                            IELTS 9-1
+            <div class="right-down homeroomT-homeroomList" id="20192">
+                <div class="homeroomT-homeroomList-top">
+                    <div class="right-info">
+                        <div class="right-info-left stb">
+                            <div class="right-title">
+                                Homerooms
+                            </div>
+                            <div class="right-subtitle">
+                                2018 - 2019 Second Semester
+                            </div>
                         </div>
-                        <span class="material-icons thinner-box-img">
+                    </div>
+                    <div class="homeroomT-homeroomDown">
+                        <div class="homeroomT-homeroomTitle stb">
+                            Your Homeroom
+                        </div>
+                        <div class="homeroomT-homeroomRow">
+                            <div class="right-box thinner-box" onclick="window.location=''">
+                                <div class="right-box-title stb">
+                                    MYP 9-2
+                                </div>
+                                <span class="material-icons thinner-box-img">
                             chevron_right
                         </span>
-                    </div>
-                    <div class="right-box thinner-box" onclick="window.location=''">
-                        <div class="right-box-title stb">
-                            IELTS 9-2
-                        </div>
-                        <span class="material-icons thinner-box-img">
-                            chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box thinner-box" onclick="window.location=''">
-                        <div class="right-box-title stb">
-                            IELTS 9-3
-                        </div>
-                        <span class="material-icons thinner-box-img">
-                            chevron_right
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="right-down homeroomT-homeroomList" id="20192">
-            <div class="homeroomT-homeroomList-top">
-                <div class="right-info">
-                    <div class="right-info-left stb">
-                        <div class="right-title">
-                            Homerooms
-                        </div>
-                        <div class="right-subtitle">
-                            2018 - 2019 Second Semester
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="homeroomT-homeroomDown">
+                <div class="homeroomT-homeroomList-down">
                     <div class="homeroomT-homeroomTitle stb">
-                        Your Homeroom
+                        All Homeroom
                     </div>
                     <div class="homeroomT-homeroomRow">
                         <div class="right-box thinner-box" onclick="window.location=''">
                             <div class="right-box-title stb">
-                                MYP 9-2
+                                IELTS 9-1
+                            </div>
+                            <span class="material-icons thinner-box-img">
+                            chevron_right
+                        </span>
+                        </div>
+                        <div class="right-box thinner-box" onclick="window.location=''">
+                            <div class="right-box-title stb">
+                                IELTS 9-3
+                            </div>
+                            <span class="material-icons thinner-box-img">
+                            chevron_right
+                        </span>
+                        </div>
+                        <div class="right-box thinner-box" onclick="window.location=''">
+                            <div class="right-box-title stb">
+                                IELTS 10-1
                             </div>
                             <span class="material-icons thinner-box-img">
                             chevron_right
@@ -215,58 +278,58 @@
                     </div>
                 </div>
             </div>
-            <div class="homeroomT-homeroomList-down">
-                <div class="homeroomT-homeroomTitle stb">
-                    All Homeroom
-                </div>
-                <div class="homeroomT-homeroomRow">
-                    <div class="right-box thinner-box" onclick="window.location=''">
-                        <div class="right-box-title stb">
-                            IELTS 9-1
+            <div class="right-down homeroomT-homeroomList" id="20191">
+                <div class="homeroomT-homeroomList-top">
+                    <div class="right-info">
+                        <div class="right-info-left stb">
+                            <div class="right-title">
+                                Homerooms
+                            </div>
+                            <div class="right-subtitle">
+                                2018 - 2019 First Semester
+                            </div>
                         </div>
-                        <span class="material-icons thinner-box-img">
+                    </div>
+                    <div class="homeroomT-homeroomDown">
+                        <div class="homeroomT-homeroomTitle stb">
+                            Your Homeroom
+                        </div>
+                        <div class="homeroomT-homeroomRow">
+                            <div class="right-box thinner-box" onclick="window.location=''">
+                                <div class="right-box-title stb">
+                                    MYP 9-2
+                                </div>
+                                <span class="material-icons thinner-box-img">
                             chevron_right
                         </span>
-                    </div>
-                    <div class="right-box thinner-box" onclick="window.location=''">
-                        <div class="right-box-title stb">
-                            IELTS 9-3
-                        </div>
-                        <span class="material-icons thinner-box-img">
-                            chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box thinner-box" onclick="window.location=''">
-                        <div class="right-box-title stb">
-                            IELTS 10-1
-                        </div>
-                        <span class="material-icons thinner-box-img">
-                            chevron_right
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="right-down homeroomT-homeroomList" id="20191">
-            <div class="homeroomT-homeroomList-top">
-                <div class="right-info">
-                    <div class="right-info-left stb">
-                        <div class="right-title">
-                            Homerooms
-                        </div>
-                        <div class="right-subtitle">
-                            2018 - 2019 First Semester
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="homeroomT-homeroomDown">
+                <div class="homeroomT-homeroomList-down">
                     <div class="homeroomT-homeroomTitle stb">
-                        Your Homeroom
+                        All Homeroom
                     </div>
                     <div class="homeroomT-homeroomRow">
                         <div class="right-box thinner-box" onclick="window.location=''">
                             <div class="right-box-title stb">
-                                MYP 9-2
+                                MYP 9-1
+                            </div>
+                            <span class="material-icons thinner-box-img">
+                            chevron_right
+                        </span>
+                        </div>
+                        <div class="right-box thinner-box" onclick="window.location=''">
+                            <div class="right-box-title stb">
+                                MYP 9-3
+                            </div>
+                            <span class="material-icons thinner-box-img">
+                            chevron_right
+                        </span>
+                        </div>
+                        <div class="right-box thinner-box" onclick="window.location=''">
+                            <div class="right-box-title stb">
+                                MYP 10-1
                             </div>
                             <span class="material-icons thinner-box-img">
                             chevron_right
@@ -275,61 +338,29 @@
                     </div>
                 </div>
             </div>
-            <div class="homeroomT-homeroomList-down">
-                <div class="homeroomT-homeroomTitle stb">
-                    All Homeroom
-                </div>
-                <div class="homeroomT-homeroomRow">
-                    <div class="right-box thinner-box" onclick="window.location=''">
-                        <div class="right-box-title stb">
-                            MYP 9-1
-                        </div>
-                        <span class="material-icons thinner-box-img">
-                            chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box thinner-box" onclick="window.location=''">
-                        <div class="right-box-title stb">
-                            MYP 9-3
-                        </div>
-                        <span class="material-icons thinner-box-img">
-                            chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box thinner-box" onclick="window.location=''">
-                        <div class="right-box-title stb">
-                            MYP 10-1
-                        </div>
-                        <span class="material-icons thinner-box-img">
-                            chevron_right
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
-        <div class="right-down homeroomT-studentList" id="student">
-            <div class="right-info">
-                <div class="right-info-left stb">
-                    <div class="right-title">
-                        All Students
+            <div class="right-down homeroomT-studentList" id="student">
+                <div class="right-info">
+                    <div class="right-info-left stb">
+                        <div class="right-title">
+                            All Students
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="studentList-right-down-main">
-                <div class="studentList-right-down-row">
-                <?php
-                require_once "../../../Controller_and_Model/Model/UserActions.php";
-                $tot_res = FetchAllStudent();
-                foreach ($tot_res as $stud_info) {
-                $stud_chi = $stud_info[1];
-                $stud_eng = $stud_info[2];
-                $stud_email = $stud_info[3];
-                $stud_num = $stud_info[8];
-                $stud_name_row = $stud_chi . ' ' . $stud_eng;
-                echo <<< END
+                <div class="studentList-right-down-main">
+                    <div class="studentList-right-down-row">
+                        <?php
+                        require_once "../../../Controller_and_Model/Model/UserActions.php";
+                        $tot_res = FetchAllStudent();
+                        foreach ($tot_res as $stud_info) {
+                            $stud_chi = $stud_info[1];
+                            $stud_eng = $stud_info[2];
+                            $stud_email = $stud_info[3];
+                            $stud_num = $stud_info[8];
+                            $stud_name_row = $stud_chi . ' ' . $stud_eng;
+                            echo <<< END
                 <div class="right-box">
                         <div class="right-box-upper">
                             <div class="right-box-title stb">
@@ -360,63 +391,63 @@
                     </div>
     
  END;
-}
-?>
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
-        </div>
 
 
-        <div class="grey-bg">
+            <div class="grey-bg">
 
-        </div>
-        <div class="result-box">
-            <ul class="result-box-row">
-                <li class="result-box-sort" value="class">
-                    Student
-                </li>
-                <li class="result-box-name">
-                    Danny Xu
-                </li>
-                <li class="result-box-year">
-                    0108706
-                </li>
-            </ul>
-            <div class="result-box-empty">
-                No result found containing 'Spainish'
             </div>
-        </div>
-
-
-        <div class="personal-panel">
-            <div class="personal-panel-top">
-                <img src="../../img/图像 1@2x.png" height="30" width="30" class="personal-panel-portrait"/>
-                <div class="personal-panel-des">
-                    <div class="personal-panel-name stb">
+            <div class="result-box">
+                <ul class="result-box-row">
+                    <li class="result-box-sort" value="class">
+                        Student
+                    </li>
+                    <li class="result-box-name">
                         Danny Xu
-                    </div>
-                    <div class="personal-panel-mail str">
-                        dannyxu@163.com
-                    </div>
+                    </li>
+                    <li class="result-box-year">
+                        0108706
+                    </li>
+                </ul>
+                <div class="result-box-empty">
+                    No result found containing 'Spainish'
                 </div>
             </div>
-            <div class="personal-panel-bottom">
-                <div class="personal-panel-row str">
-                    My Profile
-                </div>
-                <div class="personal-panel-row str">
-                    Add / Drop Class
-                </div>
-                <div class="personal-panel-row str">
-                    Goal Score
-                </div>
-                <div class="personal-panel-row-last str" onclick="window.location='../login/index.html'">
-                    Sign Out
-                </div>
-            </div>
-        </div>
 
+
+            <div class="personal-panel">
+                <div class="personal-panel-top">
+                    <img src="../../img/图像 1@2x.png" height="30" width="30" class="personal-panel-portrait"/>
+                    <div class="personal-panel-des">
+                        <div class="personal-panel-name stb">
+                            Danny Xu
+                        </div>
+                        <div class="personal-panel-mail str">
+                            dannyxu@163.com
+                        </div>
+                    </div>
+                </div>
+                <div class="personal-panel-bottom">
+                    <div class="personal-panel-row str">
+                        My Profile
+                    </div>
+                    <div class="personal-panel-row str">
+                        Add / Drop Class
+                    </div>
+                    <div class="personal-panel-row str">
+                        Goal Score
+                    </div>
+                    <div class="personal-panel-row-last str" onclick="window.location='../login/index.html'">
+                        Sign Out
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
 </body>
 </html>
