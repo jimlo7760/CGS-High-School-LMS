@@ -143,3 +143,21 @@ function FetchSubjTeacherIDBySubjId($subj_id) {
         return [true, $res];
     }
 }
+
+function FetchAllSubjClass(){
+    $conn = createconn();
+    $q = "select * from subject_class";
+    $stmt = $conn->prepare($q);
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    if($res){
+        $stmt->close();
+        $conn->close();
+        return [True, $res];
+    }else{
+        $error = $stmt->error;
+        $stmt->close();
+        $conn->close();
+        return [False, $error];
+      }
+}

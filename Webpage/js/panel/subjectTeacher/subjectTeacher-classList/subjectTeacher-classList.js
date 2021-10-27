@@ -24,52 +24,13 @@ $(document).ready(function () {
         $(this).find("form").submit();
     })
 
-
-    $('.right-navi-item').click(function () {
-        if ($(this).css('border-bottom-color') != 'rgb(27, 162, 185)') {
-            subjectT_studentScore.fadeOut('fast').delay('fast');
-            var clickSubj = $(this).text().trim();
-            $('.right-navi-item').each(function () {
-                if ($(this).text().trim() != clickSubj && $(this).css('border-bottom-color') == 'rgb(27, 162, 185)') {
-                    $('#' + clickSubj).fadeIn('fast');
-                    $(this).css('border-bottom-color', '#EAEBEB');
-                    $(this).css('color', '#999C9E');
-                } else if ($(this).text().trim() == clickSubj) {
-                    $(this).css('border-bottom-color', '#1BA2B9');
-                    $(this).css('color', '#212529');
-                }
-            })
-            var subjectSele = spaceReplacement(clickSubj);
-            $('#' + subjectSele).fadeIn('fast');
-        }
-    })
-
-    $('.subjectT-studentScore-add').click(function () {
-        var targetSub = "";
-        $('.right-navi-item').each(function () {
-            if ($(this).css('color') == 'rgb(33, 37, 41)') {
-                targetSub = $(this).text().trim();
-            }
-        })
-        var subjectSele = spaceReplacement(targetSub);
-        var body = document.body.clientHeight;
-        var bg = body;
-        var grey_bg = $('.grey-bg');
-        grey_bg.css({
-            "height": bg,
-            "top": 0
-        });
-        grey_bg.fadeIn();
-        var subjectT_addScore_box = $('.subjectT-addScore-box');
-        subjectT_addScore_box.fadeIn();
-        subjectT_addScore_box.attr('value', subjectSele);
-        var studId = $('.right-info-dataBox-content:first').text().trim()
-        $('#test-stud-id').attr('value', studId);
-    })
-
     $('.enrolled-student').click(function () {
         $('.student-crew-list').fadeOut('fast');
         var current_stud_id = $(this).find('.enrolled-student-id').val();
+        var data = {"current_stud_id": current_stud_id}
+        doPost('subjectTeacher-student.php', data);
+
+
         setTimeout(function () {
             $('.subjectT-student-class').fadeIn('fast');
             var teacherSubjectUnreplaced = $('.right-title:first').text().trim();          //为每个subjectT-studentScore设置权限
@@ -90,42 +51,6 @@ $(document).ready(function () {
                     }
                 })
             }
-
-            var tableWid = parseInt(subjectT_studentScore.css('width'));
-
-            var titleWidAu = tableWid * 0.3;                                    //table: permit to edit
-            var permit_modification = $('.permit-modification');
-            permit_modification.find('.right-table-title-title').width(titleWidAu);
-            permit_modification.find('.right-table-content-title').width(titleWidAu);
-            var gradeWidAu = tableWid * 0.17;
-            permit_modification.find('.right-table-title-grade').width(gradeWidAu);
-            permit_modification.find('.right-table-content-grade').width(gradeWidAu);
-            var typeWidAu = tableWid * 0.1;
-            permit_modification.find('.right-table-title-type').width(typeWidAu);
-            permit_modification.find('.right-table-content-type').width(typeWidAu);
-            var dateWidAu = tableWid * 0.25;
-            permit_modification.find('.right-table-title-date').width(dateWidAu);
-            permit_modification.find('.right-table-content-date').width(dateWidAu);
-            var actionWidAu = tableWid * 0.15;
-            permit_modification.find('.right-table-title-action').width(actionWidAu);
-            permit_modification.find('.right-table-content-action').width(actionWidAu);
-
-            var titleWid = tableWid * 0.28;                                  //table: no permit to edit
-            var noPermit_modification = $('.noPermit-modification');
-            noPermit_modification.find('.right-table-title-action').remove();
-            noPermit_modification.find('.right-table-content-action').remove();
-            noPermit_modification.find('.right-table-title-title').width(titleWid);
-            noPermit_modification.find('.right-table-content-title').width(titleWid);
-            var gradeWid = tableWid * 0.18;
-            noPermit_modification.find('.right-table-title-grade').width(gradeWid);
-            noPermit_modification.find('.right-table-content-grade').width(gradeWid);
-            var typeWid = tableWid * 0.23;
-            noPermit_modification.find('.right-table-title-type').width(typeWid);
-            noPermit_modification.find('.right-table-content-type').width(typeWid);
-            var dateWid = tableWid * 0.21;
-            noPermit_modification.find('.right-table-title-date').width(dateWid);
-            noPermit_modification.find('.right-table-content-date').width(dateWid);
-            noPermit_modification.find('.subjectT-studentScore-add-outer').remove();
 
             var accuWid = 0;
             $('.right-navi-item').each(function () {
@@ -366,20 +291,6 @@ $(document).ready(function () {
 
 })
 
-$(document).on("click", ".test-detail-score-edit", function() {
-    var edit_student_score = $('.edit-student-score');
-    shareboxPop(edit_student_score);
-    var studentId = $(this).parent().siblings('.student-id').val();
-    var studentName = $(this).parent().siblings('.right-table-content-title').text().trim();
-    var studentScore = $(this).parent().siblings('.right-table-content-grade').text().trim();
-    var testId = $(this).parents('.right-table').siblings('.test-detail-mid').find('.current-test-id').val();
-    var testName = $(this).parents('.right-table').siblings(".test-detail").find('.right-title').text().trim();
-    edit_student_score.find('.edit-box-innerbox-input').eq(0).val(testName);
-    edit_student_score.find('.edit-box-innerbox-input').eq(1).val(studentName);
-    edit_student_score.find('.test-id').val(testId);
-    edit_student_score.find('.student-id').val(studentId);
-    edit_student_score.find('.edit-box-innerbox-input').eq(2).val(studentScore);
-});
 
 function testDetailReturnToStud() {
     console.log(123123)

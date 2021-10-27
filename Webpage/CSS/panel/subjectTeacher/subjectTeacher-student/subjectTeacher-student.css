@@ -1,0 +1,149 @@
+
+.right-nevi{
+    margin-top: 40px;
+    overflow:hidden;
+    zoom:1;
+}
+.right-navi-item {
+    float: left;
+    padding-bottom: 10px;
+    border-bottom:#EAEBEB 2px solid ;
+    cursor: pointer;
+    color: #999C9E;
+}
+
+.right-navi-gap{
+    float:left;
+    width: 25px;
+    border-bottom:#EAEBEB 2px solid;
+    padding-bottom:10px;
+}
+.right-navi-gap-last{
+    overflow: hidden;
+    border-bottom:#EAEBEB 2px solid ;
+    padding-bottom: 10px;
+}
+
+.navi-current{
+    border-bottom: 2px solid #1BA2B9;
+    color: #212529;
+}
+.right-navi-gap-large{
+    float:left;
+    border-bottom:#EAEBEB 2px solid;
+    padding-bottom:10px;
+    width: 10px;
+}
+.right-navi-item-right{
+    float:right;
+    padding-bottom: 10px;
+    border-bottom:#EAEBEB 2px solid ;
+    cursor: pointer;
+    color: #999C9E;
+}
+
+.subjectT-studentScore{
+    margin-top: 15px;
+}
+
+.right-table{
+    margin-top: 15px;
+}
+.right-table-title{
+    overflow: hidden;
+    zoom:1;
+    color: white;
+    background-color: #005462;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    padding:10px;
+    cursor: default;
+}
+.right-table-title-title{
+    float:left;
+}
+.right-table-title-grade{
+    float:left;
+}
+.right-table-title-type{
+    float:left;
+}
+.right-table-title-date{
+    float:left;
+}
+.right-table-title-action{
+    float:left;
+}
+.right-table-content{
+    border: 1px solid #D0D0D0;
+    padding:0 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.right-table-content-row{
+    overflow:hidden;
+    zoom:1;
+    padding:15px 0;
+    border-top:1px solid #B7B7B7;
+}
+.right-table-content-title{
+    float:left;
+    text-decoration: underline;
+    color: #1BA2B9;
+    cursor: pointer;
+}
+.right-table-content-grade{
+    float:left;
+    cursor: default;
+}
+.right-table-content-type{
+    float:left;
+    cursor: default;
+}
+.right-table-content-date{
+    float:left;
+    cursor: default;
+}
+.right-table-content-action{
+    float: left;
+    cursor: default;
+    overflow: hidden;
+    zoom:1;
+}
+.right-table-content-action-edit{
+    float:left;
+    margin-right: 30px;
+    color: #1BA2B9;
+    cursor: pointer;
+}
+.right-table-content-delete{
+    float:left;
+    color: #DD3444;
+    cursor: pointer;
+}
+
+
+.subjectT-studentScore-add-outer{
+    overflow: hidden;
+    zoom:1;
+    margin-top:15px;
+}
+
+.subjectT-studentScore-add{
+    cursor: pointer;
+    float: right;
+    overflow: hidden;
+    zoom: 1;
+    padding: 10px;
+    background-color: #1BA2B9;
+    border-radius: 5px;
+}
+.subjectT-addCourse-box-select{
+    cursor: pointer;
+}
+.edit-student-score{
+    display: none;
+}
+.subjectT-addScore-box{
+    display: none;
+}

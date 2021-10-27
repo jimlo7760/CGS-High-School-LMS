@@ -4,13 +4,25 @@ if (!session_id()) {
     session_start();
 }
 
-$subj_class_id = $_POST['subj_class_id'];
+if($_POST['subj_class_id']){
+    $subj_class_id = $_POST['subj_class_id'];
+    $_SESSION['subj_class_id'] = $subj_class_id;
+
+}else{
+    $subj_class_id = $_SESSION['subj_class_id'];
+}
 
 require_once "../../../Controller_and_Model/Model/SubjectClassActions.php";
 $tot_res = FetchSubjClassBySubjClassId($subj_class_id);
 $subj_class_grade = $tot_res[1][0][5];
+if(!$_SESSION['subj_class_grade']){
+    $_SESSION['subj_class_grade'] = $subj_class_grade;
+}
 $subj_class_subj_id = $tot_res[1][0][2];
 $subj_class_name = $tot_res[1][0][7];
+if(!$_SESSION['subj_class_name']){
+    $_SESSION['subj_class_name'] = $subj_class_name;
+}
 $subj_class_stud_ids = $tot_res[1][0][3];
 
 require_once '../../../Controller_and_Model/Model/SubjectActions.php';
@@ -959,63 +971,6 @@ END;
         <div class="result-box">
 
         </div>
-        <div class="share-box subjectT-addScore-box" value="">
-            <div class="edit-box-top">
-                <div class="edit-box-title stm">
-                    Add New Exam / Test
-                </div>
-                <span class="material-icons edit-box-close">
-                    close
-                </span>
-            </div>
-            <form method="post">
-                <div class="edit-box-downer">
-                    <div class="edit-box-innerbox str">
-                        <input id="test-stud-id" hidden="true" value="">
-                        <div class="edit-box-innerbox-title">
-                            Choose an Exam / Test
-                        </div>
-                        <select name="add-score-name" class="edit-box-innerbox-select subjectT-addCourse-box-select">
-                            <option>2020 First semester mid-term examination</option>
-                            <option>2020 Second semester mid-term examination</option>
-                            <option>2021 First semester final examination</option>
-                            <option>2021 Second semester first monthly examination</option>
-                        </select>
-                    </div>
-                    <div class="edit-box-innerbox str">
-                        <div class="edit-box-innerbox-title">
-                            Comment
-                        </div>
-                        <textarea type="text" class="edit-box-innerbox-input edit-comment-box str" name="add-score-comment"
-                                  placeholder="Write your comment here..."></textarea>
-                    </div>
-                    <div class="edit-box-innerbox str">
-                        <div class="edit-box-innerbox-title">
-                            Score
-                        </div>
-                        <input type="text" class="edit-box-innerbox-input str" name="add-score-val"
-                               placeholder="">
-                    </div>
-                    <div class="edit-box-innerbox str">
-                        <div class="edit-box-innerbox-title">
-                            Attachment
-                        </div>
-                        <div class="edit-box-click-row">
-                            <button class="edit-box-innerbox-input click-button str" type="file">
-                                Click here to upload an attachment
-                            </button>
-                            <span class="material-icons click-icon">
-                                add
-                            </span>
-                            <input type="file" name="add-score-attachment" capture="camera" class="click-hidden-input str"
-                                   placeholder="Click to upload an attachment">
-                            <!--  input标签调用调用上传方法                      -->
-                        </div>
-                    </div>
-                    <input class="edit-box-green stb" type="submit" value="Save">
-                </div>
-            </form>
-        </div>
         <div class="share-box subjectT-addTest-box" value="">
             <div class="edit-box-top">
                 <div class="edit-box-title stm">
@@ -1125,41 +1080,6 @@ END;
             </form>
         </div>
 
-        <div class="share-box edit-student-score">
-            <div class="edit-box-top">
-                <div class="edit-box-title stm">
-                    Edit Student's Score
-                </div>
-                <span class="material-icons edit-box-close">
-                    close
-                </span>
-            </div>
-            <form method="post">
-                <div class="edit-box-downer">
-                    <div class="edit-box-innerbox str">
-                        <div class="edit-box-innerbox-title">
-                            Test Title
-                        </div>
-                        <input class="edit-box-innerbox-input stb" name="edit-test-title" contenteditable="false" disabled="disabled" >
-                    </div>
-                    <div class="edit-box-innerbox str">
-                        <div class="edit-box-innerbox-title">
-                            Student Name
-                        </div>
-                        <input class="edit-box-innerbox-input stb" name="edit-test-title" contenteditable="false" disabled="disabled" >
-                    </div>
-                    <div class="edit-box-innerbox str">
-                        <div class="edit-box-innerbox-title">
-                            Score
-                        </div>
-                        <input class="edit-box-innerbox-input stb" name="edit-test-score">
-                    </div>
-                    <input type="hidden" class="test-id" name="stud_id" value="">
-                    <input type="hidden" class="student-id" name="stud_id" value="">
-                    <input class="edit-box-green stb" type="submit" value="Save">
-                </div>
-            </form>
-        </div>
     </div>
 </div>
 

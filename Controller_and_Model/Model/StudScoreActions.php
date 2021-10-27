@@ -9,16 +9,22 @@ require_once "ExamActions.php";
  *
  * @param int $stud_id Student id.
  * @param int $exam_id Exam id.
- * @param int $audit_res Value for status.
+ * @param int $score Exam score.
+ * @param int $comment Exam comment.
+ * @param int $updater_id Updater id.
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
  * @author Yiming Su
  */
-function UpdateStudExamResultsByExamIdAndStudId($stud_id, $exam_id, $audit_res) {
+function UpdateStudExamResultsByExamIdAndStudId(int $stud_id, int $exam_id, int $score, int $comment, int $updater_id): array
+{
     $conn = createconn();
-    $query = "update stud_scores set status=? where exam_id=? and stud_id=?";
+    $query = "update stud_scores set exam_results=?, updater_id=?, update_time=?, score_comment=? where exam_id=? and stud_id=?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("iii", $stmt_audit_res, $stmt_exam_id, $stmt_stud_id);
-    $stmt_audit_res = $audit_res;
+    $stmt->bind_param("sissii", $stmt_exam_result, $stmt_updater_id, $stmt_update_time, $stmt_score_comment, $stmt_exam_id, $stmt_stud_id);
+    $stmt_exam_result = $score;
+    $stmt_updater_id = $updater_id;
+    $stmt_update_time = date("Y-m-d");
+    $stmt_score_comment = $comment;
     $stmt_exam_id = $exam_id;
     $stmt_stud_id = $stud_id;
     $stmt->execute();
@@ -27,7 +33,7 @@ function UpdateStudExamResultsByExamIdAndStudId($stud_id, $exam_id, $audit_res) 
     $conn->close();
     if (!$res) {
         return [false, $res];
-    } else if ($res == 1) {
+    } else {
         return [true, $res];
     }
 }
@@ -90,20 +96,23 @@ function FetchScoresByStudIdAndExamId($stud_id, $exam_id) {
  * @param int $stud_id Student id.
  * @param int $exam_id Exam id.
  * @param string $exam_results A string containing all results for all subjects in the exam.
+ * @param string $exam_comment Comment for the score
  * @param int $updater_id Updater id.
  * @return array If successfully executed: [True, affected rows] <br> If not: [False, affected rows]
  * @author Yiming Su
  */
-function InsertNewScores($stud_id, $exam_id, $exam_results, $updater_id) {
+function InsertNewScores(int $stud_id, int $exam_id, string $exam_results, string $exam_comment, int $updater_id): array
+{
     $conn = createconn();
-    $query = "insert into stud_scores (stud_id, exam_id, exam_results, create_time, updater_id, update_time) values (?,?,?,?,?,?)";
+    $query = "insert into stud_scores (stud_id, exam_id, exam_results, create_time, updater_id, score_comment, update_time) values (?,?,?,?,?,?,?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("iissis", $stmt_stud_id, $stmt_exam_id, $stmt_exam_results, $stmt_create_time, $stmt_updater_id, $stmt_update_time);
+    $stmt->bind_param("iississ", $stmt_stud_id, $stmt_exam_id, $stmt_exam_results, $stmt_create_time, $stmt_updater_id, $stmt_exam_comment, $stmt_update_time);
     $stmt_stud_id = $stud_id;
     $stmt_exam_id = $exam_id;
     $stmt_exam_results = $exam_results;
     $stmt_create_time = date("Y-m-d");
     $stmt_updater_id = $updater_id;
+    $stmt_exam_comment = $exam_comment;
     $stmt_update_time = date("Y-m-d");
     $stmt->execute();
     $res = $stmt->affected_rows;
@@ -190,4 +199,30 @@ function CalculateAvgScoreOfExam($exam_id) {
     } else {
         return [true, $avg_score];
     }
+}
+
+/**
+ * @param $exam_id int Exam id.
+ * @param $stud_id int Student id
+ * @return array If fetch successfully: [True, affected_rows]; <br> If unsuccessfully: [False, error_information].
+ */
+function DeleteStudSubjScore($exam_id, $stud_id){
+    $conn = createconn();
+    $q = "delete from stud_scores where exam_id = ? and stud_id = ?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("ii", $stmt_exam_id, $stmt_stud_id);
+    $stmt_exam_id = $exam_id;
+    $stmt_stud_id = $stud_id;
+    $stmt->execute();
+    $res = $stmt->affected_rows;
+    if($res){
+        $stmt->close();
+        $conn->close();
+        return [True, $res];
+    }else{
+        $error = $stmt->error;
+        $stmt->close();
+        $conn->close();
+        return [False, $error];
+      }
 }
