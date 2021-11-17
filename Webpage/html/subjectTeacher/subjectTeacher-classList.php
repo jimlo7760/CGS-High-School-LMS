@@ -302,7 +302,10 @@ END;
                                                     $raw_stud_score = FetchScoresByStudIdAndExamId($included_stud_id, $exam_id);
                                                     if($raw_stud_score[0]){
                                                         $stud_exam_score = $raw_stud_score[1][0][3];
-                                                        $included_stud .= $included_stud_id . '-' . $included_stud_name . '-' . $stud_exam_score . ' ';
+                                                        $stud_score_id = $raw_stud_score[1][0][0];
+                                                        $stud_score_comment = $raw_stud_score[1][0][8];
+                                                        $included_stud .= $included_stud_id . '-' . $included_stud_name . '-' .
+                                                            $stud_exam_score . '-' . $stud_score_id . '-' . $stud_score_comment . ' ';
                                                     }
                                                 }
                                             }
@@ -311,7 +314,7 @@ END;
                                     echo <<< END
                         <div class="right-table-content-row">
                             <input type="hidden" class="current-test-student" value="$included_stud">
-                            <input type="hidden" class="current-test-id" value="exam_id" name="exam_id">
+                            <input type="hidden" class="current-test-id" value="$exam_id" name="exam_id">
                             <input type="hidden" class="current-test-comment" value="$exam_comment" name="exam_comment">
                             <input type="hidden" class="current-test-des" value="$exam_des" name="exam_des">
                             <input type="hidden" class="current-test-max-score" value="$exam_max_score" name="exam_max_score">
@@ -350,503 +353,6 @@ END;
             </div>
         </div>
 
-        <div class="subjectT-student-class">
-            <div class="right-down">
-                <div class="right-info test-info">
-                    <div class="right-return return-from-student">
-                    <span class="material-icons right-return-img">
-                        chevron_left
-                    </span>
-                        <div class="right-return-text sts">
-                            Students
-                        </div>
-                    </div>
-                    <div class="right-info-row">
-                        <img src="../../img/图像%201@2x.png" height="70" width="70" class="right-info-portrait">
-                        <div class="right-info-left stb">
-                            <div class="right-title">
-
-                            </div>
-                            <div class="right-subtitle">
-
-                            </div>
-                        </div>
-                        <div class="right-info-right">
-                            <div class="right-info-dataBox">
-                                <div class="right-info-dataBox-title str">
-                                    ID
-                                </div>
-                                <div class="right-info-dataBox-content stm">
-                                    0108703
-                                </div>
-                            </div>
-                            <div class="right-info-dataBox">
-                                <div class="right-info-dataBox-title str">
-                                    Department
-                                </div>
-                                <div class="right-info-dataBox-content stm">
-                                    MYP
-                                </div>
-                            </div>
-                            <div class="right-info-dataBox">
-                                <div class="right-info-dataBox-title str">
-                                    Grade
-                                </div>
-                                <div class="right-info-dataBox-content stm">
-                                    7
-                                </div>
-                            </div>
-                            <div class="right-info-dataBox">
-                                <div class="right-info-dataBox-title str">
-                                    Class
-                                </div>
-                                <div class="right-info-dataBox-content stm">
-                                    18
-                                </div>
-                            </div>
-                            <div class="right-info-dataBox">
-                                <div class="right-info-dataBox-title str">
-                                    Email
-                                </div>
-                                <div class="right-info-dataBox-content stm">
-                                    dannyxu@163.com
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="right-nevi str">
-                    <div class="right-navi-item navi-current">
-                        Chinese A1
-                    </div>
-                    <div class="right-navi-gap">
-                        &nbsp;
-                    </div>
-                    <div class="right-navi-item">
-                        English A1
-                    </div>
-                    <div class="right-navi-gap">
-                        &nbsp;
-                    </div>
-                    <div class="right-navi-item">
-                        French A1
-                    </div>
-                    <div class="right-navi-gap">
-                        &nbsp;
-                    </div>
-                    <div class="right-navi-item">
-                        Information Technology B2
-                    </div>
-                    <div class="right-navi-gap">
-                        &nbsp;
-                    </div>
-                    <div class="right-navi-item">
-                        Biology A1
-                    </div>
-                    <div class="right-navi-gap">
-                        &nbsp;
-                    </div>
-                    <div class="right-navi-item">
-                        Physics HL A1
-                    </div>
-                    <div class="right-navi-gap">
-                        &nbsp;
-                    </div>
-                    <div class="right-navi-item">
-                        TOK
-                    </div>
-                    <div class="right-navi-gap-large">
-                        &nbsp;
-                    </div>
-
-                </div>
-                <div class="subjectT-studentScore" id="Chinese_A1">
-                    <div class="subjectT-studentScore-add-outer">
-                        <div class="subjectT-studentScore-add">
-                            <span class="material-icons right-down-info-button-img">
-                                add
-                            </span>
-
-                            <div class="right-down-info-button-text stb">
-                                ADD
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-table">
-                        <div class="right-table-title sts">
-                            <div class="right-table-title-title">
-                                Title
-                            </div>
-                            <div class="right-table-title-grade">
-                                Grade
-                            </div>
-                            <div class="right-table-title-type">
-                                Type
-                            </div>
-                            <div class="right-table-title-date">
-                                Date
-                            </div>
-                            <div class="right-table-title-action">
-                                Action
-                            </div>
-                        </div>
-                        <div class="right-table-content stb">
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Unit 5 Exam
-                                </div>
-                                <div class="right-table-content-grade">
-                                    6 / 7
-                                </div>
-                                <div class="right-table-content-type">
-                                    Mid-term Examination
-                                </div>
-                                <div class="right-table-content-date">
-                                    2019-09-22
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-<!--                                <input type="hidden" class="current-test-student" value="1-Danny-6 2-Ken-7">-->
-                                <input type="hidden" class="current-test-des" value="awful">
-                                <input type="hidden" class="current-test-comment" value="this is a wonderful test">
-                                <input type="hidden" class="current-test-id" value="123123">
-                                <input type="hidden" class="current-test-max-score" value="7">
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="subjectT-studentScore" id="TOK">
-<!--                    editing: adding action field-->
-                    <div class="subjectT-studentScore-add-outer">
-                        <div class="subjectT-studentScore-add">
-                            <span class="material-icons right-down-info-button-img">
-                                add
-                            </span>
-                            <div class="right-down-info-button-text stb">
-                                ADD
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-table">
-                        <div class="right-table-title sts">
-                            <div class="right-table-title-title">
-                                Title
-                            </div>
-                            <div class="right-table-title-grade">
-                                Grade
-                            </div>
-                            <div class="right-table-title-type">
-                                Type
-                            </div>
-                            <div class="right-table-title-date">
-                                Date
-                            </div>
-                            <div class="right-table-title-action">
-                                Action
-                            </div>
-                        </div>
-                        <div class="right-table-content stb">
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Unit 5 Exam
-                                </div>
-                                <div class="right-table-content-grade">
-                                    6 / 7
-                                </div>
-                                <div class="right-table-content-type">
-                                    Mid-term Examination
-                                </div>
-                                <div class="right-table-content-date">
-                                    2019-09-22
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-<!--                                <input type="hidden" class="test-box-student" value="1-Danny-6 2-Ken-7">-->
-                                <input type="hidden" class="test-box-des" value="awful">
-                                <input type="hidden" class="test-box-comment" value="this is a wonderful test">
-                                <input type="hidden" class="current-test-id" value="123123">
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="right-table-content-row">
-                                <div class="right-table-content-title">
-                                    Vendor support ending for Collaborate CV
-                                </div>
-                                <div class="right-table-content-grade">
-                                    80 / 100
-                                </div>
-                                <div class="right-table-content-type">
-                                    Exam
-                                </div>
-                                <div class="right-table-content-date">
-                                    Apr 29, 2020 11:00 AM
-                                </div>
-                                <div class="right-table-content-action">
-                                    <span class="material-icons right-table-content-action-edit">
-                                        edit
-                                    </span>
-                                    <span class="material-icons right-table-content-delete">
-                                        delete_forever
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="subjectT-test-detail">
             <div class="right-down">
@@ -1079,8 +585,49 @@ END;
                 </div>
             </form>
         </div>
-
     </div>
+
+    <div class="share-box edit-student-score">
+        <div class="edit-box-top">
+            <div class="edit-box-title stm">
+                Edit Student's Score
+            </div>
+            <span class="material-icons edit-box-close">
+                    close
+                </span>
+        </div>
+        <form method="post" action="../../../Controller_and_Model/Controller/UpdateStudSubjScore.php">
+            <div class="edit-box-downer">
+                <div class="edit-box-innerbox str">
+                    <div class="edit-box-innerbox-title">
+                        Test Title
+                    </div>
+                    <input class="edit-box-innerbox-input stb" name="edit-test-title" contenteditable="false" disabled="disabled" >
+                </div>
+                <div class="edit-box-innerbox str">
+                    <div class="edit-box-innerbox-title">
+                        Student Name
+                    </div>
+                    <input class="edit-box-innerbox-input stb" name="edit-test-stud" contenteditable="false" disabled="disabled" >
+                </div>
+                <div class="edit-box-innerbox str">
+                    <div class="edit-box-innerbox-title">
+                        Score
+                    </div>
+                    <input class="edit-box-innerbox-input stb" name="edit-test-score">
+                </div>
+                <div class="edit-box-innerbox str">
+                    <div class="edit-box-innerbox-title">
+                        Comment
+                    </div>
+                    <textarea type="text" class="edit-box-innerbox-input edit-comment-box str" name="edit-score-comment" placeholder="Write your comment here..." spellcheck="false"></textarea>
+                </div>
+                <input type="hidden" class="edit-score-id" name="edit-score-id" value="">
+                <input class="edit-box-green stb" type="submit" value="Save">
+            </div>
+        </form>
+    </div>
+
 </div>
 
 </body>

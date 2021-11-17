@@ -208,7 +208,9 @@ $(document).ready(function () {
                     stuRaw[i].split('-')[2] +
                     "                            </div>\n" +
                     "                            <div class=\"right-table-content-date\">\n" +
-                    "                                2019-09-22\n" +
+                    "                                " +
+                    testDate +
+                    "\n" +
                     "                            </div>\n" +
                     "                            <div class=\"right-table-content-action\">\n" +
                     "                                    <span class=\"material-icons right-table-content-action-edit test-detail-score-edit\">\n" +
@@ -218,16 +220,20 @@ $(document).ready(function () {
                     "                                        delete_forever\n" +
                     "                                    </span>\n" +
                     "                            </div>\n"
-                    + "<input type='hidden' class='student-id' value='" +
+                    + "<input type='hidden' class='current-student-id' value='" +
                     stuRaw[i].split('-')[0] +
                     "'>"
                     + "<input type='hidden' class='test_id' value='" +
                     testId +
                     "'>"+
-                    "                        </div>"
-
-
-
+                    "                  " +
+                    "<input type='hidden' class='stud-score-id' value='"+
+                    stuRaw[i].split('-')[3]+
+                    "'>"+
+                    "<input type='hidden' class='stud-score-comment' value='"+
+                    stuRaw[i].split('-')[4] +
+                    "'>" +
+                    "</div>"
             }
             subjectT_test_detail.find('.right-table-content').html(studentShowArray);
 
@@ -285,15 +291,27 @@ $(document).ready(function () {
                 subjectT_editTest_box.find('.edit-box-innerbox-input').eq(3).val(testDate);
                 subjectT_editTest_box.find('.edit-box-innerbox-input').eq(4).text(testComment);
             })
+
+            $('.test-detail-score-edit').click(function (){
+                var stud_name = $(this).parent().siblings('.right-table-content-title').text().trim();
+                var test_title = $(this).parents('.right-table').siblings('.test-detail').find('.right-title').text().trim();
+                var test_score = $(this).parent().siblings('.right-table-content-grade').text().trim();
+                var stud_score_id = $(this).parent().siblings('.stud-score-id').val();
+                var test_comment = $(this).parent().siblings('.stud-score-comment').val();
+                var edit_student_score = $('.edit-student-score');
+                shareboxPop(edit_student_score);
+                edit_student_score.find('.edit-score-id').val(stud_score_id);
+                edit_student_score.find('.edit-box-innerbox-input[name="edit-test-title"]').val(test_title);
+                edit_student_score.find('.edit-box-innerbox-input[name="edit-test-stud"]').val(stud_name);
+                edit_student_score.find('.edit-box-innerbox-input[name="edit-test-score"]').val(test_score);
+                edit_student_score.find('.edit-box-innerbox-input[name="edit-score-comment"]').text(test_comment);
+            })
         }
     })
-
-
 })
 
 
 function testDetailReturnToStud() {
-    console.log(123123)
     $('.subjectT-test-detail').fadeOut('fast');
     $('.subjectT-student-class').delay('fast').fadeIn('fast');
 }
