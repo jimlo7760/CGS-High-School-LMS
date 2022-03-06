@@ -178,7 +178,8 @@ $(document).ready(function () {
         }
     })
 
-    $('.subjectT-test').find('.right-table-content-action-edit').click(function (){
+    var subjectT_test = $('.subjectT-test');
+    subjectT_test.find('.right-table-content-action-edit').click(function (){
         var subjectT_editTest_box = $('.subjectT-editTest-box');
         shareboxPop(subjectT_editTest_box);
         var testId = $(this).parent().siblings('.current-test-id').val();
@@ -189,6 +190,12 @@ $(document).ready(function () {
         var testComment = $(this).parent().siblings('.current-test-comment').val();
         var testMax = $(this).parent().siblings('.current-test-max-score').val();
         editTestTable(testId, testTitle, testDes, testType, testMax, testDate, testComment);
+    })
+    subjectT_test.find('.right-table-content-delete').click(function (){
+        var exam_id = $(this).parent().siblings('.current-test-id').val();
+        console.log(exam_id);
+        var data = {"exam_id": exam_id};
+        doPost('../../../Controller_and_Model/Controller/DeleteExamAndItsScore.php', data);
     })
     $('.subjectT-studentScore').find('.right-table-content-action-edit').click(function (){
         var subjectT_editTest_box = $('.subjectT-editTest-box');
@@ -202,6 +209,7 @@ $(document).ready(function () {
         var testMax = $(this).parent().siblings('.current-test-max-score').val();
         editTestTable(testId, testTitle, testDes, testType, testMax, testDate, testComment);
     })
+
 
     $('.personal-panel-row').click(function (){
         var clickInterface = $(this).attr('name');

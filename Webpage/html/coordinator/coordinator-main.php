@@ -190,8 +190,8 @@
             </div>
 
             <div class="coordinator-homeroom">
-                <div class="coordinator-studentScore-add-outer">
-                    <div class="coordinator-studentScore-add">
+                <div class="coordinator-homeroom-add-outer">
+                    <div class="coordinator-studentScore-add coordinator-homeroom-add">
                             <span class="material-icons right-down-info-button-img">
                                 add
                             </span>
@@ -223,8 +223,8 @@
                 </div>
             </div>
             <div class="coordinator-classroom">
-                <div class="coordinator-studentScore-add-outer">
-                    <div class="coordinator-studentScore-add">
+                <div class="coordinator-classroom-add-outer">
+                    <div class="coordinator-studentScore-add coordinator-classroom-add">
                             <span class="material-icons right-down-info-button-img">
                                 add
                             </span>
@@ -233,7 +233,7 @@
                             ADD CLASSROOM
                         </div>
                     </div>
-                    <div class="coordinator-studentScore-add">
+                    <div class="coordinator-studentScore-add coordinator-course-add">
                             <span class="material-icons right-down-info-button-img">
                                 add
                             </span>
@@ -604,7 +604,7 @@
                                 REMOVE TEACHER
                             </div>
                         </div>
-                        <div class="right-down-info-button" style="margin-right: 30px;">
+                        <div class="right-down-info-button add-teacher-button" style="margin-right: 30px;">
                             <span class="material-icons right-down-info-button-img">
                                 add
                             </span>

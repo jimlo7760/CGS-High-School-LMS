@@ -226,3 +226,29 @@ function DeleteStudSubjScore($exam_id, $stud_id){
         return [False, $error];
       }
 }
+
+/**
+ * @param $exam_id int Exam id
+ * @return array If delete successfully: [True, deleted scores]; <br> If unsuccessfully: [False, error info].
+ * @author Yinzoen Louh
+ * @date 2021/12/8
+ */
+function DeleteEntireExamScore($exam_id){
+    $conn = createconn();
+    $q = "delete from stud_scores where exam_id = ?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("i", $stmt_exam_id);
+    $stmt_exam_id = $exam_id;
+    $stmt->execute();
+    $res = $stmt->affected_rows;
+    if($res){
+        $stmt->close();
+        $conn->close();
+        return [True, $res];
+    }else{
+        $error = $stmt->error;
+        $stmt->close();
+        $conn->close();
+        return [False, $error];
+      }
+}

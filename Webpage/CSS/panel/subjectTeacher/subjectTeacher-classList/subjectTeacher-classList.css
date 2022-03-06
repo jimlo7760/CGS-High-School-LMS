@@ -167,6 +167,7 @@
 .right-table-content-delete{
     float:left;
     color: #DD3444;
+    cursor: pointer;
 }
 
 

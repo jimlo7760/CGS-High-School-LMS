@@ -290,7 +290,7 @@ $(document).ready(function () {
                 subjectT_editTest_box.find('.edit-box-innerbox-input').eq(2).val(testMax);
                 subjectT_editTest_box.find('.edit-box-innerbox-input').eq(3).val(testDate);
                 subjectT_editTest_box.find('.edit-box-innerbox-input').eq(4).text(testComment);
-            })
+            });
 
             $('.test-detail-score-edit').click(function (){
                 var stud_name = $(this).parent().siblings('.right-table-content-title').text().trim();
@@ -305,7 +305,7 @@ $(document).ready(function () {
                 edit_student_score.find('.edit-box-innerbox-input[name="edit-test-stud"]').val(stud_name);
                 edit_student_score.find('.edit-box-innerbox-input[name="edit-test-score"]').val(test_score);
                 edit_student_score.find('.edit-box-innerbox-input[name="edit-score-comment"]').text(test_comment);
-            })
+            });
         }
     })
 })

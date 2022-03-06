@@ -135,3 +135,29 @@ function FetchExamByClassId($class_id){
         return [true, $res];
     }
 }
+
+/**
+ * @param $exam_id int the id of exam
+ * @return array If successfully executed: [True, deleted exam] <br> If not: [False, error info.]
+ * @author Yinzoen Louh
+ * @date 2021/12/8
+ */
+function DeleteExamByExamId($exam_id){
+    $conn = createconn();
+    $q = "delete from exam where id = ?";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("i", $stmt_id);
+    $stmt_id = $exam_id;
+    $stmt->execute();
+    $res = $stmt->affected_rows;
+    if($res){
+        $stmt->close();
+        $conn->close();
+        return [True, $res];
+    }else{
+        $error = $stmt->error;
+        $stmt->close();
+        $conn->close();
+        return [False, $error];
+      }
+}

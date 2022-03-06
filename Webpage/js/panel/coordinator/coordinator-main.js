@@ -136,6 +136,31 @@ $(document).ready(function () {
             alterNaviColor($(this));
         }
     })
+
+    var coordinator_homeroom_add = $(".coordinator-homeroom-add");
+    var add_homeroom_box = $('.add-homeroom-box');
+    coordinator_homeroom_add.click(function (){
+        shareboxPop(add_homeroom_box);
+    })
+
+    var coordinator_course_add = $(".coordinator-course-add");
+    var add_course_box = $(".add-subject-box");
+    coordinator_course_add.click(function (){
+        shareboxPop(add_course_box);
+    })
+
+    var coordinator_classroom_add = $(".coordinator-classroom-add");
+    var add_class_box = $('.add-class-box');
+    coordinator_classroom_add.click(function (){
+        shareboxPop(add_class_box);
+    })
+
+    var add_teacher_button = $('.add-teacher-button');
+    var add_teacher_box = $(".add-teacher-box");
+    add_teacher_button.click(function (){
+        shareboxPop(add_teacher_box);
+    })
+
 });
 
 function alterNaviColor(selector){
