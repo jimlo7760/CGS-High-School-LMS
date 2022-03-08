@@ -169,7 +169,7 @@
             <div class="coordinator-personal-classroom">
                 <div class="coordinator-homeroomRow">
                     <div class="right-box thinner-box"
-                         onclick="window.location='homeroomTeacher-homeroomList.html'">
+                         onclick="window.location='../homeroomTeacher/homeroomTeacher-homeroomList.php'">
                         <div class="right-box-title stb">
                             Chinese 1
                         </div>
@@ -178,7 +178,7 @@
                             </span>
                     </div>
                     <div class="right-box thinner-box"
-                         onclick="window.location='homeroomTeacher-homeroomList.html'">
+                         onclick="window.location='../homeroomTeacher/homeroomTeacher-homeroomList.php'">
                         <div class="right-box-title stb">
                             English 1
                         </div>
