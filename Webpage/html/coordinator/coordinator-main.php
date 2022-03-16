@@ -418,8 +418,7 @@ session_start();
                 if ($tot_res[0]) {
                     $tot_res = $tot_res[1];
                 }
-                print_r($tot_res);
-                foreach ($tot_res as $subj_class_detail) {
+                foreach($tot_res as $subj_class_detail) {
                     $subj_class_id = $subj_class_detail[0];
                     $subj_class_subj_id = $subj_class_detail[2];
                     $subj_class_grade = $subj_class_detail[5];
@@ -457,41 +456,57 @@ session_start();
                 </div>
             </div>
             <div class="right-student-list">
-                <?php
-                
-                ?>
-                <div class="right-box enrolled-student" name="$_SESSION['course_id']"
-                     style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
-                    <div class="right-box-upper">
-                        <div class="right-box-title stb">
-                            Danny Xu
-                        </div>
-                        <span class="material-icons right-box-arrow" style="color: rgb(27, 162, 185);">
-                            chevron_right
-                        </span>
-                    </div>
-                    <div class="right-box-downer">
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str" style="color: rgb(153, 156, 158);">
-                                ID
-                            </div>
-                            <div class="right-box-detail-name stm" style="color: rgb(0, 0, 0);">
-                                0108721
-                            </div>
-                        </div>
-                        <div class="right-box-detail">
-                            <div class="right-box-detail-title str" style="color: rgb(153, 156, 158);">
-                                Email
-                            </div>
-                            <div class="right-box-detail-name stm" style="color: rgb(0, 0, 0);">
-                                dannyxu@163.com
-                            </div>
-                        </div>
-                    </div>
-                    <input type="hidden" class="enrolled-student-class" value="10">
-                    <input type="hidden" class="enrolled-student-depart" value="IG">
-                    <input type="hidden" class="enrolled-student-grade" value="11">
-                </div>
+<!--                --><?php
+//                require_once '../../../Controller_and_Model/Model/UserActions.php';
+//
+//                $tot_res = FetchAllStudent();
+//                if($tot_res[0]){
+//                    $tot_res = $tot_res[1];
+//                }
+//                foreach($tot_res as $stud_info){
+//                    $stud_chi = $stud_info[1];
+//                    $stud_eng = $stud_info[2];
+//                    $stud_email = $stud_info[3];
+//                    $stud_num = $stud_info[8];
+//                    $stud_name_com = $stud_chi . ' ' . $stud_eng;
+//                    echo<<<END
+//                <div class="right-box enrolled-student" name=""
+//                     style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
+//                    <div class="right-box-upper">
+//                        <div class="right-box-title stb">
+//                           $stud_name_com
+//                        </div>
+//                        <span class="material-icons right-box-arrow" style="color: rgb(27, 162, 185);">
+//                            chevron_right
+//                        </span>
+//                    </div>
+//                    <div class="right-box-downer">
+//                        <div class="right-box-detail">
+//                            <div class="right-box-detail-title str" style="color: rgb(153, 156, 158);">
+//                                ID
+//                            </div>
+//                            <div class="right-box-detail-name stm" style="color: rgb(0, 0, 0);">
+//                                $stud_num
+//
+//                            </div>
+//                        </div>
+//                        <div class="right-box-detail">
+//                            <div class="right-box-detail-title str" style="color: rgb(153, 156, 158);">
+//                                Email
+//                            </div>
+//                            <div class="right-box-detail-name stm" style="color: rgb(0, 0, 0);">
+//                                $stud_email
+//                            </div>
+//                        </div>
+//                    </div>
+//                </div>
+//
+//
+//END;
+//
+//                }
+//                ?>
+
                 <div class="right-box enrolled-student" name="$_SESSION['course_id']">
                     <div class="right-box-upper">
                         <div class="right-box-title stb">
