@@ -143,7 +143,7 @@ function UpdateLoginTime($id, $user_role)
     $q = "";
     if ($user_role == 0) {
         $q = "update stud_info set last_login_time=? where id=?";
-    } else if ($user_role == 1 || $user_role == 2 || $user_role == 3 || $user_role == 4 || $user_role == 5) {
+    } else {
         $q = "update teacher_info set last_login_time=? where id=?";
     }
     $stmt = $conn->prepare($q);
@@ -346,11 +346,11 @@ function FetchTeaInfoByTeaId($student_id)
     $tea_id = $student_id;
     $stmt->execute();
     $res = $stmt->get_result()->fetch_all();
-    if($res){
+    if ($res) {
         $stmt->close();
         $conn->close();
         return [True, $res];
-    }else {
+    } else {
         $error = $stmt->error;
         $stmt->close();
         $conn->close();

@@ -124,3 +124,25 @@ function FetchAllStudIdAndHRClasses() {
     }
 }
 
+/**
+ * @return array All homerooms
+ * @author Yinzoen Louh
+ * @date 2022/3/11
+ */
+function FetchAllHRClass(){
+    $conn = createconn();
+    $q = "select * from homeroom_class";
+    $stmt = $conn->prepare($q);
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all();
+    if($res){
+        $stmt->close();
+        $conn->close();
+        return [True, $res];
+    }else{
+        $error = $stmt->error;
+        $stmt->close();
+        $conn->close();
+        return [False, $error];
+      }
+}

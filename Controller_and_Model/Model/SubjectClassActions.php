@@ -144,6 +144,11 @@ function FetchSubjTeacherIDBySubjId($subj_id) {
     }
 }
 
+/**
+ * @return array
+ * @author Yinzoen Louh
+ * @date 2022/3/13
+ */
 function FetchAllSubjClass(){
     $conn = createconn();
     $q = "select * from subject_class";

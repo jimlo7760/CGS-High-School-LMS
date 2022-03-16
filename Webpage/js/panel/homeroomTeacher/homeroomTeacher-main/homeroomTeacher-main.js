@@ -37,6 +37,5 @@ $(document).ready(function () {
             var hr_class_id = $(this).find('.homeroom-class-id').val();
             doPost('homeroomTeacher-homeroomList.php', hr_class_id);
         }
-
     })
 });

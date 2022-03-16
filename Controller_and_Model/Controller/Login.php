@@ -6,6 +6,8 @@ require_once "../Model/SubjectClassActions.php";
 require_once "../Model/SwapSubjAppActions.php";
 require_once "../Model/SubjectClassActions.php";
 
+ini_set("display_errors", "On");
+error_reporting(E_ALL);
 session_start();
 if (!isset($_SESSION['school_num'])) {
     $_SESSION['school_num'] = 0;
@@ -20,6 +22,7 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
         $chi_name = $tot_res[2][1];
         $eng_name = $tot_res[2][2];
         $id = $tot_res[2][0];
+        echo $eng_name;
 
         $_SESSION["school_num"] = $school_num;
         $_SESSION["id"] = $id;
@@ -94,7 +97,6 @@ if ($_POST["password"] != NULL && $_POST["email"] != NULL) {
             $raw_res_homeroom = FetchHRClassByHRTeacherId($tot_res[2][0])[1];
             $subj_class_ids = [];
             foreach ($raw_res as $subj_class_array) {
-                print_r($subj_class_array);
                 echo "<br>";
                 $subj_class_ids[] = $subj_class_array[0];
             }

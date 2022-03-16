@@ -203,7 +203,7 @@ END;
                             $subj_class_subj = $tot_res[1];
                             $subj_class_combine = 'G' . $subj_class_grade . ' ' . $subj_class_subj . '-' . $subj_class_name;
                             echo <<<END
-                        <div class="right-box thinner-box"">
+                        <div class="right-box thinner-box">
                             <div class="right-box-title stb">
                                 $subj_class_combine
                             </div>

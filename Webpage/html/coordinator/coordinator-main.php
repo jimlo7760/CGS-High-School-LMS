@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -167,25 +170,39 @@
                 </div>
             </div>
             <div class="coordinator-personal-classroom">
-                <div class="coordinator-homeroomRow">
-                    <div class="right-box thinner-box"
-                         onclick="window.location='../homeroomTeacher/homeroomTeacher-homeroomList.php'">
-                        <div class="right-box-title stb">
-                            Chinese 1
-                        </div>
-                        <span class="material-icons thinner-box-img">
+                <div class="homeroomT-homeroomRow">
+                    <?php
+                    require_once '../../../Controller_and_Model/Model/SubjectClassActions.php';
+                    require_once '../../../Controller_and_Model/Model/SubjectActions.php';
+
+                    $tot_res = FetchSubjClassBySubjTeacherId($_SESSION['teacher_id']);
+                    if ($tot_res[0]) {
+                        $tot_res = $tot_res[1];
+                    }
+                    foreach ($tot_res as $subj_class_detail) {
+                        $subj_class_id = $subj_class_detail[0];
+                        $subj_class_subj_id = $subj_class_detail[2];
+                        $subj_class_grade = $subj_class_detail[5];
+                        $subj_class_name = $subj_class_detail[7];
+                        $tot_res_subj = FetchSubjById($subj_class_subj_id);
+                        if ($tot_res_subj[0]) {
+                            $tot_res_subj = $tot_res_subj[1][0];
+                        }
+                        $subj_class_subj = $tot_res_subj[1];
+                        $subj_class_combine = 'G' . $subj_class_grade . ' ' . $subj_class_subj . '-' . $subj_class_name;
+                        echo <<<END
+                        <div class="right-box thinner-box">
+                            <div class="right-box-title stb">
+                                $subj_class_combine
+                            </div>
+                            <span class="material-icons thinner-box-img">
                             chevron_right
                             </span>
-                    </div>
-                    <div class="right-box thinner-box"
-                         onclick="window.location='../homeroomTeacher/homeroomTeacher-homeroomList.php'">
-                        <div class="right-box-title stb">
-                            English 1
+                            <input type="hidden" class="subject-class-id" value="$subj_class_id">
                         </div>
-                        <span class="material-icons thinner-box-img">
-                            chevron_right
-                            </span>
-                    </div>
+                    END;
+                    }
+                    ?>
                 </div>
             </div>
 
@@ -203,7 +220,7 @@
                 </div>
                 <div class="coordinator-homeroomRow">
                     <div class="right-box thinner-box"
-                         onclick="window.location='homeroomTeacher-homeroomList.html'">
+                         onclick="window.location='../homeroomTeacher/Teacher-homeroomList.html'">
                         <div class="right-box-title stb">
                             MYP 9-2
                         </div>
@@ -212,7 +229,7 @@
                             </span>
                     </div>
                     <div class="right-box thinner-box"
-                         onclick="window.location='homeroomTeacher-homeroomList.html'">
+                         onclick="window.location='../homeroomTeacher/homeroomTeacher-homeroomList.html'">
                         <div class="right-box-title stb">
                             MYP 9-2
                         </div>
@@ -243,26 +260,42 @@
                         </div>
                     </div>
                 </div>
-                <div class="coordinator-homeroomRow">
-                    <div class="right-box thinner-box"
-                         onclick="window.location='homeroomTeacher-homeroomList.html'">
-                        <div class="right-box-title stb">
-                            Chinese 1
-                        </div>
-                        <span class="material-icons thinner-box-img">
+                <?php
+                require_once '../../../Controller_and_Model/Model/SubjectClassActions.php';
+                require_once '../../../Controller_and_Model/Model/SubjectActions.php';
+
+                $tot_res = FetchAllSubjClass();
+                if($tot_res[0]){
+                    $tot_res = $tot_res[1];
+                }
+
+                foreach ($tot_res as $subj_class_detail) {
+                    $subj_class_id = $subj_class_detail[0];
+                    $subj_class_subj_id = $subj_class_detail[2];
+                    $subj_class_grade = $subj_class_detail[5];
+                    $subj_class_name = $subj_class_detail[7];
+                    $tot_res_subj = FetchSubjById($subj_class_subj_id);
+
+                    print_r($tot_res_subj);
+                    if ($tot_res_subj[0]) {
+                        $tot_res_subj = $tot_res_subj[1][0];
+                    }
+                    $subj_class_subj = $tot_res_subj[1];
+                    $subj_class_combine = 'G' . $subj_class_grade . ' ' . $subj_class_subj . '-' . $subj_class_name;
+                    echo <<<END
+                        <div class="right-box thinner-box">
+                            <div class="right-box-title stb">
+                                $subj_class_combine
+                            </div>
+                            <span class="material-icons thinner-box-img">
                             chevron_right
                             </span>
-                    </div>
-                    <div class="right-box thinner-box"
-                         onclick="window.location='homeroomTeacher-homeroomList.html'">
-                        <div class="right-box-title stb">
-                            English 1
+                            <input type="hidden" class="subject-class-id" value="$subj_class_id">
                         </div>
-                        <span class="material-icons thinner-box-img">
-                            chevron_right
-                            </span>
-                    </div>
-                </div>
+                    END;
+                }
+                ?>
+
             </div>
         </div>
         <div class="right-down coordinator-roomList" id="20192">
@@ -273,7 +306,7 @@
                             Homerooms & Classes
                         </div>
                         <div class="right-subtitle">
-                            2019 - 2020 First Semester
+                            2018 - 2019 Second Semester
                         </div>
                     </div>
                 </div>
@@ -378,26 +411,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="coordinator-homeroomRow">
-                    <div class="right-box thinner-box"
-                         onclick="window.location='homeroomTeacher-homeroomList.html'">
-                        <div class="right-box-title stb">
-                            Chinese 1
-                        </div>
-                        <span class="material-icons thinner-box-img">
+                <?php
+                require_once '../../../Controller_and_Model/Model/SubjectClassActions.php';
+
+                $tot_res = FetchAllSubjClass();
+                if ($tot_res[0]) {
+                    $tot_res = $tot_res[1];
+                }
+                print_r($tot_res);
+                foreach ($tot_res as $subj_class_detail) {
+                    $subj_class_id = $subj_class_detail[0];
+                    $subj_class_subj_id = $subj_class_detail[2];
+                    $subj_class_grade = $subj_class_detail[5];
+                    $subj_class_name = $subj_class_detail[7];
+                    $tot_res_subj = FetchSubjById($subj_class_subj_id);
+                    if ($tot_res_subj[0]) {
+                        $tot_res_subj = $tot_res_subj[1][0];
+                    }
+                    $subj_class_subj = $tot_res[1];
+                    $subj_class_combine = 'G' . $subj_class_grade . ' ' . $subj_class_subj . '-' . $subj_class_name;
+                    echo <<<END
+                        <div class="right-box thinner-box">
+                            <div class="right-box-title stb">
+                                $subj_class_combine
+                            </div>
+                            <span class="material-icons thinner-box-img">
                             chevron_right
                             </span>
-                    </div>
-                    <div class="right-box thinner-box"
-                         onclick="window.location='homeroomTeacher-homeroomList.html'">
-                        <div class="right-box-title stb">
-                            English 1
+                            <input type="hidden" class="subject-class-id" value="$subj_class_id">
                         </div>
-                        <span class="material-icons thinner-box-img">
-                            chevron_right
-                            </span>
-                    </div>
-                </div>
+                    END;
+                }
+                ?>
             </div>
         </div>
 
@@ -412,6 +457,9 @@
                 </div>
             </div>
             <div class="right-student-list">
+                <?php
+                
+                ?>
                 <div class="right-box enrolled-student" name="$_SESSION['course_id']"
                      style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
                     <div class="right-box-upper">
@@ -906,7 +954,8 @@
             <div class="personal-panel-row str">
                 My Profile
             </div>
-            <div class="personal-panel-row-last str" onclick="window.location='../../../Controller_and_Model/Controller/Logout.php'">
+            <div class="personal-panel-row-last str"
+                 onclick="window.location='../../../Controller_and_Model/Controller/Logout.php'">
                 Sign Out
             </div>
         </div>
