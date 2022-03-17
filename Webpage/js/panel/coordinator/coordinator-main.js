@@ -148,6 +148,10 @@ $(document).ready(function () {
     coordinator_course_add.click(function (){
         shareboxPop(add_course_box);
     })
+    var all_course_add = $('.all-course-add');
+    all_course_add.click(function (){
+        shareboxPop(add_course_box);
+    })
 
     var coordinator_classroom_add = $(".coordinator-classroom-add");
     var add_class_box = $('.add-class-box');
