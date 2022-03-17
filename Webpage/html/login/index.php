@@ -56,7 +56,7 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
                 </div>
             </div>
             <div class="top-right">
-                <div class="top-right-button stm" onclick="window.location='register/register.html'">
+                <div class="top-right-button stm" onclick="window.location='register/register.php'">
                     Sign up
                 </div>
             </div>
@@ -107,7 +107,7 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
                     <input type="submit" value="Sign In" class="box-button stb">
                 </div>
                 <div class="box-bottom">
-                    <div class="box-bottom-text stb" onclick="window.location='forgot-pw/forgot-pw.html'">
+                    <div class="box-bottom-text stb" onclick="window.location='forgot-pw/forgot-pw.php'">
 
                             Forgot Password?
                     </div>

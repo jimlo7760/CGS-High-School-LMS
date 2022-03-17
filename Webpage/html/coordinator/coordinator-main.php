@@ -276,7 +276,6 @@ session_start();
                     $subj_class_name = $subj_class_detail[7];
                     $tot_res_subj = FetchSubjById($subj_class_subj_id);
 
-                    print_r($tot_res_subj);
                     if ($tot_res_subj[0]) {
                         $tot_res_subj = $tot_res_subj[1][0];
                     }
